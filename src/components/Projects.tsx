@@ -1,8 +1,8 @@
 import { Flex } from "@chakra-ui/react";
 import React from "react";
-import { NavProps } from "../interfaces";
+import { PageProps } from "../interfaces";
 
-export const Projects = ({ pageRefs }: NavProps) => {
+export const Projects = ({ pageRefs, isVisible, domRefs }: PageProps) => {
   return (
     <Flex
       h={"100vh"}

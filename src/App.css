@@ -1,1 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&family=Roboto&display=swap');
+
+@keyframes fadeDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+};
+
+.fade-down-anim {
+  color: black;
+  animation-name: fadeDown;
+  animation-duration: 200ms;
+  animation-timing-function: linear;
+}
+
+.delay {
+  animation-delay: 1s;
+}

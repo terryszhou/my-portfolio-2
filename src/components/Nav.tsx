@@ -7,23 +7,37 @@ import {
   useMediaQuery,
   Box,
   VStack,
+  keyframes,
 } from "@chakra-ui/react";
 import React, { useCallback, useEffect, useState } from "react";
 
 import { capitalize } from "../helpers/functions";
-import { NavProps } from "../interfaces";
+import { PageProps } from "../interfaces";
 
 interface NavButtonProps {
   num: string,
   label: string,
   scroll: (arg0: string) => void,
+  delay?: string,
 };
 
-export const Nav = ({ pageRefs }: NavProps) => {
-  const [isLargeScreen] = useMediaQuery("(min-width: 750px)")
+const fadeDown = keyframes`
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+`;
+
+export const Nav = ({ pageRefs, isVisible, domRefs }: PageProps) => {
+  const [isLargeScreen] = useMediaQuery("(min-width: 750px)");
   const [y, setY] = useState<number>(window.scrollY);
   const [scrollDir, setScrollDir] = useState<string>("");
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [stopScroll, setStopScroll] = useState<string>();
 
   const handleNavigation = useCallback(
     e => {
@@ -45,6 +59,14 @@ export const Nav = ({ pageRefs }: NavProps) => {
     };
   }, [handleNavigation]);
 
+  useEffect(() => {
+    if (menuOpen) {
+      setStopScroll(document.body.style.overflow = "hidden")
+    } else {
+      setStopScroll(document.body.style.overflow = "initial")
+    };
+  }, [menuOpen])
+
   const scrollIntoView = (type: string): void => {
     pageRefs.current[type].scrollIntoView({ behavior: "smooth"});
     menuOpen && setMenuOpen(!menuOpen);
@@ -52,30 +74,30 @@ export const Nav = ({ pageRefs }: NavProps) => {
 
   return (<>
     <HStack
-      bgColor={"rgba(0,0,0,1)"}
-      boxShadow={"dark-lg"}
-      h={y !== 0 && scrollDir === "up" ? 65 : 100}
-      pos={"fixed"}
+      bgColor={menuOpen ? "rgba(28,28,28,0)" : "rgba(28,28,28,1)"}
+      boxShadow={menuOpen ? "none" : "dark-lg"}
+      height={y !== 0 && scrollDir === "up" ? 65 : 100}
+      position={"fixed"}
       top={y > 80 && scrollDir === "down" ? -110 : 0}
       transition={"200ms ease-out"}
-      w={"100%"}
+      width={"100%"}
       zIndex={2}>
       <Center
         bgColor={"white"}
         border={"3px solid goldenrod"}
         boxSize={12}
-        left={5}
-        pos={"absolute"}
+        left={10}
+        position={"absolute"}
         rounded={"full"}>
         <Image src={"/headshot.png"} w={7} />
       </Center>
       {isLargeScreen ? (
         <HStack pos={"absolute"} right={5} spacing={7}>
-          <NavButton num="01" label="home" scroll={scrollIntoView}/>
-          <NavButton num="02" label="about" scroll={scrollIntoView}/>
-          <NavButton num="03" label="experience" scroll={scrollIntoView}/>
-          <NavButton num="04" label="projects" scroll={scrollIntoView}/>
-          <NavButton num="05" label="contact" scroll={scrollIntoView}/>
+          <NavButton num="01" label="home" scroll={scrollIntoView} delay={"0ms"}/>
+          <NavButton num="02" label="about" scroll={scrollIntoView} delay={"60ms"}/>
+          <NavButton num="03" label="experience" scroll={scrollIntoView} delay={"120ms"}/>
+          <NavButton num="04" label="projects" scroll={scrollIntoView} delay={"180ms"}/>
+          <NavButton num="05" label="contact" scroll={scrollIntoView} delay={"240ms"}/>
           <ResumeButton />
         </HStack>
       ) : (
@@ -95,21 +117,21 @@ export const Nav = ({ pageRefs }: NavProps) => {
     </HStack>
     {!isLargeScreen && (
       <VStack
-        bgColor={"black"}
+        bgColor={"rgba(28,28,28,1)"}
         boxShadow={"dark-lg"}
-        h={"100%"}
+        height={"100%"}
         justifyContent={"center"}
-        pos={"fixed"}
+        position={"fixed"}
         right={menuOpen ? 0 : "-50%"}
         spacing={10}
         transition={"300ms ease-in-out"}
-        w={"50%"}
+        width={"50%"}
         zIndex={1}>
-        <NavButton num="01" label="home" scroll={scrollIntoView}/>
-        <NavButton num="02" label="about" scroll={scrollIntoView}/>
-        <NavButton num="03" label="experience" scroll={scrollIntoView}/>
-        <NavButton num="04" label="projects" scroll={scrollIntoView}/>
-        <NavButton num="05" label="contact" scroll={scrollIntoView}/>
+        <NavButton num="01" label="home" scroll={scrollIntoView} delay={"0ms"}/>
+        <NavButton num="02" label="about" scroll={scrollIntoView} delay={"60ms"}/>
+        <NavButton num="03" label="experience" scroll={scrollIntoView} delay={"120ms"}/>
+        <NavButton num="04" label="projects" scroll={scrollIntoView} delay={"180ms"}/>
+        <NavButton num="05" label="contact" scroll={scrollIntoView} delay={"240ms"}/>
         <ResumeButton />
       </VStack>
     )}
@@ -130,40 +152,45 @@ export const Nav = ({ pageRefs }: NavProps) => {
   </>);
 };
 
-export const NavButton = ({ num, label, scroll }: NavButtonProps) => (
-  <Text
-    color={"white"}
-    cursor={"pointer"}
-    fontFamily={"var(--chakra-fonts-mono)"}
-    fontSize={13}
-    p={0}
-    pos={"relative"}
-    onClick={() => scroll(label)}
-    transition={"100ms ease-out"}
-    _before={{
-      backgroundColor: "goldenrod",
-      borderRadius: "5px",
-      bottom: -1,
-      content: `""`,
-      h: "2px",
-      pos: "absolute",
-      transition: "100ms ease-out",
-      w: 0,
-    }}
-    _hover={{
-      color: "goldenrod",
-      _before: {
-        width: "105%"
-      }
-    }}>
-    <span style={{ color: "goldenrod" }}>
-      {`${num}. `}
-    </span>
-    {`${capitalize(label)}`}
-  </Text>
-);
+export const NavButton = ({ num, label, scroll, delay }: NavButtonProps) => {
+  const fadeDownAnim = `${fadeDown} 200ms ${delay} forwards`;
+  return (
+    <Text
+      color={"white"}
+      cursor={"pointer"}
+      fontFamily={"var(--chakra-fonts-mono)"}
+      fontSize={13}
+      p={0}
+      opacity={0}
+      pos={"relative"}
+      onClick={() => scroll(label)}
+      animation={fadeDownAnim}
+      transition={"100ms ease-out"}
+      _before={{
+        backgroundColor: "goldenrod",
+        borderRadius: "5px",
+        bottom: -1,
+        content: `""`,
+        h: "2px",
+        pos: "absolute",
+        transition: "100ms ease-out",
+        w: 0,
+      }}
+      _hover={{
+        color: "goldenrod",
+        _before: {
+          width: "105%"
+        }
+      }}>
+      <span style={{ color: "goldenrod" }}>
+        {`${num}. `}
+      </span>
+      {`${capitalize(label)}`}
+    </Text>
+  );
+}
 
-export const NavIcon = (props) => (
+export const NavIcon = (props: any) => (
   <Box
     w={"30px"}
     h={"45px"}
@@ -177,7 +204,7 @@ export const NavIcon = (props) => (
   </Box>
 );
 
-export const Span = (props) => (
+export const Span = (props: any) => (
   <Box 
     display={"block"}
     pos={"absolute"}
@@ -192,19 +219,25 @@ export const Span = (props) => (
     {...props} />
 );
 
-export const ResumeButton = () => (
-  <Button
-    as={"a"}
-    bgColor={"transparent"}
-    border={"1px solid goldenrod"}
-    color={"goldenrod"}
-    cursor={"pointer"}
-    fontFamily={"var(--chakra-fonts-mono)"}
-    fontSize={13}
-    href={"https://s3.us-west-1.amazonaws.com/terryszhou.com/terryzhou-resume.pdf"}
-    target={"_blank"}
-    _focus={{ boxShadow: "none" }}
-    _hover={{ bgColor: "white" }}>
-    Resume
-  </Button>
-);
+export const ResumeButton = () => {
+  const fadeDownAnim = `${fadeDown} 200ms 300ms forwards`;
+
+  return (
+    <Button
+      animation={fadeDownAnim}
+      as={"a"}
+      bgColor={"transparent"}
+      border={"1px solid goldenrod"}
+      color={"goldenrod"}
+      cursor={"pointer"}
+      fontFamily={"var(--chakra-fonts-mono)"}
+      fontSize={13}
+      href={"https://s3.us-west-1.amazonaws.com/terryszhou.com/terryzhou-resume.pdf"}
+      opacity={0}
+      target={"_blank"}
+      _focus={{ boxShadow: "none" }}
+      _hover={{ bgColor: "white" }}>
+      Resume
+    </Button>
+  );
+}
