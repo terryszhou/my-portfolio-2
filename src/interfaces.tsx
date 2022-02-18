@@ -1,11 +1,3 @@
-export interface User {
-  name: string,
-  age: number,
-  country: string,
-  address: Address
-};
-
-export interface Address {
-  street: string,
-  number: number,
+export interface NavProps {
+  pageRefs: React.MutableRefObject<{}>,
 };

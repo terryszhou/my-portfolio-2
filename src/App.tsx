@@ -1,26 +1,24 @@
-import { Button } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
-import { Item } from ".";
+import React, { useRef } from "react";
 import "./App.css";
-import { User } from "./interfaces";
+import { Nav } from "./components/Nav";
+import { Home } from "./components/Home";
+import { About } from "./components/About";
+import { Experience } from "./components/Experience";
+import { Projects } from "./components/Projects";
+import { Contact } from "./components/Contact";
+import { VStack } from "@chakra-ui/react";
 
-interface AppProps {
-  headerText: string,
-  items: Item[],
-};
-
-export const App = ({ headerText, items }: AppProps) => {
-  const [user, setUser] = useState<User | null>(null);
+export const App = () => {
+  const pageRefs = useRef({});
 
   return (
-    <div className="App">
-      <p style={{ fontFamily: "var(--chakra-fonts-mono)" }}>This is a test sentence</p>
-      <div>{headerText}</div>
-      {items.map(item => {
-        return (
-          <p>{item.name}</p>
-        )
-      })}
-    </div>
+    <VStack spacing={0}>
+      <Nav pageRefs={pageRefs} />
+      <Home pageRefs={pageRefs} />
+      <About pageRefs={pageRefs} />
+      <Experience pageRefs={pageRefs} />
+      <Projects pageRefs={pageRefs} />
+      <Contact pageRefs={pageRefs} />
+    </VStack>
   );
 };

@@ -6,22 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import { ChakraProvider } from '@chakra-ui/react'
 import { theme } from "./theme";
 
-export interface Item {
-  id: number,
-  name: string,
-  age: number,
-};
-
-const items: Item[] = [
-  { id: 1, name: "John", age: 55 },
-  { id: 2, name: "Michael", age: 44 },
-  { id: 3, name: "Terry", age: 28 },
-];
-
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
-      <App headerText={"Hello"} items={items} />
+      <App />
     </ChakraProvider>
   </React.StrictMode>,
   document.getElementById('root')
