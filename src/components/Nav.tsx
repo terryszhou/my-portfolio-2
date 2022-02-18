@@ -47,11 +47,12 @@ export const Nav = ({ pageRefs }: NavProps) => {
 
   const scrollIntoView = (type: string): void => {
     pageRefs.current[type].scrollIntoView({ behavior: "smooth"});
+    menuOpen && setMenuOpen(!menuOpen);
   };
 
   return (<>
     <HStack
-      bgColor={"rgba(0,0,0,0.5)"}
+      bgColor={"rgba(0,0,0,1)"}
       boxShadow={"dark-lg"}
       h={y !== 0 && scrollDir === "up" ? 65 : 100}
       pos={"fixed"}
@@ -60,7 +61,8 @@ export const Nav = ({ pageRefs }: NavProps) => {
       w={"100%"}
       zIndex={2}>
       <Center
-        bgColor={"goldenrod"}
+        bgColor={"white"}
+        border={"3px solid goldenrod"}
         boxSize={12}
         left={5}
         pos={"absolute"}
@@ -111,6 +113,20 @@ export const Nav = ({ pageRefs }: NavProps) => {
         <ResumeButton />
       </VStack>
     )}
+    {!isLargeScreen &&
+      <Box
+        width={"100%"}
+        height={"100%"}
+        position={"fixed"}
+        bgColor={"black"}
+        opacity={menuOpen ? .75 : 0}
+        // backdropFilter={"auto"}
+        // backdropBlur={"4px"}
+        onClick={() => setMenuOpen(!menuOpen)}
+        visibility={menuOpen ? "visible" : "hidden"}
+        transition={"opacity 400ms ease-out, visibility 400ms ease-out"}
+      />
+    }
   </>);
 };
 
