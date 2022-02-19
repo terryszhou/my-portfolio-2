@@ -38,9 +38,7 @@ export const ColorModeSwitcher = () => {
       edgeLen={10}
       onClick={toggleColorMode}
       _groupHover={{ transform: "translateX(-35px)" }}
-      _hover={{
-        cursor: "pointer"
-      }}>
+      _hover={{ cursor: "pointer" }}>
       <SwitchIcon color={useColorModeValue("rgb(107,191,235)", "orange")} />
     </Hexagon>
     </HStack>

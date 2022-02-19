@@ -37,7 +37,7 @@ const fadeDown: string = keyframes`
 `;
 
 export const Nav = ({ pageRefs, isVisible, domRefs }: PageProps) => {
-  const [isLargeScreen] = useMediaQuery("(min-width: 750px)");
+  const [isLargeScreen] = useMediaQuery("(min-width: 840px)");
   const [y, setY] = useState<number>(window.scrollY);
   const [scrollDir, setScrollDir] = useState<string>("");
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -78,6 +78,8 @@ export const Nav = ({ pageRefs, isVisible, domRefs }: PageProps) => {
     menuOpen && setMenuOpen(!menuOpen);
   };
 
+  const fadeDownAnim: string = `${fadeDown} 500ms`;
+
   return (<>
     <HStack
       bgColor={menuOpen ? "rgba(28,28,28,0)" : "rgba(28,28,28,1)"}
@@ -89,11 +91,12 @@ export const Nav = ({ pageRefs, isVisible, domRefs }: PageProps) => {
       width={"100%"}
       zIndex={2}>
       <HStack
+        animation={fadeDownAnim}
         left={isLargeScreen ? 10 : 5}
         position={"absolute"}
-        spacing={4}
         transition={"200ms ease-out"}>
         <Image
+          marginRight={y !== 0 && scrollDir === "up" ? "-1px" : "6px"}
           padding={y !== 0 && scrollDir === "up" ? 4 : 2}
           src={"/face-card.png"}
           transition={"200ms ease-out"}

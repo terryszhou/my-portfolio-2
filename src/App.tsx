@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
+import "./Hex.css";
 import { Nav } from "./components/Nav";
 import { Home } from "./components/Home";
 import { About } from "./components/About";

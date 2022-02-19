@@ -12,11 +12,6 @@ export const About = ({ pageRefs, isVisible, domRefs }: PageProps) => {
       ref={el => pageRefs.current = { ...pageRefs.current, about: el }}
     >
       About
-      <Hexagon color={"goldenrod"} edgeLen={120}>
-        <Hexagon color={"blue"} edgeLen={80}>
-          <Hexagon color={"red"} edgeLen={40} />
-        </Hexagon>
-      </Hexagon>
     </Flex>
   );
 };

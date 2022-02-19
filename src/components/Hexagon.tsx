@@ -11,7 +11,15 @@ interface HexProps {
   _groupHover?: {},
 };
 
-export const Hexagon = ({ animation, color, edgeLen, onClick, _groupHover, _hover, children }: HexProps) => {
+export const Hexagon = ({
+  animation,
+  color,
+  edgeLen,
+  onClick,
+  _groupHover,
+  _hover,
+  children
+}: HexProps) => {
   return (
     <Center
       animation={animation}
