@@ -1,4 +1,9 @@
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
+
+const config: ThemeConfig = {
+  initialColorMode: "light",
+  useSystemColorMode: true,
+}
 
 export const theme = extendTheme({
   fonts: {
@@ -6,4 +11,5 @@ export const theme = extendTheme({
     nunito: "'Nunito', sans-serif",
     roboto: "'Roboto', sans-serif",
   },
+  config,
 });

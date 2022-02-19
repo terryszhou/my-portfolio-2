@@ -7,7 +7,6 @@ export const Experience = ({ pageRefs, isVisible, domRefs }: PageProps) => {
     <Flex
       h={"100vh"}
       w={"100%"}
-      bgColor={"blue"}
       boxSizing={"border-box"}
       ref={el => pageRefs.current = { ...pageRefs.current, experience: el }}
     >

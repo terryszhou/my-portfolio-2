@@ -7,7 +7,6 @@ export const Projects = ({ pageRefs, isVisible, domRefs }: PageProps) => {
     <Flex
       h={"100vh"}
       w={"100%"}
-      bgColor={"orange"}
       boxSizing={"border-box"}
       ref={el => pageRefs.current = { ...pageRefs.current, projects: el }}
     >

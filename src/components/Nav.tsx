@@ -4,13 +4,17 @@ import {
   Button,
   Image,
   Center,
+  Stack,
   useMediaQuery,
   Box,
   VStack,
   keyframes,
+  Tooltip,
 } from "@chakra-ui/react";
 import React, { useCallback, useEffect, useState } from "react";
 
+import { Hexagon } from "./Hexagon";
+import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { capitalize } from "../helpers/functions";
 import { PageProps } from "../interfaces";
 
@@ -21,7 +25,7 @@ interface NavButtonProps {
   delay?: string,
 };
 
-const fadeDown = keyframes`
+const fadeDown: string = keyframes`
   from {
     transform: translateY(-20px);
     opacity: 0;
@@ -59,13 +63,15 @@ export const Nav = ({ pageRefs, isVisible, domRefs }: PageProps) => {
     };
   }, [handleNavigation]);
 
-  useEffect(() => {
-    if (menuOpen) {
-      setStopScroll(document.body.style.overflow = "hidden")
-    } else {
-      setStopScroll(document.body.style.overflow = "initial")
-    };
+  useEffect(():void => {
+    menuOpen
+      ? setStopScroll(document.body.style.overflow = "hidden")
+      : setStopScroll(document.body.style.overflow = "initial");
   }, [menuOpen])
+
+  useEffect(():void => {
+    isLargeScreen && setMenuOpen(false);
+  }, [isLargeScreen])
 
   const scrollIntoView = (type: string): void => {
     pageRefs.current[type].scrollIntoView({ behavior: "smooth"});
@@ -82,38 +88,55 @@ export const Nav = ({ pageRefs, isVisible, domRefs }: PageProps) => {
       transition={"200ms ease-out"}
       width={"100%"}
       zIndex={2}>
-      <Center
-        bgColor={"white"}
-        border={"3px solid goldenrod"}
-        boxSize={12}
-        left={10}
+      <HStack
+        left={isLargeScreen ? 10 : 5}
         position={"absolute"}
-        rounded={"full"}>
-        <Image src={"/headshot.png"} w={7} />
-      </Center>
-      {isLargeScreen ? (
-        <HStack pos={"absolute"} right={5} spacing={7}>
+        spacing={4}
+        transition={"200ms ease-out"}>
+        <Image
+          padding={y !== 0 && scrollDir === "up" ? 4 : 2}
+          src={"/face-card.png"}
+          transition={"200ms ease-out"}
+          width={20}
+          _hover={{
+            cursor: "pointer",
+            filter: "brightness(1.25)",
+            transform: "scale(1.15)",
+          }} />
+        <ColorModeSwitcher />
+      </HStack>
+      <HStack
+        pos={"absolute"}
+        right={isLargeScreen ? 5 : 0}
+        spacing={7}
+        transition={"200ms ease-out"}>
+        {isLargeScreen ? (<>
           <NavButton num="01" label="home" scroll={scrollIntoView} delay={"0ms"}/>
           <NavButton num="02" label="about" scroll={scrollIntoView} delay={"60ms"}/>
           <NavButton num="03" label="experience" scroll={scrollIntoView} delay={"120ms"}/>
           <NavButton num="04" label="projects" scroll={scrollIntoView} delay={"180ms"}/>
           <NavButton num="05" label="contact" scroll={scrollIntoView} delay={"240ms"}/>
           <ResumeButton />
-        </HStack>
-      ) : (
-        <NavIcon
-          onClick={() => setMenuOpen(!menuOpen)}
-          position={"absolute"}
-          right={5}
-          zIndex={2}>
+        </>) : (
+          <NavIcon
+            onClick={() => setMenuOpen(!menuOpen)}
+            position={"absolute"}
+            right={5}
+            role={"group"}
+            zIndex={2}>
           <Span
+            left={!menuOpen && 1}
             top={menuOpen ? "18px" : "12px"}
-            transform={menuOpen && "rotate(135deg)"} />
+            transform={menuOpen && "rotate(135deg)"} 
+            _groupHover={{ left: 0 }} />
           <Span
+            left={!menuOpen && -1}
             top={menuOpen ? "18px" : "24px"}
-            transform={menuOpen && "rotate(405deg)"} />
+            transform={menuOpen && "rotate(405deg)"} 
+            _groupHover={{ left: 0 }} />
         </NavIcon>
       )}
+      </HStack>
     </HStack>
     {!isLargeScreen && (
       <VStack
@@ -153,7 +176,7 @@ export const Nav = ({ pageRefs, isVisible, domRefs }: PageProps) => {
 };
 
 export const NavButton = ({ num, label, scroll, delay }: NavButtonProps) => {
-  const fadeDownAnim = `${fadeDown} 200ms ${delay} forwards`;
+  const fadeDownAnim: string = `${fadeDown} 200ms ${delay} forwards`;
   return (
     <Text
       color={"white"}
@@ -220,8 +243,7 @@ export const Span = (props: any) => (
 );
 
 export const ResumeButton = () => {
-  const fadeDownAnim = `${fadeDown} 200ms 300ms forwards`;
-
+  const fadeDownAnim: string = `${fadeDown} 200ms 300ms forwards`;
   return (
     <Button
       animation={fadeDownAnim}
@@ -236,8 +258,11 @@ export const ResumeButton = () => {
       opacity={0}
       target={"_blank"}
       _focus={{ boxShadow: "none" }}
-      _hover={{ bgColor: "white" }}>
+      _hover={{
+        bgColor: "goldenrod",
+        color: "rgb(28,28,28)"
+      }}>
       Resume
     </Button>
   );
-}
+};

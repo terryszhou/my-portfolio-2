@@ -7,7 +7,6 @@ export const Contact = ({ pageRefs, isVisible, domRefs }: PageProps) => {
     <Flex
       h={"100vh"}
       w={"100%"}
-      bgColor={"purple"}
       boxSizing={"border-box"}
       ref={el => pageRefs.current = { ...pageRefs.current, contact: el }}
     >
