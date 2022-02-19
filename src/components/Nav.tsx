@@ -10,6 +10,7 @@ import {
   VStack,
   keyframes,
   Tooltip,
+  useColorMode,
 } from "@chakra-ui/react";
 import React, { useCallback, useEffect, useState } from "react";
 
@@ -37,6 +38,7 @@ const fadeDown: string = keyframes`
 `;
 
 export const Nav = ({ pageRefs, isVisible, domRefs }: PageProps) => {
+  const { colorMode, toggleColorMode } = useColorMode();
   const [isLargeScreen] = useMediaQuery("(min-width: 840px)");
   const [y, setY] = useState<number>(window.scrollY);
   const [scrollDir, setScrollDir] = useState<string>("");
@@ -82,8 +84,20 @@ export const Nav = ({ pageRefs, isVisible, domRefs }: PageProps) => {
 
   return (<>
     <HStack
-      bgColor={menuOpen ? "rgba(28,28,28,0)" : "rgba(28,28,28,1)"}
-      boxShadow={menuOpen ? "none" : "dark-lg"}
+      bgColor={
+        menuOpen
+          ? "transparent"
+          : colorMode === "light" 
+            ? "rgba(255,255,255,.85)" 
+            : "rgba(27,32,43,.85)"
+      }
+      boxShadow={
+        menuOpen
+          ? "none"
+          : y !== 0 && scrollDir === "up" 
+            ? "dark-lg" 
+            : "none"
+      }
       height={y !== 0 && scrollDir === "up" ? 65 : 100}
       position={"fixed"}
       top={y > 80 && scrollDir === "down" ? -110 : 0}
@@ -143,7 +157,7 @@ export const Nav = ({ pageRefs, isVisible, domRefs }: PageProps) => {
     </HStack>
     {!isLargeScreen && (
       <VStack
-        bgColor={"rgba(28,28,28,1)"}
+        bgColor={colorMode === "light" ? "rgba(255,255,255,.85)" : "rgba(27,32,43,.85)"}
         boxShadow={"dark-lg"}
         height={"100%"}
         justifyContent={"center"}
@@ -168,13 +182,10 @@ export const Nav = ({ pageRefs, isVisible, domRefs }: PageProps) => {
         position={"fixed"}
         bgColor={"black"}
         opacity={menuOpen ? .75 : 0}
-        // backdropFilter={"auto"}
-        // backdropBlur={"4px"}
         onClick={() => setMenuOpen(!menuOpen)}
         visibility={menuOpen ? "visible" : "hidden"}
         transition={"opacity 400ms ease-out, visibility 400ms ease-out"}
-        zIndex={1}
-      />
+        zIndex={1} />
     }
   </>);
 };
@@ -183,7 +194,6 @@ export const NavButton = ({ num, label, scroll, delay }: NavButtonProps) => {
   const fadeDownAnim: string = `${fadeDown} 200ms ${delay} forwards`;
   return (
     <Text
-      color={"white"}
       cursor={"pointer"}
       fontFamily={"var(--chakra-fonts-mono)"}
       fontSize={13}

@@ -37,10 +37,10 @@ const slideLeft: string = keyframes`
 
 const slideRight: string = keyframes`
   from { 
-    transform: translateX(-100%) skew(-45deg);
+    transform: translateX(-100%) perspective(100px) rotateX(-25deg);
     opacity: 0;
   } to {
-    transform: translateX(0) skew(-45deg);
+    transform: translateX(0) perspective(100px) rotateX(-25deg);
     opacity: 1;
   }
 `;
@@ -109,18 +109,22 @@ export const Home = ({ pageRefs, isVisible }: PageProps) => {
         height={2}
         opacity={0}
         bgColor={"goldenrod"}
-        transform={"skew(45deg)"}
+        // transform={"skew(45deg)"}
+        transform={"perspective(100px) rotateX(-25deg)"}
+        transformOrigin={"right center"}
         top={"15%"}
-        right={"-16%"} />
+        right={"-16.5%"} />
       <Box 
         animation={slideRightAnim}
         position={"absolute"}
         height={2}
         width={"50%"}
+        transform={"perspective(100px) rotateX(-25deg)"}
+        transformOrigin={"left center"}
         opacity={0}
         bgColor={"goldenrod"}
         bottom={"2%"}
-        left={"-16%"} />
+        left={"-16.5%"} />
 
 
       {/* <Image
