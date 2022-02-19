@@ -1,19 +1,11 @@
-import { IconButton, Divider, HStack, keyframes, Text, useColorModeValue } from "@chakra-ui/react";
+import { IconButton, Divider, HStack, Text, useColorModeValue } from "@chakra-ui/react";
 import * as React from "react";
+
 import { FiCodepen, FiMail, FiGithub, FiLinkedin, FiInstagram } from "react-icons/fi";
 import { SiCodewars } from "react-icons/si";
-import { PageProps } from "../interfaces";
 
-const fadeDown: string = keyframes`
-  from {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0px);
-    opacity: 1;
-  }
-`;
+import { fadeDown } from "../helpers/animations";
+import { PageProps } from "../helpers/interfaces";
 
 export const Social = ({ y, scrollDir, isLargeScreen }: PageProps ) => {
   const fadeDownAnim: string = `${fadeDown} 200ms 180ms forwards`;
@@ -22,6 +14,7 @@ export const Social = ({ y, scrollDir, isLargeScreen }: PageProps ) => {
     <React.Fragment>
       <HStack
         position={"fixed"}
+        right={0}
         top={
           y > 80 && scrollDir === "down"
             ? "2%"
@@ -30,7 +23,6 @@ export const Social = ({ y, scrollDir, isLargeScreen }: PageProps ) => {
               : "17%"
         }
         transition={"200ms ease-out"}
-        right={0}
         zIndex={1}>
         <SocialIcon
           icon={<FiGithub />}
@@ -62,29 +54,29 @@ export const Social = ({ y, scrollDir, isLargeScreen }: PageProps ) => {
           width={20} />
       </HStack>
       <HStack
-        position={"fixed"}
         bottom={y > 80 ? "2%" : "4%"}
-        transition={"200ms ease-out"}
         left={0}
+        position={"fixed"}
+        transition={"200ms ease-out"}
         zIndex={1}>
         <Divider
           borderColor={useColorModeValue("black", "white")}
           width={20} />
         <SocialIcon
-          icon={<FiMail />}
           delay={"80ms"} 
           href={"mailto:terryszhou@gmail.com"} 
+          icon={<FiMail />}
           isLargeScreen={isLargeScreen} />
         <Text
           animation={fadeDownAnim}
           as={"a"}
           cursor={"pointer"}
-          opacity={0}
-          target={"_blank"}
-          rel={"noreferrer"}
           fontFamily={"var(--chakra-fonts-mono)"}
           fontSize={"sm"}
           href={"mailto:terryszhou@gmail.com"}
+          opacity={0}
+          rel={"noreferrer"}
+          target={"_blank"}
           transition={"100ms ease-out"}
           _hover={{ color: "goldenrod" }}>
           terryszhou@gmail.com
@@ -107,19 +99,19 @@ export const SocialIcon = ({ icon, delay, href, isLargeScreen }: SocialIconProps
   return (
     <IconButton
       as={"a"}
-      href={href}
-      target={"_blank"}
-      rel={"noreferrer"}
       animation={fadeDownAnim}
       aria-label={"social-icon-button"}
-      bgColor={"transparent"}
+      backgroundColor={"transparent"}
       border={"1px solid"}
+      href={href}
       icon={icon}
       opacity={"0"}
+      rel={"noreferrer"}
       size={isLargeScreen ? "sm" : "xs"}
+      target={"_blank"}
       transition={"100ms ease-out"}
       _hover={{
-        bgColor: useColorModeValue("black", "white"),
+        backgroundColor: useColorModeValue("black", "white"),
         color: useColorModeValue("white", "black"),
       }}
     />

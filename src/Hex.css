@@ -37,6 +37,27 @@
     }
 }
 
+@keyframes sineWave {
+    0% {
+        top: 5em;
+    } 50% {
+        top: 7.5em;
+    } 100% {
+        top: 5em;
+    }
+}
+
+@keyframes cosWave {
+    0% {
+        top: 7.5em;
+    } 50% {
+        top: 5em;
+    } 100% {
+        top: 7.5em;
+    }
+}
+
+
 .hex-box-main {
     position: relative;
     font-size: clamp(1.5rem, 3vw, 2rem);
@@ -68,6 +89,10 @@
 }
 
 .hex-box-main:hover #hex-gold,
+.hex-box-main:hover #hex-gold-outside,
+.hex-box-main:hover #hex-gold-outside-2,
+.hex-box-main:hover #hex-gold-corner,
+.hex-box-main:hover #hex-gold-corner-2,
 .hex-box-main:hover #hex-goldenrod,
 .hex-box-main:hover #hex-greyspace-lg,
 .hex-box-main:hover #hex-ring-lg,
@@ -109,6 +134,73 @@
     width: 3.13em;
     height: 3.61em;
     top: -1em;
+}
+
+#hex-gold-outside {
+    position: absolute;
+    width: 0.38em;
+    height: 0.44em;
+    top: 5em;
+    background-color: gold;
+    clip-path: var(--hex);
+    transition-duration: 0.3s;
+    animation: counterRotation 1s linear infinite, sineWave 2s ease-in-out infinite;
+}
+
+#hex-gold-outside-2 {
+    position: absolute;
+    width: 0.38em;
+    height: 0.44em;
+    top: 5em;
+    left: 1em;
+    background-color: gold;
+    clip-path: var(--hex);
+    transition-duration: 0.3s;
+    animation: counterRotation 1s linear infinite, sineWave 1.5s ease-in-out infinite;
+}
+
+#hex-gold-corner, #hex-gold-corner-2 {
+    position: absolute;
+    width: 0.57em;
+    height: 0.66em;
+    background-color: goldenrod;
+    clip-path: var(--hex);
+    transition-duration: 0.3s;
+    animation: counterRotation 1s linear infinite;
+}
+
+#hex-gold-corner {
+    top: 5.3em;
+    left: 1.5em;
+}
+
+#hex-gold-corner-2 {
+    top: 3.5em;
+    left: 4.5em;
+}
+
+#hex-gold-corner-3 {
+    position: absolute;
+    width: 0.57em;
+    height: 0.66em;
+    top: 0em;
+    left: 4.5em;
+    background-color: goldenrod;
+    clip-path: var(--hex);
+    transition-duration: 0.3s;
+    animation: counterRotation 1s linear infinite;
+}
+
+#hex-gold-corner-4 {
+    position: absolute;
+    width: 0.57em;
+    height: 0.66em;
+    top: -2.5em;
+    left: 1.5em;
+    background-color: goldenrod;
+    clip-path: var(--hex);
+    transition-duration: 0.3s;
+    animation: counterRotation 1s linear infinite;
 }
 
 #hex-gold::before {

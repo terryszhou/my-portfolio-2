@@ -5,58 +5,28 @@ import {
   Stack,
   Text,
   Heading,
-  keyframes,
 } from "@chakra-ui/react";
 import * as React from "react";
-import { PageProps } from "../interfaces";
+
+import { fadeRight, slideLeft, slideRight } from "../helpers/animations";
+import { PageProps } from "../helpers/interfaces";
 import { SpinHex } from "./SpinHex";
-
-const fadeRight: string = keyframes`
-  from {
-    transform: translateX(-40px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0px);
-    opacity: 1;
-  }
-`;
-
-const slideRight: string = keyframes`
-  from { 
-    transform: translateX(-100%);
-    opacity: 0;
-  } to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-`;
-
-const slideLeft: string = keyframes`
-  from { 
-    width: 0;
-    opacity: 0;
-  } to {
-    width: 40%;
-    opacity: 1;
-  }
-`;
 
 export const Home = ({ pageRefs }: PageProps) => {
   const fadeRightAnim1: string = `${fadeRight} 1s 100ms forwards`;
   const fadeRightAnim2: string = `${fadeRight} 1s 250ms forwards`;
   const fadeRightAnim3: string = `${fadeRight} 1s 400ms forwards`;
-  const slideRightAnim: string = `${slideRight} 1s 250ms forwards`;
   const slideLeftAnim: string = `${slideLeft} 1s 250ms forwards`;
+  const slideRightAnim: string = `${slideRight} 1s 250ms forwards`;
 
   return (
     <Flex
       alignItems={"center"}
-      flexDirection={{ base: "column", md: "row" }}
-      position={"relative"}
-      height={"100vh"}
-      width={"75%"}
       boxSizing={"border-box"}
+      flexDirection={{ base: "column", md: "row" }}
+      height={"100vh"}
+      position={"relative"}
+      width={"75%"}
       ref={el => pageRefs.current = { ...pageRefs.current, home: el }}>
       <Stack flexBasis={{ base: 0, md: "66%"}} marginTop={{ base: 40, md: 0 }}>
         <Text>
@@ -101,12 +71,12 @@ export const Home = ({ pageRefs }: PageProps) => {
       </Center>
       <Box 
         animation={slideLeftAnim}
-        position={"absolute"}
+        backgroundColor={"goldenrod"}
         height={2}
         opacity={1}
-        bgColor={"goldenrod"}
-        top={"15%"}
+        position={"absolute"}
         right={"-16.5%"}
+        top={"15%"}
         zIndex={1}
         _before={{
           position: "absolute",
@@ -119,21 +89,21 @@ export const Home = ({ pageRefs }: PageProps) => {
         }} />
       <Box 
         animation={slideRightAnim}
-        position={"absolute"}
-        height={2}
-        width={"50%"}
-        opacity={0}
-        bgColor={"goldenrod"}
+        backgroundColor={"goldenrod"}
         bottom={"2%"}
+        height={2}
         left={"-16.5%"}
+        opacity={0}
+        position={"absolute"}
+        width={"50%"}
         _after={{
-          position: "absolute",
-          content: `""`,
-          width: 0,
-          height: 0,
           borderBottom: "8px solid goldenrod",
           borderRight: "8px solid transparent",
-          right: -2
+          content: `""`,
+          height: 0,
+          position: "absolute",
+          right: -2,
+          width: 0,
         }}/>
     </Flex>
   );

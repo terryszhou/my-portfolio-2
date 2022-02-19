@@ -1,6 +1,6 @@
 import { Flex, Text } from "@chakra-ui/react";
 import React from "react";
-import { PageProps } from "../interfaces";
+import { PageProps } from "../helpers/interfaces";
 import { Hexagon } from "./Hexagon";
 
 export const About = ({ pageRefs, isVisible, domRefs }: PageProps) => {

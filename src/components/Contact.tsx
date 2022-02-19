@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/react";
 import React from "react";
-import { PageProps } from "../interfaces";
+import { PageProps } from "../helpers/interfaces";
 
 export const Contact = ({ pageRefs, isVisible, domRefs }: PageProps) => {
   return (

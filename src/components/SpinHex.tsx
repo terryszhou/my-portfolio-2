@@ -15,6 +15,12 @@ export const SpinHex = () => (
           backgroundColor: useColorModeValue("white", "rgb(28,32,46)")
         }} />
       <div id="hex-gold">
+        <div id="hex-gold-outside" />
+        <div id="hex-gold-outside-2" />
+        <div id="hex-gold-corner" />
+        <div id="hex-gold-corner-2" />
+        {/* <div id="hex-gold-corner-3" />
+        <div id="hex-gold-corner-4" /> */}
         <div id="hex-goldenrod" style={{ filter: useColorModeValue("none", "") }}>
           <div id="hex-ring-sm">
             <div

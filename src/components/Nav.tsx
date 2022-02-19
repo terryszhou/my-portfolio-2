@@ -5,25 +5,14 @@ import {
   Image,
   Box,
   VStack,
-  keyframes,
   useColorMode,
 } from "@chakra-ui/react";
 import * as React from "react";
 
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
+import { fadeDown } from "../helpers/animations";
 import { capitalize } from "../helpers/functions";
-import { PageProps } from "../interfaces";
-
-const fadeDown: string = keyframes`
-  from {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0px);
-    opacity: 1;
-  }
-`;
+import { PageProps } from "../helpers/interfaces";
 
 export const Nav = ({ pageRefs, y, scrollDir, isLargeScreen, }: PageProps) => {
   const { colorMode } = useColorMode();
@@ -89,7 +78,7 @@ export const Nav = ({ pageRefs, y, scrollDir, isLargeScreen, }: PageProps) => {
           <ColorModeSwitcher />
         </HStack>
         <HStack
-          pos={"absolute"}
+          position={"absolute"}
           right={isLargeScreen ? 5 : 0}
           spacing={7}
           transition={"200ms ease-out"}>
@@ -145,14 +134,14 @@ export const Nav = ({ pageRefs, y, scrollDir, isLargeScreen, }: PageProps) => {
       )}
       {!isLargeScreen &&
         <Box
-          width={"100%"}
+          backgroundColor={"black"}
           height={"100%"}
-          position={"fixed"}
-          bgColor={"black"}
-          opacity={menuOpen ? .75 : 0}
           onClick={() => setMenuOpen(!menuOpen)}
-          visibility={menuOpen ? "visible" : "hidden"}
+          opacity={menuOpen ? .75 : 0}
+          position={"fixed"}
           transition={"opacity 400ms ease-out, visibility 400ms ease-out"}
+          visibility={menuOpen ? "visible" : "hidden"}
+          width={"100%"}
           zIndex={1} />
       }
     </React.Fragment>
@@ -170,24 +159,24 @@ export const NavButton = ({ num, label, scroll, delay }: NavButtonProps) => {
   const fadeDownAnim: string = `${fadeDown} 200ms ${delay} forwards`;
   return (
     <Text
+      animation={fadeDownAnim}
       cursor={"pointer"}
       fontFamily={"var(--chakra-fonts-mono)"}
       fontSize={13}
-      p={0}
+      padding={0}
+      position={"relative"}
       opacity={0}
-      pos={"relative"}
       onClick={() => scroll(label)}
-      animation={fadeDownAnim}
       transition={"100ms ease-out"}
       _before={{
         backgroundColor: "goldenrod",
         borderRadius: "5px",
         bottom: -1,
         content: `""`,
-        h: "2px",
-        pos: "absolute",
+        height: "2px",
+        position: "absolute",
         transition: "100ms ease-out",
-        w: 0,
+        width: 0,
       }}
       _hover={{
         color: "goldenrod",
@@ -205,13 +194,13 @@ export const NavButton = ({ num, label, scroll, delay }: NavButtonProps) => {
 
 export const NavIcon = (props: any) => (
   <Box
-    w={"30px"}
-    h={"45px"}
-    pos={"relative"}
-    m={"25px auto"}
+    cursor={"pointer"}
+    height={"45px"}
+    margin={"25px auto"}
+    position={"relative"}
     transform={"rotate(0deg)"}
     transition={".5s ease-in-out"}
-    cursor={"pointer"}
+    weight={"30px"}
     {...props}>
     {props.children}
   </Box>
@@ -219,16 +208,16 @@ export const NavIcon = (props: any) => (
 
 export const Span = (props: any) => (
   <Box 
-    display={"block"}
-    pos={"absolute"}
-    h={"3px"}
-    w={"100%"}
-    bg={"goldenrod"}
+    background={"goldenrod"}
     borderRadius={"5px"}
-    opacity={1}
+    display={"block"}
+    height={"3px"}
     left={0}
+    position={"absolute"}
+    opacity={1}
     transform={"rotate(0deg)"}
     transition={".25s ease-in-out"}
+    width={"100%"}
     {...props} />
 );
 
@@ -238,7 +227,7 @@ export const ResumeButton = () => {
     <Button
       animation={fadeDownAnim}
       as={"a"}
-      bgColor={"transparent"}
+      backgroundColor={"transparent"}
       border={"1px solid goldenrod"}
       color={"goldenrod"}
       cursor={"pointer"}
@@ -249,7 +238,7 @@ export const ResumeButton = () => {
       target={"_blank"}
       _focus={{ boxShadow: "none" }}
       _hover={{
-        bgColor: "goldenrod",
+        backgroundColor: "goldenrod",
         color: "inherit"
       }}>
       Resume

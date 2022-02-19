@@ -1,14 +1,16 @@
+
+import { VStack, useMediaQuery } from "@chakra-ui/react";
 import * as React from "react";
+
 import "./App.css";
 import "./Hex.css";
-import { Nav } from "./components/Nav";
-import { Home } from "./components/Home";
 import { About } from "./components/About";
-import { Experience } from "./components/Experience";
-import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
+import { Experience } from "./components/Experience";
+import { Home } from "./components/Home";
+import { Nav } from "./components/Nav";
+import { Projects } from "./components/Projects";
 import { Social } from "./components/Social";
-import { VStack, useMediaQuery } from "@chakra-ui/react";
 
 export const App = () => {
   const [isLargeScreen] = useMediaQuery("(min-width: 840px)");
