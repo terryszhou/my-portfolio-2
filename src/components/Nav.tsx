@@ -8,18 +8,11 @@ import {
   keyframes,
   useColorMode,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import * as React from "react";
 
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { capitalize } from "../helpers/functions";
 import { PageProps } from "../interfaces";
-
-interface NavButtonProps {
-  num: string,
-  label: string,
-  scroll: (arg0: string) => void,
-  delay: string,
-};
 
 const fadeDown: string = keyframes`
   from {
@@ -33,17 +26,17 @@ const fadeDown: string = keyframes`
 `;
 
 export const Nav = ({ pageRefs, y, scrollDir, isLargeScreen, }: PageProps) => {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  const [stopScroll, setStopScroll] = useState<string>();
+  const { colorMode } = useColorMode();
+  const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
+  const [stopScroll, setStopScroll] = React.useState<string>();
 
-  useEffect(():void => {
+  React.useEffect(():void => {
     menuOpen
       ? setStopScroll(document.body.style.overflow = "hidden")
       : setStopScroll(document.body.style.overflow = "initial");
   }, [menuOpen])
 
-  useEffect(():void => {
+  React.useEffect(():void => {
     isLargeScreen && setMenuOpen(false);
   }, [isLargeScreen])
 
@@ -54,112 +47,123 @@ export const Nav = ({ pageRefs, y, scrollDir, isLargeScreen, }: PageProps) => {
 
   const fadeDownAnim: string = `${fadeDown} 500ms`;
 
-  return (<>
-    <HStack
-      bgColor={
-        menuOpen
-          ? "transparent"
-          : colorMode === "light" 
-            ? "rgba(255,255,255,.85)" 
-            : "rgba(27,32,43,.85)"
-      }
-      boxShadow={
-        menuOpen
-          ? "none"
-          : y !== 0 && scrollDir === "up" 
-            ? "dark-lg" 
-            : "none"
-      }
-      height={y !== 0 && scrollDir === "up" ? 65 : 100}
-      position={"fixed"}
-      top={y > 80 && scrollDir === "down" ? -110 : 0}
-      transition={"200ms ease-out"}
-      width={"100%"}
-      zIndex={3}>
+  return (
+    <React.Fragment>
       <HStack
-        animation={fadeDownAnim}
-        left={isLargeScreen ? 10 : 5}
-        position={"absolute"}
-        transition={"200ms ease-out"}>
-        <Image
-          marginRight={y !== 0 && scrollDir === "up" ? "-1px" : "6px"}
-          padding={y !== 0 && scrollDir === "up" ? 4 : 2}
-          src={"/face-card.png"}
-          transition={"200ms ease-out"}
-          width={20}
-          _hover={{
-            cursor: "pointer",
-            filter: "brightness(1.25)",
-            transform: "scale(1.15)",
-          }} />
-        <ColorModeSwitcher />
+        bgColor={
+          menuOpen
+            ? "transparent"
+            : colorMode === "light" 
+              ? "rgba(255,255,255,.85)" 
+              : "rgba(27,32,43,.85)"
+        }
+        boxShadow={
+          menuOpen
+            ? "none"
+            : y !== 0 && scrollDir === "up" 
+              ? "dark-lg" 
+              : "none"
+        }
+        height={y !== 0 && scrollDir === "up" ? 65 : 100}
+        position={"fixed"}
+        top={y > 80 && scrollDir === "down" ? -110 : 0}
+        transition={"200ms ease-out"}
+        width={"100%"}
+        zIndex={3}>
+        <HStack
+          animation={fadeDownAnim}
+          left={isLargeScreen ? 10 : 5}
+          position={"absolute"}
+          transition={"200ms ease-out"}>
+          <Image
+            marginRight={y !== 0 && scrollDir === "up" ? "-1px" : "6px"}
+            padding={y !== 0 && scrollDir === "up" ? 4 : 2}
+            src={"/face-card.png"}
+            transition={"200ms ease-out"}
+            width={20}
+            _hover={{
+              cursor: "pointer",
+              filter: "brightness(1.25)",
+              transform: "scale(1.15)",
+            }} />
+          <ColorModeSwitcher />
+        </HStack>
+        <HStack
+          pos={"absolute"}
+          right={isLargeScreen ? 5 : 0}
+          spacing={7}
+          transition={"200ms ease-out"}>
+          {isLargeScreen ? (
+            <React.Fragment>
+              <NavButton num="01" label="home" scroll={scrollIntoView} delay={"0ms"}/>
+              <NavButton num="02" label="about" scroll={scrollIntoView} delay={"60ms"}/>
+              <NavButton num="03" label="experience" scroll={scrollIntoView} delay={"120ms"}/>
+              <NavButton num="04" label="projects" scroll={scrollIntoView} delay={"180ms"}/>
+              <NavButton num="05" label="contact" scroll={scrollIntoView} delay={"240ms"}/>
+              <ResumeButton />
+            </React.Fragment>
+          ) : (
+            <NavIcon
+              onClick={() => setMenuOpen(!menuOpen)}
+              position={"absolute"}
+              right={5}
+              role={"group"}
+              zIndex={4}>
+              <Span
+                left={!menuOpen && 1}
+                top={menuOpen ? "18px" : "12px"}
+                transform={menuOpen && "rotate(135deg)"} 
+                _groupHover={{ left: 0 }} />
+              <Span
+                left={!menuOpen && -1}
+                top={menuOpen ? "18px" : "24px"}
+                transform={menuOpen && "rotate(405deg)"} 
+                _groupHover={{ left: 0 }} />
+            </NavIcon>
+          )}
+        </HStack>
       </HStack>
-      <HStack
-        pos={"absolute"}
-        right={isLargeScreen ? 5 : 0}
-        spacing={7}
-        transition={"200ms ease-out"}>
-        {isLargeScreen ? (<>
+      {!isLargeScreen && (
+        <VStack
+          bgColor={colorMode === "light" ? "rgba(255,255,255,.85)" : "rgba(27,32,43,.85)"}
+          boxShadow={"dark-lg"}
+          height={"100%"}
+          justifyContent={"center"}
+          position={"fixed"}
+          right={menuOpen ? 0 : "-50%"}
+          spacing={10}
+          transition={"300ms ease-in-out"}
+          width={"50%"}
+          zIndex={2}>
           <NavButton num="01" label="home" scroll={scrollIntoView} delay={"0ms"}/>
           <NavButton num="02" label="about" scroll={scrollIntoView} delay={"60ms"}/>
           <NavButton num="03" label="experience" scroll={scrollIntoView} delay={"120ms"}/>
           <NavButton num="04" label="projects" scroll={scrollIntoView} delay={"180ms"}/>
           <NavButton num="05" label="contact" scroll={scrollIntoView} delay={"240ms"}/>
           <ResumeButton />
-        </>) : (
-          <NavIcon
-            onClick={() => setMenuOpen(!menuOpen)}
-            position={"absolute"}
-            right={5}
-            role={"group"}
-            zIndex={4}>
-          <Span
-            left={!menuOpen && 1}
-            top={menuOpen ? "18px" : "12px"}
-            transform={menuOpen && "rotate(135deg)"} 
-            _groupHover={{ left: 0 }} />
-          <Span
-            left={!menuOpen && -1}
-            top={menuOpen ? "18px" : "24px"}
-            transform={menuOpen && "rotate(405deg)"} 
-            _groupHover={{ left: 0 }} />
-        </NavIcon>
+        </VStack>
       )}
-      </HStack>
-    </HStack>
-    {!isLargeScreen && (
-      <VStack
-        bgColor={colorMode === "light" ? "rgba(255,255,255,.85)" : "rgba(27,32,43,.85)"}
-        boxShadow={"dark-lg"}
-        height={"100%"}
-        justifyContent={"center"}
-        position={"fixed"}
-        right={menuOpen ? 0 : "-50%"}
-        spacing={10}
-        transition={"300ms ease-in-out"}
-        width={"50%"}
-        zIndex={2}>
-        <NavButton num="01" label="home" scroll={scrollIntoView} delay={"0ms"}/>
-        <NavButton num="02" label="about" scroll={scrollIntoView} delay={"60ms"}/>
-        <NavButton num="03" label="experience" scroll={scrollIntoView} delay={"120ms"}/>
-        <NavButton num="04" label="projects" scroll={scrollIntoView} delay={"180ms"}/>
-        <NavButton num="05" label="contact" scroll={scrollIntoView} delay={"240ms"}/>
-        <ResumeButton />
-      </VStack>
-    )}
-    {!isLargeScreen &&
-      <Box
-        width={"100%"}
-        height={"100%"}
-        position={"fixed"}
-        bgColor={"black"}
-        opacity={menuOpen ? .75 : 0}
-        onClick={() => setMenuOpen(!menuOpen)}
-        visibility={menuOpen ? "visible" : "hidden"}
-        transition={"opacity 400ms ease-out, visibility 400ms ease-out"}
-        zIndex={1} />
-    }
-  </>);
+      {!isLargeScreen &&
+        <Box
+          width={"100%"}
+          height={"100%"}
+          position={"fixed"}
+          bgColor={"black"}
+          opacity={menuOpen ? .75 : 0}
+          onClick={() => setMenuOpen(!menuOpen)}
+          visibility={menuOpen ? "visible" : "hidden"}
+          transition={"opacity 400ms ease-out, visibility 400ms ease-out"}
+          zIndex={1} />
+      }
+    </React.Fragment>
+  );
+};
+
+interface NavButtonProps {
+  num: string,
+  label: string,
+  scroll: (arg0: string) => void,
+  delay: string,
 };
 
 export const NavButton = ({ num, label, scroll, delay }: NavButtonProps) => {

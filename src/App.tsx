@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import * as React from "react";
 import "./App.css";
 import "./Hex.css";
 import { Nav } from "./components/Nav";
@@ -12,20 +12,20 @@ import { VStack, useMediaQuery } from "@chakra-ui/react";
 
 export const App = () => {
   const [isLargeScreen] = useMediaQuery("(min-width: 840px)");
-  const pageRefs = useRef({});
-  const [isVisible, setVisible] = useState<boolean>(false);
-  const domRefs = useRef({});
-  const [y, setY] = useState<number>(window.scrollY);
-  const [scrollDir, setScrollDir] = useState<string>("");
+  const pageRefs = React.useRef({});
+  const [isVisible, setVisible] = React.useState<boolean>(false);
+  const domRefs = React.useRef({});
+  const [y, setY] = React.useState<number>(window.scrollY);
+  const [scrollDir, setScrollDir] = React.useState<string>("");
 
-  // useEffect(() => {
+  // React.useEffect(() => {
   //   const observer = new IntersectionObserver(entries => {
   //     entries.forEach(entry => setVisible(entry.isIntersecting));
   //   });
   //   observer.observe(domRefs.current);
   // }, []);
 
-  const handleNavigation = useCallback(
+  const handleNavigation = React.useCallback(
     e => {
       const window = e.currentTarget;
       if (y > window.scrollY) {
@@ -37,7 +37,7 @@ export const App = () => {
     }, [y]
   );
   
-  useEffect(() => {
+  React.useEffect(() => {
     setY(window.scrollY);
     window.addEventListener("scroll", handleNavigation);
     return () => {
@@ -47,9 +47,16 @@ export const App = () => {
 
   return (
     <VStack spacing={0}>
-      <Nav pageRefs={pageRefs} isLargeScreen={isLargeScreen} y={y} scrollDir={scrollDir} />
-      <Social y={y} scrollDir={scrollDir} isLargeScreen={isLargeScreen} />
-      <Home pageRefs={pageRefs} domRefs={domRefs} isVisible={isVisible} />
+      <Nav
+        isLargeScreen={isLargeScreen}
+        pageRefs={pageRefs}
+        scrollDir={scrollDir}
+        y={y} />
+      <Social
+        isLargeScreen={isLargeScreen}
+        scrollDir={scrollDir}
+        y={y} />
+      <Home pageRefs={pageRefs} />
       <About pageRefs={pageRefs} domRefs={domRefs} isVisible={isVisible} />
       <Experience pageRefs={pageRefs} domRefs={domRefs} isVisible={isVisible} />
       <Projects pageRefs={pageRefs} domRefs={domRefs} isVisible={isVisible} />

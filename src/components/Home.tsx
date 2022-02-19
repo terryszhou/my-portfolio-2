@@ -3,17 +3,13 @@ import {
   Box,
   Center,
   Stack,
-  Image,
-  useColorMode,
-  HStack,
   Text,
   Heading,
   keyframes,
 } from "@chakra-ui/react";
-import React from "react";
+import * as React from "react";
 import { PageProps } from "../interfaces";
 import { SpinHex } from "./SpinHex";
-import { Social } from "./Social";
 
 const fadeRight: string = keyframes`
   from {
@@ -46,8 +42,7 @@ const slideLeft: string = keyframes`
   }
 `;
 
-export const Home = ({ pageRefs, isVisible }: PageProps) => {
-  const { colorMode, toggleColorMode } = useColorMode();
+export const Home = ({ pageRefs }: PageProps) => {
   const fadeRightAnim1: string = `${fadeRight} 1s 100ms forwards`;
   const fadeRightAnim2: string = `${fadeRight} 1s 250ms forwards`;
   const fadeRightAnim3: string = `${fadeRight} 1s 400ms forwards`;
@@ -102,7 +97,7 @@ export const Home = ({ pageRefs, isVisible }: PageProps) => {
         </Text>
       </Stack>
       <Center flexBasis={"33%"} marginRight={"20%"}>
-        <SpinHex colorMode={colorMode} />
+        <SpinHex />
       </Center>
       <Box 
         animation={slideLeftAnim}
