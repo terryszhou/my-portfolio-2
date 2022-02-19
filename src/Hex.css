@@ -13,7 +13,7 @@
 
 @keyframes fadeDown {
     from {
-        transform: translateY(-20px);
+        transform: translateY(-60px);
         opacity: 0;
     } to {
         transform: translateY(0px);
@@ -39,7 +39,6 @@
 
 .hex-box-main {
     position: relative;
-    margin: 2em 0 6em 0;
     font-size: clamp(1.5rem, 3vw, 2rem);
     animation: fadeDown 2s;
 }

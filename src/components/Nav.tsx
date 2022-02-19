@@ -89,7 +89,7 @@ export const Nav = ({ pageRefs, isVisible, domRefs }: PageProps) => {
       top={y > 80 && scrollDir === "down" ? -110 : 0}
       transition={"200ms ease-out"}
       width={"100%"}
-      zIndex={2}>
+      zIndex={3}>
       <HStack
         animation={fadeDownAnim}
         left={isLargeScreen ? 10 : 5}
@@ -126,7 +126,7 @@ export const Nav = ({ pageRefs, isVisible, domRefs }: PageProps) => {
             position={"absolute"}
             right={5}
             role={"group"}
-            zIndex={2}>
+            zIndex={4}>
           <Span
             left={!menuOpen && 1}
             top={menuOpen ? "18px" : "12px"}
@@ -152,7 +152,7 @@ export const Nav = ({ pageRefs, isVisible, domRefs }: PageProps) => {
         spacing={10}
         transition={"300ms ease-in-out"}
         width={"50%"}
-        zIndex={1}>
+        zIndex={2}>
         <NavButton num="01" label="home" scroll={scrollIntoView} delay={"0ms"}/>
         <NavButton num="02" label="about" scroll={scrollIntoView} delay={"60ms"}/>
         <NavButton num="03" label="experience" scroll={scrollIntoView} delay={"120ms"}/>
@@ -173,6 +173,7 @@ export const Nav = ({ pageRefs, isVisible, domRefs }: PageProps) => {
         onClick={() => setMenuOpen(!menuOpen)}
         visibility={menuOpen ? "visible" : "hidden"}
         transition={"opacity 400ms ease-out, visibility 400ms ease-out"}
+        zIndex={1}
       />
     }
   </>);
