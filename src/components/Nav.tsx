@@ -3,18 +3,14 @@ import {
   Text,
   Button,
   Image,
-  Center,
-  Stack,
   useMediaQuery,
   Box,
   VStack,
   keyframes,
-  Tooltip,
   useColorMode,
 } from "@chakra-ui/react";
 import React, { useCallback, useEffect, useState } from "react";
 
-import { Hexagon } from "./Hexagon";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { capitalize } from "../helpers/functions";
 import { PageProps } from "../interfaces";
@@ -23,7 +19,7 @@ interface NavButtonProps {
   num: string,
   label: string,
   scroll: (arg0: string) => void,
-  delay?: string,
+  delay: string,
 };
 
 const fadeDown: string = keyframes`
@@ -37,33 +33,11 @@ const fadeDown: string = keyframes`
   }
 `;
 
-export const Nav = ({ pageRefs, isVisible, domRefs }: PageProps) => {
+export const Nav = ({ pageRefs, y, scrollDir }: PageProps) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const [isLargeScreen] = useMediaQuery("(min-width: 840px)");
-  const [y, setY] = useState<number>(window.scrollY);
-  const [scrollDir, setScrollDir] = useState<string>("");
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [stopScroll, setStopScroll] = useState<string>();
-
-  const handleNavigation = useCallback(
-    e => {
-      const window = e.currentTarget;
-      if (y > window.scrollY) {
-        setScrollDir("up");
-      } else if (y < window.scrollY) {
-        setScrollDir("down");
-      };
-      setY(window.scrollY);
-    }, [y]
-  );
-  
-  useEffect(() => {
-    setY(window.scrollY);
-    window.addEventListener("scroll", handleNavigation);
-    return () => {
-      window.removeEventListener("scroll", handleNavigation);
-    };
-  }, [handleNavigation]);
 
   useEffect(():void => {
     menuOpen
@@ -274,7 +248,7 @@ export const ResumeButton = () => {
       _focus={{ boxShadow: "none" }}
       _hover={{
         bgColor: "goldenrod",
-        color: "rgb(28,28,28)"
+        color: "inherit"
       }}>
       Resume
     </Button>

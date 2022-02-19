@@ -13,6 +13,7 @@ import {
 import React from "react";
 import { PageProps } from "../interfaces";
 import { SpinHex } from "./SpinHex";
+import { Social } from "./Social";
 
 const fadeRight: string = keyframes`
   from {
@@ -25,22 +26,22 @@ const fadeRight: string = keyframes`
   }
 `;
 
+const slideRight: string = keyframes`
+  from { 
+    transform: translateX(-100%);
+    opacity: 0;
+  } to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
+
 const slideLeft: string = keyframes`
   from { 
     width: 0;
     opacity: 0;
   } to {
-    width: 50%;
-    opacity: 1;
-  }
-`;
-
-const slideRight: string = keyframes`
-  from { 
-    transform: translateX(-100%) perspective(100px) rotateX(-25deg);
-    opacity: 0;
-  } to {
-    transform: translateX(0) perspective(100px) rotateX(-25deg);
+    width: 40%;
     opacity: 1;
   }
 `;
@@ -50,8 +51,8 @@ export const Home = ({ pageRefs, isVisible }: PageProps) => {
   const fadeRightAnim1: string = `${fadeRight} 1s 100ms forwards`;
   const fadeRightAnim2: string = `${fadeRight} 1s 250ms forwards`;
   const fadeRightAnim3: string = `${fadeRight} 1s 400ms forwards`;
-  const slideLeftAnim: string = `${slideLeft} 1s 250ms forwards`;
   const slideRightAnim: string = `${slideRight} 1s 250ms forwards`;
+  const slideLeftAnim: string = `${slideLeft} 1s 250ms forwards`;
 
   return (
     <Flex
@@ -107,32 +108,38 @@ export const Home = ({ pageRefs, isVisible }: PageProps) => {
         animation={slideLeftAnim}
         position={"absolute"}
         height={2}
-        opacity={0}
+        opacity={1}
         bgColor={"goldenrod"}
-        // transform={"skew(45deg)"}
-        transform={"perspective(100px) rotateX(-25deg)"}
-        transformOrigin={"right center"}
         top={"15%"}
-        right={"-16.5%"} />
+        right={"-16.5%"}
+        zIndex={1}
+        _before={{
+          position: "absolute",
+          content: `""`,
+          width: 0,
+          height: 0,
+          borderTop: "8px solid goldenrod",
+          borderLeft: "8px solid transparent",
+          left: -2
+        }} />
       <Box 
         animation={slideRightAnim}
         position={"absolute"}
         height={2}
         width={"50%"}
-        transform={"perspective(100px) rotateX(-25deg)"}
-        transformOrigin={"left center"}
         opacity={0}
         bgColor={"goldenrod"}
         bottom={"2%"}
-        left={"-16.5%"} />
-
-
-      {/* <Image
-        position={"absolute"}
-        top={250}
-        boxSize={36}
-        src={"/seal-sig.png"}
-      /> */}
+        left={"-16.5%"}
+        _after={{
+          position: "absolute",
+          content: `""`,
+          width: 0,
+          height: 0,
+          borderBottom: "8px solid goldenrod",
+          borderRight: "8px solid transparent",
+          right: -2
+        }}/>
     </Flex>
   );
 };
