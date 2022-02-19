@@ -8,9 +8,10 @@ import { Experience } from "./components/Experience";
 import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
 import { Social } from "./components/Social";
-import { VStack } from "@chakra-ui/react";
+import { VStack, useMediaQuery } from "@chakra-ui/react";
 
 export const App = () => {
+  const [isLargeScreen] = useMediaQuery("(min-width: 840px)");
   const pageRefs = useRef({});
   const [isVisible, setVisible] = useState<boolean>(false);
   const domRefs = useRef({});
@@ -46,8 +47,8 @@ export const App = () => {
 
   return (
     <VStack spacing={0}>
-      <Nav pageRefs={pageRefs} y={y} scrollDir={scrollDir} />
-      <Social y={y} scrollDir={scrollDir} />
+      <Nav pageRefs={pageRefs} isLargeScreen={isLargeScreen} y={y} scrollDir={scrollDir} />
+      <Social y={y} scrollDir={scrollDir} isLargeScreen={isLargeScreen} />
       <Home pageRefs={pageRefs} domRefs={domRefs} isVisible={isVisible} />
       <About pageRefs={pageRefs} domRefs={domRefs} isVisible={isVisible} />
       <Experience pageRefs={pageRefs} domRefs={domRefs} isVisible={isVisible} />

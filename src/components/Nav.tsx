@@ -3,13 +3,12 @@ import {
   Text,
   Button,
   Image,
-  useMediaQuery,
   Box,
   VStack,
   keyframes,
   useColorMode,
 } from "@chakra-ui/react";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { capitalize } from "../helpers/functions";
@@ -33,9 +32,8 @@ const fadeDown: string = keyframes`
   }
 `;
 
-export const Nav = ({ pageRefs, y, scrollDir }: PageProps) => {
+export const Nav = ({ pageRefs, y, scrollDir, isLargeScreen, }: PageProps) => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const [isLargeScreen] = useMediaQuery("(min-width: 840px)");
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [stopScroll, setStopScroll] = useState<string>();
 

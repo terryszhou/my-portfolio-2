@@ -4,4 +4,5 @@ export interface PageProps {
   isVisible?: boolean,
   y?: number,
   scrollDir?: string,
+  isLargeScreen?: boolean,
 };
