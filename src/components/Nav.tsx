@@ -200,7 +200,7 @@ export const NavIcon = (props: any) => (
     position={"relative"}
     transform={"rotate(0deg)"}
     transition={".5s ease-in-out"}
-    weight={"30px"}
+    width={"30px"}
     {...props}>
     {props.children}
   </Box>

@@ -5,6 +5,7 @@ import {
   Stack,
   Text,
   Heading,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import * as React from "react";
 
@@ -38,9 +39,15 @@ export const Home = ({ pageRefs }: PageProps) => {
             marginY={4}
             width={"fit-content"}>
             <span>
-              <span style={{ color: "goldenrod" }}>T</span>
+              <span style={{
+                color: "goldenrod",
+                textShadow: useColorModeValue("none", "0 0 5px goldenrod")
+              }}>T</span>
               erry
-              <span style={{ color: "goldenrod" }}> S. Z</span>
+              <span style={{
+                color: "goldenrod",
+                textShadow: useColorModeValue("none", "0 0 5px goldenrod")
+              }}> S. Z</span>
               hou
             </span>
           </Heading>
@@ -72,6 +79,7 @@ export const Home = ({ pageRefs }: PageProps) => {
       <Box 
         animation={slideLeftAnim}
         backgroundColor={"goldenrod"}
+        boxShadow={useColorModeValue("none", "0 0 5px goldenrod")}
         height={2}
         opacity={1}
         position={"absolute"}
@@ -79,18 +87,20 @@ export const Home = ({ pageRefs }: PageProps) => {
         top={"15%"}
         zIndex={1}
         _before={{
-          position: "absolute",
-          content: `""`,
-          width: 0,
-          height: 0,
-          borderTop: "8px solid goldenrod",
           borderLeft: "8px solid transparent",
-          left: -2
+          borderTop: "8px solid goldenrod",
+          content: `""`,
+          filter: useColorModeValue("none", "drop-shadow(-2px 0 5px goldenrod)"),
+          height: 0,
+          left: -2,
+          position: "absolute",
+          width: 0,
         }} />
       <Box 
         animation={slideRightAnim}
         backgroundColor={"goldenrod"}
         bottom={"2%"}
+        boxShadow={useColorModeValue("none", "0 0 5px goldenrod")}
         height={2}
         left={"-16.5%"}
         opacity={0}
@@ -100,6 +110,7 @@ export const Home = ({ pageRefs }: PageProps) => {
           borderBottom: "8px solid goldenrod",
           borderRight: "8px solid transparent",
           content: `""`,
+          filter: useColorModeValue("none", "drop-shadow(2px 0 5px goldenrod)"),
           height: 0,
           position: "absolute",
           right: -2,
