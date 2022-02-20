@@ -14,8 +14,8 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import { SiJavascript, SiCss3, SiReact, SiNodedotjs, SiNextdotjs, SiTailwindcss, SiAmazonaws, SiFirebase } from "react-icons/si";
-import { DiJava, DiJavascript } from "react-icons/di"
+import { SiJavascript, SiCss3, SiReact, SiNodedotjs, SiNextdotjs, SiTailwindcss, SiAmazonaws, SiFirebase, SiPython, SiChakraui, SiVercel } from "react-icons/si";
+import { DiJava, DiJavascript, DiSass } from "react-icons/di"
 
 import { PageProps } from "../helpers/interfaces";
 import { qAndA } from "../data/qAndA";
@@ -169,7 +169,7 @@ export const About = ({ pageRefs, isVisible, domRefs }: PageProps) => {
             padding={2}>
             <SkillIcon icon={DiJavascript} color={"rgb(229,212,88)"} label={"JavaScript/TypeScript"} />
             <SkillIcon icon={SiReact} color={"rgb(114,183,208)"} label={"React"} />
-            <SkillIcon icon={SiCss3} color={"rgb(69,98,226)"} label={"CSS/Sass"} />
+            <SkillIcon icon={SiCss3} color={"rgb(69,98,226)"} label={"CSS"} />
             <SkillIcon icon={SiAmazonaws} color={"rgb(241,158,56)"} label={"AWS/Route 53"} />
             
           </HStack>
@@ -178,8 +178,16 @@ export const About = ({ pageRefs, isVisible, domRefs }: PageProps) => {
             padding={2}>
             <SkillIcon icon={SiNodedotjs} color={"rgb(110,149,99)"} label={"Node.js"} />
             <SkillIcon icon={SiNextdotjs} color={"rgb(50,109,170)"} label={"Next.js"} />
-            <SkillIcon icon={SiTailwindcss} color={"rgb(89,170,163)"} label={"Tailwind"} />
+            <SkillIcon icon={DiSass} color={"rgb(182,103,144)"} label={"Sass"} />
             <SkillIcon icon={SiFirebase} color={"rgb(234,195,77)"} label={"Firebase/Google Cloud"} />
+          </HStack>
+          <HStack
+            justifyContent={"space-around"}
+            padding={2}>
+            <SkillIcon icon={SiPython} color={"rgb(66,108,152)"} label={"Python"} />
+            <SkillIcon icon={SiChakraui} color={"rgb(89,178,170)"} label={"Chakra UI"} />
+            <SkillIcon icon={SiTailwindcss} color={"rgb(89,170,163)"} label={"Tailwind"} />
+            <SkillIcon icon={SiVercel} color={"rgb(83,83,83)"} label={"Vercel"} />
           </HStack>
         </Box>
       </Flex>
@@ -202,7 +210,7 @@ export const SkillIcon = ({ icon, color, label }: SkillIconProps) => {
           <Icon
             as={icon}
             borderRadius={5}
-            boxSize={{ base: 6, lg: 10 }}
+            boxSize={{ base: 6, lg: 8 }}
             color={color}
             transition={"100ms ease-in-out"}
             _hover={{
