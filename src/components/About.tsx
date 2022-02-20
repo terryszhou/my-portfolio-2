@@ -1,34 +1,85 @@
 import {
   Flex,
-  Stack,
   HStack,
   Box,
   Heading,
-  Icon,
-  IconButton,
   Text,
   Image,
-  Button,
   useColorModeValue,
+  useColorMode,
   Table,
-  Thead,
   Tbody,
-  Tfoot,
   Tr,
-  Th,
   Td,
-  TableCaption,
+  Divider,
 } from "@chakra-ui/react";
 import * as React from "react";
 
 import { PageProps } from "../helpers/interfaces";
-import { Hexagon } from "./Hexagon";
-import { fadeRight, slideLeft, slideRight } from "../helpers/animations";
+import { qAndA } from "../data/qAndA";
+import { HeroDividers } from "./HeroDividers";
+import { ContentBox } from "./ContentBox";
 
 export const About = ({ pageRefs, isVisible, domRefs }: PageProps) => {
-  const slideLeftAnim: string = `${slideLeft} 1s 250ms forwards`;
-  const slideRightAnim: string = `${slideRight} 1s 250ms forwards`;
-  
+  const { colorMode } = useColorMode();
+
+  const qAndAData = qAndA.map(e => (
+    <React.Fragment>
+      <Flex
+        alignItems={"center"}
+        fontFamily={"var(--chakra-fonts-nunito)"}
+        justifyContent={"flex-start"}
+        width={"100%"}>
+        <Text
+          backgroundColor={colorMode === "light" ? "rgb(233,233,233)" : "rgb(37,37,37)"}
+          borderRadius={10}
+          padding={2}
+          position={"relative"}
+          maxWidth={"75%"}
+          _before={{
+            position: "absolute",
+            content: `""`,
+            width: 0,
+            height: 0,
+            bottom: "-1rem",
+            borderRight: "30px solid transparent",
+            borderTop: colorMode === "light" ? "25px solid rgb(233,233,233)" : "25px solid rgb(37,37,37)",
+          }}>
+          {e.question}
+        </Text>
+      </Flex>
+      <Flex
+        alignItems={"center"}
+        fontFamily={"var(--chakra-fonts-nunito)"}
+        justifyContent={"flex-end"}
+        width={"100%"}>
+        <Text
+          backgroundColor={"rgb(67,134,233)"}
+          borderRadius={10}
+          color={"white"}
+          padding={2}
+          position={"relative"}
+          maxWidth={"75%"}
+          _before={{
+            position: "absolute",
+            content: `""`,
+            width: 0,
+            height: 0,
+            right: "3%",
+            bottom: "-1rem",
+            borderLeft: "30px solid transparent",
+            borderTop: "25px solid rgb(67,134,233)",
+          }}>
+            {e.answer}
+            {e.answer === "Nidoking!" &&
+              <Image
+                src={"/nidoking.png"}
+                width={"6em"} />}
+        </Text>
+      </Flex>
+    </React.Fragment>
+  ));
+
   return (
     <Flex
       alignItems={"center"}
@@ -44,47 +95,13 @@ export const About = ({ pageRefs, isVisible, domRefs }: PageProps) => {
         paddingTop={{base: "3rem", lg: "1rem" }}
         paddingX={"1rem"}
         width={{ base: "100%", lg: "50%" }}>
-        <Box 
-          animation={slideRightAnim}
-          backgroundColor={"goldenrod"}
-          top={{ base: "4%", lg: "8%" }}
-          boxShadow={useColorModeValue("none", "0 0 5px goldenrod")}
-          height={2}
-          left={"-16.5%"}
-          opacity={0}
-          position={"absolute"}
-          width={"50%"}
-          _after={{
-            borderTop: "8px solid goldenrod",
-            borderRight: "8px solid transparent",
-            content: `""`,
-            filter: useColorModeValue("none", "drop-shadow(2px 0 5px goldenrod)"),
-            height: 0,
-            position: "absolute",
-            right: -2,
-            width: 0,
-          }}/>
-        <Box 
-          animation={slideLeftAnim}
-          backgroundColor={"goldenrod"}
-          boxShadow={useColorModeValue("none", "0 0 5px goldenrod")}
-          height={2}
-          opacity={1}
-          position={"absolute"}
-          right={"-16.5%"}
-          bottom={"4%"}
-          zIndex={1}
-          _before={{
-            borderLeft: "8px solid transparent",
-            borderBottom: "8px solid goldenrod",
-            content: `""`,
-            filter: useColorModeValue("none", "drop-shadow(-2px 0 5px goldenrod)"),
-            height: 0,
-            left: -2,
-            position: "absolute",
-            width: 0,
-          }} />
+        <HeroDividers orientation={"topleft"} />
         <HStack spacing={6}>
+          <Divider
+            borderColor={useColorModeValue("black", "white")}
+            left={"-20%"}
+            position={"absolute"}
+            width={"20%"} />
           <Heading
             fontSize={{ base: "1.5rem", lg:"2rem" }}
             fontWeight={"bold"}
@@ -102,32 +119,48 @@ export const About = ({ pageRefs, isVisible, domRefs }: PageProps) => {
             boxSize={{ base: "40px", lg: "50px" }}
             src={"/seal-sig.png"} />
         </HStack>
-        <Text
-          opacity={0.7}
-          marginTop={{base: "1rem", lg: "2rem" }}
-          fontFamily={"var(--chakra-fonts-nunito)"}
-          fontSize={{ base: "sm", lg: "lg" }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </Text>
-        <Text
-          opacity={0.7}
-          marginTop={"1rem"}
-          fontFamily={"var(--chakra-fonts-nunito)"}
-          fontSize={{ base: "sm", lg: "lg" }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </Text>
+        <ContentBox>
+          {qAndAData}
+        </ContentBox>
+      </Flex>
+      <Flex
+        alignItems={"center"}
+        flexDirection={"column"}
+        height={{ base: "50%", lg: "80%" }}
+        paddingTop={{base: "3rem", lg: "6rem" }}
+        paddingX={"1rem"}
+        width={{ base: "100%", lg: "50%" }}>
+        <Box
+          alignItems={"center"}
+          border={"2px solid goldenrod"}
+          borderRadius={5}
+          boxShadow={useColorModeValue("none", "0 0 10px goldenrod")}
+          display={"flex"}
+          justifyContent={"center"}
+          padding={2}
+          position={"relative"}
+          role={"group"}
+          transition={"200ms ease-out"}
+          width={{ base: "50%", lg: "70%" }}
+          _hover={{ backgroundColor: "goldenrod" }}>
+          <Image
+            borderRadius={5}
+            _groupHover={{ visibility: "hidden" }}
+            src={"/headshot-shoulders.jpg"} />
+          <Image
+            visibility={"hidden"}
+            width={"70%"}
+            position={"absolute"}
+            src={"/headshot-outline.png"}
+            _groupHover={{ visibility: "visible" }} />
+        </Box>
         <Table
           fontFamily={"var(--chakra-fonts-mono)"}
           fontSize={{ base: "xs", lg: "sm" }}
           variant={"striped"}
           marginTop={"1rem"}
-        >
+          width={{ base: "50%", lg: "70%" }}>
           <Tbody>
-            <Tr>
-              <Td>Test</Td>
-              <Td>Test</Td>
-              <Td>Test</Td>
-            </Tr>
             <Tr>
               <Td>Test</Td>
               <Td>Test</Td>
@@ -140,41 +173,6 @@ export const About = ({ pageRefs, isVisible, domRefs }: PageProps) => {
             </Tr>
           </Tbody>
         </Table>
-      </Flex>
-      <Flex
-        alignItems={"center"}
-        flexDirection={"column"}
-        height={{ base: "50%", lg: "80%" }}
-        paddingTop={{ base: "16rem", sm: "10rem", lg: "5rem" }}
-        paddingX={"1rem"}
-        width={{ base: "100%", lg: "50%" }}>
-        <Box
-          role={"group"}
-          border={"2px solid goldenrod"}
-          borderRadius={5}
-          boxShadow={useColorModeValue("none", "0 0 10px goldenrod")}
-          padding={2}
-          display={"flex"}
-          justifyContent={"center"}
-          alignItems={"center"}
-          position={"relative"}
-          transition={"200ms ease-out"}
-          _hover={{
-            backgroundColor: "goldenrod"
-          }}
-          width={{ base: "50%", lg: "70%" }}>
-          <Image
-            borderRadius={5}
-            _groupHover={{ visibility: "hidden" }}
-            src={"/headshot-shoulders.jpg"} />
-          <Image
-            visibility={"hidden"}
-            width={"70%"}
-            position={"absolute"}
-            src={"/headshot-outline.png"}
-            _groupHover={{ visibility: "visible" }}
-          />
-        </Box>
       </Flex>
     </Flex>
   );
