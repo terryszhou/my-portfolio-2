@@ -7,13 +7,15 @@ import {
   Image,
   useColorModeValue,
   useColorMode,
-  Table,
-  Tbody,
-  Tr,
-  Td,
+  Center,
   Divider,
+  Icon,
+  Tooltip,
 } from "@chakra-ui/react";
 import * as React from "react";
+
+import { SiJavascript, SiCss3, SiReact, SiNodedotjs, SiNextdotjs, SiTailwindcss, SiAmazonaws, SiFirebase } from "react-icons/si";
+import { DiJava, DiJavascript } from "react-icons/di"
 
 import { PageProps } from "../helpers/interfaces";
 import { qAndA } from "../data/qAndA";
@@ -28,6 +30,7 @@ export const About = ({ pageRefs, isVisible, domRefs }: PageProps) => {
       <Flex
         alignItems={"center"}
         fontFamily={"var(--chakra-fonts-nunito)"}
+        fontSize={{ base: "xs", sm: "sm", lg: "md" }}
         justifyContent={"flex-start"}
         width={"100%"}>
         <Text
@@ -43,14 +46,14 @@ export const About = ({ pageRefs, isVisible, domRefs }: PageProps) => {
             height: 0,
             bottom: "-1rem",
             borderRight: "30px solid transparent",
-            borderTop: colorMode === "light" ? "25px solid rgb(233,233,233)" : "25px solid rgb(37,37,37)",
-          }}>
+            borderTop: colorMode === "light" ? "25px solid rgb(233,233,233)" : "25px solid rgb(37,37,37)" }}>
           {e.question}
         </Text>
       </Flex>
       <Flex
         alignItems={"center"}
         fontFamily={"var(--chakra-fonts-nunito)"}
+        fontSize={{ base: "xs", sm: "sm", lg: "md" }}
         justifyContent={"flex-end"}
         width={"100%"}>
         <Text
@@ -68,8 +71,7 @@ export const About = ({ pageRefs, isVisible, domRefs }: PageProps) => {
             right: "3%",
             bottom: "-1rem",
             borderLeft: "30px solid transparent",
-            borderTop: "25px solid rgb(67,134,233)",
-          }}>
+            borderTop: "25px solid rgb(67,134,233)" }}>
             {e.answer}
             {e.answer === "Nidoking!" &&
               <Image
@@ -124,7 +126,7 @@ export const About = ({ pageRefs, isVisible, domRefs }: PageProps) => {
         </ContentBox>
       </Flex>
       <Flex
-        alignItems={"center"}
+        alignItems={{base: "center", lg: "flex-end"}}
         flexDirection={"column"}
         height={{ base: "50%", lg: "80%" }}
         paddingTop={{base: "3rem", lg: "6rem" }}
@@ -154,26 +156,59 @@ export const About = ({ pageRefs, isVisible, domRefs }: PageProps) => {
             src={"/headshot-outline.png"}
             _groupHover={{ visibility: "visible" }} />
         </Box>
-        <Table
+        <Box
+          border={"2px solid goldenrod"}
+          borderRadius={5}
+          boxShadow={useColorModeValue("none", "0 0 5px goldenrod")}
           fontFamily={"var(--chakra-fonts-mono)"}
           fontSize={{ base: "xs", lg: "sm" }}
-          variant={"striped"}
           marginTop={"1rem"}
           width={{ base: "50%", lg: "70%" }}>
-          <Tbody>
-            <Tr>
-              <Td>Test</Td>
-              <Td>Test</Td>
-              <Td>Test</Td>
-            </Tr>
-            <Tr>
-              <Td>Test</Td>
-              <Td>Test</Td>
-              <Td>Test</Td>
-            </Tr>
-          </Tbody>
-        </Table>
+          <HStack
+            justifyContent={"space-around"}
+            padding={2}>
+            <SkillIcon icon={DiJavascript} color={"rgb(229,212,88)"} label={"JavaScript/TypeScript"} />
+            <SkillIcon icon={SiReact} color={"rgb(114,183,208)"} label={"React"} />
+            <SkillIcon icon={SiCss3} color={"rgb(69,98,226)"} label={"CSS/Sass"} />
+            <SkillIcon icon={SiAmazonaws} color={"rgb(241,158,56)"} label={"AWS/Route 53"} />
+            
+          </HStack>
+          <HStack
+            justifyContent={"space-around"}
+            padding={2}>
+            <SkillIcon icon={SiNodedotjs} color={"rgb(110,149,99)"} label={"Node.js"} />
+            <SkillIcon icon={SiNextdotjs} color={"rgb(50,109,170)"} label={"Next.js"} />
+            <SkillIcon icon={SiTailwindcss} color={"rgb(89,170,163)"} label={"Tailwind"} />
+            <SkillIcon icon={SiFirebase} color={"rgb(234,195,77)"} label={"Firebase/Google Cloud"} />
+          </HStack>
+        </Box>
       </Flex>
     </Flex>
+  );
+};
+
+interface SkillIconProps {
+  icon: any,
+  color: string,
+  label: string,
+}
+
+export const SkillIcon = ({ icon, color, label }: SkillIconProps) => {
+  return (
+    <Tooltip
+      label={label}
+      hasArrow>
+      <Center>
+          <Icon
+            as={icon}
+            borderRadius={5}
+            boxSize={{ base: 6, lg: 10 }}
+            color={color}
+            transition={"100ms ease-in-out"}
+            _hover={{
+              transform: "scale(1.1)",
+              filter: useColorModeValue("brightness(1.1)" , `brightness(1.2) drop-shadow(0 0 5px ${color})`) }} />
+      </Center>
+    </Tooltip>
   );
 };
