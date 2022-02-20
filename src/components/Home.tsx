@@ -5,13 +5,16 @@ import {
   Stack,
   Text,
   Heading,
+  HStack,
   useColorModeValue,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import * as React from "react";
 
 import { fadeRight, slideLeft, slideRight } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";
 import { SpinHex } from "./SpinHex";
+import { Hexagon } from "./Hexagon";
 
 export const Home = ({ pageRefs }: PageProps) => {
   const fadeRightAnim1: string = `${fadeRight} 1s 100ms forwards`;
@@ -19,6 +22,7 @@ export const Home = ({ pageRefs }: PageProps) => {
   const fadeRightAnim3: string = `${fadeRight} 1s 400ms forwards`;
   const slideLeftAnim: string = `${slideLeft} 1s 250ms forwards`;
   const slideRightAnim: string = `${slideRight} 1s 250ms forwards`;
+  const [shrink] = useMediaQuery("(min-width: 62em)");
 
   return (
     <Flex
@@ -116,6 +120,22 @@ export const Home = ({ pageRefs }: PageProps) => {
           right: -2,
           width: 0,
         }}/>
+        <HStack
+          bottom={{ base: "-2.2%", lg: "-5%" }}
+          left={"-12%"}
+          position={"absolute"}
+          spacing={20}>
+          <Hexagon color={"goldenrod"} edgeLen={shrink ? 15 : 10} />
+          <Hexagon color={"goldenrod"} edgeLen={shrink ? 15 : 10} />
+          <Hexagon color={"goldenrod"} edgeLen={shrink ? 15 : 10} />
+          {shrink && (
+            <React.Fragment>
+              <Hexagon color={"goldenrod"} edgeLen={shrink ? 15 : 10} />
+              <Hexagon color={"goldenrod"} edgeLen={shrink ? 15 : 10} />
+              <Hexagon color={"goldenrod"} edgeLen={shrink ? 15 : 10} />
+            </React.Fragment>
+          )}
+        </HStack>
     </Flex>
   );
 };

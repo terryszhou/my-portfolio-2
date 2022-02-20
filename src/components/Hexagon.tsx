@@ -1,5 +1,4 @@
-import { Box, Center, Stack } from "@chakra-ui/react";
-import { url } from "inspector";
+import { Box, Center, Stack, useColorModeValue } from "@chakra-ui/react";
 import * as React from "react";
 
 interface HexProps {
@@ -30,7 +29,10 @@ export const Hexagon = ({
       transition={"200ms ease-out"}
       _groupHover={_groupHover}
       _hover={_hover}>
-      <Stack spacing={0} position={"absolute"}>
+      <Stack
+        filter={useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)")}
+        position={"absolute"}
+        spacing={0}>
         <Box
           width={0}
           borderBottom={`${edgeLen / 2}px solid ${color}`}

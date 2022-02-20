@@ -41,10 +41,7 @@ export const ColorModeSwitcher = () => {
       _hover={{ cursor: "pointer" }}>
       <SwitchIcon
         color={useColorModeValue("rgb(107,191,235)", "orange")} 
-        filter={useColorModeValue(
-          "drop-shadow(0 0 5px rgb(107,191,235))",
-          "drop-shadow(0 0 5px orange)"
-        )} />
+        filter={useColorModeValue("none", "drop-shadow(0 0 5px orange)")} />
     </Hexagon>
     </HStack>
   );

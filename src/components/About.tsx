@@ -98,6 +98,7 @@ export const About = ({ pageRefs, isVisible, domRefs }: PageProps) => {
             }}>01.</span> About Me
           </Heading>
           <Image
+            filter={useColorModeValue("none", "drop-shadow(0 0 2px red)")}
             boxSize={{ base: "40px", lg: "50px" }}
             src={"/seal-sig.png"}
           />
