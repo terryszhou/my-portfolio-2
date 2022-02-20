@@ -100,23 +100,25 @@ export const About = ({ pageRefs, isVisible, domRefs }: PageProps) => {
           <Image
             filter={useColorModeValue("none", "drop-shadow(0 0 2px red)")}
             boxSize={{ base: "40px", lg: "50px" }}
-            src={"/seal-sig.png"}
-          />
+            src={"/seal-sig.png"} />
         </HStack>
         <Text
           opacity={0.7}
           marginTop={{base: "1rem", lg: "2rem" }}
-          fontSize={{ base: "sm", lg: "md" }}>
+          fontFamily={"var(--chakra-fonts-nunito)"}
+          fontSize={{ base: "sm", lg: "lg" }}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </Text>
         <Text
           opacity={0.7}
           marginTop={"1rem"}
-          fontSize={{ base: "sm", lg: "md" }}>
+          fontFamily={"var(--chakra-fonts-nunito)"}
+          fontSize={{ base: "sm", lg: "lg" }}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </Text>
         <Table
-          fontSize={{ base: "sm", lg: "lg" }}
+          fontFamily={"var(--chakra-fonts-mono)"}
+          fontSize={{ base: "xs", lg: "sm" }}
           variant={"striped"}
           marginTop={"1rem"}
         >
@@ -147,16 +149,31 @@ export const About = ({ pageRefs, isVisible, domRefs }: PageProps) => {
         paddingX={"1rem"}
         width={{ base: "100%", lg: "50%" }}>
         <Box
+          role={"group"}
           border={"2px solid goldenrod"}
           borderRadius={5}
           boxShadow={useColorModeValue("none", "0 0 10px goldenrod")}
           padding={2}
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
           position={"relative"}
+          transition={"200ms ease-out"}
+          _hover={{
+            backgroundColor: "goldenrod"
+          }}
           width={{ base: "50%", lg: "70%" }}>
           <Image
             borderRadius={5}
-            position={"relative"}
+            _groupHover={{ visibility: "hidden" }}
             src={"/headshot-shoulders.jpg"} />
+          <Image
+            visibility={"hidden"}
+            width={"70%"}
+            position={"absolute"}
+            src={"/headshot-outline.png"}
+            _groupHover={{ visibility: "visible" }}
+          />
         </Box>
       </Flex>
     </Flex>

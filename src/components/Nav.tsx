@@ -6,6 +6,7 @@ import {
   Box,
   VStack,
   useColorMode,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import * as React from "react";
 
@@ -69,6 +70,7 @@ export const Nav = ({ pageRefs, y, scrollDir, isLargeScreen, }: PageProps) => {
             padding={y !== 0 && scrollDir === "up" ? 4 : 2}
             src={"/face-card.png"}
             transition={"200ms ease-out"}
+            filter={useColorModeValue("none", "drop-shadow(0 0 3px goldenrod)")}
             width={20}
             _hover={{
               cursor: "pointer",
