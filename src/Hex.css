@@ -1,94 +1,94 @@
 :root {
-    --hex: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
-    --parallelogram: polygon(25% -60%, 100% -60%, 82% 100%, 5% 100%);
-    --width: 13rem;
-    --margin: 6px;
-    --rows: calc(1.732 * var(--width) + 4 * var(--margin) - 1px);
-    --main-bg-color: rgb(69,87,96);
-    --main-bg-skew-color: rgb(50,67,76);
-    --main-white: rgb(220,220,220);
-    --main-black: rgb(26,29,32);
-    --main-grey: rgb(52,58,64);
+  --hex: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+  --main-bg-skew-color: rgb(50,67,76);
 }
 
 @keyframes fadeDown {
-    from {
-        transform: translateY(-60px);
-        opacity: 0;
-    } to {
-        transform: translateY(0px);
-        opacity: 1;
-    }
+  from {
+    transform: translateY(-60px);
+    opacity: 0;
+  } to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
 
 @keyframes rotation {
-    from {
-        transform: rotate(0deg);
-    } to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes counterRotation {
-    from {
-        transform: rotate(0deg);
-    } to {
-        transform: rotate(-360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(-360deg);
+  }
 }
 
 @keyframes sineWave {
-    0% {
-        top: 5em;
-    } 50% {
-        top: 7.5em;
-    } 100% {
-        top: 5em;
-    }
+  0% {
+    top: 5em;
+  } 50% {
+    top: 7.5em;
+  } 100% {
+    top: 5em;
+  }
 }
 
 @keyframes cosWave {
-    0% {
-        top: 7.5em;
-    } 50% {
-        top: 5em;
-    } 100% {
-        top: 7.5em;
-    }
+  0% {
+    top: 7.5em;
+  } 50% {
+    top: 5em;
+  } 100% {
+    top: 7.5em;
+  }
 }
 
+@keyframes brighten {
+  0% {
+    background-color: white;
+  } 50% {
+    background-color: gold;
+  } 100% {
+    background-color: white;
+  }
+}
 
 .hex-box-main {
-    position: relative;
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    animation: fadeDown 2s;
+  position: relative;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  animation: fadeDown 2s;
 }
 
 .hex-box-main #hex-gold {
-    -webkit-animation: rotation 8s linear infinite;
-    animation: rotation 8s linear infinite;
-    /* animation-play-state: paused; */
+  -webkit-animation: rotation 8s linear infinite;
+  animation: rotation 8s linear infinite;
 }
 
 .hex-box-main #hex-goldenrod {
-    -webkit-animation: counterRotation 2s linear infinite;
-    animation: counterRotation 2s linear infinite;
-    -webkit-animation-delay: 0ms, 300ms;
-    animation-delay: 0ms, 300ms;
-    /* animation-play-state: paused; */
+  -webkit-animation: counterRotation 2s linear infinite;
+  animation: counterRotation 2s linear infinite;
+  -webkit-animation-delay: 0ms, 300ms;
+  animation-delay: 0ms, 300ms;
 }
 
 .hex-box-main #hex-greyspace-lg, .hex-box-main #hex-ring-lg {
-    -webkit-animation: rotation 2s linear infinite;
-    animation: rotation 2s linear infinite;
-    /* animation-play-state: paused; */
+  -webkit-animation: rotation 2s linear infinite;
+  animation: rotation 2s linear infinite;
 }
 
 .hex-box-main #hex-ring-sm {
-    animation: rotation 1s linear infinite;
+  animation: rotation 1s linear infinite;
 }
 
 .hex-box-main:hover #hex-gold,
+.hex-box-main:hover #hex-gold-great,
+.hex-box-main:hover #hex-greyspace-great,
 .hex-box-main:hover #hex-gold-outside,
 .hex-box-main:hover #hex-gold-outside-2,
 .hex-box-main:hover #hex-gold-corner,
@@ -98,175 +98,179 @@
 .hex-box-main:hover #hex-ring-lg,
 .hex-box-main:hover #hex-ring-sm,
 .hex-box-main:hover #hex-smallest {
-    animation-play-state: paused;
+  animation-play-state: paused;
 }
 
 #hex-ring-lg {
-    position: absolute;
-    width: 4.65em;
-    height: 5.37em;
-    top: -1.82em;
-    left: -0.77em;
-    filter: drop-shadow(0 0 5px goldenrod);
+  position: absolute;
+  width: 4.65em;
+  height: 5.37em;
+  top: -1.82em;
+  left: -0.77em;
+  filter: drop-shadow(0 0 5px goldenrod);
 }
 
 #hex-ring-lg::before {
-    position: absolute;
-    background: goldenrod;
-    content: "";
-    width: 100%;
-    height: 100%;
-    clip-path: var(--hex);
+  position: absolute;
+  background: goldenrod;
+  content: "";
+  width: 100%;
+  height: 100%;
+  clip-path: var(--hex);
 }
 
 #hex-greyspace-lg {
-    position: absolute;
-    width: 4.36em;
-    height: 5.03em;
-    top: -1.65em;
-    left: -0.64em;
-    background-color: var(--main-bg-skew-color);
-    clip-path: var(--hex);
+  position: absolute;
+  width: 4.36em;
+  height: 5.03em;
+  top: -1.65em;
+  left: -0.64em;
+  background-color: var(--main-bg-skew-color);
+  clip-path: var(--hex);
 }
 
 #hex-gold {
-    position: absolute;
-    width: 3.13em;
-    height: 3.61em;
-    top: -1em;
+  position: absolute;
+  width: 3.13em;
+  height: 3.61em;
+  top: -1em;
+}
+
+#hex-gold-great {
+  position: absolute;
+  width: 27.9em;
+  height: 32.16em;
+  top: -14em;
+  left: -12.4em;
+  background-color: goldenrod;
+  clip-path: var(--hex);
+  z-index: -1;
+  opacity: 0.1;
+  animation: counterRotation 16s linear infinite;
+}
+
+#hex-greyspace-great {
+  position: absolute;
+  width: 27.34em;
+  height: 31.52em;
+  top: .25em;
+  left: .25em;
+  background-color: var(--main-bg-skew-color);
+  clip-path: var(--hex);
+  z-index: -1;
+}
+
+#hex-gold-outside, #hex-gold-outside-2 {
+  position: absolute;
+  width: 0.38em;
+  height: 0.44em;
+  top: 5em;
+  background-color: gold;
+  clip-path: var(--hex);
+  transition-duration: 0.3s;
 }
 
 #hex-gold-outside {
-    position: absolute;
-    width: 0.38em;
-    height: 0.44em;
-    top: 5em;
-    background-color: gold;
-    clip-path: var(--hex);
-    transition-duration: 0.3s;
-    animation: counterRotation 1s linear infinite, sineWave 2s ease-in-out infinite;
+  animation: 
+    counterRotation 1s linear infinite, 
+    /* brighten 2s linear infinite, */
+    sineWave 2s ease-in-out infinite;
 }
 
+
 #hex-gold-outside-2 {
-    position: absolute;
-    width: 0.38em;
-    height: 0.44em;
-    top: 5em;
-    left: 1em;
-    background-color: gold;
-    clip-path: var(--hex);
-    transition-duration: 0.3s;
-    animation: counterRotation 1s linear infinite, sineWave 1.5s ease-in-out infinite;
+  left: 1em;
+  animation:
+    counterRotation 1s linear infinite,
+    /* brighten 2s linear infinite, */
+    cosWave 2s ease-in-out infinite;
 }
 
 #hex-gold-corner, #hex-gold-corner-2 {
-    position: absolute;
-    width: 0.57em;
-    height: 0.66em;
-    background-color: goldenrod;
-    clip-path: var(--hex);
-    transition-duration: 0.3s;
-    animation: counterRotation 1s linear infinite;
+  position: absolute;
+  width: 0.57em;
+  height: 0.66em;
+  background-color: goldenrod;
+  clip-path: var(--hex);
+  transition-duration: 0.3s;
+  animation: counterRotation 1s linear infinite;
 }
 
 #hex-gold-corner {
-    top: 5.3em;
-    left: 1.5em;
+  top: 5.3em;
+  left: 1.5em;
 }
 
 #hex-gold-corner-2 {
-    top: 3.5em;
-    left: 4.5em;
-}
-
-#hex-gold-corner-3 {
-    position: absolute;
-    width: 0.57em;
-    height: 0.66em;
-    top: 0em;
-    left: 4.5em;
-    background-color: goldenrod;
-    clip-path: var(--hex);
-    transition-duration: 0.3s;
-    animation: counterRotation 1s linear infinite;
-}
-
-#hex-gold-corner-4 {
-    position: absolute;
-    width: 0.57em;
-    height: 0.66em;
-    top: -2.5em;
-    left: 1.5em;
-    background-color: goldenrod;
-    clip-path: var(--hex);
-    transition-duration: 0.3s;
-    animation: counterRotation 1s linear infinite;
+  top: 3.5em;
+  left: 4.5em;
 }
 
 #hex-gold::before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 100%;
-    background: gold;
-    clip-path: var(--hex);
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: gold;
+  clip-path: var(--hex);
 }
 
 #hex-goldenrod {
-    position: absolute;
-    width: 2.5em;
-    height: 2.89em;
-    top: 1.9em;
-    left: 1.15em;
-    filter: drop-shadow(0 0 5px goldenrod);
+  position: absolute;
+  width: 2.5em;
+  height: 2.89em;
+  top: 1.9em;
+  left: 1.15em;
+  filter: drop-shadow(0 0 5px goldenrod);
 }
 
 #hex-goldenrod::before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 100%;
-    background: goldenrod;
-    opacity: .8;
-    clip-path: var(--hex);
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: goldenrod;
+  opacity: .8;
+  clip-path: var(--hex);
 }
 
 #hex-ring-sm {
-    position: absolute;
-    width: 1.13em;
-    height: 1.29em;
-    bottom: -1.5em;
-    left: -1.25em;
+  position: absolute;
+  width: 1.13em;
+  height: 1.29em;
+  bottom: -1.5em;
+  left: -1.25em;
 }
 
 #hex-ring-sm::before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 100%;
-    background: gold;
-    clip-path: var(--hex);
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: gold;
+  clip-path: var(--hex);
 }
 
 #hex-greyspace-sm {
-    position: absolute;
-    width: 0.75em;
-    height: 0.87em;
-    top: 0.2em;
-    left: 0.18em;
-    background-color: var(--main-bg-skew-color);
-    clip-path: var(--hex);
-    overflow: visible;
+  position: absolute;
+  width: 0.75em;
+  height: 0.87em;
+  top: 0.2em;
+  left: 0.18em;
+  background-color: var(--main-bg-skew-color);
+  clip-path: var(--hex);
+  overflow: visible;
 }
 
 #hex-smallest {
-    position: absolute;
-    margin: 10px;
-    width: 0.76em;
-    height: 0.88em;
-    top: 1.2em;
-    background-color: gold;
-    clip-path: var(--hex);
-    transition-duration: 0.3s;
-    animation: counterRotation .75s linear infinite;
+  position: absolute;
+  margin: 10px;
+  width: 0.76em;
+  height: 0.88em;
+  top: 1.2em;
+  background-color: gold;
+  clip-path: var(--hex);
+  transition-duration: 0.3s;
+  animation: counterRotation .75s linear infinite;
+    /* brighten 2s linear infinite; */
 }
