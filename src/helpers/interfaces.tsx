@@ -1,8 +1,9 @@
 export interface PageProps {
   pageRefs?: React.MutableRefObject<{}>,
   domRefs?: React.MutableRefObject<{}>,
-  isVisible?: boolean,
-  y?: number,
-  scrollDir?: string,
+  containerRef?: any
+  isVisible?: boolean | React.MutableRefObject<any>,
+  y?: string | number,
+  scrollDir?: string | number,
   isLargeScreen?: boolean,
 };

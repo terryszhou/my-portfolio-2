@@ -13,13 +13,15 @@ import { PageProps } from "../helpers/interfaces";
 import { SpinHex } from "./SpinHex";
 import { HeroDividers } from "./HeroDividers";
 
-export const Home = ({ pageRefs }: PageProps) => {
+export const Home = ({ pageRefs, containerRef, isVisible }: PageProps) => {
   const fadeRightAnim1: string = `${fadeRight} 1s 100ms forwards`;
   const fadeRightAnim2: string = `${fadeRight} 1s 250ms forwards`;
   const fadeRightAnim3: string = `${fadeRight} 1s 400ms forwards`;
 
   return (
     <Flex
+      transition={"200ms ease-out"}
+      opacity={isVisible ? 1 : 0}
       alignItems={"center"}
       boxSizing={"border-box"}
       flexDirection={{ base: "column", md: "row" }}
@@ -27,7 +29,7 @@ export const Home = ({ pageRefs }: PageProps) => {
       position={"relative"}
       width={"75%"}
       ref={el => pageRefs.current = { ...pageRefs.current, home: el }}>
-      <Stack flexBasis={{ base: 0, md: "66%"}} marginTop={{ base: 40, md: 0 }}>
+      <Stack flexBasis={{ base: 0, md: "66%"}} marginTop={{ base: 40, md: 0 }} ref={containerRef}>
         <Text>
           <Heading
             animation={fadeRightAnim1}
