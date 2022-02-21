@@ -7,8 +7,11 @@ interface HexProps {
   width: number,
   children?: JSX.Element,
   onClick?: () => void,
+  opacity?: number,
+  onMouseOver?: any,
   top?: string | number,
   left?: string | number,
+  role?: string,
   right?: string | number,
   bottom?: string | number,
   transitionDelay?: string,
@@ -24,6 +27,9 @@ export const Hexagon = ({
   onClick,
   top,
   left,
+  onMouseOver,
+  role,
+  opacity,
   right,
   bottom,
   _groupHover,
@@ -32,16 +38,19 @@ export const Hexagon = ({
 }: HexProps) => {
   return (
     <Center
+      role={role}
       top={top}
       left={left}
       right={right}
       bottom={bottom}
       animation={animation}
+      opacity={opacity}
       height={`${width * 2}px`}
       position={"relative"}
       onClick={onClick}
       transition={"200ms ease-out"}
       transitionDelay={transitionDelay}
+      onMouseOver={onMouseOver}
       _groupHover={_groupHover}
       _hover={_hover}>
       <Box 
