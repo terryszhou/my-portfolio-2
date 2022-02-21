@@ -4,12 +4,11 @@ import { PageProps } from "../helpers/interfaces";
 import { SectionHeader } from "./SectionHeader";
 import { HeroDividers } from "./HeroDividers";
 import { Hexagon } from "./Hexagon";
-import { fadeDown, rotate, flash } from "../helpers/animations";
+import { flash } from "../helpers/animations";
 
 export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
   const [loaded, setLoaded] = React.useState<boolean>(false);
   React.useEffect((): void => visible && setLoaded(true), [visible])
-  const testAnim: string = `${fadeDown} 3000ms, ${rotate} 3000ms`;
   const flashAnim: string = `${flash} 1000ms`
 
   return (
@@ -38,41 +37,39 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
             top={visible ? "-25%" : 0}
             left={visible ? "-14.7%" : 0}
             color={"goldenrod"}
-            edgeLen={100} />
+            width={170}>
+            <Hexagon width={160} color={"linear-gradient(rgb(230,60,42), rgb(170,170,170) 90%)"} />
+          </Hexagon>
           <Hexagon
             top={visible ? "-25%" : 0}
             left={visible? "14.7%" : 0}
             color={"goldenrod"}
             transitionDelay={"30ms"}
-            edgeLen={100} />
-          {/* <Hexagon
-            top={visible ? "0.5%" : 0}
-            color={"goldenrod"}
-            edgeLen={100} /> */}
+            width={170} />
           <Hexagon
             top={visible ? "0.5%" : 0}
             left={visible ? "29.4%" : 0}
             color={"goldenrod"}
             transitionDelay={"60ms"}
-            edgeLen={100} />
+            width={170} />
           <Hexagon
             top={visible ? "26%" : 0}
             left={visible ? "14.7%" : 0}
             color={"goldenrod"}
             transitionDelay={"90ms"}
-            edgeLen={100} />
+            width={170} />
           <Hexagon
             top={visible ? "26%" : 0}
             left={visible ? "-14.7%" : 0}
             color={"goldenrod"}
             transitionDelay={"120ms"}
-            edgeLen={100} />
+            width={170} />
           <Hexagon
             top={visible ? "0.5%" : 0}
             left={visible ? "-29.4%" : 0}
             color={"goldenrod"}
             transitionDelay={"150ms"}
-            edgeLen={100} />
+            width={170} />
         </Flex>
       }
     </Flex>

@@ -1,10 +1,10 @@
-import { Box, Center, Stack, useColorModeValue } from "@chakra-ui/react";
+import { Box, Center } from "@chakra-ui/react";
 import * as React from "react";
 
 interface HexProps {
   animation?: string
   color: string,
-  edgeLen: number,
+  width: number,
   children?: JSX.Element,
   onClick?: () => void,
   top?: string | number,
@@ -19,7 +19,7 @@ interface HexProps {
 export const Hexagon = ({
   animation,
   color,
-  edgeLen,
+  width,
   transitionDelay,
   onClick,
   top,
@@ -37,36 +37,32 @@ export const Hexagon = ({
       right={right}
       bottom={bottom}
       animation={animation}
-      height={`${edgeLen * 2}px`}
+      height={`${width * 2}px`}
       position={"relative"}
       onClick={onClick}
       transition={"200ms ease-out"}
       transitionDelay={transitionDelay}
       _groupHover={_groupHover}
       _hover={_hover}>
-      <Stack
-        filter={useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)")}
+      <Box 
         position={"absolute"}
-        spacing={0}>
-        <Box
-          width={0}
-          borderBottom={`${edgeLen / 2}px solid ${color}`}
-          borderLeft={`${edgeLen * .8666666}px solid transparent`}
-          borderRight={`${edgeLen * .8666666}px solid transparent`} />
-        <Box
-          width={`${edgeLen * 1.7333333}px`}
-          height={`${edgeLen}px`}
-          bgColor={`${color}`} />
-        <Box
-          width={0}
-          borderTop={`${edgeLen / 2}px solid ${color}`}
-          borderLeft={`${edgeLen * .8666666}px solid transparent`}
-          borderRight={`${edgeLen * .8666666}px solid transparent`} />
-      </Stack>
+        width={width}
+        height={width * 1.1547}
+        margin={"6px"}
+        display={"inline-block"}
+        fontSize={"initial"}
+        _before={{
+          position: "absolute",
+          background: color,
+          content: `""`,
+          inset: 0,
+          clipPath: "polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%)"
+        }}
+      />
       <Center
-        height={`${edgeLen * 2}`}
+        height={`${width * 2}`}
         position={"absolute"}
-        width={`${edgeLen * 1.7333333}`}>
+        width={`${width * 1.7333333}`}>
         {children}
       </Center>
     </Center>

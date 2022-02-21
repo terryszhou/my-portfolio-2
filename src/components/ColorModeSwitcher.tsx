@@ -11,21 +11,21 @@ import { FaMoon, FaSun } from "react-icons/fa";
 import { HiCursorClick } from "react-icons/hi";
 
 export const ColorModeSwitcher = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { toggleColorMode } = useColorMode();
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
 
   return (
     <HStack spacing={"35px"} role={"group"}>
       <Hexagon
         color={"goldenrod"}
-        edgeLen={25}
+        width={43}
         onClick={toggleColorMode}
         _groupHover={{
           cursor: "pointer",
           filter: "brightness(1.25)",
           transform: "scale(1.15)",
         }}>
-        <Hexagon color={useColorModeValue("white", "rgb(28,28,28)")} edgeLen={22} >
+        <Hexagon color={useColorModeValue("white", "rgb(28,28,28)")} width={38} >
           <Icon
             as={HiCursorClick}
             color={useColorModeValue("rgb(28,28,28)","white")}
@@ -35,7 +35,7 @@ export const ColorModeSwitcher = () => {
       </Hexagon>
     <Hexagon
       color={"transparent"}
-      edgeLen={10}
+      width={17}
       onClick={toggleColorMode}
       _groupHover={{ transform: "translateX(-35px)" }}
       _hover={{ cursor: "pointer" }}>
