@@ -11,6 +11,7 @@ interface HexProps {
   left?: string | number,
   right?: string | number,
   bottom?: string | number,
+  transitionDelay?: string,
   _hover?: {},
   _groupHover?: {},
 };
@@ -19,6 +20,7 @@ export const Hexagon = ({
   animation,
   color,
   edgeLen,
+  transitionDelay,
   onClick,
   top,
   left,
@@ -39,6 +41,7 @@ export const Hexagon = ({
       position={"relative"}
       onClick={onClick}
       transition={"200ms ease-out"}
+      transitionDelay={transitionDelay}
       _groupHover={_groupHover}
       _hover={_hover}>
       <Stack
@@ -61,9 +64,9 @@ export const Hexagon = ({
           borderRight={`${edgeLen * .8666666}px solid transparent`} />
       </Stack>
       <Center
-        height={`${edgeLen * 2}px`}
+        height={`${edgeLen * 2}`}
         position={"absolute"}
-        width={`${edgeLen * 1.7333333}px`}>
+        width={`${edgeLen * 1.7333333}`}>
         {children}
       </Center>
     </Center>

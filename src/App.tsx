@@ -42,7 +42,6 @@ export const App = () => {
         visible={visible2} 
         visRef={visRef2} />
       <Experience
-        isLargeScreen={isLargeScreen}
         pageRefs={pageRefs} 
         visible={visible3}
         visRef={visRef3} />

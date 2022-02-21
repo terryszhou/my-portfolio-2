@@ -40,3 +40,19 @@ export const slideRight: string = keyframes`
     opacity: 1;
   }
 `;
+
+export const rotate: string = keyframes`
+  from {
+    transform: rotate(0deg)
+  } to  {
+    transform: rotate(360deg)
+  }
+`;
+
+export const flash: string = keyframes`
+  from {
+    filter: brightness(2)
+  } to {
+    filter: none
+  }
+`
