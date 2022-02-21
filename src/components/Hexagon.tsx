@@ -1,4 +1,4 @@
-import { Box, Center } from "@chakra-ui/react";
+import { Box, Center, useColorModeValue } from "@chakra-ui/react";
 import * as React from "react";
 
 interface HexProps {
@@ -14,7 +14,9 @@ interface HexProps {
   role?: string,
   right?: string | number,
   bottom?: string | number,
+  filter?: string,
   transitionDelay?: string,
+  transform? : string,
   _hover?: {},
   _groupHover?: {},
 };
@@ -30,8 +32,10 @@ export const Hexagon = ({
   onMouseOver,
   role,
   opacity,
+  filter,
   right,
   bottom,
+  transform,
   _groupHover,
   _hover,
   children
@@ -48,23 +52,26 @@ export const Hexagon = ({
       height={`${width * 2}px`}
       position={"relative"}
       onClick={onClick}
-      transition={"200ms ease-out"}
+      transform={transform}
+      transition={"300ms ease-out"}
       transitionDelay={transitionDelay}
       onMouseOver={onMouseOver}
       _groupHover={_groupHover}
       _hover={_hover}>
       <Box 
-        position={"absolute"}
-        width={width}
+        display={"inline-block"}
+        filter={filter}
+        fontSize={"initial"}
         height={width * 1.1547}
         margin={"6px"}
-        display={"inline-block"}
-        fontSize={"initial"}
+        position={"absolute"}
+        width={width}
         _before={{
           position: "absolute",
           background: color,
           content: `""`,
           inset: 0,
+          transition: "300ms ease-out",
           clipPath: "polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%)"
         }}
       />

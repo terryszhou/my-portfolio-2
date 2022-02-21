@@ -3,17 +3,15 @@ import * as React from "react";
 
 interface SectionHeaderProps {
   label: string,
-  visRef: any,
 };
 
-export const SectionHeader = ({ label, visRef }: SectionHeaderProps) => {
+export const SectionHeader = ({ label }: SectionHeaderProps) => {
   const number: string = label.split(".")[0] + "."
   const title: string = " " + label.split(".")[1]
 
   return (
     <HStack
       position={"absolute"}
-      ref={visRef}
       spacing={6}
       top={{ base: "6%", lg: "12%" }}>
       <Divider

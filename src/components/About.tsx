@@ -27,13 +27,14 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
       position={"relative"}
       width={"75%"}
       ref={el => pageRefs.current = { ...pageRefs.current, about: el }}>
-      <SectionHeader label={"02. About Me"} visRef={visRef} />
+      <SectionHeader label={"02. About Me"} />
       <Flex
         flexDirection={"column"}
         height={{ base: "40%", lg: "80%" }}
         marginTop={{ base: "2rem", lg: "4rem" }}
         paddingTop={{base: "3rem", lg: "1rem" }}
         paddingX={"1rem"}
+        ref={visRef}
         width={{ base: "100%", lg: "50%" }}>
         {loaded && <HeroDividers orientation={"topleft"} />}
         <ContentBox>{QAndA(colorMode)}</ContentBox>

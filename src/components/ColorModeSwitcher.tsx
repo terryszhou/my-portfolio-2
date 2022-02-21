@@ -19,6 +19,7 @@ export const ColorModeSwitcher = () => {
       <Hexagon
         color={"goldenrod"}
         width={43}
+        filter={useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)")}
         onClick={toggleColorMode}
         _groupHover={{
           cursor: "pointer",
