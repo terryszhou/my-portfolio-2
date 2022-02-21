@@ -7,6 +7,10 @@ interface HexProps {
   edgeLen: number,
   children?: JSX.Element,
   onClick?: () => void,
+  top?: string | number,
+  left?: string | number,
+  right?: string | number,
+  bottom?: string | number,
   _hover?: {},
   _groupHover?: {},
 };
@@ -16,14 +20,22 @@ export const Hexagon = ({
   color,
   edgeLen,
   onClick,
+  top,
+  left,
+  right,
+  bottom,
   _groupHover,
   _hover,
   children
 }: HexProps) => {
   return (
     <Center
+      top={top}
+      left={left}
+      right={right}
+      bottom={bottom}
       animation={animation}
-      h={`${edgeLen * 2}px`}
+      height={`${edgeLen * 2}px`}
       position={"relative"}
       onClick={onClick}
       transition={"200ms ease-out"}

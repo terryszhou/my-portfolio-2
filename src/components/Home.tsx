@@ -4,6 +4,7 @@ import {
   Stack,
   Text,
   Heading,
+  Image,
   useColorModeValue,
 } from "@chakra-ui/react";
 import * as React from "react";
@@ -42,6 +43,8 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
             fontFamily={"var(--chakra-fonts-mono)"}
             opacity={0}
             marginY={4}
+            display={"flex"}
+            alignItems={"center"}
             width={"fit-content"}>
             <span>
               <span style={{
@@ -60,6 +63,11 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
               }}> Z</span>
               hou
             </span>
+            <Image
+              boxSize={{ base: "40px", lg: "50px" }}
+              filter={useColorModeValue("none", "drop-shadow(0 0 2px red)")}
+              marginLeft={{ base: 2, lg: 4 }}
+              src={"/seal-sig.png"} />
           </Heading>
           <Heading
             animation={fadeRightAnim2}

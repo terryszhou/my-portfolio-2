@@ -19,6 +19,7 @@ export const App = () => {
   const pageRefs: React.MutableRefObject<{}> = React.useRef({});
   const [visRef, visible]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
   const [visRef2, visible2]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
+  const [visRef3, visible3]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
   const [y, scrollDir]: [number, string] = useNavigation();
 
   return (
@@ -33,14 +34,18 @@ export const App = () => {
         scrollDir={scrollDir}
         y={y} />
       <Home
-        visRef={visRef}
         pageRefs={pageRefs}
-        visible={visible} />
+        visible={visible} 
+        visRef={visRef} />
       <About
-        visRef={visRef2}
         pageRefs={pageRefs}
-        visible={visible2} />
-      <Experience pageRefs={pageRefs} />
+        visible={visible2} 
+        visRef={visRef2} />
+      <Experience
+        isLargeScreen={isLargeScreen}
+        pageRefs={pageRefs} 
+        visible={visible3}
+        visRef={visRef3} />
       <Projects pageRefs={pageRefs} />
       <Contact pageRefs={pageRefs} />
     </VStack>
