@@ -2,8 +2,8 @@ import { Center, VStack, useColorModeValue } from "@chakra-ui/react";
 import * as React from "react";
 
 interface ContentBoxProps {
-  children?: JSX.Element | JSX.Element[]
-}
+  children?: JSX.Element | JSX.Element[],
+};
 
 export const ContentBox = ({ children }: ContentBoxProps) => {
   return (

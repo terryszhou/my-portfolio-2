@@ -13,15 +13,17 @@ import { PageProps } from "../helpers/interfaces";
 import { SpinHex } from "./SpinHex";
 import { HeroDividers } from "./HeroDividers";
 
-export const Home = ({ pageRefs, containerRef, isVisible }: PageProps) => {
+export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
   const fadeRightAnim1: string = `${fadeRight} 1s 100ms forwards`;
   const fadeRightAnim2: string = `${fadeRight} 1s 250ms forwards`;
   const fadeRightAnim3: string = `${fadeRight} 1s 400ms forwards`;
+  const [loaded, setLoaded] = React.useState<boolean>(false);
+  React.useEffect((): void => visible && setLoaded(true), [visible])
 
   return (
     <Flex
-      transition={"200ms ease-out"}
-      opacity={isVisible ? 1 : 0}
+      transition={"1s ease-out"}
+      opacity={visible ? 1 : 0.25}
       alignItems={"center"}
       boxSizing={"border-box"}
       flexDirection={{ base: "column", md: "row" }}
@@ -29,7 +31,10 @@ export const Home = ({ pageRefs, containerRef, isVisible }: PageProps) => {
       position={"relative"}
       width={"75%"}
       ref={el => pageRefs.current = { ...pageRefs.current, home: el }}>
-      <Stack flexBasis={{ base: 0, md: "66%"}} marginTop={{ base: 40, md: 0 }} ref={containerRef}>
+      <Stack
+        flexBasis={{ base: 0, md: "66%"}}
+        marginTop={{ base: 40, md: 0 }}
+        ref={visRef}>
         <Text>
           <Heading
             animation={fadeRightAnim1}
@@ -81,7 +86,7 @@ export const Home = ({ pageRefs, containerRef, isVisible }: PageProps) => {
       <Center flexBasis={"33%"} marginRight={"20%"}>
         <SpinHex />
       </Center>
-      <HeroDividers orientation={"topright"} />
+      {loaded && <HeroDividers orientation={"topright"} />}
     </Flex>
   );
 };

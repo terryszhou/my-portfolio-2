@@ -15,18 +15,18 @@ import { fadeDown } from "../helpers/animations";
 import { capitalize } from "../helpers/functions";
 import { PageProps } from "../helpers/interfaces";
 
-export const Nav = ({ pageRefs, y, scrollDir, isLargeScreen, }: PageProps) => {
+export const Nav = ({ pageRefs, y, scrollDir, isLargeScreen }: PageProps) => {
   const { colorMode } = useColorMode();
   const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
   const [stopScroll, setStopScroll] = React.useState<string>();
 
-  React.useEffect(():void => {
+  React.useEffect((): void => {
     menuOpen
       ? setStopScroll(document.body.style.overflow = "hidden")
       : setStopScroll(document.body.style.overflow = "initial");
   }, [menuOpen])
 
-  React.useEffect(():void => {
+  React.useEffect((): void => {
     isLargeScreen && setMenuOpen(false);
   }, [isLargeScreen])
 

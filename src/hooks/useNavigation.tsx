@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const useNavigation = () => {
+export const useNavigation = (): [number, string] => {
   const [y, setY] = React.useState<number>(window.scrollY);
   const [scrollDir, setScrollDir] = React.useState<string>("");
 
