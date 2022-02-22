@@ -2,6 +2,7 @@ import { Divider, Text, Heading, List, ListItem, ListIcon, useColorModeValue } f
 import * as React from "react";
 
 import { BiRightArrow } from "react-icons/bi";
+import { listArray } from "../helpers/variables";
 
 interface ExperienceListProps {
   rotation: any,
@@ -34,65 +35,6 @@ export const ExperienceList = ({ rotation }: ExperienceListProps) => {
         setIdx(0);
     };
   }, [rotation]);
-
-  const listArray = [
-    {
-      title: "Try selecting a hexagon!",
-      itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-      itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-      itemThree: "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
-      skillSet: "Test",
-      links: "Test"
-    },
-    {
-      title: "Hipdemo",
-      itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-      itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-      itemThree: "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
-      skillSet: "Next, Vercel, Firebase, VideoJS,",
-      links: "Github Repo"
-    },
-    {
-      title: "Restoic",
-      itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-      itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-      itemThree: "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
-      skillSet: "React Native, XCode, Android Studio",
-      links: "App Store | Google Play Store"
-    },
-    {
-      title: "Python of Life",
-      itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-      itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-      itemThree: "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
-      skillSet: "Python, Pygame",
-      links: "Github Repo"
-    },
-    {
-      title: "Pixel Runner",
-      itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-      itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-      itemThree: "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
-      skillSet: "Python, Pygame",
-      links: "Github Repo"
-    },
-    {
-      title: "PokéMap",
-      itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-      itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-      itemThree: "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
-      skillSet: "Express, React, Axios, SQL",
-      links: "Live Site | Github Repo"
-    },
-    {
-      title: "Cat Crawler",
-      itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-      itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-      itemThree: "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
-      skillSet: "Canvas, JavaScript, CSS",
-      links: "Live Site | Github Repo"
-    },
-  ]
 
   return (
     <Text>

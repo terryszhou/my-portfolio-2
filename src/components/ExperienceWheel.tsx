@@ -1,12 +1,9 @@
 import { Icon, Image, useColorModeValue } from "@chakra-ui/react";
 import * as React from "react";
 
-import { BiUpArrow, BiRun } from "react-icons/bi";
-import { GiWingfoot, GiConwayLifeGlider, GiVideoConference } from "react-icons/gi";
-import { CgPokemon } from "react-icons/cg";
-import { FaCat } from "react-icons/fa";
+import { BiUpArrow } from "react-icons/bi";
 
-
+import { wheelHexArray } from "../helpers/variables";
 import { Hexagon } from "./Hexagon";
 
 interface ExperienceWheelProps {
@@ -17,55 +14,6 @@ interface ExperienceWheelProps {
 
 export const ExperienceWheel = ({ visible, rotation, setRotation }: ExperienceWheelProps) => {
   const hexShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)");
-  const wheelHexArray = [
-    {
-      color: "linear-gradient(rgb(130,104,235), rgb(237,128,93) 90%)",
-      currentRotation: 330,
-      left: "-14.7%",
-      top: "-25%",
-      icon: GiVideoConference,
-    },
-    {
-      color: "linear-gradient(rgb(230,60,42), rgb(170,170,170) 90%)",
-      currentRotation: 30,
-      left: "14.7%",
-      top: "-25%",
-      icon: GiWingfoot,
-      image: "/restoic-app.png",
-    },
-    {
-      color: "linear-gradient(rgb(108,37,152), rgb(189,54,54))",
-      currentRotation: 90,
-      left: "29.4%",
-      top: "0.5%",
-      icon: GiConwayLifeGlider,
-      image: "/game-of-life-desktop.png",
-    },
-    {
-      color: "linear-gradient(rgb(193,98,204), rgb(142,232,232))",
-      currentRotation: 150,
-      left: "14.7%",
-      top: "26%",
-      icon: BiRun,
-      image: "/pixel-runner-desktop.png",
-    },
-    {
-      color: "linear-gradient(rgb(61,75,130), rgb(103, 194, 78))",
-      currentRotation: 210,
-      left: "-14.7%",
-      top: "26%",
-      icon: CgPokemon,
-      image: "/pokemap-desktop.png",
-    },
-    {
-      color: "linear-gradient(rgb(99,40,52), rgb(204, 124, 39))",
-      currentRotation: 270,
-      left: "-29.4%",
-      top: "0.5%",
-      icon: FaCat,
-      image: "/cat-crawler-desktop.png",
-    },
-  ];
 
   const wheelHexMap = wheelHexArray.map(e => (
     <WheelHex
@@ -78,6 +26,7 @@ export const ExperienceWheel = ({ visible, rotation, setRotation }: ExperienceWh
       top={e.top}
       icon={e.icon}
       image={e.image}
+      transitionDelay={e.transitionDelay}
       visible={visible} />
   ));
 
@@ -112,6 +61,7 @@ interface WheelHexProps {
   color: string,
   icon?: any,
   image?: any,
+  transitionDelay: string,
 };
 
 export const WheelHex = ({
@@ -124,6 +74,7 @@ export const WheelHex = ({
   top,
   image,
   visible,
+  transitionDelay,
   icon,
 }: WheelHexProps) => {
   const hexColorInner: string = useColorModeValue('white', 'rgb(27,32,43)');
@@ -135,6 +86,7 @@ export const WheelHex = ({
       filter={rotation === currentRotation && hexShadow}
       left={visible ? left : 0}
       top={visible ? top : 0}
+      transitionDelay={transitionDelay}
       width={170}>
       <Hexagon
         color={rotation === currentRotation ? color : hexColorInner}

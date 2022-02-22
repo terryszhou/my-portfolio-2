@@ -53,7 +53,7 @@ export const Hexagon = ({
       position={"relative"}
       onClick={onClick}
       transform={transform}
-      transition={"300ms ease-out"}
+      transition={"200ms ease-out"}
       transitionDelay={transitionDelay}
       onMouseOver={onMouseOver}
       _groupHover={_groupHover}
@@ -71,7 +71,7 @@ export const Hexagon = ({
           background: color,
           content: `""`,
           inset: 0,
-          transition: "300ms ease-out",
+          transition: "200ms ease-out",
           clipPath: "polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%)"
         }}
       />
