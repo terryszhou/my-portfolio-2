@@ -1,4 +1,14 @@
-import { Flex, Box } from "@chakra-ui/react";
+import {
+  Flex,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+} from "@chakra-ui/react";
 import React from "react";
 
 import { ContentBox } from "./ContentBox";
@@ -9,7 +19,7 @@ import { PageProps } from "../helpers/interfaces";
 import { HeroDividers } from "./HeroDividers";
 import { SectionHeader } from "./SectionHeader";
 
-export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
+export const Experience = ({ isLargeScreen, pageRefs, visible, visRef }: PageProps) => {
   const [loaded, setLoaded] = React.useState<boolean>(false);
   React.useEffect((): void => visible && setLoaded(true), [visible]);
 
@@ -17,48 +27,69 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
   React.useEffect((): void => rotation && setRotation(rotation), [rotation]);
 
   const flashAnim: string = `${flash} 1000ms`;
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <Flex
-      transition={"1s ease-out"}
-      opacity={visible ? 1 : 0.25}
       alignItems={"center"}
       flexDirection={{ base: "column", lg: "row" }}
-      height={{ base: "140vh", lg: "100vh" }}
+      height={{ base: "35vh", lg: "100vh"}}
+      opacity={visible ? 1 : 0.25}
       position={"relative"}
-      width={"75%"}
-      ref={el => pageRefs.current = { ...pageRefs.current, experience: el }}>
+      ref={el => pageRefs.current = { ...pageRefs.current, experience: el }}
+      transition={"1s ease-out"}
+      width={"75%"}>
       {loaded && <HeroDividers orientation={"topleft"} />}
       <SectionHeader label={"03. My Experience"} />
       <Flex
-        height={{ base: "50%", lg: "100%" }}
+        height={"100%"}
         justifyContent={"center"}
         ref={visRef}
         width={{ base: "100%", lg: "50%" }}>
         <Flex
-          position={"absolute"}
-          top={0}
-          animation={visible && flashAnim}
-          marginTop={"10%"}
-          height={600}
-          width={600}
           alignItems={"center"}
-          justifyContent={"center"}>
+          animation={visible && flashAnim}
+          height={"45vw"}
+          justifyContent={"center"}
+          position={"absolute"}
+          marginLeft={{ base: 0, lg: "10%" }}
+          top={{ base: "20%", lg: "10%" }}
+          width={"45vw"}>
           {loaded && 
             <ExperienceWheel
+              onClick={!isLargeScreen ? onOpen : undefined}
               rotation={rotation}
               setRotation={setRotation} 
               visible={visible} />}
         </Flex>
       </Flex>
-      <Flex
-        padding={20}
-        height={{ base: "50%", lg: "85%" }}
-        width={{ base: "120%", lg: "50%" }}>
-        <ContentBox>
-          <ExperienceList rotation={rotation} />
-        </ContentBox>
-      </Flex>
+      {isLargeScreen ? (
+        <Flex
+          height={"40vw"}
+          width={"100%"}
+          justifyContent={"flex-end"}
+          alignItems={"center"}>
+          <ContentBox>
+            <ExperienceList rotation={rotation} />
+          </ContentBox>
+        </Flex>
+      ) : (
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
+          <ModalBody padding={10}>
+            <ExperienceList rotation={rotation} />
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={onClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+      )
+    }
     </Flex>
   );
 };

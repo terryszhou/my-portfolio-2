@@ -20,6 +20,7 @@ export const App = () => {
   const [visRef, visible]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
   const [visRef2, visible2]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
   const [visRef3, visible3]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
+  const [visRef4, visible4]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
   const [y, scrollDir]: [number, string] = useNavigation();
 
   return (
@@ -42,10 +43,14 @@ export const App = () => {
         visible={visible2} 
         visRef={visRef2} />
       <Experience
+        isLargeScreen={isLargeScreen}
         pageRefs={pageRefs} 
         visible={visible3}
         visRef={visRef3} />
-      <Projects pageRefs={pageRefs} />
+      {/* <Projects
+        pageRefs={pageRefs}
+        visible={visible4}
+        visRef={visRef4} /> */}
       <Contact pageRefs={pageRefs} />
     </VStack>
   );

@@ -3,67 +3,53 @@ import * as React from "react";
 
 interface HexProps {
   animation?: string
-  color: string,
-  width: number,
-  children?: JSX.Element,
-  onClick?: () => void,
-  opacity?: number,
-  onMouseOver?: any,
-  top?: string | number,
-  left?: string | number,
-  role?: string,
-  right?: string | number,
   bottom?: string | number,
+  children?: JSX.Element,
+  color: string,
+  cursor?: string,
   filter?: string,
-  transitionDelay?: string,
+  left?: string | number,
+  onClick?: () => void,
+  onMouseOver?: React.MouseEventHandler<HTMLDivElement>,
+  opacity?: number,
+  right?: string | number,
+  role?: string,
+  top?: string | number,
   transform? : string,
-  _hover?: {},
+  transitionDelay?: string,
+  width: string | number,
   _groupHover?: {},
+  _hover?: {},
 };
 
 export const Hexagon = ({
-  animation,
-  color,
-  width,
-  transitionDelay,
-  onClick,
-  top,
-  left,
-  onMouseOver,
-  role,
-  opacity,
-  filter,
-  right,
-  bottom,
-  transform,
-  _groupHover,
-  _hover,
-  children
+  animation, bottom, children, color, cursor, filter, left,
+  onClick, onMouseOver, opacity, right, role, top,
+  transform, transitionDelay, width, _groupHover, _hover,
 }: HexProps) => {
   return (
     <Center
+      animation={animation}
+      bottom={bottom}
+      cursor={cursor}
+      left={left}
+      width={0}
+      height={0}
+      onClick={onClick}
+      onMouseOver={onMouseOver}
+      opacity={opacity}
+      position={"relative"}
+      right={right}
       role={role}
       top={top}
-      left={left}
-      right={right}
-      bottom={bottom}
-      animation={animation}
-      opacity={opacity}
-      height={`${width * 2}px`}
-      position={"relative"}
-      onClick={onClick}
       transform={transform}
       transition={"200ms ease-out"}
       transitionDelay={transitionDelay}
-      onMouseOver={onMouseOver}
       _groupHover={_groupHover}
       _hover={_hover}>
       <Box 
-        display={"inline-block"}
         filter={filter}
-        fontSize={"initial"}
-        height={width * 1.1547}
-        margin={"6px"}
+        height={typeof width === "string" ? `calc(${width} * 1.1547)` : width * 1.1547}
         position={"absolute"}
         width={width}
         _before={{
@@ -73,12 +59,11 @@ export const Hexagon = ({
           inset: 0,
           transition: "200ms ease-out",
           clipPath: "polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%)"
-        }}
-      />
+        }} />
       <Center
-        height={`${width * 2}`}
+        height={typeof width === "string" ? `calc(${width} * 2)`: `${width * 2}`}
         position={"absolute"}
-        width={`${width * 1.7333333}`}>
+        width={typeof width === "string" ? `calc(${width} * 1.7333333)`: `${width * 1.7333333}`}>
         {children}
       </Center>
     </Center>

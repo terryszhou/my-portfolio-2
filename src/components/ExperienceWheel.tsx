@@ -7,12 +7,13 @@ import { wheelHexArray } from "../helpers/variables";
 import { Hexagon } from "./Hexagon";
 
 interface ExperienceWheelProps {
+  onClick: () => void,
   visible: boolean | React.Dispatch<boolean> | React.MutableRefObject<boolean>,
   rotation: number,
   setRotation: React.Dispatch<React.SetStateAction<number>>,
 };
 
-export const ExperienceWheel = ({ visible, rotation, setRotation }: ExperienceWheelProps) => {
+export const ExperienceWheel = ({ onClick, visible, rotation, setRotation }: ExperienceWheelProps) => {
   const hexShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)");
 
   const wheelHexMap = wheelHexArray.map(e => (
@@ -20,7 +21,9 @@ export const ExperienceWheel = ({ visible, rotation, setRotation }: ExperienceWh
       color={e.color}
       currentRotation={e.currentRotation}
       hexShadow={hexShadow}
+      key={e.id}
       left={e.left}
+      onClick={onClick}
       rotation={rotation}
       setRotation={setRotation}
       top={e.top}
@@ -37,13 +40,13 @@ export const ExperienceWheel = ({ visible, rotation, setRotation }: ExperienceWh
         top={visible ? "0.5%" : 0}
         transform={`rotate(${rotation}deg)`}
         transitionDelay={"80ms"}
-        width={170}>
+        width={"11.75vw"}>
         <Icon
           as={BiUpArrow}
-          boxSize={45}
+          boxSize={"15%"}
           color={"goldenrod"} 
           filter={hexShadow}
-          marginBottom={120} />
+          marginBottom={"40%"} />
       </Hexagon>
       {wheelHexMap}
     </React.Fragment>
@@ -51,51 +54,55 @@ export const ExperienceWheel = ({ visible, rotation, setRotation }: ExperienceWh
 };
 
 interface WheelHexProps {
-  visible: boolean | React.Dispatch<any> | React.MutableRefObject<any>,
-  rotation: number,
-  currentRotation: number,
-  setRotation: React.Dispatch<React.SetStateAction<number>>,
-  hexShadow: string,
-  top: string,
-  left: string,
   color: string,
-  icon?: any,
-  image?: any,
+  currentRotation: number,
+  hexShadow: string,
+  icon: any,
+  image: any,
+  left: string,
+  onClick?: () => void,
+  rotation: number,
+  setRotation: React.Dispatch<React.SetStateAction<number>>,
+  top: string,
   transitionDelay: string,
+  visible: boolean | React.Dispatch<any> | React.MutableRefObject<any>,
 };
 
 export const WheelHex = ({
   color,
   currentRotation,
   hexShadow,
+  icon,
+  image,
   left,
+  onClick,
   rotation,
   setRotation,
   top,
-  image,
-  visible,
   transitionDelay,
-  icon,
+  visible,
 }: WheelHexProps) => {
   const hexColorInner: string = useColorModeValue('white', 'rgb(27,32,43)');
   const hexColorOuter: string = useColorModeValue('black', 'white');
 
   return (
     <Hexagon
+      cursor={onClick && "pointer"}
       color={rotation === currentRotation ? "goldenrod" : hexColorOuter}
       filter={rotation === currentRotation && hexShadow}
       left={visible ? left : 0}
+      onClick={onClick}
       top={visible ? top : 0}
       transitionDelay={transitionDelay}
-      width={170}>
+      width={"11.5vw"}>
       <Hexagon
         color={rotation === currentRotation ? color : hexColorInner}
         onMouseOver={() => setRotation(currentRotation)}
-        width={165}>
+        width={"11.25vw"}>
         <React.Fragment>
           <Icon
             as={icon}
-            boxSize={12}
+            boxSize={"20%"}
             opacity={rotation === currentRotation ? 0 : 1}
             transition={"200ms ease-out"} />
           <Image
@@ -103,7 +110,7 @@ export const WheelHex = ({
             position={"absolute"}
             src={image}
             transition={"200ms ease-out"}
-            transform={String(image).includes("app") ? "scale(1.25)" : "scale(3)"} />
+            width={String(image).includes("app") ? "25%" : "70%"} />
         </React.Fragment>
       </Hexagon>
     </Hexagon>

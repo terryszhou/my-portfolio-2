@@ -1,4 +1,4 @@
-import { Center, VStack, useColorModeValue } from "@chakra-ui/react";
+import { Flex, Box, useColorModeValue } from "@chakra-ui/react";
 import * as React from "react";
 
 interface ContentBoxProps {
@@ -6,58 +6,72 @@ interface ContentBoxProps {
 };
 
 export const ContentBox = ({ children }: ContentBoxProps) => {
+  const boxGlow: string = useColorModeValue("none", "0 0 5px goldenrod");
+  const darkGlow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)");
+
   return (
-    <Center
-      border={"2px solid goldenrod"}
-      height={"90%"}
-      filter={useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)")}
-      marginTop={{ base: "1rem", lg: "2rem" }}
+    <Flex
+      height={"85%"}
+      alignItems={"center"}
+      flexDirection={"column"}
+      padding={"5%"}
       position={"relative"}
-      role={"group"}
-      width={"100%"}
-      _after={{
-        border: "3vw solid transparent",
-        borderBottom: "3vw solid goldenrod",
-        bottom: "-4vw",
-        content: `""`,
-        position: "absolute",
-        right: "-4vw",
-        transform: "rotate(135deg)",
-        transitionDuration: "0.2s" }}
-      _before={{
-        border: "3vw solid transparent",
-        borderTop: "3vw solid goldenrod",
-        content: `""`,
-        left: "-4vw",
-        position: "absolute",
-        top: "-4vw",
-        transform: "rotate(135deg)",
-        transitionDuration: "0.2s" }}
-      _hover={{
-        _before: {
-          left: "-3vw",
-          top: "-3vw",
-          zIndex: 2 },
-        _after: {
-          bottom: "-3vw",
-          right: "-3vw",
-          zIndex: 2 }}}>
-      <VStack
-        backgroundColor={useColorModeValue("white", "black")}
+      role={"group"}>
+      <Flex
+        alignItems={"center"}
         border={"2px solid goldenrod"}
-        borderRadius={10}
-        height={"98%"}
-        overflow={"scroll"}
-        padding={{ base: 4, lg: 8}}
-        transition={"150ms ease-in-out"}
-        width={"98%"}
+        boxShadow={boxGlow}
+        height={"100%"}
+        justifyContent={"center"}
+        minWidth={"18rem"}
+        position={"relative"}
+        _after={{
+          border: "3vw solid transparent",
+          borderBottom: "3vw solid goldenrod",
+          bottom: "-4vw",
+          content: `""`,
+          filter: darkGlow,
+          position: "absolute",
+          right: "-4vw",
+          transform: "rotate(135deg)",
+          transitionDuration: "0.2s",
+          zIndex: 2 }}
+        _before={{
+          border: "3vw solid transparent",
+          borderTop: "3vw solid goldenrod",
+          content: `""`,
+          filter: darkGlow,
+          left: "-4vw",
+          position: "absolute",
+          top: "-4vw",
+          transform: "rotate(135deg)",
+          transitionDuration: "0.2s",
+          zIndex: 2 }}
         _groupHover={{
-          width: "100%",
-          height: "100%",
-          borderRadius: 0,
-          transitionDuration: "0.2s" }}>
-        {children}
-      </VStack>
-    </Center>
+          _after: {
+            bottom: "-3vw",
+            right: "-3vw",
+            transitionDuration: "0.2s" },
+          _before: {
+            left: "-3vw",
+            top: "-3vw",
+            transitionDuration: "0.2s" } }}>
+        <Box
+          border={"2px solid goldenrod"}
+          borderRadius={"15px"}
+          height={"95%"}
+          overflow={"scroll"}
+          padding={"5%"}
+          position={"relative"}
+          transition={"200ms ease-in-out"}
+          width={"95%"}
+          _groupHover={{
+            borderRadius: 0,
+            transform: "scale(1.06)",
+            transitionDuration: "200ms" }}>
+          {children}
+        </Box>
+      </Flex>
+    </Flex>
   );
 };

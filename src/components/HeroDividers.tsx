@@ -16,7 +16,7 @@ export const HeroDividers = ({ orientation }: HeroDividersProps) => {
       <Box
         animation={slideLeftAnim}
         backgroundColor={"goldenrod"}
-        bottom={orientation === "topleft" && "4%"}
+        bottom={orientation === "topleft" && 2}
         boxShadow={useColorModeValue("none", "0 0 5px goldenrod")}
         height={2}
         opacity={1}
@@ -44,7 +44,7 @@ export const HeroDividers = ({ orientation }: HeroDividersProps) => {
         left={"-16.5%"}
         opacity={0}
         position={"absolute"}
-        top={orientation === "topleft" && { base: "4%", lg: "8%" }}
+        top={orientation === "topleft" && 2}
         width={"50%"}
         _after={{
           borderBottom: orientation === "topright" && "8px solid goldenrod",

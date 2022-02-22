@@ -1,13 +1,9 @@
-import {
-  Flex,
-  Text,
-  Image,
-} from "@chakra-ui/react";
+import { Flex, Text, Image } from "@chakra-ui/react";
 import * as React from "react";
 import { qAndA } from "../data/qAndA";
 
 export const QAndA = (colorMode: string) => qAndA.map(e => (
-  <React.Fragment>
+  <React.Fragment key={e.id}>
     <Flex
       alignItems={"center"}
       fontFamily={"var(--chakra-fonts-nunito)"}
@@ -19,6 +15,7 @@ export const QAndA = (colorMode: string) => qAndA.map(e => (
         borderRadius={10}
         padding={2}
         position={"relative"}
+        marginBottom={2}
         maxWidth={"75%"}
         _before={{
           position: "absolute",
@@ -36,6 +33,7 @@ export const QAndA = (colorMode: string) => qAndA.map(e => (
       fontFamily={"var(--chakra-fonts-nunito)"}
       fontSize={{ base: "xs", sm: "sm", lg: "md" }}
       justifyContent={"flex-end"}
+      marginBottom={5}
       width={"100%"}>
       <Text
         backgroundColor={"rgb(67,134,233)"}

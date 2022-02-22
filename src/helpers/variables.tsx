@@ -5,6 +5,7 @@ import { FaCat } from "react-icons/fa";
 
 export const listArray = [
   {
+    id: 0,
     title: "Try selecting a hexagon!",
     itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
     itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
@@ -13,6 +14,7 @@ export const listArray = [
     links: "Test"
   },
   {
+    id: 1,
     title: "Hipdemo",
     itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
     itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
@@ -21,6 +23,7 @@ export const listArray = [
     links: "Github Repo"
   },
   {
+    id: 2,
     title: "Restoic",
     itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
     itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
@@ -29,6 +32,7 @@ export const listArray = [
     links: "App Store | Google Play Store"
   },
   {
+    id: 3,
     title: "Python of Life",
     itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
     itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
@@ -37,6 +41,7 @@ export const listArray = [
     links: "Github Repo"
   },
   {
+    id: 4,
     title: "Pixel Runner",
     itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
     itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
@@ -45,6 +50,7 @@ export const listArray = [
     links: "Github Repo"
   },
   {
+    id: 5,
     title: "PokéMap",
     itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
     itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
@@ -53,6 +59,7 @@ export const listArray = [
     links: "Live Site | Github Repo"
   },
   {
+    id: 6,
     title: "Cat Crawler",
     itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
     itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
@@ -64,6 +71,7 @@ export const listArray = [
 
 export const wheelHexArray = [
   {
+    id: 0,
     color: "linear-gradient(rgb(130,104,235), rgb(237,128,93) 90%)",
     currentRotation: 330,
     left: "-14.7%",
@@ -72,6 +80,7 @@ export const wheelHexArray = [
     transitionDelay: "0ms"
   },
   {
+    id: 1,
     color: "linear-gradient(rgb(230,60,42), rgb(170,170,170) 90%)",
     currentRotation: 30,
     left: "14.7%",
@@ -81,6 +90,7 @@ export const wheelHexArray = [
     transitionDelay: "40ms"
   },
   {
+    id: 2,
     color: "linear-gradient(rgb(108,37,152), rgb(189,54,54))",
     currentRotation: 90,
     left: "29.4%",
@@ -90,6 +100,7 @@ export const wheelHexArray = [
     transitionDelay: "80ms"
   },
   {
+    id: 3,
     color: "linear-gradient(rgb(193,98,204), rgb(142,232,232))",
     currentRotation: 150,
     left: "14.7%",
@@ -99,6 +110,7 @@ export const wheelHexArray = [
     transitionDelay: "120ms"
   },
   {
+    id: 4,
     color: "linear-gradient(rgb(61,75,130), rgb(103, 194, 78))",
     currentRotation: 210,
     left: "-14.7%",
@@ -108,6 +120,7 @@ export const wheelHexArray = [
     transitionDelay: "160ms"
   },
   {
+    id: 5,
     color: "linear-gradient(rgb(99,40,52), rgb(204, 124, 39))",
     currentRotation: 270,
     left: "-29.4%",

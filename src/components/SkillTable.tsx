@@ -32,7 +32,7 @@ export const SkillTable = () => (
     fontFamily={"var(--chakra-fonts-mono)"}
     fontSize={{ base: "xs", lg: "sm" }}
     marginTop={"1rem"}
-    width={{ base: "50%", lg: "70%" }}>
+    width={"70%"}>
     <HStack justifyContent={"space-around"} padding={2}>
       <SkillIcon icon={DiJavascript} color={"rgb(229,212,88)"} label={"JavaScript/TypeScript"} delay={"0ms"} />
       <SkillIcon icon={SiReact} color={"rgb(114,183,208)"} label={"React"} delay={"60ms"} />

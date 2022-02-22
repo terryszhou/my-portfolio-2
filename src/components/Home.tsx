@@ -1,4 +1,5 @@
 import {
+  Box,
   Flex,
   Center,
   Stack,
@@ -36,7 +37,7 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
         flexBasis={{ base: 0, md: "66%"}}
         marginTop={{ base: 40, md: 0 }}
         ref={visRef}>
-        <Text>
+        <Box>
           <Heading
             animation={fadeRightAnim1}
             fontSize={{ base: 36, sm: 48, md: 56, lg: 64 }}
@@ -89,7 +90,7 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
             width={"80%"}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
           </Text>
-        </Text>
+        </Box>
       </Stack>
       <Center flexBasis={"33%"} marginRight={"20%"}>
         <SpinHex />

@@ -90,7 +90,7 @@ interface SocialIconProps {
   icon: React.ReactElement,
   delay: string,
   href: string,
-  isLargeScreen: boolean,
+  isLargeScreen?: boolean,
 };
 
 export const SocialIcon = ({ icon, delay, href, isLargeScreen }: SocialIconProps) => {

@@ -13,7 +13,7 @@ export const SectionHeader = ({ label }: SectionHeaderProps) => {
     <HStack
       position={"absolute"}
       spacing={6}
-      top={{ base: "6%", lg: "12%" }}>
+      top={8}>
       <Divider
         borderColor={useColorModeValue("black", "white")}
         left={"-80%"}

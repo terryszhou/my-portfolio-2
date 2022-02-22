@@ -1,4 +1,4 @@
-import { Divider, Text, Heading, List, ListItem, ListIcon, useColorModeValue } from "@chakra-ui/react";
+import { Box, Divider, Text, Heading, List, ListItem, ListIcon, useColorModeValue } from "@chakra-ui/react";
 import * as React from "react";
 
 import { BiRightArrow } from "react-icons/bi";
@@ -37,7 +37,7 @@ export const ExperienceList = ({ rotation }: ExperienceListProps) => {
   }, [rotation]);
 
   return (
-    <Text>
+    <Box>
       <Heading
         fontFamily={"var(--chakra-fonts-mono)"}
         fontSize={"xl"}
@@ -74,6 +74,6 @@ export const ExperienceList = ({ rotation }: ExperienceListProps) => {
         textAlign={"center"}>
         {listArray[idx]?.links}
       </Text>
-    </Text>
+    </Box>
   );
 };

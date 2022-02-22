@@ -18,35 +18,34 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
 
   return (
     <Flex
-      transition={"1s ease-out"}
-      opacity={visible ? 1 : 0.25}
       alignItems={"center"}
-      boxSizing={"border-box"}
       flexDirection={{ base: "column", lg: "row" }}
-      height={"100vh"}
+      opacity={visible ? 1 : 0.25}
       position={"relative"}
-      width={"75%"}
-      ref={el => pageRefs.current = { ...pageRefs.current, about: el }}>
+      ref={el => pageRefs.current = { ...pageRefs.current, about: el }}
+      transition={"1s ease-out"}
+      height={{ base: "120vh", lg: "100vh" }}
+      width={"75%"}>
+      {loaded && <HeroDividers orientation={"topleft"} />}
       <SectionHeader label={"02. About Me"} />
       <Flex
+        height={{ base: "50%", lg: "85%"}}
+        marginTop={{ base: "3rem", lg: 0 }}
+        alignItems={"center"}
         flexDirection={"column"}
-        height={{ base: "40%", lg: "80%" }}
-        marginTop={{ base: "2rem", lg: "4rem" }}
-        paddingTop={{base: "3rem", lg: "1rem" }}
-        paddingX={"1rem"}
+        justifyContent={"center"}
         ref={visRef}
         width={{ base: "100%", lg: "50%" }}>
-        {loaded && <HeroDividers orientation={"topleft"} />}
         <ContentBox>{QAndA(colorMode)}</ContentBox>
       </Flex>
       {loaded &&
         <Flex
+          height={{ base: "50%", lg: "85%"}}
           animation={fadeDownAnim}
-          alignItems={{base: "center", lg: "flex-end"}}
+          alignItems={"center"}
+          justifyContent={"center"}
           flexDirection={"column"}
-          height={{ base: "50%", lg: "80%" }}
-          paddingTop={{base: "3rem", lg: "6rem" }}
-          paddingX={"1rem"}
+          marginBottom={{ base: "8rem", lg: 0 }}
           width={{ base: "100%", lg: "50%" }}>
           <Box
             alignItems={"center"}
@@ -59,7 +58,7 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
             position={"relative"}
             role={"group"}
             transition={"200ms ease-out"}
-            width={{ base: "50%", lg: "70%" }}
+            width={"70%"}
             _hover={{ backgroundColor: "goldenrod" }}>
             <Image
               borderRadius={5}
