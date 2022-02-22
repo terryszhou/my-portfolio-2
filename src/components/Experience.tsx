@@ -1,14 +1,13 @@
-import { Flex, Box, Text, Heading, List, ListItem, ListIcon, Divider, useColorModeValue } from "@chakra-ui/react";
+import { Flex, Box } from "@chakra-ui/react";
 import React from "react";
 
 import { ContentBox } from "./ContentBox";
+import { ExperienceList } from "./ExperienceList";
 import { ExperienceWheel } from "./ExperienceWheel";
 import { flash } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";
 import { HeroDividers } from "./HeroDividers";
 import { SectionHeader } from "./SectionHeader";
-
-import { BiRightArrow } from "react-icons/bi";
 
 export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
   const [loaded, setLoaded] = React.useState<boolean>(false);
@@ -49,48 +48,15 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
                 visible={visible} />}
           </Flex>
         </Box>
-        <Box width={{base: "100%", lg: "50%"}} padding={20} paddingLeft={40}>
+        <Flex
+          marginLeft={{ base: 8, lg: 0}}
+          marginTop={{ base: "-20%", lg: 0 }}
+          padding={20}
+          width={{base: "100%", lg: "50%"}}>
           <ContentBox>
-            <Text>
-              <Heading
-                fontFamily={"var(--chakra-fonts-mono)"}
-                fontSize={"xl"}
-                marginBottom={2}
-                textAlign={"center"}>
-                Restoic
-              </Heading>
-              <List fontFamily={"var(--chakra-fonts-nunito)"} fontSize={"sm"} spacing={3}>
-                <ListItem>
-                  <ListIcon as={BiRightArrow} color='green.500' />
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                </ListItem>
-                <ListItem>
-                  <ListIcon as={BiRightArrow} color='green.500' />
-                  Assumenda, quia temporibus eveniet a libero incidunt suscipit
-                </ListItem>
-                <ListItem>
-                  <ListIcon as={BiRightArrow} color='green.500' />
-                  Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
-                </ListItem>
-              </List>
-              <Divider borderColor={useColorModeValue("black", "white")} marginY={4} />
-              <Text
-                fontFamily={"var(--chakra-fonts-nunito)"}
-                fontSize={"sm"}
-                textAlign={"center"}>
-                React Native, XCode, Android Studio
-              </Text>
-              <Divider borderColor={useColorModeValue("black", "white")} marginY={4} />
-              <Text
-                color={"goldenrod"}
-                fontFamily={"var(--chakra-fonts-nunito)"}
-                fontSize={"sm"}
-                textAlign={"center"}>
-                App Store | Google Play Store
-              </Text>
-            </Text>
+            <ExperienceList rotation={rotation} />
           </ContentBox>
-        </Box>
+        </Flex>
       </Flex>
     </Flex>
   );
