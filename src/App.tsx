@@ -15,7 +15,7 @@ import { useOnScreen } from "./hooks/useOnScreen";
 import { useNavigation } from "./hooks/useNavigation";
 
 export const App = () => {
-  const [isLargeScreen]: boolean[] = useMediaQuery("(min-width: 840px)");
+  const [isLargeScreen]: boolean[] = useMediaQuery("(min-width: 1000px)");
   const pageRefs: React.MutableRefObject<{}> = React.useRef({});
   const [visRef, visible]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
   const [visRef2, visible2]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();

@@ -3,15 +3,18 @@ import * as React from "react";
 
 interface ContentBoxProps {
   children?: JSX.Element | JSX.Element[],
+  height?: string | number,
+  width?: string | number,
 };
 
-export const ContentBox = ({ children }: ContentBoxProps) => {
+export const ContentBox = ({ children, height, width }: ContentBoxProps) => {
   const boxGlow: string = useColorModeValue("none", "0 0 5px goldenrod");
   const darkGlow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)");
 
   return (
     <Flex
-      height={"85%"}
+      height={height}
+      width={width}
       alignItems={"center"}
       flexDirection={"column"}
       padding={"5%"}

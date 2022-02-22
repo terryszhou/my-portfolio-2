@@ -33,7 +33,7 @@ export const Experience = ({ isLargeScreen, pageRefs, visible, visRef }: PagePro
     <Flex
       alignItems={"center"}
       flexDirection={{ base: "column", lg: "row" }}
-      height={{ base: "35vh", lg: "100vh"}}
+      height={{ base: "35vh", sm: "60vh", lg: "100vh"}}
       opacity={visible ? 1 : 0.25}
       position={"relative"}
       ref={el => pageRefs.current = { ...pageRefs.current, experience: el }}
@@ -69,7 +69,7 @@ export const Experience = ({ isLargeScreen, pageRefs, visible, visRef }: PagePro
           width={"100%"}
           justifyContent={"flex-end"}
           alignItems={"center"}>
-          <ContentBox>
+          <ContentBox height={"85%"} width={"65%"}>
             <ExperienceList rotation={rotation} />
           </ContentBox>
         </Flex>

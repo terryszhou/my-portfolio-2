@@ -24,19 +24,19 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
       position={"relative"}
       ref={el => pageRefs.current = { ...pageRefs.current, about: el }}
       transition={"1s ease-out"}
-      height={{ base: "120vh", lg: "100vh" }}
+      height={{ base: "140vh", sm: "fit-content", lg: "100vh" }}
       width={"75%"}>
       {loaded && <HeroDividers orientation={"topleft"} />}
       <SectionHeader label={"02. About Me"} />
       <Flex
-        height={{ base: "50%", lg: "85%"}}
+        height={{ base: "80vh", lg: "85%"}}
         marginTop={{ base: "3rem", lg: 0 }}
         alignItems={"center"}
         flexDirection={"column"}
         justifyContent={"center"}
         ref={visRef}
         width={{ base: "100%", lg: "50%" }}>
-        <ContentBox>{QAndA(colorMode)}</ContentBox>
+        <ContentBox height={"85%"}>{QAndA(colorMode)}</ContentBox>
       </Flex>
       {loaded &&
         <Flex
@@ -45,7 +45,7 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
           alignItems={"center"}
           justifyContent={"center"}
           flexDirection={"column"}
-          marginBottom={{ base: "8rem", lg: 0 }}
+          marginBottom={{ base: "10%", lg: 0 }}
           width={{ base: "100%", lg: "50%" }}>
           <Box
             alignItems={"center"}
