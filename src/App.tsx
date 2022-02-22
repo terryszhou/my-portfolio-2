@@ -47,10 +47,10 @@ export const App = () => {
         pageRefs={pageRefs} 
         visible={visible3}
         visRef={visRef3} />
-      {/* <Projects
+      <Projects
         pageRefs={pageRefs}
         visible={visible4}
-        visRef={visRef4} /> */}
+        visRef={visRef4} />
       <Contact pageRefs={pageRefs} />
     </VStack>
   );

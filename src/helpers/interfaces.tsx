@@ -5,4 +5,5 @@ export interface PageProps {
   y?: string | number,
   scrollDir?: string | number,
   isLargeScreen?: boolean,
+  testRef?: any
 };

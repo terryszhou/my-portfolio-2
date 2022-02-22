@@ -1,23 +1,92 @@
-import { Flex } from "@chakra-ui/react";
+import {
+  Container,
+  Stack,
+  Flex,
+  Heading,
+  Text,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import * as React from "react";
 
-import { HeroDividers } from "./HeroDividers";
-import { SectionHeader } from "./SectionHeader";
+interface HeroShellProps {
+  refNum: number,
+  label: string,
+  children: any,
+  visible: boolean | React.Dispatch<any> | React.MutableRefObject<any>,
+  pageRefs: any,
+}
 
-export const HeroShell = ({ children, visible, pageRefs, loaded }) => {
+export const HeroShell = ({ pageRefs, label, children, visible, refNum }: HeroShellProps) => {
+  const number: string = label.split(".")[0] + "."
+  const title: string = " " + label.split(".")[1]
+
+  const findScroll = (el, refNum) => {
+    let testVar = {}
+    switch (refNum){
+      case 1:
+        testVar = { ...pageRefs.current, home: el };
+        break;
+      case 2:
+        testVar = { ...pageRefs.current, about: el };
+        break;
+      case 3:
+        testVar = { ...pageRefs.current, experience: el };
+        break;
+      case 4:
+        testVar = { ...pageRefs.current, projects: el };
+        break;
+      case 5:
+        testVar = { ...pageRefs.current, contact: el };
+        break;
+      default:
+        console.log("Nav");
+    };
+    return testVar
+  };
+
   return (
-    <Flex
-      alignItems={"center"}
-      flexDirection={{ base: "column", lg: "row" }}
-      height={"100vh"}
-      opacity={visible ? 1 : 0.25}
-      position={"relative"}
-      ref={el => pageRefs.current = { ...pageRefs.current, about: el }}
-      transition={"1s ease-out"}
-      width={"75%"}>
-      {loaded && <HeroDividers orientation={"topleft"} />}
-      <SectionHeader label={"02. About Me"} />
-      {children}
-    </Flex>
+    <Container
+      maxW={'80%'}
+      // minH={'100vh'}
+      opacity={visible ? 1 : .25}
+      ref={el => pageRefs.current = findScroll(el, refNum)}
+      transition={"500ms ease-out"}>
+      <Stack
+        align={'center'}
+        spacing={{ base: 8, md: 10 }}
+        py={18}
+        direction={{ base: 'column', md: 'row' }}>
+        <Stack flex={1} spacing={{ base: 5, md: 10 }}>
+          <Heading
+            fontFamily={"var(--chakra-fonts-mono)"}
+            fontSize={{ base: 'xl', sm: '2xl', md: "4xl" }}
+            fontWeight={"bold"}>
+            <Text 
+              as={"span"}
+              color={"goldenrod"}
+              textShadow={useColorModeValue("none", "0 0 5px goldenrod")}>
+              {number}
+            </Text>{title}
+          </Heading>
+          <Flex
+            flex={1}
+            justify={'center'}
+            align={'center'}
+            bottom={3}
+            position={'relative'}
+            w={'full'}>
+            {children[0]}
+          </Flex>
+        </Stack>
+        <Flex
+          flex={1}
+          justify={'center'}
+          align={'center'}
+          position={'relative'}
+          w={'full'}>
+          {children[1]}
+        </Flex>
+      </Stack>
+    </Container>
   );
 };

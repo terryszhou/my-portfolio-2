@@ -3,8 +3,8 @@ import * as React from "react";
 
 interface ContentBoxProps {
   children?: JSX.Element | JSX.Element[],
-  height?: string | number,
-  width?: string | number,
+  height?: string | number | {},
+  width?: string | number | {},
 };
 
 export const ContentBox = ({ children, height, width }: ContentBoxProps) => {

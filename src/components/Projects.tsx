@@ -43,13 +43,14 @@ export const Projects = ({ pageRefs, visible, visRef }: PageProps) => {
       <Flex
         height={{ base: "50%", lg: "100%" }}
         justifyContent={"center"}
+        alignItems={"center"}
         ref={visRef}
         width={{ base: "100%", lg: "50%" }}>
-        <Hexagon
+        {/* <Hexagon
           color={"goldenrod"}
-          width={440}
+          width={"30vw"}
           filter={useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)")}>
-          <Hexagon color={hexColorInner} width={420}>
+          <Hexagon color={hexColorInner} width={"28vw"}>
             <VStack
               position={"absolute"}
               left={{ lg: "50%" }}
@@ -97,7 +98,7 @@ export const Projects = ({ pageRefs, visible, visRef }: PageProps) => {
               </HStack>
             </VStack>
           </Hexagon>
-        </Hexagon>
+        </Hexagon> */}
       </Flex>
       <Flex
         padding={20}
