@@ -1,4 +1,4 @@
-import { Box, Center, useColorModeValue } from "@chakra-ui/react";
+import { Box, Center } from "@chakra-ui/react";
 import * as React from "react";
 
 interface HexProps {
