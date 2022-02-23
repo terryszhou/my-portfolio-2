@@ -106,7 +106,7 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
         <Stack
           border={"1px solid"}
           borderRadius={15}
-          width={{ base: "80vw", lg: "50vw"}}
+          width={{ base: "80vw", lg: "60vw"}}
           overflow={"scroll"}>
           {loaded && (
             <Table

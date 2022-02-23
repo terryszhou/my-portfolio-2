@@ -106,3 +106,15 @@ export const fadeOut: string = keyframes`
     transform: scale(1);
   }
 `
+
+export const shake: string = keyframes`
+ 0% {
+   transform: rotate(0deg);
+ } 33% {
+   transform: rotate(-5deg);
+ } 66% {
+   transform: rotate(5deg);
+ } 100% {
+   transform: rotate(0deg);
+ }
+`

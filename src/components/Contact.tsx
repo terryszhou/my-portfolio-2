@@ -1,18 +1,19 @@
 import { Flex, Box, Image, HStack, Text, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
 
-import { fadeOut, slideUp, openLetter } from "../helpers/animations";
+import { fadeOut, shake, slideUp, openLetter } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";
 import { HeroShell } from "./HeroShell";
 
 export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
-  const openLetterAnim: string = `${openLetter} 500ms ease-out forwards`;
-  const slideUpAnim: string = `${slideUp} 500ms 500ms ease-out forwards`;
+  const openLetterAnim: string = `${openLetter} 500ms ease-in-out forwards`;
+  const slideUpAnim: string = `${slideUp} 500ms 500ms ease-in-out forwards`;
   const bgColor1: string = useColorModeValue("black", "white");
   const bgColor2: string = useColorModeValue("white", "rgb(27,32,43)");
   const textShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)");
   const redShadow: string = useColorModeValue("none", "drop-shadow(0 0 2px red)");
-  const fadeOutAnim: string = `${fadeOut} 750ms ease-out forwards`;
+  const fadeOutAnim: string = `${fadeOut} 750ms ease-in-out forwards`;
+  const shakeAnim: string = `${shake} 200ms ease-in-out`;
 
   return (
     <HeroShell
@@ -28,6 +29,7 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
         width={"45vw"}>
         <Box
           alignItems={"center"}
+          animation={visible && shakeAnim}
           border={"2px solid"}
           borderRadius={5}
           boxShadow={"0 25px 20px -20px black"}
