@@ -1,4 +1,4 @@
-import { IconButton, Divider, HStack, Text, useColorModeValue } from "@chakra-ui/react";
+import { IconButton, Divider, HStack, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import * as React from "react";
 
 import { FiCodepen, FiMail, FiGithub, FiLinkedin, FiInstagram } from "react-icons/fi";
@@ -12,9 +12,13 @@ export const Social = ({ y, scrollDir, isLargeScreen }: PageProps ) => {
 
   return (
     <React.Fragment>
-      <HStack
+      <Stack
+        direction={{ base: "column-reverse", lg: "row" }}
+        display={"flex"}
+        justifyContent={"center"}
+        alignItems={"center"}
         position={"fixed"}
-        right={0}
+        right={{ base: 2, lg: 0 }}
         top={
           y > 80 && scrollDir === "down"
             ? "2%"
@@ -51,17 +55,22 @@ export const Social = ({ y, scrollDir, isLargeScreen }: PageProps ) => {
           isLargeScreen={isLargeScreen} />
         <Divider
           borderColor={useColorModeValue("black", "white")}
-          width={20} />
-      </HStack>
-      <HStack
-        bottom={y > 80 ? "2%" : "4%"}
-        left={0}
+          width={{ base: 0, lg: 20 }} />
+      </Stack>
+      <Stack
+        direction={"row"}
+        display={"flex"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        bottom={{ base: "15%", lg: y > 80 ? "2%" : "4%" }}
+        left={{ base: -20, lg: 0 }}
         position={"fixed"}
+        transform={{ base: "rotate(-90deg)", lg: "rotate(0deg)" }}
         transition={"200ms ease-out"}
         zIndex={1}>
         <Divider
           borderColor={useColorModeValue("black", "white")}
-          width={20} />
+          width={{ base: 0, lg: 20}} />
         <SocialIcon
           delay={"80ms"} 
           href={"mailto:terryszhou@gmail.com"} 
@@ -72,7 +81,7 @@ export const Social = ({ y, scrollDir, isLargeScreen }: PageProps ) => {
           as={"a"}
           cursor={"pointer"}
           fontFamily={"var(--chakra-fonts-mono)"}
-          fontSize={"sm"}
+          fontSize={{ base: "xs", lg: "sm"}}
           href={"mailto:terryszhou@gmail.com"}
           opacity={0}
           rel={"noreferrer"}
@@ -81,7 +90,7 @@ export const Social = ({ y, scrollDir, isLargeScreen }: PageProps ) => {
           _hover={{ color: "goldenrod" }}>
           terryszhou@gmail.com
         </Text>
-      </HStack>
+      </Stack>
     </React.Fragment>
   );
 };
