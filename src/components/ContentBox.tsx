@@ -2,7 +2,7 @@ import { Flex, Box, useColorModeValue } from "@chakra-ui/react";
 import * as React from "react";
 
 interface ContentBoxProps {
-  children?: JSX.Element | JSX.Element[],
+  children: JSX.Element | JSX.Element[],
   height?: string | number | {},
   width?: string | number | {},
 };

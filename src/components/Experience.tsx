@@ -64,12 +64,30 @@ export const Experience = ({ isLargeScreen, pageRefs, visible, visRef }: PagePro
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent>
-            <ModalCloseButton />
+            <ModalCloseButton
+              color={"goldenrod"}
+              border={"1px solid goldenrod"}
+              _focus={{ boxShadow: "none" }}
+              _hover={{
+                backgroundColor: "goldenrod",
+                color: "inherit"
+              }}/>
             <ModalBody padding={10}>
               <ExperienceList rotation={rotation} />
             </ModalBody>
-            <ModalFooter>
-              <Button onClick={onClose}>
+            <ModalFooter display={"flex"} justifyContent={"center"}>
+              <Button
+                backgroundColor={"transparent"}
+                border={"1px solid goldenrod"}
+                color={"goldenrod"}
+                fontFamily={"var(--chakra-fonts-mono)"}
+                fontSize={13}
+                onClick={onClose}
+                _focus={{ boxShadow: "none" }}
+                _hover={{
+                  backgroundColor: "goldenrod",
+                  color: "inherit"
+                }}>
                 Close
               </Button>
             </ModalFooter>

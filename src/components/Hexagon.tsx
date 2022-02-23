@@ -9,6 +9,7 @@ interface HexProps {
   cursor?: string,
   filter?: string,
   left?: string | number,
+  minWidth?: string | number,
   onClick?: () => void,
   onMouseOver?: React.MouseEventHandler<HTMLDivElement>,
   opacity?: number,
@@ -24,7 +25,7 @@ interface HexProps {
 
 export const Hexagon = ({
   animation, bottom, children, color, cursor, filter, left,
-  onClick, onMouseOver, opacity, right, role, top,
+  minWidth, onClick, onMouseOver, opacity, right, role, top,
   transform, transitionDelay, width, _groupHover, _hover,
 }: HexProps) => {
   return (
@@ -50,6 +51,7 @@ export const Hexagon = ({
       <Box 
         filter={filter}
         height={typeof width === "string" ? `calc(${width} * 1.1547)` : width * 1.1547}
+        minWidth={minWidth}
         position={"absolute"}
         width={width}
         _before={{

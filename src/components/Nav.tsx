@@ -151,10 +151,10 @@ export const Nav = ({ pageRefs, y, scrollDir, isLargeScreen }: PageProps) => {
 };
 
 interface NavButtonProps {
-  num: string,
-  label: string,
-  scroll: (arg0: string) => void,
   delay: string,
+  label: string,
+  num: string,
+  scroll: (arg0: string) => void,
 };
 
 export const NavButton = ({ num, label, scroll, delay }: NavButtonProps) => {

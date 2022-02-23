@@ -5,13 +5,13 @@ import { BiRightArrow } from "react-icons/bi";
 import { listArray } from "../helpers/variables";
 
 interface ExperienceListProps {
-  rotation: any,
+  rotation: number,
 };
 
 export const ExperienceList = ({ rotation }: ExperienceListProps) => {
   const [idx, setIdx] = React.useState<undefined | number>();
 
-  React.useEffect(() => {
+  React.useEffect((): void => {
     switch(rotation) {
       case 330:
         setIdx(1);

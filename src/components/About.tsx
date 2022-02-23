@@ -7,6 +7,7 @@ import { ContentBox } from "./ContentBox";
 import { SkillTable } from "./SkillTable";
 import { HeroShell } from "./HeroShell";
 import { QAndA } from "./QAndA";
+import { MinimalBox } from "./MinimalBox";
 
 export const About = ({ pageRefs, visible, visRef }: PageProps) => {
   const { colorMode } = useColorMode();
@@ -21,18 +22,20 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
       pageRefs={pageRefs}
       refNum={2}
       visible={visible}>
-      <Box ref={visRef}>
+      <Box ref={visRef} marginBottom={{ base: "-10%", lg: 0 }}>
         <ContentBox height={{ base: "40vh", lg: "70vh" }}>
           {QAndA(colorMode)}
         </ContentBox>
+        {/* <MinimalBox height={{ base: "40vh", lg: "70vh" }}>
+          {QAndA(colorMode)}
+        </MinimalBox> */}
       </Box>
       <Flex
         animation={fadeDownAnim}
         alignItems={"center"}
         justifyContent={"center"}
         flexDirection={"column"}
-        marginBottom={{ base: "10%", lg: 0 }}
-        width={"80%"}>
+        marginBottom={{ base: "10%", lg: 0 }}>
         <Box
           marginTop={{ base: 0, lg: 12 }}
           alignItems={"center"}
@@ -45,7 +48,7 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
           position={"relative"}
           role={"group"}
           transition={"200ms ease-out"}
-          width={"70%"}
+          width={{ base: "90%", lg: "70% "}}
           _hover={{ backgroundColor: "goldenrod" }}>
           <Image
             borderRadius={5}

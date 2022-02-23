@@ -2,15 +2,16 @@ import { Icon, Image, useColorModeValue } from "@chakra-ui/react";
 import * as React from "react";
 
 import { BiUpArrow } from "react-icons/bi";
+import { IconType } from "react-icons/lib";
 
 import { wheelHexArray } from "../helpers/variables";
 import { Hexagon } from "./Hexagon";
 
 interface ExperienceWheelProps {
   onClick: () => void,
-  visible: boolean | React.Dispatch<boolean> | React.MutableRefObject<boolean>,
   rotation: number,
   setRotation: React.Dispatch<React.SetStateAction<number>>,
+  visible: boolean | React.Dispatch<boolean> | React.MutableRefObject<boolean>,
 };
 
 export const ExperienceWheel = ({ onClick, visible, rotation, setRotation }: ExperienceWheelProps) => {
@@ -57,8 +58,8 @@ interface WheelHexProps {
   color: string,
   currentRotation: number,
   hexShadow: string,
-  icon: any,
-  image: any,
+  icon: React.ComponentType<IconType>,
+  image: string,
   left: string,
   onClick?: () => void,
   rotation: number,

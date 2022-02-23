@@ -9,19 +9,19 @@ import {
 import * as React from "react";
 
 interface HeroShellProps {
-  refNum: number,
+  children: JSX.Element | JSX.Element[],
   label: string,
-  children: any,
+  pageRefs: React.MutableRefObject<{}>,
+  refNum: number,
   visible: boolean | React.Dispatch<any> | React.MutableRefObject<any>,
-  pageRefs: any,
-}
+};
 
-export const HeroShell = ({ pageRefs, label, children, visible, refNum }: HeroShellProps) => {
+export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroShellProps) => {
   const number: string = label.split(".")[0] + "."
   const title: string = " " + label.split(".")[1]
 
-  const findScroll = (el, refNum) => {
-    let testVar = {}
+  const findScroll = (el: HTMLDivElement, refNum: number): {} => {
+    let testVar: {} = {};
     switch (refNum){
       case 1:
         testVar = { ...pageRefs.current, home: el };
@@ -46,7 +46,7 @@ export const HeroShell = ({ pageRefs, label, children, visible, refNum }: HeroSh
 
   return (
     <Container
-      maxW={'80%'}
+      maxW={{ base: "100%", lg: "80%" }}
       // minH={'100vh'}
       opacity={visible ? 1 : .25}
       ref={el => pageRefs.current = findScroll(el, refNum)}

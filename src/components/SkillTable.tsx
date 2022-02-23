@@ -23,16 +23,17 @@ import {
 import { DiJavascript, DiSass } from "react-icons/di"
 
 import { fadeDown } from "../helpers/animations";
+import { IconType } from "react-icons";
 
 export const SkillTable = () => (
   <Box
-    border={"2px solid goldenrod"}
+    border={"1px solid goldenrod"}
     borderRadius={5}
     boxShadow={useColorModeValue("none", "0 0 5px goldenrod")}
     fontFamily={"var(--chakra-fonts-mono)"}
     fontSize={{ base: "xs", lg: "sm" }}
     marginTop={"1rem"}
-    width={"70%"}>
+    width={{ base: "90%", lg: "70%" }}>
     <HStack justifyContent={"space-around"} padding={2}>
       <SkillIcon icon={DiJavascript} color={"rgb(229,212,88)"} label={"JavaScript/TypeScript"} delay={"0ms"} />
       <SkillIcon icon={SiReact} color={"rgb(114,183,208)"} label={"React"} delay={"60ms"} />
@@ -56,10 +57,10 @@ export const SkillTable = () => (
 
 
 interface SkillIconProps {
-  icon: any,
   color: string,
-  label: string,
   delay: string,
+  icon: React.ComponentType<IconType>,
+  label: string,
 };
 
 export const SkillIcon = ({ icon, color, label, delay }: SkillIconProps) => {
