@@ -1,4 +1,4 @@
-import { Icon, Image, useColorModeValue } from "@chakra-ui/react";
+import { Icon, Box, Circle, Image, useColorModeValue } from "@chakra-ui/react";
 import * as React from "react";
 
 import { BiUpArrow } from "react-icons/bi";
@@ -42,12 +42,20 @@ export const ExperienceWheel = ({ onClick, visible, rotation, setRotation }: Exp
         transform={`rotate(${rotation}deg)`}
         transitionDelay={"80ms"}
         width={"11.75vw"}>
-        <Icon
-          as={BiUpArrow}
-          boxSize={"15%"}
-          color={"goldenrod"} 
-          filter={hexShadow}
-          marginBottom={"40%"} />
+        <React.Fragment>
+          <Icon
+            as={BiUpArrow}
+            boxSize={"15%"}
+            color={"goldenrod"} 
+            filter={hexShadow}
+            marginBottom={"40%"} />
+          <Circle
+            backgroundColor={"red"}
+            borderRadius={"100%"}
+            boxShadow={useColorModeValue("none", "0 0 5px red")}
+            position={"absolute"}
+            size={{ base: 2, lg: 5 }} />
+        </React.Fragment>
       </Hexagon>
       {wheelHexMap}
     </React.Fragment>
