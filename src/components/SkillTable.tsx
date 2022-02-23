@@ -27,13 +27,12 @@ import { IconType } from "react-icons";
 
 export const SkillTable = () => (
   <Box
-    border={"1px solid goldenrod"}
+    // border={"1px solid goldenrod"}
     borderRadius={5}
-    boxShadow={useColorModeValue("none", "0 0 5px goldenrod")}
+    // boxShadow={useColorModeValue("none", "0 0 5px goldenrod")}
     fontFamily={"var(--chakra-fonts-mono)"}
     fontSize={{ base: "xs", lg: "sm" }}
-    marginTop={"1rem"}
-    width={{ base: "90%", lg: "70%" }}>
+    width={"100%"}>
     <HStack justifyContent={"space-around"} padding={2}>
       <SkillIcon icon={DiJavascript} color={"rgb(229,212,88)"} label={"JavaScript/TypeScript"} delay={"0ms"} />
       <SkillIcon icon={SiReact} color={"rgb(114,183,208)"} label={"React"} delay={"60ms"} />
@@ -72,7 +71,7 @@ export const SkillIcon = ({ icon, color, label, delay }: SkillIconProps) => {
         <Icon
           as={icon}
           borderRadius={5}
-          boxSize={{ base: 6, lg: 8 }}
+          boxSize={{ base: 6, lg: 6 }}
           color={color}
           transition={"100ms ease-in-out"}
           _hover={{

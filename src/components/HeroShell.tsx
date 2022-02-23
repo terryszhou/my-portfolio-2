@@ -46,7 +46,7 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroSh
 
   return (
     <Container
-      maxW={{ base: "100%", lg: "80%" }}
+      maxW={{ base: "95%", sm: "85%", lg: "80%", xl: "70%" }}
       // minH={'100vh'}
       opacity={visible ? 1 : .25}
       ref={el => pageRefs.current = findScroll(el, refNum)}
@@ -54,12 +54,13 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroSh
       <Stack
         align={'center'}
         spacing={{ base: 8, md: 10 }}
-        py={18}
+        paddingY={18}
+        paddingTop={"7.5%"}
         direction={{ base: 'column', md: 'row' }}>
         <Stack flex={1} spacing={{ base: 5, md: 10 }}>
           <Heading
             fontFamily={"var(--chakra-fonts-mono)"}
-            fontSize={{ base: 'xl', sm: '2xl', md: "4xl" }}
+            fontSize={{ base: 'xl', sm: '2xl', md: "3xl" }}
             fontWeight={"bold"}>
             <Text 
               as={"span"}
