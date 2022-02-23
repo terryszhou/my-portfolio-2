@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/react';
 import * as React from "react";
 
-import { growRight, slideLeft, slideRight } from "../helpers/animations";
+import { growRight } from "../helpers/animations";
 
 interface HeroShellProps {
   children: JSX.Element | JSX.Element[],
@@ -22,27 +22,24 @@ interface HeroShellProps {
 export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroShellProps) => {
   const number: string = label.split(".")[0] + "."
   const title: string = " " + label.split(".")[1]
-
-  const slideLeftAnim: string = `${slideLeft} 1s 250ms forwards`;
-  const slideRightAnim: string = `${slideRight} 1s 250ms forwards`;
   const growRightAnim: string = `${growRight} 1s 250ms forwards`;
 
   const findScroll = (el: HTMLDivElement, refNum: number): {} => {
     let testVar: {} = {};
     switch (refNum){
-      case 1:
+      case 0:
         testVar = { ...pageRefs.current, home: el };
         break;
-      case 2:
+      case 1:
         testVar = { ...pageRefs.current, about: el };
         break;
-      case 3:
+      case 2:
         testVar = { ...pageRefs.current, experience: el };
         break;
-      case 4:
+      case 3:
         testVar = { ...pageRefs.current, projects: el };
         break;
-      case 5:
+      case 4:
         testVar = { ...pageRefs.current, contact: el };
         break;
       default:
@@ -60,10 +57,10 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroSh
       transition={"500ms ease-out"}>
       <Stack
         align={'center'}
-        spacing={{ base: 8, md: 10 }}
+        direction={{ base: 'column', md: 'row' }}
         paddingY={18}
         paddingTop={"7.5%"}
-        direction={{ base: 'column', md: 'row' }}>
+        spacing={{ base: 8, md: 10 }}>
         <Stack flex={2} spacing={{ base: 5, md: 10 }} position={"relative"}>
         <Box 
           animation={growRightAnim}
@@ -72,6 +69,7 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroSh
           height={2}
           position={"absolute"}
           top={"2%"}
+          width={"32vw"}
           _after={{
             borderTop: "8px solid goldenrod",
             borderRight: "8px solid transparent",

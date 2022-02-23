@@ -86,11 +86,11 @@ export const Nav = ({ pageRefs, y, scrollDir, isLargeScreen }: PageProps) => {
           transition={"200ms ease-out"}>
           {isLargeScreen ? (
             <React.Fragment>
-              <NavButton num="01" label="home" scroll={scrollIntoView} delay={"0ms"}/>
-              <NavButton num="02" label="about" scroll={scrollIntoView} delay={"60ms"}/>
-              <NavButton num="03" label="experience" scroll={scrollIntoView} delay={"120ms"}/>
-              <NavButton num="04" label="projects" scroll={scrollIntoView} delay={"180ms"}/>
-              <NavButton num="05" label="contact" scroll={scrollIntoView} delay={"240ms"}/>
+              <NavButton num="00" label="home" scroll={scrollIntoView} delay={"0ms"}/>
+              <NavButton num="01" label="about" scroll={scrollIntoView} delay={"60ms"}/>
+              <NavButton num="02" label="experience" scroll={scrollIntoView} delay={"120ms"}/>
+              <NavButton num="03" label="projects" scroll={scrollIntoView} delay={"180ms"}/>
+              <NavButton num="04" label="contact" scroll={scrollIntoView} delay={"240ms"}/>
               <ResumeButton />
             </React.Fragment>
           ) : (
@@ -126,11 +126,11 @@ export const Nav = ({ pageRefs, y, scrollDir, isLargeScreen }: PageProps) => {
           transition={"300ms ease-in-out"}
           width={"50%"}
           zIndex={2}>
-          <NavButton num="01" label="home" scroll={scrollIntoView} delay={"0ms"}/>
-          <NavButton num="02" label="about" scroll={scrollIntoView} delay={"60ms"}/>
-          <NavButton num="03" label="experience" scroll={scrollIntoView} delay={"120ms"}/>
-          <NavButton num="04" label="projects" scroll={scrollIntoView} delay={"180ms"}/>
-          <NavButton num="05" label="contact" scroll={scrollIntoView} delay={"240ms"}/>
+          <NavButton num="00" label="home" scroll={scrollIntoView} delay={"0ms"}/>
+          <NavButton num="01" label="about" scroll={scrollIntoView} delay={"60ms"}/>
+          <NavButton num="02" label="experience" scroll={scrollIntoView} delay={"120ms"}/>
+          <NavButton num="03" label="projects" scroll={scrollIntoView} delay={"180ms"}/>
+          <NavButton num="04" label="contact" scroll={scrollIntoView} delay={"240ms"}/>
           <ResumeButton />
         </VStack>
       )}

@@ -3,11 +3,8 @@ import * as React from "react";
 
 import { fadeDown } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";
-import { ContentBox } from "./ContentBox";
-import { SkillTable } from "./SkillTable";
 import { HeroShell } from "./HeroShell";
-import { QAndA } from "./QAndA";
-import { MinimalBox } from "./MinimalBox";
+import { SkillTable } from "./SkillTable";
 
 export const About = ({ pageRefs, visible, visRef }: PageProps) => {
   const { colorMode } = useColorMode();
@@ -18,23 +15,17 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
 
   return (
     <HeroShell
-      label={"02. About Me"}
+      label={"01. About Me"}
       pageRefs={pageRefs}
-      refNum={2}
+      refNum={1}
       visible={visible}>
       <Box
-        ref={visRef}
-        marginBottom={{ base: "-10%", lg: 0 }}>
-        {/* <ContentBox height={{ base: "40vh", lg: "70vh" }}>
-          {QAndA(colorMode)}
-        </ContentBox> */}
-        {/* <MinimalBox height={{ base: "40vh", lg: "70vh" }}>
-          {QAndA(colorMode)}
-        </MinimalBox> */}
+        marginBottom={{ base: "-10%", lg: 0 }}
+        ref={visRef}>
         <Stack
           fontFamily={"var(--chakra-fonts-nunito)"}
-          textAlign={"justify"}
-          fontSize={{ base: "md", lg: "lg" }}>
+          fontSize={{ base: "md", lg: "lg" }}
+          textAlign={"justify"}>
           <Text marginY={2} opacity={.7}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -54,8 +45,7 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
         alignItems={"center"}
         justifyContent={"center"}
         flexDirection={"column"}
-        marginTop={"10%"}
->
+        marginTop={"10%"}>
         <Box
           alignItems={"center"}
           border={"2px solid goldenrod"}
@@ -72,13 +62,13 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
           <Image
             borderRadius={5}
             maxWidth={{ base: 250, lg: 350 }}
-            _groupHover={{ visibility: "hidden" }}
-            src={"/headshot-shoulders.jpg"} />
+            src={"/headshot-shoulders.jpg"} 
+            _groupHover={{ visibility: "hidden" }} />
           <Image
-            visibility={"hidden"}
-            width={"70%"}
             position={"absolute"}
             src={"/headshot-outline.png"}
+            visibility={"hidden"}
+            width={"70%"}
             _groupHover={{ visibility: "visible" }} />
         </Box>
       </Flex>

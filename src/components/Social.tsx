@@ -55,7 +55,7 @@ export const Social = ({ y, scrollDir, isLargeScreen }: PageProps ) => {
           isLargeScreen={isLargeScreen} />
         <Divider
           borderColor={useColorModeValue("black", "white")}
-          width={{ base: 0, lg: 20 }} />
+          width={{ base: 0, lg: 40 }} />
       </Stack>
       <Stack
         direction={"row"}

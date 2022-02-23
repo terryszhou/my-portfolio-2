@@ -1,4 +1,4 @@
-import { Icon, Box, Circle, Image, useColorModeValue } from "@chakra-ui/react";
+import { Icon, Circle, Image, useColorModeValue } from "@chakra-ui/react";
 import * as React from "react";
 
 import { BiUpArrow } from "react-icons/bi";
@@ -7,14 +7,14 @@ import { IconType } from "react-icons/lib";
 import { wheelHexArray } from "../helpers/variables";
 import { Hexagon } from "./Hexagon";
 
-interface ExperienceWheelProps {
+interface ProjectWheelProps {
   onClick: () => void,
   rotation: number,
   setRotation: React.Dispatch<React.SetStateAction<number>>,
   visible: boolean | React.Dispatch<boolean> | React.MutableRefObject<boolean>,
 };
 
-export const ExperienceWheel = ({ onClick, visible, rotation, setRotation }: ExperienceWheelProps) => {
+export const ProjectWheel = ({ onClick, visible, rotation, setRotation }: ProjectWheelProps) => {
   const hexShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)");
 
   const wheelHexMap = wheelHexArray.map(e => (

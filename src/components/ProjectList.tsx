@@ -4,11 +4,11 @@ import * as React from "react";
 import { BiRightArrow } from "react-icons/bi";
 import { listArray } from "../helpers/variables";
 
-interface ExperienceListProps {
+interface ProjectListProps {
   rotation: number,
 };
 
-export const ExperienceList = ({ rotation }: ExperienceListProps) => {
+export const ProjectList = ({ rotation }: ProjectListProps) => {
   const [idx, setIdx] = React.useState<undefined | number>();
 
   React.useEffect((): void => {

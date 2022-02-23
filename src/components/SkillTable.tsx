@@ -27,9 +27,7 @@ import { IconType } from "react-icons";
 
 export const SkillTable = () => (
   <Box
-    // border={"1px solid goldenrod"}
     borderRadius={5}
-    // boxShadow={useColorModeValue("none", "0 0 5px goldenrod")}
     fontFamily={"var(--chakra-fonts-mono)"}
     fontSize={{ base: "xs", lg: "sm" }}
     width={"100%"}>
@@ -62,7 +60,7 @@ interface SkillIconProps {
   label: string,
 };
 
-export const SkillIcon = ({ icon, color, label, delay }: SkillIconProps) => {
+export const SkillIcon = ({ color, delay, icon, label }: SkillIconProps) => {
   const fadeDownAnim: string = `${fadeDown} 500ms ${delay} forwards`;
 
   return (
