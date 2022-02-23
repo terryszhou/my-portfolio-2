@@ -80,7 +80,6 @@ export const Projects = ({ pageRefs, visible, visRef }: PageProps) => {
           </ModalFooter>
         </ModalContent>
       </Modal>
-      <Box />
     </HeroShell>
   );
 };

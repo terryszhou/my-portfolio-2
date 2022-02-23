@@ -51,7 +51,6 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroSh
   return (
     <Container
       maxW={{ base: "95%", sm: "85%", lg: "80%", xl: "70%" }}
-      // minH={'100vh'}
       opacity={visible ? 1 : .25}
       ref={el => pageRefs.current = findScroll(el, refNum)}
       transition={"500ms ease-out"}>

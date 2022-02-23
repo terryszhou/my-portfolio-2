@@ -89,8 +89,7 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
               _groupHover={{
                 filter: "brightness(1.5)",
                 transform: "scale(1.05)",
-                transitionDuration: 0.2,
-              }} />
+                transitionDuration: 0.2, }} />
           </Td>
         </Tr>
       </Tooltip>
