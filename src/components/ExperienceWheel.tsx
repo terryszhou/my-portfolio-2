@@ -70,18 +70,8 @@ interface WheelHexProps {
 };
 
 export const WheelHex = ({
-  color,
-  currentRotation,
-  hexShadow,
-  icon,
-  image,
-  left,
-  onClick,
-  rotation,
-  setRotation,
-  top,
-  transitionDelay,
-  visible,
+  color, currentRotation, hexShadow, icon, image, left,
+  onClick, rotation, setRotation, top, transitionDelay, visible,
 }: WheelHexProps) => {
   const hexColorInner: string = useColorModeValue('white', 'rgb(27,32,43)');
   const hexColorOuter: string = useColorModeValue('black', 'white');

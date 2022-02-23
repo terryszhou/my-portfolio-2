@@ -45,56 +45,43 @@ export const Experience = ({ isLargeScreen, pageRefs, visible, visRef }: PagePro
         width={"45vw"}>
         {loaded && 
           <ExperienceWheel
-            onClick={!isLargeScreen ? onOpen : undefined}
+            onClick={onOpen}
             rotation={rotation}
             setRotation={setRotation} 
             visible={visible} />}
       </Flex>
-      {isLargeScreen ? (
-        <Flex
-          height={"40vw"}
-          width={"100%"}
-          justifyContent={"center"}
-          alignItems={"center"}>
-          <ContentBox height={"85%"} width={"65%"}>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton
+            color={"goldenrod"}
+            border={"1px solid goldenrod"}
+            _focus={{ boxShadow: "none" }}
+            _hover={{
+              backgroundColor: "goldenrod",
+              color: "inherit"
+            }}/>
+          <ModalBody padding={10}>
             <ExperienceList rotation={rotation} />
-          </ContentBox>
-        </Flex>
-      ) : (
-        <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalCloseButton
-              color={"goldenrod"}
+          </ModalBody>
+          <ModalFooter display={"flex"} justifyContent={"center"}>
+            <Button
+              backgroundColor={"transparent"}
               border={"1px solid goldenrod"}
+              color={"goldenrod"}
+              fontFamily={"var(--chakra-fonts-mono)"}
+              fontSize={13}
+              onClick={onClose}
               _focus={{ boxShadow: "none" }}
               _hover={{
                 backgroundColor: "goldenrod",
                 color: "inherit"
-              }}/>
-            <ModalBody padding={10}>
-              <ExperienceList rotation={rotation} />
-            </ModalBody>
-            <ModalFooter display={"flex"} justifyContent={"center"}>
-              <Button
-                backgroundColor={"transparent"}
-                border={"1px solid goldenrod"}
-                color={"goldenrod"}
-                fontFamily={"var(--chakra-fonts-mono)"}
-                fontSize={13}
-                onClick={onClose}
-                _focus={{ boxShadow: "none" }}
-                _hover={{
-                  backgroundColor: "goldenrod",
-                  color: "inherit"
-                }}>
-                Close
-              </Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
-        )
-      }
+              }}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </HeroShell>
     // <Flex
     //   alignItems={"center"}

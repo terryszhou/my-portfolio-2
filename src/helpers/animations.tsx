@@ -56,3 +56,13 @@ export const flash: string = keyframes`
     filter: none
   }
 `
+
+export const growRight: string = keyframes`
+  from { 
+    width: 0;
+    opacity: 0;
+  } to {
+    width: 32vw;
+    opacity: 1;
+  }
+`;

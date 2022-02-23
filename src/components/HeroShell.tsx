@@ -2,11 +2,14 @@ import {
   Container,
   Stack,
   Flex,
+  Box,
   Heading,
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
 import * as React from "react";
+
+import { growRight, slideLeft, slideRight } from "../helpers/animations";
 
 interface HeroShellProps {
   children: JSX.Element | JSX.Element[],
@@ -19,6 +22,10 @@ interface HeroShellProps {
 export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroShellProps) => {
   const number: string = label.split(".")[0] + "."
   const title: string = " " + label.split(".")[1]
+
+  const slideLeftAnim: string = `${slideLeft} 1s 250ms forwards`;
+  const slideRightAnim: string = `${slideRight} 1s 250ms forwards`;
+  const growRightAnim: string = `${growRight} 1s 250ms forwards`;
 
   const findScroll = (el: HTMLDivElement, refNum: number): {} => {
     let testVar: {} = {};
@@ -57,7 +64,23 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroSh
         paddingY={18}
         paddingTop={"7.5%"}
         direction={{ base: 'column', md: 'row' }}>
-        <Stack flex={1} spacing={{ base: 5, md: 10 }}>
+        <Stack flex={2} spacing={{ base: 5, md: 10 }} position={"relative"}>
+        <Box 
+          animation={growRightAnim}
+          backgroundColor={"goldenrod"}
+          boxShadow={useColorModeValue("none", "0 0 5px goldenrod")}
+          height={2}
+          position={"absolute"}
+          top={"2%"}
+          _after={{
+            borderTop: "8px solid goldenrod",
+            borderRight: "8px solid transparent",
+            content: `""`,
+            filter: useColorModeValue("none", "drop-shadow(2px 0 5px goldenrod)"),
+            position: "absolute",
+            right: -2,
+            width: 0,
+          }}/>
           <Heading
             fontFamily={"var(--chakra-fonts-mono)"}
             fontSize={{ base: 'xl', sm: '2xl', md: "3xl" }}
@@ -80,7 +103,7 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroSh
           </Flex>
         </Stack>
         <Flex
-          flex={1}
+          flex={0}
           justify={'center'}
           align={'center'}
           position={'relative'}
