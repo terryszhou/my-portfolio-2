@@ -130,3 +130,70 @@ export const wheelHexArray = [
     transitionDelay: "200ms"
   },
 ];
+
+export const monArr: string[] = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+  "Jan", "Feb",
+];
+
+export const yearArr: string[] = [
+  "2021", "", "", "", "", "", "", "", "", "", "", "", "2022", "",
+];
+
+interface expArrayProps {
+  title: string,
+  dates: string,
+  skills: string[],
+  company: string,
+  color: string,
+  start: number,
+  length: number
+};
+
+export const expArray: expArrayProps[] = [
+  {
+    title: "Licensed Realtor",
+    dates: "Mar 2020 - May 2021",
+    skills: ["Sales", "A/B Testing", "Ad Optimization"],
+    company: "JPAR",
+    color: "blue.500",
+    start: 0,
+    length: 4,
+  },
+  {
+    title: "Software Engineering Fellow",
+    dates: "Summer 2021",
+    skills: ["Full Stack Engineering", "Git", "React", "Python", "SQL", "Mongo"],
+    company: "General Assembly",
+    color: "red.600",
+    start: 4,
+    length: 3,
+  },
+  {
+    title: "Teacher Associate",
+    dates: "Aug - Dec 2021",
+    skills: ["Team Management", "Debugging", "Troubleshooting", "Communications"],
+    company: "General Assembly",
+    color: "green.500",
+    start: 7,
+    length: 5,
+  },
+  {
+    title: "Software Engineering Consultant",
+    dates: "Sep - Nov 2021",
+    skills: ["React Native", "Mobile Development", "CI/CD", "Data Analysis"],
+    company: "Restoic Inc.",
+    color: "red.500",
+    start: 8,
+    length: 3,
+  },
+  {
+    title: "Software Engineering Consultant",
+    dates: "Nov 2021 - Feb 2022",
+    skills: ["Next.js", "Chakra UI", "Vercel", "Google Cloud"],
+    company: "Rakehealth, LLC",
+    color: "yellow.300",
+    start: 10,
+    length: 4,
+  },
+];
