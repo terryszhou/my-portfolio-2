@@ -163,8 +163,8 @@ export const expArray: expArrayProps[] = [
     skills: ["Sales", "Contract Negotiations", "A/B Testing", "Ad Optimization"],
     company: "JPAR",
     color: "blue.500",
-    start: 0,
-    length: 4,
+    start: 1,
+    length: 5,
   },
   {
     title: "Software Engineering Fellow",
@@ -177,7 +177,7 @@ export const expArray: expArrayProps[] = [
     skills: ["Full Stack Engineering", "Git", "React", "Python", "SQL", "Mongo"],
     company: "General Assembly (1)",
     color: "red.600",
-    start: 4,
+    start: 5,
     length: 3,
   },
   {
@@ -191,7 +191,7 @@ export const expArray: expArrayProps[] = [
     skills: ["Team Management", "Debugging", "Troubleshooting", "Communications"],
     company: "General Assembly (2)",
     color: "green.500",
-    start: 7,
+    start: 8,
     length: 5,
   },
   {
@@ -206,7 +206,7 @@ export const expArray: expArrayProps[] = [
     skills: ["React Native", "Mobile Development", "CI/CD", "SEO", "Data Analysis"],
     company: "Restoic Inc.",
     color: "red.500",
-    start: 8,
+    start: 9,
     length: 3,
   },
   {
@@ -220,7 +220,7 @@ export const expArray: expArrayProps[] = [
     skills: ["Next.js", "Chakra UI", "Vercel", "Google Cloud"],
     company: "Rakehealth, LLC",
     color: "yellow.300",
-    start: 10,
+    start: 11,
     length: 4,
   },
 ];

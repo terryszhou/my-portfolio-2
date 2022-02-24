@@ -73,7 +73,7 @@ export const slideUp: string = keyframes`
     height: 90%;
   } to {
     transform: translateY(-50%);
-    height: 100%;
+    height: 120%;
   }
 `
 
@@ -84,6 +84,16 @@ from {
 } to {
   transform: translateY(-100%) scaleY(-1);
   z-index: 0;
+}
+`
+
+export const closeLetter: string = keyframes`
+from {
+  transform: translateY(-100%) scaleY(-1);
+  z-index: 0;
+} to {
+  transform: translateY(0) scaleY(1);
+  z-index: 1;
 }
 `
 

@@ -42,7 +42,7 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
   const growRightAnim: string = `${growRight} 1s 250ms forwards`;
-  const monW: number = (1 / monArr.length) * 100;
+  const monW: number = (1 / (monArr.length)) * 100;
   const topMargin: string = useColorModeValue("rgb(242,245,249)", "rgb(43,50,65)");
   const atCompanyColor: string = useColorModeValue("gray.400", "rgb(102,105,127)")
   const listColor: string = useColorModeValue("gray.300", "rgb(78,83,104)");
@@ -65,27 +65,32 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
               ))}
             </List>
           </Box> }>
-        <Tr cursor={"pointer"} onClick={() => { setIdx(i); onOpen(); }} role={"group"}>
+        <Tr
+          cursor={"pointer"}
+          onClick={() => {
+            setIdx(i);
+            onOpen();
+          }}
+          role={"group"}>
           <Td
-            fontSize={{ base: "xs", md: "sm", lg: "md" }}
+            fontSize={{ base: "10px", sm: "xs", md: "sm", lg: "md" }}
             fontWeight={"bold"}
-            paddingBottom={2}
-            paddingTop={2}>
+            paddingBottom={"0.25%"}
+            paddingTop={"0.25%"}>
             {exp.company}
           </Td>
           <Td
             colSpan={monArr.length}
-            paddingBottom={2}
-            paddingTop={2}>
+            paddingBottom={"0.25%"}
+            paddingTop={"0.25%"}>
             <Box
               animation={growRightAnim}
               backgroundColor={exp.color}
               borderRadius={15}
               height={2}
-              left={20}
-              marginLeft={`${monW * exp.start}%`}
+              marginLeft={`calc(${monW * (exp.start - 1)}% + ${exp.start !== 1 && "24px"})`}
               transition={"200ms ease-out"}
-              width={`${monW * exp.length}%`}
+              width={`calc(${monW * exp.length}% - 24px)`}
               _groupHover={{
                 filter: "brightness(1.5)",
                 transform: "scale(1.05)",
@@ -106,6 +111,7 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
         <Stack
           border={"1px solid"}
           borderRadius={15}
+          fontSize={{ base: "xs", lg: "md" }}
           width={{ base: "80vw", lg: "60vw"}}
           overflow={"scroll"}>
           {loaded && (
@@ -125,15 +131,27 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
               <Tbody>{expMap}</Tbody>
               <Tfoot>
                 <Tr>
-                  <Td borderBottom={"none"} paddingBottom={2} paddingTop={2} />
+                  <Td borderBottom={"none"} paddingBottom={0} paddingTop={0} />
                   {monArr.map((e, i) => (
-                    <Td borderBottom={"none"} key={i} paddingBottom={2} paddingTop={2}>{e}</Td>
+                    <Td
+                      borderBottom={"none"}
+                      key={i}
+                      paddingBottom={0}
+                      paddingTop={"0.5%"}>
+                      {e}
+                    </Td>
                   ))}
                 </Tr>
                 <Tr>
-                  <Td paddingBottom={2} paddingTop={2} />
+                  <Td paddingBottom={"0.5%"} paddingTop={"0.5%"} />
                   {yearArr.map((e, i) => (
-                    <Td color={'red.500'} key={i} paddingBottom={2} paddingTop={2}>{e}</Td>
+                    <Td
+                      color={'red.500'}
+                      key={i}
+                      paddingBottom={"0.5%"}
+                      paddingTop={"0.5%"}>
+                      {e}
+                    </Td>
                   ))}
                 </Tr>
               </Tfoot>

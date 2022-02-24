@@ -1,4 +1,4 @@
-import { Flex, Box, Image, HStack, Text, useColorModeValue } from "@chakra-ui/react";
+import { Flex, Box, Image, HStack, VStack, Text, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
 
 import { fadeOut, shake, slideUp, openLetter } from "../helpers/animations";
@@ -6,6 +6,9 @@ import { PageProps } from "../helpers/interfaces";
 import { HeroShell } from "./HeroShell";
 
 export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
+  const [loaded, setLoaded] = React.useState<boolean>(false);
+  React.useEffect((): void => visible && setLoaded(true), [visible]);
+
   const openLetterAnim: string = `${openLetter} 500ms ease-in-out forwards`;
   const slideUpAnim: string = `${slideUp} 500ms 500ms ease-in-out forwards`;
   const bgColor1: string = useColorModeValue("black", "white");
@@ -23,10 +26,10 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
       visible={visible}>
       <Flex
         alignItems={"center"}
-        height={"45vw"}
+        height={{ base: "85vw", sm: "65vw", lg: "45vw" }}
         justifyContent={"center"}
         ref={visRef}
-        width={"45vw"}>
+        width={{ base: "85vw", sm: "65vw", lg: "45vw" }}>
         <Box
           alignItems={"center"}
           animation={visible && shakeAnim}
@@ -37,6 +40,7 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
           height={"50%"}
           justifyContent={"center"}
           position={"relative"}
+          top={"10%"}
           width={"100%"}
           _before={{
             backgroundColor: bgColor1,
@@ -52,7 +56,7 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
             inset: 0,
             position: "absolute",
             zIndex: 1 }}>
-          {visible && (
+          {loaded && (
             <React.Fragment>
               <Image 
                 animation={fadeOutAnim}
@@ -68,6 +72,7 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
                 height={"100%"}
                 position={"absolute"}
                 width={"100.5%"}
+                zIndex={1}
                 _before={{
                   backgroundColor: bgColor2,
                   clipPath: "polygon(0% -1%, 50% 49%, 100% -1%)",
@@ -80,14 +85,14 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
                 border={"1px solid"}
                 borderRadius={5}
                 fontFamily={"var(--chakra-fonts-mono)"}
-                fontSize={{ base: "xs", lg: "md"}}
-                padding={5}
-                position={"absolute"}
+                fontSize={{ base: "10px", sm: "xs", lg: "md"}}
                 height={"90%"}
+                padding={"5%"}
+                position={"absolute"}
                 width={"90%"}>
-                <Box width={"85%"}>
+                <Flex flexDirection={"column"} width={"90%"}>
                   <Text fontWeight={"bold"}>Dear Viewer,</Text>
-                  <Text marginY={5} textAlign={"center"}>
+                  <Text marginY={"5%"} textAlign={"left"}>
                     Let's get in touch! You can email me
                     <Text
                       as={"a"}
@@ -101,16 +106,15 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
                       filter={textShadow}> 925-384-3787</Text>
                       .
                   </Text>
-                  <Text textAlign={"right"}>Hope to speak soon!</Text>
-                  <HStack float={"right"} marginTop={5}>
+                  <Text>Hope to speak soon!</Text>
+                  <HStack marginY={"5%"}>
                     <Image
-                      boxSize={"35px"}
+                      boxSize={"7.5%"}
                       filter={redShadow}
-                      marginLeft={{ base: 2, lg: 4 }}
                       src={"/seal-sig.png"} />
                     <Text>Terry S. Zhou</Text>
                   </HStack>
-                </Box>
+                </Flex>
               </Box>
             </React.Fragment>
           )}
