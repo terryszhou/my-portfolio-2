@@ -7,6 +7,7 @@ import {
   Heading,
   Image,
   useColorModeValue,
+  Tooltip,
 } from "@chakra-ui/react";
 import * as React from "react";
 
@@ -21,6 +22,7 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
   const fadeRightAnim3: string = `${fadeRight} 1s 400ms forwards`;
   const [loaded, setLoaded] = React.useState<boolean>(false);
   React.useEffect((): void => visible && setLoaded(true), [visible])
+  const redShadow: string = useColorModeValue("drop-shadow(0 0 5px red)", "none");
 
   return (
     <Flex
@@ -64,11 +66,23 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
               }}> Z</span>
               hou
             </span>
-            <Image
-              boxSize={{ base: "40px", lg: "50px" }}
-              filter={useColorModeValue("none", "drop-shadow(0 0 2px red)")}
-              marginLeft={{ base: 2, lg: 4 }}
-              src={"/seal-sig.png"} />
+            <Tooltip hasArrow label={
+              <Stack fontFamily={"var(--chakra-fonts-nunito)"}>
+                <Text>汉字:<Text as={"span"} color={"red"} filter={redShadow}>周思佳</Text></Text>
+                <Text>Pīnyīn: <Text as={"span"} color={"red"} filter={redShadow}>Zhōu Sījīa</Text></Text>
+                <Text><Text as={"span"} color={"red"} filter={redShadow}>周 Zhōu</Text>: The longest-lived dynasty in Chinese history.</Text>
+                <Text><Text as={"span"} color={"red"} filter={redShadow}>思 Sī</Text>: (to) think</Text>
+                <Text><Text as={"span"} color={"red"} filter={redShadow}>佳 Jīa</Text>: (with) excellence & beauty</Text>
+              </Stack> }>
+              <Image
+                boxSize={{ base: "40px", lg: "50px" }}
+                cursor={"pointer"}
+                filter={useColorModeValue("none", "drop-shadow(0 0 2px red)")}
+                marginLeft={{ base: 2, lg: 4 }}
+                src={"/seal-sig.png"}
+                transition={"200ms ease-in-out"}
+                _hover={{ transform: "scale(1.1)" }} />
+            </Tooltip>
           </Heading>
           <Heading
             animation={fadeRightAnim2}

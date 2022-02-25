@@ -41,23 +41,22 @@ export const SkillTable = () => (
       <SkillIcon icon={SiJavascript} color={"rgb(229,212,88)"} label={"JavaScript"} delay={"0ms"} />
       <SkillIcon icon={SiReact} color={"rgb(114,183,208)"} label={"React"} delay={"60ms"} />
       <SkillIcon icon={SiCss3} color={"rgb(69,98,226)"} label={"CSS"} delay={"120ms"} />
-      <SkillIcon icon={SiPython} color={"rgb(66,108,152)"} label={"Python"} delay={"180ms"} />
+      <SkillIcon icon={SiNodedotjs} color={"rgb(110,149,99)"} label={"Node.js"} delay={"180ms"} />
     </HStack>
     <HStack justifyContent={"space-around"} padding={2}>
       <SkillIcon icon={SiTypescript} color={"rgb(65,112,183)"} label={"TypeScript"} delay={"240ms"} />
       <SkillIcon icon={SiNextdotjs} color={"rgb(50,109,170)"} label={"Next.js"} delay={"300ms"} />
       <SkillIcon icon={DiSass} color={"rgb(182,103,144)"} label={"Sass"} delay={"360ms"} />
-      <SkillIcon icon={SiMicrosoftexcel} color={"rgb(50,113,70)"} label={"Excel/Sheets"} delay={"420ms"} />
+      <SkillIcon icon={SiFirebase} color={"rgb(229,150,53)"} label={"Firebase"} delay={"420ms"} />
     </HStack>
     <HStack justifyContent={"space-around"} padding={2}>
-      <SkillIcon icon={SiNodedotjs} color={"rgb(110,149,99)"} label={"Node.js"} delay={"480ms"} />
+      <SkillIcon icon={SiPython} color={"rgb(66,108,152)"} label={"Python"} delay={"480ms"} />
       <SkillIcon icon={SiVuedotjs} color={"rgb(96,172,128)"} label={"Vue.js"} delay={"540ms"} />
       <SkillIcon icon={SiTailwindcss} color={"rgb(89,170,163)"} label={"Tailwind"} delay={"600ms"} />
       <SkillIcon icon={SiGit} color={"rgb(211,87,60)"} label={"Git"} delay={"660ms"} />
     </HStack>
   </Box>
 );
-
 
 interface SkillIconProps {
   color: string,

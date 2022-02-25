@@ -1,5 +1,5 @@
 import {
-  Box, Button, Divider, Text, Heading, List, ListItem, ListIcon, useColorModeValue,
+  Box, Button, Text, Heading, List, ListItem, ListIcon, useColorModeValue,
   Modal, ModalOverlay, ModalContent, ModalFooter, ModalBody, ModalCloseButton,
 } from "@chakra-ui/react";
 import * as React from "react";
