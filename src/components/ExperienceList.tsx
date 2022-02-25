@@ -33,6 +33,8 @@ export const ExperienceList = ({ idx, isOpen, onClose }: ExperienceListProps) =>
   const fadeDownAnim: string = `${fadeDown} 800ms`;
   const fadeDownAnim2: string = `${fadeDown} 800ms 120ms forwards`;
   const fadeDownAnim3: string = `${fadeDown} 800ms 240ms forwards`;
+  const goldShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)");
+  const greenShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px green)");
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -41,6 +43,7 @@ export const ExperienceList = ({ idx, isOpen, onClose }: ExperienceListProps) =>
       <ModalCloseButton
         color={"goldenrod"}
         border={"1px solid goldenrod"}
+        filter={goldShadow}
         _focus={{ boxShadow: "none" }}
         _hover={{
           backgroundColor: "goldenrod",
@@ -74,6 +77,7 @@ export const ExperienceList = ({ idx, isOpen, onClose }: ExperienceListProps) =>
                 <ListIcon
                   as={BsXDiamondFill}
                   color='green.500'
+                  filter={greenShadow}
                   marginTop={1} />
                   {detail}
               </ListItem>
@@ -90,7 +94,9 @@ export const ExperienceList = ({ idx, isOpen, onClose }: ExperienceListProps) =>
                 key={i}>
                 <ListIcon
                   as={BiRightArrow}
-                  color='green.500' />
+                  color='green.500' 
+                  filter={greenShadow}
+                  marginTop={1} />
                   {skill}
               </ListItem>
             ))}
@@ -102,6 +108,7 @@ export const ExperienceList = ({ idx, isOpen, onClose }: ExperienceListProps) =>
           backgroundColor={"transparent"}
           border={"1px solid goldenrod"}
           color={"goldenrod"}
+          filter={goldShadow}
           fontFamily={"var(--chakra-fonts-mono)"}
           fontSize={13}
           onClick={onClose}

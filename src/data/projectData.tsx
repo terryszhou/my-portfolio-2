@@ -3,69 +3,141 @@ import { CgPokemon } from "react-icons/cg";
 import { FaCat } from "react-icons/fa";
 import { GiWingfoot, GiConwayLifeGlider, GiVideoConference } from "react-icons/gi";
 
-export const listArray = [
+interface listArrayProps {
+  id: number,
+  title: string,
+  details: string[]
+  skillSet: string[],
+  links: {
+    link: string,
+    linkText: string,
+  }[],
+}
+
+export const listArray: listArrayProps[] = [
   {
     id: 0,
     title: "Try selecting a hexagon!",
-    itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-    itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-    itemThree: "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
-    skillSet: "Test",
-    links: "Test"
+    details: [
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
+      "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
+    ],
+    skillSet: ["Test", "Test"],
+    links: [
+      {
+        link: "https://github.com/blakedong/demo-studio",
+        linkText: "Github Repo",
+      }
+    ],
   },
   {
     id: 1,
     title: "Hipdemo",
-    itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-    itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-    itemThree: "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
-    skillSet: "Next, Vercel, Firebase, VideoJS,",
-    links: "Github Repo"
+    details: [
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
+      "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
+    ],
+    skillSet: ["Next", "Vercel", "Firebase", "VideoJS"],
+    links: [
+      {
+        link: "https://github.com/blakedong/demo-studio",
+        linkText: "Github Repo",
+      }
+    ],
   },
   {
     id: 2,
     title: "Restoic",
-    itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-    itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-    itemThree: "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
-    skillSet: "React Native, XCode, Android Studio",
-    links: "App Store | Google Play Store"
+    details: [
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
+      "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
+    ],
+    skillSet: ["React Native", "XCode", "Android Studio"],
+    links: [
+      {
+        link: "https://apps.apple.com/tt/app/restoic-performance-mindset/id1557936632",
+        linkText: "App Store"
+      },
+      {
+        link: "https://play.google.com/store/apps/details?id=com.restoic&hl=en_US&gl=US",
+        linkText: "Google Play"
+      },
+    ]
   },
   {
     id: 3,
     title: "Python of Life",
-    itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-    itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-    itemThree: "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
-    skillSet: "Python, Pygame",
-    links: "Github Repo"
+    details: [
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
+      "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
+    ],
+    skillSet: ["Python", "Pygame"],
+    links: [
+      {
+        link: "https://github.com/terryszhou/p4-python-of-life/",
+        linkText: "Github Repo"
+      },
+    ]
   },
   {
     id: 4,
     title: "Pixel Runner",
-    itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-    itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-    itemThree: "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
-    skillSet: "Python, Pygame",
-    links: "Github Repo"
+    details: [
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
+      "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
+    ],
+    skillSet: ["Python", "Pygame"],
+    links: [
+      {
+        link: "https://github.com/terryszhou/pixel-runner/",
+        linkText: "Github Repo"
+      },
+    ]
   },
   {
     id: 5,
     title: "PokéMap",
-    itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-    itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-    itemThree: "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
-    skillSet: "Express, React, Axios, SQL",
-    links: "Live Site | Github Repo"
+    details: [
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
+      "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
+    ],
+    skillSet: ["Express", "React", "Axios", "SQL"],
+    links: [
+      {
+        link: "https://pokemap-kanto.herokuapp.com/",
+        linkText: "Live Site"
+      },
+      {
+        link: "https://github.com/terryszhou/PokeMap/",
+        linkText: "Github Repo"
+      },
+    ]
   },
   {
     id: 6,
     title: "Cat Crawler",
-    itemOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-    itemTwo: "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-    itemThree: "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
-    skillSet: "Canvas, JavaScript, CSS",
-    links: "Live Site | Github Repo"
+    details: [
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
+      "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
+    ],
+    skillSet: ["Canvas", "JavaScript", "CSS"],
+    links: [
+      {
+        link: "https://terryszhou.github.io/cat-crawler/",
+        linkText: "Live Site"
+      },
+      {
+        link: "https://github.com/terryszhou/cat-crawler/",
+        linkText: "Github Repo"
+      },
+    ]
   },
 ];
 
