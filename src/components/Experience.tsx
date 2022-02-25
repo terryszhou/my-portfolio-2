@@ -6,10 +6,11 @@ import React from "react";
 
 import { BiRightArrow } from "react-icons/bi";
 
+import { expArray, monArr, yearArr } from "../data/experienceData";
 import { ExperienceList } from "./ExperienceList";
+import { GoldSpan } from "./GoldSpan";
 import { HeroShell } from "./HeroShell";
 import { growRight } from "../helpers/animations";
-import { monArr, yearArr, expArray } from "../helpers/variables";
 import { PageProps } from "../helpers/interfaces";
 
 export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
@@ -32,7 +33,7 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
         label={
           <Box fontFamily={"var(--chakra-fonts-nunito)"}>
             <Text fontWeight={"bold"}>{exp.title}</Text>
-            <Text as={"span"} color={atCompanyColor} fontWeight="bold"> @ {exp.company}</Text>
+            <Text color={atCompanyColor} fontWeight="bold"> @ {exp.company}</Text>
             <Text color={listColor}>{exp.dates}</Text>
             <List color={listColor}>
               {exp.skills.map((skill, i) => (
@@ -76,7 +77,7 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
       pageRefs={pageRefs}
       refNum={2}
       visible={visible}>
-      <Stack ref={visRef}>
+      <Stack ref={visRef} spacing={5}>
         {loaded && <ExperienceTable expMap={expMap} />}
         <ExperienceHeading />
       </Stack>
@@ -96,6 +97,7 @@ export const ExperienceTable = ({ expMap }: ExperienceTableProps) => (
   <Stack
     border={"1px solid"}
     borderRadius={15}
+    boxShadow={"0 25px 20px -20px black"}
     fontSize={{ base: "xs", lg: "md" }}
     overflow={"scroll"}
     width={{ base: "80vw", lg: "60vw" }}>
@@ -124,29 +126,14 @@ export const ExperienceTable = ({ expMap }: ExperienceTableProps) => (
   </Stack>
 );
 
-export const ExperienceHeading = () => {
-  const goldShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)")
-  return (
-    <Heading
-      fontFamily={"var(--chakra-fonts-roboto)"}
-      fontSize={{ base: "md", md: "xl", lg: "2xl"}}>
-      <Text
-        as={"span"}
-        color={"goldenrod"}
-        filter={goldShadow}
-        >* </Text>
-      Hover for
-      <Text
-        as={"span"}
-        color={"goldenrod"}
-        filter={goldShadow}
-        > summary. </Text>
-      Click for 
-      <Text
-        as={"span"}
-        color={"goldenrod"}
-        filter={goldShadow}
-        > details!</Text>
-    </Heading>
-  );
-};
+export const ExperienceHeading = () => (
+  <Heading
+    fontFamily={"var(--chakra-fonts-roboto)"}
+    fontSize={{ base: "md", md: "xl", lg: "2xl"}}>
+    <GoldSpan>* </GoldSpan>
+    Hover for
+    <GoldSpan> summary. </GoldSpan>
+    Click for 
+    <GoldSpan> details!</GoldSpan>
+  </Heading>
+);

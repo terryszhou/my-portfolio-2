@@ -18,8 +18,8 @@ import * as React from "react";
 import { BiRightArrow } from "react-icons/bi";
 import { BsXDiamondFill } from "react-icons/bs";
 
+import { expArray } from "../data/experienceData";
 import { fadeDown } from "../helpers/animations";
-import { expArray } from "../helpers/variables";
 
 interface ExperienceListProps {
   idx: number,

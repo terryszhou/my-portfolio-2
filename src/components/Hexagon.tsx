@@ -34,7 +34,6 @@ export const Hexagon = ({
       bottom={bottom}
       cursor={cursor}
       left={left}
-      width={0}
       height={0}
       onClick={onClick}
       onMouseOver={onMouseOver}
@@ -46,6 +45,7 @@ export const Hexagon = ({
       transform={transform}
       transition={"200ms ease-out"}
       transitionDelay={transitionDelay}
+      width={0}
       _groupHover={_groupHover}
       _hover={_hover}>
       <Box 
@@ -55,13 +55,12 @@ export const Hexagon = ({
         position={"absolute"}
         width={width}
         _before={{
-          position: "absolute",
           background: color,
+          clipPath: "polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%)",
           content: `""`,
           inset: 0,
-          transition: "200ms ease-out",
-          clipPath: "polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%)"
-        }} />
+          position: "absolute",
+          transition: "200ms ease-out" }} />
       <Center
         height={typeof width === "string" ? `calc(${width} * 2)`: `${width * 2}`}
         position={"absolute"}

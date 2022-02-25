@@ -7,16 +7,19 @@ import {
   VStack,
   useColorMode,
   useColorModeValue,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import * as React from "react";
 
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
+import { GoldSpan } from "./GoldSpan";
 import { fadeDown } from "../helpers/animations";
 import { capitalize } from "../helpers/functions";
 import { PageProps } from "../helpers/interfaces";
 
-export const Nav = ({ pageRefs, y, scrollDir, isLargeScreen }: PageProps) => {
+export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
   const { colorMode } = useColorMode();
+  const [isLargeScreen]: boolean[] = useMediaQuery("(min-width: 840px)");
   const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
   const [stopScroll, setStopScroll] = React.useState<string>();
 
@@ -157,8 +160,10 @@ interface NavButtonProps {
   scroll: (arg0: string) => void,
 };
 
-export const NavButton = ({ num, label, scroll, delay }: NavButtonProps) => {
+export const NavButton = ({ delay, label, num, scroll }: NavButtonProps) => {
   const fadeDownAnim: string = `${fadeDown} 200ms ${delay} forwards`;
+  const goldShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)");
+
   return (
     <Text
       animation={fadeDownAnim}
@@ -175,6 +180,7 @@ export const NavButton = ({ num, label, scroll, delay }: NavButtonProps) => {
         borderRadius: "5px",
         bottom: -1,
         content: `""`,
+        filter: goldShadow,
         height: "2px",
         position: "absolute",
         transition: "100ms ease-out",
@@ -186,27 +192,30 @@ export const NavButton = ({ num, label, scroll, delay }: NavButtonProps) => {
           width: "105%"
         }
       }}>
-      <span style={{ color: "goldenrod" }}>
-        {`${num}. `}
-      </span>
+      <GoldSpan>{num}. </GoldSpan>
       {`${capitalize(label)}`}
     </Text>
   );
 }
 
-export const NavIcon = (props: any) => (
-  <Box
-    cursor={"pointer"}
-    height={"45px"}
-    margin={"25px auto"}
-    position={"relative"}
-    transform={"rotate(0deg)"}
-    transition={".5s ease-in-out"}
-    width={"30px"}
-    {...props}>
-    {props.children}
-  </Box>
-);
+export const NavIcon = (props: any) => {
+  const goldShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)");
+  return (
+    <Box
+      cursor={"pointer"}
+      filter={goldShadow}
+      height={"45px"}
+      margin={"25px auto"}
+      position={"relative"}
+      transform={"rotate(0deg)"}
+      transition={".5s ease-in-out"}
+      width={"30px"}
+      {...props}>
+      {props.children}
+    </Box>
+  );
+};
+
 
 export const Span = (props: any) => (
   <Box 
@@ -225,6 +234,8 @@ export const Span = (props: any) => (
 
 export const ResumeButton = () => {
   const fadeDownAnim: string = `${fadeDown} 200ms 300ms forwards`;
+  const goldShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)");
+
   return (
     <Button
       animation={fadeDownAnim}
@@ -233,16 +244,14 @@ export const ResumeButton = () => {
       border={"1px solid goldenrod"}
       color={"goldenrod"}
       cursor={"pointer"}
+      filter={goldShadow}
       fontFamily={"var(--chakra-fonts-mono)"}
       fontSize={13}
       href={"https://s3.us-west-1.amazonaws.com/terryszhou.com/terryzhou-resume.pdf"}
       opacity={0}
       target={"_blank"}
       _focus={{ boxShadow: "none" }}
-      _hover={{
-        backgroundColor: "goldenrod",
-        color: "inherit"
-      }}>
+      _hover={{ backgroundColor: "goldenrod", color: "inherit" }}>
       Resume
     </Button>
   );

@@ -14,13 +14,19 @@ import {
   SiNodedotjs,
   SiNextdotjs,
   SiTailwindcss,
+  SiJavascript,
   SiAmazonaws,
   SiFirebase,
   SiPython,
+  SiSass,
+  SiTypescript,
+  SiVuedotjs,
+  SiGit,
   SiChakraui,
-  SiVercel
+  SiMicrosoftexcel,
+  SiPostgresql,
 } from "react-icons/si";
-import { DiJavascript, DiSass } from "react-icons/di"
+import { DiSass } from "react-icons/di"
 
 import { fadeDown } from "../helpers/animations";
 import { IconType } from "react-icons";
@@ -32,22 +38,22 @@ export const SkillTable = () => (
     fontSize={{ base: "xs", lg: "sm" }}
     width={"100%"}>
     <HStack justifyContent={"space-around"} padding={2}>
-      <SkillIcon icon={DiJavascript} color={"rgb(229,212,88)"} label={"JavaScript/TypeScript"} delay={"0ms"} />
+      <SkillIcon icon={SiJavascript} color={"rgb(229,212,88)"} label={"JavaScript"} delay={"0ms"} />
       <SkillIcon icon={SiReact} color={"rgb(114,183,208)"} label={"React"} delay={"60ms"} />
       <SkillIcon icon={SiCss3} color={"rgb(69,98,226)"} label={"CSS"} delay={"120ms"} />
-      <SkillIcon icon={SiAmazonaws} color={"rgb(241,158,56)"} label={"AWS"} delay={"180ms"} />
+      <SkillIcon icon={SiPython} color={"rgb(66,108,152)"} label={"Python"} delay={"180ms"} />
     </HStack>
     <HStack justifyContent={"space-around"} padding={2}>
-      <SkillIcon icon={SiNodedotjs} color={"rgb(110,149,99)"} label={"Node.js"} delay={"240ms"} />
+      <SkillIcon icon={SiTypescript} color={"rgb(65,112,183)"} label={"TypeScript"} delay={"240ms"} />
       <SkillIcon icon={SiNextdotjs} color={"rgb(50,109,170)"} label={"Next.js"} delay={"300ms"} />
       <SkillIcon icon={DiSass} color={"rgb(182,103,144)"} label={"Sass"} delay={"360ms"} />
-      <SkillIcon icon={SiFirebase} color={"rgb(234,195,77)"} label={"Firebase"} delay={"420ms"} />
+      <SkillIcon icon={SiMicrosoftexcel} color={"rgb(50,113,70)"} label={"Excel/Sheets"} delay={"420ms"} />
     </HStack>
     <HStack justifyContent={"space-around"} padding={2}>
-      <SkillIcon icon={SiPython} color={"rgb(66,108,152)"} label={"Python"} delay={"480ms"} />
-      <SkillIcon icon={SiChakraui} color={"rgb(89,178,170)"} label={"Chakra UI"} delay={"540ms"} />
+      <SkillIcon icon={SiNodedotjs} color={"rgb(110,149,99)"} label={"Node.js"} delay={"480ms"} />
+      <SkillIcon icon={SiVuedotjs} color={"rgb(96,172,128)"} label={"Vue.js"} delay={"540ms"} />
       <SkillIcon icon={SiTailwindcss} color={"rgb(89,170,163)"} label={"Tailwind"} delay={"600ms"} />
-      <SkillIcon icon={SiVercel} color={"rgb(83,83,83)"} label={"Vercel"} delay={"660ms"} />
+      <SkillIcon icon={SiGit} color={"rgb(211,87,60)"} label={"Git"} delay={"660ms"} />
     </HStack>
   </Box>
 );

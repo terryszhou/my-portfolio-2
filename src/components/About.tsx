@@ -1,4 +1,4 @@
-import { Flex, Stack, Box, Text, Image, useColorMode } from "@chakra-ui/react";
+import { Flex, Stack, Box, Text, Image, useColorModeValue, } from "@chakra-ui/react";
 import * as React from "react";
 
 import { fadeDown } from "../helpers/animations";
@@ -7,11 +7,11 @@ import { HeroShell } from "./HeroShell";
 import { SkillTable } from "./SkillTable";
 
 export const About = ({ pageRefs, visible, visRef }: PageProps) => {
-  const { colorMode } = useColorMode();
   const [loaded, setLoaded] = React.useState<boolean>(false);
   React.useEffect((): void => visible && setLoaded(true), [visible])
 
   const fadeDownAnim: string = `${fadeDown} 1000ms`;
+  const goldShadow: string = useColorModeValue("none","0 0 10px goldenrod");
 
   return (
     <HeroShell
@@ -37,41 +37,44 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
           <Text marginY={2} opacity={.7}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </Text>
-          <SkillTable />
+          {loaded && <SkillTable />}
         </Stack>
       </Box>
-      <Flex
-        animation={fadeDownAnim}
-        alignItems={"center"}
-        justifyContent={"center"}
-        flexDirection={"column"}
-        marginTop={"10%"}>
-        <Box
+      {loaded &&
+        <Flex
+          animation={fadeDownAnim}
           alignItems={"center"}
-          border={"2px solid goldenrod"}
-          borderRadius={5}
-          boxShadow={colorMode === "light" ? "none" : "0 0 10px goldenrod"}
-          display={"flex"}
           justifyContent={"center"}
-          padding={2}
-          position={"relative"}
-          role={"group"}
-          transition={"200ms ease-out"}
-          width={"fit-content"}
-          _hover={{ backgroundColor: "goldenrod" }}>
-          <Image
+          flexDirection={"column"}
+          marginTop={"10%"}>
+          <Box
+            alignItems={"center"}
+            border={"2px solid goldenrod"}
             borderRadius={5}
-            maxWidth={{ base: 250, lg: 350 }}
-            src={"/headshot-shoulders.jpg"} 
-            _groupHover={{ visibility: "hidden" }} />
-          <Image
-            position={"absolute"}
-            src={"/headshot-outline.png"}
-            visibility={"hidden"}
-            width={"70%"}
-            _groupHover={{ visibility: "visible" }} />
-        </Box>
-      </Flex>
+            boxShadow={goldShadow}
+            display={"flex"}
+            justifyContent={"center"}
+            padding={2}
+            position={"relative"}
+            role={"group"}
+            transition={"200ms ease-out"}
+            width={"fit-content"}
+            _hover={{ backgroundColor: "goldenrod" }}>
+            <Image
+              borderRadius={5}
+              boxShadow={"0 25px 20px -20px black"}
+              maxWidth={{ base: 250, lg: 350 }}
+              src={"/headshot-shoulders.jpg"} 
+              _groupHover={{ visibility: "hidden" }} />
+            <Image
+              position={"absolute"}
+              src={"/headshot-outline.png"}
+              visibility={"hidden"}
+              width={"70%"}
+              _groupHover={{ visibility: "visible" }} />
+          </Box>
+        </Flex>
+      }
     </HeroShell>
   );
 };

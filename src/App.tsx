@@ -1,5 +1,5 @@
 
-import { VStack, useMediaQuery } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 import * as React from "react";
 
 import "./App.css";
@@ -15,7 +15,6 @@ import { useOnScreen } from "./hooks/useOnScreen";
 import { useNavigation } from "./hooks/useNavigation";
 
 export const App = () => {
-  const [isLargeScreen]: boolean[] = useMediaQuery("(min-width: 760px)");
   const pageRefs: React.MutableRefObject<{}> = React.useRef({});
   const [visRef, visible]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
   const [visRef2, visible2]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
@@ -27,12 +26,10 @@ export const App = () => {
   return (
     <VStack spacing={0}>
       <Nav
-        isLargeScreen={isLargeScreen}
         pageRefs={pageRefs}
         scrollDir={scrollDir}
         y={y} />
       <Social
-        isLargeScreen={isLargeScreen}
         scrollDir={scrollDir}
         y={y} />
       <Home
@@ -44,7 +41,6 @@ export const App = () => {
         visible={visible2} 
         visRef={visRef2} />
       <Experience
-        isLargeScreen={isLargeScreen}
         pageRefs={pageRefs} 
         visible={visible3}
         visRef={visRef3} />

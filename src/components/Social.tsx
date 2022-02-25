@@ -1,4 +1,4 @@
-import { IconButton, Divider, HStack, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import { IconButton, Divider, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import * as React from "react";
 
 import { FiCodepen, FiMail, FiGithub, FiLinkedin, FiInstagram } from "react-icons/fi";
@@ -7,7 +7,7 @@ import { SiCodewars } from "react-icons/si";
 import { fadeDown } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";
 
-export const Social = ({ y, scrollDir, isLargeScreen }: PageProps ) => {
+export const Social = ({ scrollDir, y }: PageProps ) => {
   const fadeDownAnim: string = `${fadeDown} 200ms 180ms forwards`;
 
   return (
@@ -31,28 +31,23 @@ export const Social = ({ y, scrollDir, isLargeScreen }: PageProps ) => {
         <SocialIcon
           icon={<FiGithub />}
           delay={"320ms"} 
-          href={"https://github.com/terryszhou"} 
-          isLargeScreen={isLargeScreen} />
+          href={"https://github.com/terryszhou"} />
         <SocialIcon
           icon={<FiLinkedin />}
           delay={"240ms"}
-          href={"https://www.linkedin.com/in/terryszhou"} 
-          isLargeScreen={isLargeScreen} />
+          href={"https://www.linkedin.com/in/terryszhou"} />
         <SocialIcon
           icon={<FiInstagram />}
           delay={"160ms"}
-          href={"https://instagram.com/terry.s.zhou"} 
-          isLargeScreen={isLargeScreen} />
+          href={"https://instagram.com/terry.s.zhou"} />
         <SocialIcon
           icon={<FiCodepen />}
           delay={"80ms"} 
-          href={"https://codepen.io/terryszhou"} 
-          isLargeScreen={isLargeScreen} />
+          href={"https://codepen.io/terryszhou"} />
         <SocialIcon
           icon={<SiCodewars />}
           delay={"0ms"} 
-          href={"https://www.codewars.com/users/terryszhou/"} 
-          isLargeScreen={isLargeScreen} />
+          href={"https://www.codewars.com/users/terryszhou/"} />
         <Divider
           borderColor={useColorModeValue("black", "white")}
           width={{ base: 0, lg: 40 }} />
@@ -74,14 +69,13 @@ export const Social = ({ y, scrollDir, isLargeScreen }: PageProps ) => {
         <SocialIcon
           delay={"80ms"} 
           href={"mailto:terryszhou@gmail.com"} 
-          icon={<FiMail />}
-          isLargeScreen={isLargeScreen} />
+          icon={<FiMail />} />
         <Text
           animation={fadeDownAnim}
           as={"a"}
           cursor={"pointer"}
           fontFamily={"var(--chakra-fonts-mono)"}
-          fontSize={{ base: "xs", lg: "sm"}}
+          fontSize={{ base: "xs", lg: "sm" }}
           href={"mailto:terryszhou@gmail.com"}
           opacity={0}
           rel={"noreferrer"}
@@ -99,10 +93,9 @@ interface SocialIconProps {
   icon: React.ReactElement,
   delay: string,
   href: string,
-  isLargeScreen?: boolean,
 };
 
-export const SocialIcon = ({ icon, delay, href, isLargeScreen }: SocialIconProps) => {
+export const SocialIcon = ({ icon, delay, href }: SocialIconProps) => {
   const fadeDownAnim: string = `${fadeDown} 200ms ${delay} forwards`;
 
   return (
@@ -116,7 +109,7 @@ export const SocialIcon = ({ icon, delay, href, isLargeScreen }: SocialIconProps
       icon={icon}
       opacity={"0"}
       rel={"noreferrer"}
-      size={isLargeScreen ? "sm" : "xs"}
+      size={"xs"}
       target={"_blank"}
       transition={"100ms ease-out"}
       _hover={{
