@@ -117,7 +117,7 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
                 marginY={6}
                 width={"80%"}>
                 I'm a
-                <GreenSpan> software engineer</GreenSpan> based out of sunny Austin, TX.
+                <GreenSpan> software engineer</GreenSpan> based out of Austin, TX.
               </Text>
             </ListItem>
             <ListItem alignItems={"center"} display={"flex"}>

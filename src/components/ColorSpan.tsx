@@ -40,3 +40,15 @@ export const RedSpan = ({ children }: ColorSpanProps) => {
     </Text>
   );
 };
+
+export const PurpleSpan = ({ children }: ColorSpanProps) => {
+  const redShadow: string = uCMV("none","drop-shadow(0 0 5px violet)")
+  return (
+    <Text
+      as={"span"}
+      color={"purple.500"}
+      filter={redShadow}>
+      {children}
+    </Text>
+  );
+};

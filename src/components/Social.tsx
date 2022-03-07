@@ -9,15 +9,15 @@ import { PageProps } from "../helpers/interfaces";
 
 export const Social = ({ scrollDir, y }: PageProps ) => {
   const fadeDownAnim: string = `${fadeDown} 200ms 180ms forwards`;
-  const greenShadow: string = uCMV("none","drop-shadow(0 0 5px green)");
+  const pinkShadow: string = uCMV("none","drop-shadow(0 0 5px hotpink)");
 
   return (
     <React.Fragment>
       <Stack
-        color={"green.500"}
+        color={"pink.500"}
         direction={{ base: "column-reverse", lg: "row" }}
         display={"flex"}
-        filter={greenShadow}
+        filter={pinkShadow}
         justifyContent={"center"}
         alignItems={"center"}
         position={"fixed"}
@@ -50,13 +50,13 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
           icon={<SiCodewars />}
           delay={"0ms"} 
           href={"https://www.codewars.com/users/terryszhou/"} />
-        <Divider borderColor={"green.500"} width={{ base: 0, lg: 20 }} />
+        <Divider borderColor={"pink.500"} width={{ base: 0, lg: 20 }} />
       </Stack>
       <Stack
-        color={"green.500"}
+        color={"pink.500"}
         direction={"row"}
         display={"flex"}
-        filter={greenShadow}
+        filter={pinkShadow}
         justifyContent={"center"}
         alignItems={"center"}
         bottom={{ base: "15%", lg: y > 80 ? "2%" : "5%" }}
@@ -65,7 +65,7 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
         transform={{ base: "rotate(-90deg)", lg: "rotate(0deg)" }}
         transition={"200ms ease-out"}
         zIndex={1}>
-        <Divider borderColor={"green.500"} width={{ base: 0, lg: 16}} />
+        <Divider borderColor={"pink.500"} width={{ base: 0, lg: 16}} />
         <SocialIcon
           delay={"80ms"} 
           href={"mailto:terryszhou@gmail.com"} 
@@ -112,7 +112,7 @@ export const SocialIcon = ({ delay, href, icon }: SocialIconProps) => {
       target={"_blank"}
       transition={"100ms ease-out"}
       _hover={{
-        backgroundColor: "green.500",
+        backgroundColor: "pink.500",
         color: "white" }} />
   );
 };

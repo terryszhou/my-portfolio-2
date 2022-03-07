@@ -76,8 +76,7 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroSh
             filter: useColorModeValue("none", "drop-shadow(2px 0 5px goldenrod)"),
             position: "absolute",
             right: -2,
-            width: 0,
-          }}/>
+            width: 0 }} />
           <Heading
             fontFamily={"var(--chakra-fonts-mono)"}
             fontSize={{ base: 'xl', sm: '2xl', md: "3xl" }}
@@ -85,6 +84,7 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroSh
             <Text 
               as={"span"}
               color={"goldenrod"}
+              fontSize={{ base: 'lg', sm: 'xl', md: "2xl" }}
               textShadow={useColorModeValue("none", "0 0 5px goldenrod")}>
               {number}
             </Text>{title}
