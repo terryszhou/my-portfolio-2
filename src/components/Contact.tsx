@@ -1,9 +1,10 @@
-import { Flex, Box, Image, HStack, VStack, Text, useColorModeValue } from "@chakra-ui/react";
+import { Flex, Box, Image, HStack, Text, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
 
 import { fadeOut, shake, slideUp, openLetter } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";
 import { HeroShell } from "./HeroShell";
+import { Cloudbank } from "./Cloudbank";
 
 export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
   const [loaded, setLoaded] = React.useState<boolean>(false);

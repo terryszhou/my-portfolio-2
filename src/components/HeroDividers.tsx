@@ -8,8 +8,8 @@ interface HeroDividersProps {
 }
 
 export const HeroDividers = ({ orientation }: HeroDividersProps) => {
-  const slideLeftAnim: string = `${slideLeft} 1s 250ms forwards`;
-  const slideRightAnim: string = `${slideRight} 1s 250ms forwards`;
+  const slideLeftAnim: string = `${slideLeft} 500ms 250ms forwards`;
+  const slideRightAnim: string = `${slideRight} 500ms 250ms forwards`;
 
   return (
     <React.Fragment>

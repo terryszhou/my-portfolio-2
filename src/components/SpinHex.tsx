@@ -8,11 +8,6 @@ export const SpinHex = () => (
       href="https://github.com/terryszhou/my-portfolio"
       target="_blank"
       rel="noreferrer">
-      {/* <div id="hex-gold-great">
-        <div
-          id="hex-greyspace-great"
-          style={{ backgroundColor: useColorModeValue("white", "rgb(28,32,46)") }} />
-      </div> */}
       <div id="hex-ring-lg" style={{ filter: useColorModeValue("none", "") }} />
       <div
         id="hex-greyspace-lg"

@@ -1,44 +1,40 @@
 import {
-  HStack,
-  Text,
-  Button,
-  Image,
   Box,
-  VStack,
+  Button,
+  HStack,
+  Image,
+  Text,
   useColorMode,
   useColorModeValue,
   useMediaQuery,
+  VStack,
 } from "@chakra-ui/react";
 import * as React from "react";
 
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { GoldSpan } from "./GoldSpan";
 import { fadeDown } from "../helpers/animations";
-import { capitalize } from "../helpers/functions";
+import { decapitalize } from "../helpers/functions";
 import { PageProps } from "../helpers/interfaces";
+import { NavMenuIcon } from "./NavMenuIcon";
 
 export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
   const { colorMode } = useColorMode();
+  const fadeDownAnim: string = `${fadeDown} 500ms`;
   const [isLargeScreen]: boolean[] = useMediaQuery("(min-width: 840px)");
   const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
   const [stopScroll, setStopScroll] = React.useState<string>();
 
   React.useEffect((): void => {
-    menuOpen
-      ? setStopScroll(document.body.style.overflow = "hidden")
-      : setStopScroll(document.body.style.overflow = "initial");
-  }, [menuOpen])
+    setStopScroll(document.body.style.overflow = menuOpen ? "hidden" : "initial")
+  }, [menuOpen]);
 
-  React.useEffect((): void => {
-    isLargeScreen && setMenuOpen(false);
-  }, [isLargeScreen])
+  React.useEffect((): void => isLargeScreen && setMenuOpen(false), [isLargeScreen]);
 
   const scrollIntoView = (type: string): void => {
     pageRefs.current[type].scrollIntoView({ behavior: "smooth"});
     menuOpen && setMenuOpen(!menuOpen);
   };
-
-  const fadeDownAnim: string = `${fadeDown} 500ms`;
 
   return (
     <React.Fragment>
@@ -48,15 +44,13 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
             ? "transparent"
             : colorMode === "light" 
               ? "rgba(255,255,255,.85)" 
-              : "rgba(27,32,43,.85)"
-        }
+              : "rgba(27,32,43,.85)" }
         boxShadow={
           menuOpen
             ? "none"
             : y !== 0 && scrollDir === "up" 
               ? "dark-lg" 
-              : "none"
-        }
+              : "none" }
         height={y !== 0 && scrollDir === "up" ? 65 : 100}
         position={"fixed"}
         top={y > 80 && scrollDir === "down" ? -110 : 0}
@@ -78,77 +72,64 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
             _hover={{
               cursor: "pointer",
               filter: "brightness(1.25)",
-              transform: "scale(1.15)",
-            }} />
+              transform: "scale(1.15)" }} />
           <ColorModeSwitcher />
         </HStack>
         <HStack
+          fontSize={13}
           position={"absolute"}
           right={isLargeScreen ? 5 : 0}
           spacing={7}
           transition={"200ms ease-out"}>
           {isLargeScreen ? (
             <React.Fragment>
-              <NavButton num="00" label="home" scroll={scrollIntoView} delay={"0ms"}/>
-              <NavButton num="01" label="about" scroll={scrollIntoView} delay={"60ms"}/>
-              <NavButton num="02" label="experience" scroll={scrollIntoView} delay={"120ms"}/>
-              <NavButton num="03" label="projects" scroll={scrollIntoView} delay={"180ms"}/>
-              <NavButton num="04" label="contact" scroll={scrollIntoView} delay={"240ms"}/>
+              <NavButton label="00. Home" scroll={scrollIntoView} delay={"0ms"}/>
+              <NavButton label="01. About" scroll={scrollIntoView} delay={"60ms"}/>
+              <NavButton label="02. Experience" scroll={scrollIntoView} delay={"120ms"}/>
+              <NavButton label="03. Projects" scroll={scrollIntoView} delay={"180ms"}/>
+              <NavButton label="04. Contact" scroll={scrollIntoView} delay={"240ms"}/>
               <ResumeButton />
             </React.Fragment>
           ) : (
-            <NavIcon
-              onClick={() => setMenuOpen(!menuOpen)}
-              position={"absolute"}
-              right={5}
-              role={"group"}
-              zIndex={4}>
-              <Span
-                left={!menuOpen && 1}
-                top={menuOpen ? "18px" : "12px"}
-                transform={menuOpen && "rotate(135deg)"} 
-                _groupHover={{ left: 0 }} />
-              <Span
-                left={!menuOpen && -1}
-                top={menuOpen ? "18px" : "24px"}
-                transform={menuOpen && "rotate(405deg)"} 
-                _groupHover={{ left: 0 }} />
-            </NavIcon>
+            <NavMenuIcon menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> 
           )}
         </HStack>
       </HStack>
       {!isLargeScreen && (
-        <VStack
-          bgColor={colorMode === "light" ? "rgba(255,255,255,.85)" : "rgba(27,32,43,.85)"}
-          boxShadow={"dark-lg"}
-          height={"100%"}
-          justifyContent={"center"}
-          position={"fixed"}
-          right={menuOpen ? 0 : "-50%"}
-          spacing={10}
-          transition={"300ms ease-in-out"}
-          width={"50%"}
-          zIndex={2}>
-          <NavButton num="00" label="home" scroll={scrollIntoView} delay={"0ms"}/>
-          <NavButton num="01" label="about" scroll={scrollIntoView} delay={"60ms"}/>
-          <NavButton num="02" label="experience" scroll={scrollIntoView} delay={"120ms"}/>
-          <NavButton num="03" label="projects" scroll={scrollIntoView} delay={"180ms"}/>
-          <NavButton num="04" label="contact" scroll={scrollIntoView} delay={"240ms"}/>
-          <ResumeButton />
-        </VStack>
+        <React.Fragment>
+          <VStack
+            bgColor={colorMode === "light" ? "rgba(255,255,255,.85)" : "rgba(27,32,43,.85)"}
+            boxShadow={"dark-lg"}
+            fontSize={16}
+            height={"100%"}
+            justifyContent={"center"}
+            position={"fixed"}
+            right={menuOpen ? 0 : "-50%"}
+            spacing={10}
+            transition={"300ms ease-in-out"}
+            width={"50%"}
+            zIndex={2}>
+            <React.Fragment>
+              <NavButton label="00. Home" scroll={scrollIntoView} delay={"0ms"}/>
+              <NavButton label="01. About" scroll={scrollIntoView} delay={"60ms"}/>
+              <NavButton label="02. Experience" scroll={scrollIntoView} delay={"120ms"}/>
+              <NavButton label="03. Projects" scroll={scrollIntoView} delay={"180ms"}/>
+              <NavButton label="04. Contact" scroll={scrollIntoView} delay={"240ms"}/>
+              <ResumeButton />
+            </React.Fragment>
+          </VStack>
+          <Box
+            backgroundColor={"black"}
+            height={"100%"}
+            onClick={() => setMenuOpen(!menuOpen)}
+            opacity={menuOpen ? .75 : 0}
+            position={"fixed"}
+            transition={"opacity 400ms ease-out, visibility 400ms ease-out"}
+            visibility={menuOpen ? "visible" : "hidden"}
+            width={"100%"}
+            zIndex={1} />
+        </React.Fragment>
       )}
-      {!isLargeScreen &&
-        <Box
-          backgroundColor={"black"}
-          height={"100%"}
-          onClick={() => setMenuOpen(!menuOpen)}
-          opacity={menuOpen ? .75 : 0}
-          position={"fixed"}
-          transition={"opacity 400ms ease-out, visibility 400ms ease-out"}
-          visibility={menuOpen ? "visible" : "hidden"}
-          width={"100%"}
-          zIndex={1} />
-      }
     </React.Fragment>
   );
 };
@@ -156,24 +137,21 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
 interface NavButtonProps {
   delay: string,
   label: string,
-  num: string,
   scroll: (arg0: string) => void,
 };
 
-export const NavButton = ({ delay, label, num, scroll }: NavButtonProps) => {
-  const fadeDownAnim: string = `${fadeDown} 200ms ${delay} forwards`;
+export const NavButton = ({ delay, label, scroll }: NavButtonProps) => {
+  const fadeDownAnim: string = `${fadeDown} 250ms ${delay} forwards`;
   const goldShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)");
-
   return (
     <Text
       animation={fadeDownAnim}
       cursor={"pointer"}
       fontFamily={"var(--chakra-fonts-mono)"}
-      fontSize={13}
+      opacity={0}
+      onClick={() => scroll(decapitalize(label.split(" ")[1]))}
       padding={0}
       position={"relative"}
-      opacity={0}
-      onClick={() => scroll(label)}
       transition={"100ms ease-out"}
       _before={{
         backgroundColor: "goldenrod",
@@ -184,58 +162,19 @@ export const NavButton = ({ delay, label, num, scroll }: NavButtonProps) => {
         height: "2px",
         position: "absolute",
         transition: "100ms ease-out",
-        width: 0,
-      }}
+        width: 0 }}
       _hover={{
         color: "goldenrod",
-        _before: {
-          width: "105%"
-        }
-      }}>
-      <GoldSpan>{num}. </GoldSpan>
-      {`${capitalize(label)}`}
+        _before: { width: "105%" } }}>
+      <GoldSpan>{label.split(" ")[0]} </GoldSpan>
+      {label.split(" ")[1]}
     </Text>
   );
 }
 
-export const NavIcon = (props: any) => {
-  const goldShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)");
-  return (
-    <Box
-      cursor={"pointer"}
-      filter={goldShadow}
-      height={"45px"}
-      margin={"25px auto"}
-      position={"relative"}
-      transform={"rotate(0deg)"}
-      transition={".5s ease-in-out"}
-      width={"30px"}
-      {...props}>
-      {props.children}
-    </Box>
-  );
-};
-
-
-export const Span = (props: any) => (
-  <Box 
-    background={"goldenrod"}
-    borderRadius={"5px"}
-    display={"block"}
-    height={"3px"}
-    left={0}
-    position={"absolute"}
-    opacity={1}
-    transform={"rotate(0deg)"}
-    transition={".25s ease-in-out"}
-    width={"100%"}
-    {...props} />
-);
-
 export const ResumeButton = () => {
   const fadeDownAnim: string = `${fadeDown} 200ms 300ms forwards`;
   const goldShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)");
-
   return (
     <Button
       animation={fadeDownAnim}

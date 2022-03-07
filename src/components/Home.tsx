@@ -17,12 +17,13 @@ import { SpinHex } from "./SpinHex";
 import { HeroDividers } from "./HeroDividers";
 
 export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
-  const fadeRightAnim1: string = `${fadeRight} 1s 100ms forwards`;
-  const fadeRightAnim2: string = `${fadeRight} 1s 250ms forwards`;
-  const fadeRightAnim3: string = `${fadeRight} 1s 400ms forwards`;
-  const [loaded, setLoaded] = React.useState<boolean>(false);
-  React.useEffect((): void => visible && setLoaded(true), [visible])
+  const fadeRightAnim1: string = `${fadeRight} 250ms 250ms forwards`;
+  const fadeRightAnim2: string = `${fadeRight} 250ms 400ms forwards`;
+  const fadeRightAnim3: string = `${fadeRight} 250ms 550ms forwards`;
   const redShadow: string = useColorModeValue("drop-shadow(0 0 5px red)", "none");
+
+  const [loaded, setLoaded] = React.useState<boolean>(false);
+  React.useEffect((): void => visible && setLoaded(true), [visible]);
 
   return (
     <Flex
