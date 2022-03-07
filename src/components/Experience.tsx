@@ -8,7 +8,7 @@ import { BiRightArrow } from "react-icons/bi";
 
 import { expArray, monArr, yearArr } from "../data/experienceData";
 import { ExperienceList } from "./ExperienceList";
-import { GoldSpan } from "./GoldSpan";
+import { GoldSpan } from "./ColorSpan";
 import { HeroShell } from "./HeroShell";
 import { growRight } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";

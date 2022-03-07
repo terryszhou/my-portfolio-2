@@ -1,4 +1,4 @@
-import { Icon, Circle, Image, useColorModeValue } from "@chakra-ui/react";
+import { Icon, Circle, Image, useColorModeValue as uCMV } from "@chakra-ui/react";
 import * as React from "react";
 
 import { BiUpArrow } from "react-icons/bi";
@@ -15,7 +15,7 @@ interface ProjectWheelProps {
 };
 
 export const ProjectWheel = ({ onClick, visible, rotation, setRotation }: ProjectWheelProps) => {
-  const hexShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)");
+  const hexShadow: string = uCMV("none", "drop-shadow(0 0 5px goldenrod)");
 
   const wheelHexMap = wheelHexArray.map(e => (
     <WheelHex
@@ -52,7 +52,7 @@ export const ProjectWheel = ({ onClick, visible, rotation, setRotation }: Projec
           <Circle
             backgroundColor={"red"}
             borderRadius={"100%"}
-            boxShadow={useColorModeValue("none", "0 0 5px red")}
+            boxShadow={uCMV("none", "0 0 5px red")}
             position={"absolute"}
             size={{ base: 2, lg: 5 }} />
         </React.Fragment>
@@ -81,8 +81,8 @@ export const WheelHex = ({
   color, currentRotation, hexShadow, icon, image, left,
   onClick, rotation, setRotation, top, transitionDelay, visible,
 }: WheelHexProps) => {
-  const hexColorInner: string = useColorModeValue('white', 'rgb(27,32,43)');
-  const hexColorOuter: string = useColorModeValue('black', 'white');
+  const hexColorInner: string = uCMV('rgb(230,230,230)', 'rgb(27,32,43)');
+  const hexColorOuter: string = uCMV('black', 'white');
 
   return (
     <Hexagon

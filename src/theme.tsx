@@ -1,9 +1,18 @@
 import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
+import { mode } from '@chakra-ui/theme-tools';
 
 const config: ThemeConfig = {
   initialColorMode: "dark",
   useSystemColorMode: true,
-}
+};
+
+const styles = {
+  global: props => ({
+    body: {
+      bg: mode("rgb(230,230,230)", "rgb(27,32,43)")(props),
+    },
+  }),
+};
 
 export const theme = extendTheme({
   fonts: {
@@ -12,4 +21,5 @@ export const theme = extendTheme({
     roboto: "'Roboto', sans-serif",
   },
   config,
+  styles,
 });

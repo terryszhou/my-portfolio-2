@@ -1,25 +1,21 @@
-import { Flex, Text, VStack, HStack, useColorModeValue, Heading } from "@chakra-ui/react";
+import { Text, VStack, HStack, useColorModeValue as uCMV, Heading } from "@chakra-ui/react";
 import * as React from "react";
 
-import {
-  SiCss3,
-  SiReact,
-  SiChakraui,
-} from "react-icons/si";
+import { SiCss3, SiReact, SiChakraui } from "react-icons/si";
 import { FiGithub } from "react-icons/fi";
 
+import { Hexagon } from "./Hexagon";
 import { SkillIcon } from "./SkillTable";
 import { SocialIcon } from "./Social";
-import { Hexagon } from "./Hexagon";
 
 export const ProjectHex = () => {
-  const hexColorInner: string = useColorModeValue("white", "rgb(28,32,43)");
+  const hexColorInner: string = uCMV("rgb(230,230,230)","rgb(28,32,43)");
 
   return (
     <Hexagon
       color={"goldenrod"}
       width={"30vw"}
-      filter={useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)")}>
+      filter={uCMV("none","drop-shadow(0 0 5px goldenrod)")}>
       <Hexagon color={hexColorInner} width={"28vw"}>
         <VStack
           position={"absolute"}
@@ -45,7 +41,7 @@ export const ProjectHex = () => {
             <Text
               margin={2}
               padding={5}
-              bgColor={useColorModeValue("rgb(235,235,235)", "rgb(48,52,63)")}
+              bgColor={uCMV("rgb(235,235,235)","rgb(48,52,63)")}
               borderRadius={5}
               boxShadow={"0 25px 20px -20px black"}
               minWidth={"30vw"}
@@ -58,13 +54,11 @@ export const ProjectHex = () => {
               <SocialIcon
                 icon={<FiGithub />}
                 delay={"320ms"} 
-                href={"https://github.com/terryszhou"}
-                isLargeScreen={true} />
+                href={"https://github.com/terryszhou"} />
               <SocialIcon
                 icon={<FiGithub />}
                 delay={"320ms"} 
-                href={"https://github.com/terryszhou"}
-                isLargeScreen={true} />
+                href={"https://github.com/terryszhou"} />
             </VStack>
           </HStack>
         </VStack>

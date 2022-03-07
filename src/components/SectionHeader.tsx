@@ -1,5 +1,7 @@
-import { Divider, Heading, HStack, useColorModeValue } from "@chakra-ui/react"
+import { Heading, HStack } from "@chakra-ui/react"
 import * as React from "react";
+
+import { GoldSpan } from "./ColorSpan";
 
 interface SectionHeaderProps {
   label: string,
@@ -14,11 +16,6 @@ export const SectionHeader = ({ label }: SectionHeaderProps) => {
       position={"absolute"}
       spacing={6}
       top={8}>
-      <Divider
-        borderColor={useColorModeValue("black", "white")}
-        left={"-80%"}
-        position={"absolute"}
-        width={"80%"} />
       <Heading
         fontSize={{ base: "1.5rem", lg:"2rem" }}
         fontWeight={"bold"}
@@ -26,10 +23,8 @@ export const SectionHeader = ({ label }: SectionHeaderProps) => {
         lineHeight={1}
         position={"relative"}
         width={"fit-content"}>
-        <span style={{
-          color: "goldenrod",
-          textShadow: useColorModeValue("none", "0 0 5px goldenrod"),
-        }}>{number}</span>{title}
+        <GoldSpan>{number}</GoldSpan>
+        {title}
       </Heading>
     </HStack>
   );

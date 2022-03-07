@@ -1,10 +1,9 @@
-import { Flex, Box, Image, HStack, Text, useColorModeValue } from "@chakra-ui/react";
+import { Flex, Box, Image, HStack, Text, useColorModeValue as uCMV } from "@chakra-ui/react";
 import React from "react";
 
 import { fadeOut, shake, slideUp, openLetter } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";
 import { HeroShell } from "./HeroShell";
-import { Cloudbank } from "./Cloudbank";
 
 export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
   const [loaded, setLoaded] = React.useState<boolean>(false);
@@ -12,10 +11,10 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
 
   const openLetterAnim: string = `${openLetter} 500ms ease-in-out forwards`;
   const slideUpAnim: string = `${slideUp} 500ms 500ms ease-in-out forwards`;
-  const bgColor1: string = useColorModeValue("black", "white");
-  const bgColor2: string = useColorModeValue("white", "rgb(27,32,43)");
-  const textShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)");
-  const redShadow: string = useColorModeValue("none", "drop-shadow(0 0 2px red)");
+  const bgColor1: string = uCMV("black","white");
+  const bgColor2: string = uCMV("rgb(230,230,230)","rgb(27,32,43)");
+  const textShadow: string = uCMV("none","drop-shadow(0 0 5px goldenrod)");
+  const redShadow: string = uCMV("none","drop-shadow(0 0 2px red)");
   const fadeOutAnim: string = `${fadeOut} 750ms ease-in-out forwards`;
   const shakeAnim: string = `${shake} 200ms ease-in-out`;
 
@@ -94,17 +93,48 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
                 <Flex flexDirection={"column"} width={"90%"}>
                   <Text fontWeight={"bold"}>Dear Viewer,</Text>
                   <Text marginY={"5%"} textAlign={"left"}>
-                    Let's get in touch! You can email me
+                    {`Let's get in touch! You can email me `}
                     <Text
                       as={"a"}
                       color={"goldenrod"}
                       filter={textShadow}
-                      href={"mailto:terryszhou@gmail.com"}> here</Text>
-                    , or text me at
+                      href={"mailto:terryszhou@gmail.com"}
+                      position={"relative"}
+                      _before={{
+                        backgroundColor: "goldenrod",
+                        borderRadius: "5px",
+                        bottom: -1,
+                        content: `""`,
+                        height: "2px",
+                        position: "absolute",
+                        transition: "100ms ease-out",
+                        width: 0 }}
+                      _hover={{
+                        color: "goldenrod",
+                        _before: { width: "105%" } }}>
+                        here
+                    </Text>
+                    {`, or text me at `}
                     <Text
-                      as={"span"}
+                      as={"a"}
                       color={"goldenrod"}
-                      filter={textShadow}> 925-384-3787</Text>
+                      filter={textShadow}
+                      href={"sms:1-925-384-3787"}
+                      position={"relative"}
+                      _before={{
+                        backgroundColor: "goldenrod",
+                        borderRadius: "5px",
+                        bottom: -1,
+                        content: `""`,
+                        height: "2px",
+                        position: "absolute",
+                        transition: "100ms ease-out",
+                        width: 0 }}
+                      _hover={{
+                        color: "goldenrod",
+                        _before: { width: "100%" } }}>
+                        925-384-3787
+                    </Text>
                       .
                   </Text>
                   <Text>Hope to speak soon!</Text>

@@ -1,4 +1,4 @@
-import { IconButton, Divider, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import { IconButton, Divider, Stack, Text, useColorModeValue as uCMV } from "@chakra-ui/react";
 import * as React from "react";
 
 import { FiCodepen, FiMail, FiGithub, FiLinkedin, FiInstagram } from "react-icons/fi";
@@ -9,12 +9,15 @@ import { PageProps } from "../helpers/interfaces";
 
 export const Social = ({ scrollDir, y }: PageProps ) => {
   const fadeDownAnim: string = `${fadeDown} 200ms 180ms forwards`;
+  const greenShadow: string = uCMV("none","drop-shadow(0 0 5px green)");
 
   return (
     <React.Fragment>
       <Stack
+        color={"green.500"}
         direction={{ base: "column-reverse", lg: "row" }}
         display={"flex"}
+        filter={greenShadow}
         justifyContent={"center"}
         alignItems={"center"}
         position={"fixed"}
@@ -24,8 +27,7 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
             ? "2%"
             : y > 60 && scrollDir === "up"
               ? "12%"
-              : "17%"
-        }
+              : "19%" }
         transition={"200ms ease-out"}
         zIndex={1}>
         <SocialIcon
@@ -48,24 +50,22 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
           icon={<SiCodewars />}
           delay={"0ms"} 
           href={"https://www.codewars.com/users/terryszhou/"} />
-        <Divider
-          borderColor={useColorModeValue("black", "white")}
-          width={{ base: 0, lg: 40 }} />
+        <Divider borderColor={"green.500"} width={{ base: 0, lg: 20 }} />
       </Stack>
       <Stack
+        color={"green.500"}
         direction={"row"}
         display={"flex"}
+        filter={greenShadow}
         justifyContent={"center"}
         alignItems={"center"}
-        bottom={{ base: "15%", lg: y > 80 ? "2%" : "4%" }}
+        bottom={{ base: "15%", lg: y > 80 ? "2%" : "5%" }}
         left={{ base: -20, lg: 0 }}
         position={"fixed"}
         transform={{ base: "rotate(-90deg)", lg: "rotate(0deg)" }}
         transition={"200ms ease-out"}
         zIndex={1}>
-        <Divider
-          borderColor={useColorModeValue("black", "white")}
-          width={{ base: 0, lg: 20}} />
+        <Divider borderColor={"green.500"} width={{ base: 0, lg: 16}} />
         <SocialIcon
           delay={"80ms"} 
           href={"mailto:terryszhou@gmail.com"} 
@@ -81,7 +81,7 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
           rel={"noreferrer"}
           target={"_blank"}
           transition={"100ms ease-out"}
-          _hover={{ color: "goldenrod" }}>
+          _hover={{ color: uCMV("black","white") }}>
           terryszhou@gmail.com
         </Text>
       </Stack>
@@ -90,14 +90,13 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
 };
 
 interface SocialIconProps {
-  icon: React.ReactElement,
   delay: string,
   href: string,
+  icon: React.ReactElement,
 };
 
-export const SocialIcon = ({ icon, delay, href }: SocialIconProps) => {
+export const SocialIcon = ({ delay, href, icon }: SocialIconProps) => {
   const fadeDownAnim: string = `${fadeDown} 200ms ${delay} forwards`;
-
   return (
     <IconButton
       as={"a"}
@@ -113,9 +112,7 @@ export const SocialIcon = ({ icon, delay, href }: SocialIconProps) => {
       target={"_blank"}
       transition={"100ms ease-out"}
       _hover={{
-        backgroundColor: useColorModeValue("black", "white"),
-        color: useColorModeValue("white", "black"),
-      }}
-    />
+        backgroundColor: "green.500",
+        color: "white" }} />
   );
 };
