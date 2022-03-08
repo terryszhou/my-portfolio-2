@@ -1,11 +1,11 @@
 import {
-  Container,
-  Stack,
-  Flex,
   Box,
+  Container,
+  Flex,
   Heading,
+  Stack,
   Text,
-  useColorModeValue,
+  useColorModeValue as uCMV,
 } from '@chakra-ui/react';
 import * as React from "react";
 
@@ -64,7 +64,7 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroSh
         <Box 
           animation={growRightAnim}
           backgroundColor={"goldenrod"}
-          boxShadow={useColorModeValue("none", "0 0 5px goldenrod")}
+          boxShadow={uCMV("none","0 0 5px goldenrod")}
           height={2}
           position={"absolute"}
           top={"2%"}
@@ -73,7 +73,7 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroSh
             borderTop: "8px solid goldenrod",
             borderRight: "8px solid transparent",
             content: `""`,
-            filter: useColorModeValue("none", "drop-shadow(2px 0 5px goldenrod)"),
+            filter: uCMV("none","drop-shadow(2px 0 5px goldenrod)"),
             position: "absolute",
             right: -2,
             width: 0 }} />
@@ -85,24 +85,24 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroSh
               as={"span"}
               color={"goldenrod"}
               fontSize={{ base: 'lg', sm: 'xl', md: "2xl" }}
-              textShadow={useColorModeValue("none", "0 0 5px goldenrod")}>
+              textShadow={uCMV("none","0 0 5px goldenrod")}>
               {number}
             </Text>{title}
           </Heading>
           <Flex
-            flex={1}
-            justify={'center'}
             align={'center'}
             bottom={3}
+            flex={1}
+            justify={'center'}
             position={'relative'}
             w={'full'}>
             {children[0]}
           </Flex>
         </Stack>
         <Flex
+          align={'center'}
           flex={0}
           justify={'center'}
-          align={'center'}
           position={'relative'}
           w={'full'}>
           {children[1]}
