@@ -1,9 +1,9 @@
 import { IconButton, Divider, Stack, Text, useColorModeValue as uCMV } from "@chakra-ui/react";
 import * as React from "react";
 
-import { FiCodepen, FiMail, FiGithub, FiLinkedin, FiInstagram } from "react-icons/fi";
-import { SiCodewars } from "react-icons/si";
+import { FiMail } from "react-icons/fi";
 
+import { socialList } from "../data/socialData";
 import { fadeDown } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";
 
@@ -14,12 +14,12 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
   return (
     <React.Fragment>
       <Stack
+        alignItems={"center"}
         color={"green.500"}
         direction={{ base: "column-reverse", lg: "row" }}
         display={"flex"}
         filter={greenShadow}
         justifyContent={"center"}
-        alignItems={"center"}
         position={"fixed"}
         right={{ base: 2, lg: 0 }}
         top={
@@ -30,36 +30,22 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
               : "19%" }
         transition={"200ms ease-out"}
         zIndex={1}>
-        <SocialIcon
-          icon={<FiGithub />}
-          delay={"320ms"} 
-          href={"https://github.com/terryszhou"} />
-        <SocialIcon
-          icon={<FiLinkedin />}
-          delay={"240ms"}
-          href={"https://www.linkedin.com/in/terryszhou"} />
-        <SocialIcon
-          icon={<FiInstagram />}
-          delay={"160ms"}
-          href={"https://instagram.com/terry.s.zhou"} />
-        <SocialIcon
-          icon={<FiCodepen />}
-          delay={"80ms"} 
-          href={"https://codepen.io/terryszhou"} />
-        <SocialIcon
-          icon={<SiCodewars />}
-          delay={"0ms"} 
-          href={"https://www.codewars.com/users/terryszhou/"} />
+        {socialList.map((e, i) => (
+          <SocialIcon
+            icon={e.icon}
+            delay={e.delay}
+            key={i}
+            href={e.href} /> ))}
         <Divider borderColor={"green.500"} width={{ base: 0, lg: 20 }} />
       </Stack>
       <Stack
+        alignItems={"center"}
+        bottom={{ base: "15%", lg: y > 80 ? "2%" : "5%" }}
         color={"green.500"}
         direction={"row"}
         display={"flex"}
         filter={greenShadow}
         justifyContent={"center"}
-        alignItems={"center"}
-        bottom={{ base: "15%", lg: y > 80 ? "2%" : "5%" }}
         left={{ base: -20, lg: 0 }}
         position={"fixed"}
         transform={{ base: "rotate(-90deg)", lg: "rotate(0deg)" }}
@@ -111,8 +97,6 @@ export const SocialIcon = ({ delay, href, icon }: SocialIconProps) => {
       size={"xs"}
       target={"_blank"}
       transition={"100ms ease-out"}
-      _hover={{
-        backgroundColor: "green.500",
-        color: "white" }} />
+      _hover={{ backgroundColor: "green.500", color: "white" }} />
   );
 };

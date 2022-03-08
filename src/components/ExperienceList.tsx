@@ -29,12 +29,12 @@ interface ExperienceListProps {
 
 export const ExperienceList = ({ idx, isOpen, onClose }: ExperienceListProps) => {
   const atCompanyColor2: string = useColorModeValue("rgb(102,105,127)", "gray.400");
-  const listColor2: string = useColorModeValue("rgb(78,83,104)", "gray.300");
   const fadeDownAnim: string = `${fadeDown} 250ms`;
   const fadeDownAnim2: string = `${fadeDown} 250ms 120ms forwards`;
   const fadeDownAnim3: string = `${fadeDown} 250ms 240ms forwards`;
   const goldShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)");
   const greenShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px green)");
+  const listColor2: string = useColorModeValue("rgb(78,83,104)", "gray.300");
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
