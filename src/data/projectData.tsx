@@ -1,7 +1,7 @@
 import { BiRun } from "react-icons/bi";
 import { CgPokemon } from "react-icons/cg";
 import { FaCat } from "react-icons/fa";
-import { GiWingfoot, GiConwayLifeGlider } from "react-icons/gi";
+import { GiConwayLifeGlider } from "react-icons/gi";
 import { SiVisualstudiocode } from "react-icons/si";
 
 interface listArrayProps {
@@ -71,9 +71,8 @@ export const listArray: listArrayProps[] = [
     id: 3,
     title: "Python of Life",
     details: [
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-      "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-      "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
+      "Three-day sprint based on Conway's Game of Life",
+      "Features four separate rulesets and built-in object creation tools",
     ],
     skillSet: ["Python", "Pygame"],
     links: [
@@ -85,17 +84,24 @@ export const listArray: listArrayProps[] = [
   },
   {
     id: 4,
-    title: "Pixel Runner",
+    title: "Totemize",
     details: [
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-      "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-      "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
+      "Full-stack MERN mockup of a festival locator app coded in collaboration with a UI/UX team with a mobile-based design philosophy",
+      "Utilized JWT tokens and hashes for user security",
     ],
-    skillSet: ["Python", "Pygame"],
+    skillSet: ["Express", "React", "Axios", "MongoDB", "JWT"],
     links: [
       {
-        link: "https://github.com/terryszhou/pixel-runner/",
-        linkText: "Github Repo"
+        link: "https://friendly-sinoussi-f96db3.netlify.app/",
+        linkText: "Live Site"
+      },
+      {
+        link: "https://github.com/terryszhou/MERN-Auth-Server/",
+        linkText: "Back End"
+      },
+      {
+        link: "https://github.com/terryszhou/P3-auth-client/",
+        linkText: "Front End"
       },
     ]
   },
@@ -103,9 +109,8 @@ export const listArray: listArrayProps[] = [
     id: 5,
     title: "PokéMap",
     details: [
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-      "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-      "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
+      "Full stack web application using Express/Axios to make RESTful API calls to pokeapi.co and serebii.net and Sequelize to store Pokemon data",
+      "Renders a map of the Kanto region + Pokedex on the front-end, allowing users to explore and add wild Pokemon to their party",
     ],
     skillSet: ["Express", "React", "Axios", "SQL"],
     links: [
@@ -123,9 +128,8 @@ export const listArray: listArrayProps[] = [
     id: 6,
     title: "Cat Crawler",
     details: [
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-      "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-      "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
+      "Dungeon crawler-style video game featuring WASD controls and randomly generated enemies",
+      "One-week sprint coded early on in my development career",
     ],
     skillSet: ["Canvas", "JavaScript", "CSS"],
     links: [
@@ -172,12 +176,12 @@ export const wheelHexArray = [
   },
   {
     id: 3,
-    color: "linear-gradient(rgb(193,98,204), rgb(142,232,232))",
+    color: "linear-gradient(rgb(193,98,204), rgb(208,112,56))",
     currentRotation: 150,
     left: "14.7%",
     top: "26%",
     icon: BiRun,
-    image: "/pixel-runner-desktop.png",
+    image: "/totemize-mobile.png",
     transitionDelay: "120ms"
   },
   {
