@@ -131,14 +131,9 @@ export const ProjectList = ({ isOpen, onClose, rotation }: ProjectListProps) => 
                     height: "2px",
                     position: "absolute",
                     transition: "100ms ease-out",
-                    width: 0,
-                  }}
-                  _hover={{
-                    _before: {
-                      width: "105%"
-                    }
-                  }}>
-                  <Text as={"a"} href={e.link}>
+                    width: 0 }}
+                  _hover={{ _before: { width: "105%" } }}>
+                  <Text as={"a"} href={e.link} rel={"noreferrer"} target={"_blank"}>
                     {e.linkText}
                   </Text>
                 </ListItem>

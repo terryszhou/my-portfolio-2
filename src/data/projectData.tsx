@@ -1,7 +1,8 @@
 import { BiRun } from "react-icons/bi";
 import { CgPokemon } from "react-icons/cg";
 import { FaCat } from "react-icons/fa";
-import { GiWingfoot, GiConwayLifeGlider, GiVideoConference } from "react-icons/gi";
+import { GiWingfoot, GiConwayLifeGlider } from "react-icons/gi";
+import { SiVisualstudiocode } from "react-icons/si";
 
 interface listArrayProps {
   id: number,
@@ -33,37 +34,36 @@ export const listArray: listArrayProps[] = [
   },
   {
     id: 1,
-    title: "Hipdemo",
+    title: "Coming Soon!",
     details: [
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-      "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-      "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
+
     ],
-    skillSet: ["Next", "Vercel", "Firebase", "VideoJS"],
+    skillSet: [],
     links: [
-      {
-        link: "https://github.com/blakedong/demo-studio",
-        linkText: "Github Repo",
-      }
+      
     ],
   },
   {
     id: 2,
-    title: "Restoic",
+    title: "Cloudbank",
     details: [
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-      "Assumenda, quia temporibus eveniet a libero incidunt suscipit",
-      "Quidem, ipsam illum quis sed voluptatum quae eum fugit earum",
+      "Free custom color theme for Visual Studio Code editor",
+      "Dark but vibrant cyberpunk/art deco aesthetic ",
+      "Inspired by 'Transistor' by SuperGiant Games",
     ],
-    skillSet: ["React Native", "XCode", "Android Studio"],
+    skillSet: ["JSON", "Microsoft Azure", "Netlify", "Package Bundling",],
     links: [
       {
-        link: "https://apps.apple.com/tt/app/restoic-performance-mindset/id1557936632",
-        linkText: "App Store"
+        link: "https://cloudbank-theme.netlify.app/",
+        linkText: "Demo on Netlify"
       },
       {
-        link: "https://play.google.com/store/apps/details?id=com.restoic&hl=en_US&gl=US",
-        linkText: "Google Play"
+        link: "https://marketplace.visualstudio.com/items?itemName=terryszhou.cloudbank",
+        linkText: "Visual Studio Marketplace"
+      },
+      {
+        link: "https://github.com/terryszhou/cloudbank",
+        linkText: "Github Repo"
       },
     ]
   },
@@ -144,21 +144,20 @@ export const listArray: listArrayProps[] = [
 export const wheelHexArray = [
   {
     id: 0,
-    color: "linear-gradient(rgb(130,104,235), rgb(237,128,93) 90%)",
+    color: "",
     currentRotation: 330,
     left: "-14.7%",
     top: "-25%",
-    icon: GiVideoConference,
     transitionDelay: "0ms"
   },
   {
     id: 1,
-    color: "linear-gradient(rgb(230,60,42), rgb(170,170,170) 90%)",
+    color: "linear-gradient(#1e1e1e 25%, #58c7a2)",
     currentRotation: 30,
     left: "14.7%",
     top: "-25%",
-    icon: GiWingfoot,
-    image: "/restoic-app.png",
+    icon: SiVisualstudiocode,
+    image: "/cloudbank-desktop.png",
     transitionDelay: "40ms"
   },
   {

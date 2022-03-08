@@ -81,9 +81,8 @@ export const WheelHex = ({
   color, currentRotation, hexShadow, icon, image, left,
   onClick, rotation, setRotation, top, transitionDelay, visible,
 }: WheelHexProps) => {
-  const hexColorInner: string = uCMV('rgb(230,230,230)', 'rgb(27,32,43)');
-  const hexColorOuter: string = uCMV('black', 'white');
-
+  const hexColorInner: string = uCMV('rgb(230,230,230)','rgb(27,32,43)');
+  const hexColorOuter: string = uCMV('black','white');
   return (
     <Hexagon
       cursor={onClick && "pointer"}

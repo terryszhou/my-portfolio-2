@@ -5,7 +5,7 @@ import {
   Heading,
   Stack,
   Text,
-  useColorModeValue as uCMV,
+  useColorModeValue as uCMV, 
 } from '@chakra-ui/react';
 import * as React from "react";
 
