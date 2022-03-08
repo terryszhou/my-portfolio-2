@@ -19,10 +19,10 @@ interface ProjectListProps {
 export const ProjectList = ({ isOpen, onClose, rotation }: ProjectListProps) => {
   const [idx, setIdx] = React.useState<undefined | number>();
   const listColor2: string = useColorModeValue("rgb(78,83,104)", "gray.300");
-  const fadeDownAnim: string = `${fadeDown} 800ms`;
-  const fadeDownAnim2: string = `${fadeDown} 800ms 120ms forwards`;
-  const fadeDownAnim3: string = `${fadeDown} 800ms 240ms forwards`;
-  const fadeDownAnim4: string = `${fadeDown} 800ms 360ms forwards`;
+  const fadeDownAnim: string = `${fadeDown} 250ms`;
+  const fadeDownAnim2: string = `${fadeDown} 250ms 120ms forwards`;
+  const fadeDownAnim3: string = `${fadeDown} 250ms 240ms forwards`;
+  const fadeDownAnim4: string = `${fadeDown} 250ms 360ms forwards`;
   const goldShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)");
   const greenShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px green)");
 
