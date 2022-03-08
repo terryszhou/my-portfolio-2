@@ -21,7 +21,7 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
         filter={greenShadow}
         justifyContent={"center"}
         position={"fixed"}
-        right={{ base: 2, lg: 0 }}
+        right={0}
         top={
           y > 80 && scrollDir === "down"
             ? "2%"
@@ -40,7 +40,7 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
       </Stack>
       <Stack
         alignItems={"center"}
-        bottom={{ base: "15%", lg: y > 80 ? "2%" : "5%" }}
+        bottom={{ base: y > 80 ? "11%" : "15%", lg: y > 80 ? "2%" : "5%" }}
         color={"green.500"}
         direction={"row"}
         display={"flex"}

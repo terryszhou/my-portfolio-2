@@ -39,6 +39,7 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
   return (
     <React.Fragment>
       <HStack
+        align={"center"}
         bgColor={
           menuOpen
             ? "transparent"
@@ -52,6 +53,7 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
               ? "dark-lg" 
               : "none" }
         height={y !== 0 && scrollDir === "up" ? 65 : 100}
+        justify={"center"}
         position={"fixed"}
         top={y > 80 && scrollDir === "down" ? -110 : 0}
         transition={"200ms ease-out"}
