@@ -37,9 +37,12 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroSh
         testVar = { ...pageRefs.current, experience: el };
         break;
       case 3:
-        testVar = { ...pageRefs.current, projects: el };
+        testVar = { ...pageRefs.current, new: el };
         break;
       case 4:
+        testVar = { ...pageRefs.current, other: el };
+        break;
+      case 5:
         testVar = { ...pageRefs.current, contact: el };
         break;
       default:

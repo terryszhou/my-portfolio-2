@@ -21,7 +21,7 @@ import { NavMenuIcon } from "./NavMenuIcon";
 export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
   const { colorMode } = useColorMode();
   const fadeDownAnim: string = `${fadeDown} 500ms`;
-  const [isLargeScreen]: boolean[] = useMediaQuery("(min-width: 840px)");
+  const [isLargeScreen]: boolean[] = useMediaQuery("(min-width: 1050px)");
   const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
   const [stopScroll, setStopScroll] = React.useState<string>();
 
@@ -90,8 +90,9 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
               <NavButton label="00. Home" scroll={scrollIntoView} delay={"0ms"}/>
               <NavButton label="01. About" scroll={scrollIntoView} delay={"60ms"}/>
               <NavButton label="02. Experience" scroll={scrollIntoView} delay={"120ms"}/>
-              <NavButton label="03. Projects" scroll={scrollIntoView} delay={"180ms"}/>
-              <NavButton label="04. Contact" scroll={scrollIntoView} delay={"240ms"}/>
+              <NavButton label="03. New Projects" scroll={scrollIntoView} delay={"180ms"}/>
+              <NavButton label="04. Other Projects" scroll={scrollIntoView} delay={"240ms"}/>
+              <NavButton label="05. Contact" scroll={scrollIntoView} delay={"300ms"}/>
               <ResumeButton />
             </React.Fragment>
           ) : (
@@ -117,8 +118,9 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
               <NavButton label="00. Home" scroll={scrollIntoView} delay={"0ms"}/>
               <NavButton label="01. About" scroll={scrollIntoView} delay={"60ms"}/>
               <NavButton label="02. Experience" scroll={scrollIntoView} delay={"120ms"}/>
-              <NavButton label="03. Projects" scroll={scrollIntoView} delay={"180ms"}/>
-              <NavButton label="04. Contact" scroll={scrollIntoView} delay={"240ms"}/>
+              <NavButton label="03. New Projects" scroll={scrollIntoView} delay={"180ms"}/>
+              <NavButton label="04. Other Projects" scroll={scrollIntoView} delay={"240ms"}/>
+              <NavButton label="05. Contact" scroll={scrollIntoView} delay={"300ms"}/>
               <ResumeButton />
             </React.Fragment>
           </VStack>
@@ -171,7 +173,7 @@ export const NavButton = ({ delay, label, scroll }: NavButtonProps) => {
         color: "goldenrod",
         _before: { width: "105%" } }}>
       <GoldSpan>{label.split(" ")[0]} </GoldSpan>
-      {label.split(" ")[1]}
+      {label.split(" ")[1]} {label.split(" ")[2]}
     </Text>
   );
 }

@@ -4,7 +4,6 @@ import {
   ListIcon,
   Flex,
   Link,
-  Text,
   VStack,
   HStack,
   useColorModeValue as uCMV,
@@ -13,15 +12,13 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import { BiRightArrow } from "react-icons/bi";
 import { BsXDiamondFill } from "react-icons/bs";
 
+import { featuredProjectListProps } from "../data/featuredProjectData";
 import { SkillIcon } from "./SkillTable";
 import { SocialIcon } from "./Social";
 
-import { featuredProjectListProps } from "../data/featuredProjectData";
-
-export const ProjectHex = ({ dir, mainLink, image, title, skills, details, links }: featuredProjectListProps) => {
+export const NewProjectShell = ({ dir, mainLink, image, title, skills, details, links }: featuredProjectListProps) => {
   const greenShadow: string = uCMV("none","drop-shadow(0 0 5px green)");
   return (
     <Flex
@@ -70,6 +67,7 @@ export const ProjectHex = ({ dir, mainLink, image, title, skills, details, links
           <List
             marginY={2}
             padding={5}
+            spacing={2}
             bgColor={uCMV("rgb(220,220,220)","rgb(48,52,63)")}
             borderRadius={5}
             boxShadow={"0 25px 20px -20px black"}
@@ -78,10 +76,9 @@ export const ProjectHex = ({ dir, mainLink, image, title, skills, details, links
             fontFamily={"var(--chakra-fonts-nunito)"}>
             {details.map((detail, i) => (
               <ListItem
-                alignItems={"center"}
+                alignItems={"left"}
                 display={"flex"}
-                key={i}
-                marginY={2}>
+                key={i}>
                 <ListIcon
                   as={BsXDiamondFill}
                   color='green.500' 

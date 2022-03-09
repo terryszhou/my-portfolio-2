@@ -9,7 +9,8 @@ import { Contact } from "./components/Contact";
 import { Experience } from "./components/Experience";
 import { Home } from "./components/Home";
 import { Nav } from "./components/Nav";
-import { Projects } from "./components/Projects";
+import { NewProjects } from "./components/NewProjects";
+import { OldProjects } from "./components/OldProjects";
 import { Social } from "./components/Social";
 import { useOnScreen } from "./hooks/useOnScreen";
 import { useNavigation } from "./hooks/useNavigation";
@@ -21,6 +22,7 @@ export const App = () => {
   const [visRef3, visible3]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
   const [visRef4, visible4]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
   const [visRef5, visible5]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
+  const [visRef6, visible6]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
   const [y, scrollDir]: [number, string] = useNavigation();
 
   return (
@@ -44,14 +46,18 @@ export const App = () => {
         pageRefs={pageRefs} 
         visible={visible3}
         visRef={visRef3} />
-      <Projects
+      <NewProjects
         pageRefs={pageRefs}
         visible={visible4}
         visRef={visRef4} />
-      <Contact
+      <OldProjects
         pageRefs={pageRefs}
         visible={visible5}
         visRef={visRef5} />
+      <Contact
+        pageRefs={pageRefs}
+        visible={visible6}
+        visRef={visRef6} />
     </VStack>
   );
 };

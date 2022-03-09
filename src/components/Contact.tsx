@@ -20,9 +20,9 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
 
   return (
     <HeroShell
-      label={"04. Let's Get in Touch"}
+      label={"05. Let's Get in Touch"}
       pageRefs={pageRefs}
-      refNum={4}
+      refNum={5}
       visible={visible}>
       <Flex
         alignItems={"center"}
