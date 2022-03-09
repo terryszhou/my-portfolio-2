@@ -1,11 +1,11 @@
 import * as React from "react";
 import { IconType } from "react-icons";
-import { SiCss3, SiJson, SiNpm, SiReact, SiChakraui, SiVisualstudiocode, SiNetlify } from "react-icons/si";
-import { FiGithub } from "react-icons/fi";
+import { SiVisualstudiocode, SiNetlify } from "react-icons/si";
+import { FiGithub, FiPackage } from "react-icons/fi";
 import { VscJson } from "react-icons/vsc";
 import { FaNpm } from "react-icons/fa";
 
-export interface featuredProjectListProps {
+export interface newProjectListProps {
   mainLink: string,
   dir: string,
   image: string,
@@ -24,7 +24,7 @@ export interface featuredProjectListProps {
   }[],
 }
 
-export const featuredProjectList: featuredProjectListProps[] = [
+export const newProjectList: newProjectListProps[] = [
   {
     mainLink: "https://cloudbank-theme.netlify.app/",
     dir: "r",
@@ -32,28 +32,34 @@ export const featuredProjectList: featuredProjectListProps[] = [
     title: "Cloudbank Theme",
     skills: [
       {
+        icon: SiVisualstudiocode,
+        color: "rgb(75,154,233)",
+        label: "VS Code",
+        delay: "0ms",
+      },
+      {
         icon: FaNpm,
         color: "rgb(178,64,59)",
         label: "NPM",
-        delay: "0ms",
+        delay: "4ms",
       },
       {
         icon: VscJson,
         color: "rgb(101,62,233)",
         label: "JSON",
-        delay: "40ms",
+        delay: "80ms",
       },
       {
-        icon: SiVisualstudiocode,
-        color: "rgb(75,154,233)",
-        label: "VS Code",
-        delay: "80ms",
+        icon: FiPackage,
+        color: "rgb(68,137,214)",
+        label: "Package Management",
+        delay: "120ms",
       },
       {
         icon: SiNetlify,
         color: "rgb(86,165,172)",
         label: "Netlify",
-        delay: "120ms",
+        delay: "160ms",
       },
     ],
     details: [

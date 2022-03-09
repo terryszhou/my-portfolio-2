@@ -64,7 +64,7 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroSh
         paddingTop={"7.5%"}
         spacing={{ base: 8, md: 10 }}>
         <Stack flex={2} spacing={{ base: 5, md: 10 }} position={"relative"}>
-          <Stack position={"relative"}>
+          <Stack position={"relative"} spacing={3}>
             <Box 
               animation={growRightAnim}
               backgroundColor={"goldenrod"}
@@ -83,12 +83,11 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroSh
                 width: 0 }} />
               <Heading
                 fontFamily={"var(--chakra-fonts-mono)"}
-                fontSize={{ base: 'xl', sm: '2xl', md: "3xl" }}
+                fontSize={{ base: 'lg', sm: 'xl', md: "2xl" }}
                 fontWeight={"bold"}>
                 <Text 
                   as={"span"}
                   color={"goldenrod"}
-                  fontSize={{ base: 'lg', sm: 'xl', md: "2xl" }}
                   textShadow={uCMV("none","0 0 5px goldenrod")}>
                   {number}
                 </Text>{title}

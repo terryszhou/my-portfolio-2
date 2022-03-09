@@ -1,29 +1,27 @@
 import {
-  List,
-  ListItem,
-  ListIcon,
   Flex,
-  Link,
-  VStack,
-  HStack,
-  useColorModeValue as uCMV,
   Heading,
-  Image
+  HStack,
+  Image,
+  Link,
+  List,
+  ListIcon,
+  ListItem,
+  useColorModeValue as uCMV,
+  VStack,
 } from "@chakra-ui/react";
 import * as React from "react";
 
 import { BsXDiamondFill } from "react-icons/bs";
 
-import { featuredProjectListProps } from "../data/featuredProjectData";
+import { newProjectListProps } from "../data/newProjectData";
 import { SkillIcon } from "./SkillTable";
 import { SocialIcon } from "./Social";
 
-export const NewProjectShell = ({ dir, mainLink, image, title, skills, details, links }: featuredProjectListProps) => {
+export const NewProjectShell = ({ dir, mainLink, image, title, skills, details, links }: newProjectListProps) => {
   const greenShadow: string = uCMV("none","drop-shadow(0 0 5px green)");
   return (
-    <Flex
-      flexDirection={{base: "column", lg: dir === "r" ? "row" : "row-reverse"}}
-      marginBottom={"15%"}>
+    <Flex flexDirection={{ base: "column", lg: dir === "r" ? "row" : "row-reverse" }}>
       <Flex>
         <Link href={mainLink}>
           <Image
@@ -44,9 +42,18 @@ export const NewProjectShell = ({ dir, mainLink, image, title, skills, details, 
       <VStack
         alignItems={{ base: "center", lg: dir === "r" ? "flex-end" : "flex-start" }}
         textAlign={{ base: "justify", lg: dir === "r" ? "right" : "left" }}
-        transform={{ base: "none", lg: dir === "r" ? "translate(-5%, 5%)" : "translate(5%, 5%)" }}
+        transform={{
+          base: "none",
+          lg: dir === "r"
+            ? "translate(-5%, 5%)"
+            : "translate(5%, 5%)" }}
         zIndex={1}>
-        <VStack alignItems={{ base: "center", lg: dir === "r" ? "flex-end" : "flex-start" }}>
+        <VStack
+          alignItems={{
+            base: "center",
+            lg: dir === "r"
+              ? "flex-end"
+              : "flex-start" }}>
           <Heading
             color={"goldenrod"}
             fontFamily={"var(--chakra-fonts-mono)"}
@@ -56,24 +63,29 @@ export const NewProjectShell = ({ dir, mainLink, image, title, skills, details, 
           <HStack>
             {skills.map((skill, i) => (
               <SkillIcon
-                key={i}
-                icon={skill.icon}
                 color={skill.color}
-                label={skill.label}
-                delay={skill.delay} /> ))}
+                delay={skill.delay}
+                icon={skill.icon}
+                key={i}
+                label={skill.label} /> ))}
           </HStack>
         </VStack>
-        <VStack alignItems={{ base: "center", lg: dir === "r" ? "flex-end" : "flex-start" }}>
+        <VStack
+          alignItems={{
+            base: "center",
+            lg: dir === "r"
+              ? "flex-end"
+              : "flex-start" }}>
           <List
-            marginY={2}
-            padding={5}
-            spacing={2}
             bgColor={uCMV("rgb(220,220,220)","rgb(48,52,63)")}
             borderRadius={5}
             boxShadow={"0 25px 20px -20px black"}
-            minWidth={"30vw"}
+            fontFamily={"var(--chakra-fonts-nunito)"}
             fontSize={{ base: "xs", md: "sm", lg: "md" }}
-            fontFamily={"var(--chakra-fonts-nunito)"}>
+            marginY={2}
+            minWidth={"30vw"}
+            padding={5}
+            spacing={2}>
             {details.map((detail, i) => (
               <ListItem
                 alignItems={"left"}
@@ -90,10 +102,10 @@ export const NewProjectShell = ({ dir, mainLink, image, title, skills, details, 
           <HStack>
             {links.map((link, i) => (
               <SocialIcon
-                key={i}
-                icon={link.icon}
                 delay={link.delay}
-                href={link.href} /> ))}
+                href={link.href}
+                icon={link.icon}
+                key={i} /> ))}
           </HStack>
         </VStack>
       </VStack>
