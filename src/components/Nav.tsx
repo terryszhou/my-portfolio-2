@@ -73,7 +73,7 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
             width={20}
             _hover={{
               cursor: "pointer",
-              filter: "brightness(1.25)",
+              filter: "brightness(1.25) uCMV('none','drop-shadow(0 0 3px goldenrod)')",
               transform: "scale(1.15)" }} />
           <ColorModeSwitcher />
         </HStack>

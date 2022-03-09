@@ -21,9 +21,11 @@ import { SocialIcon } from "./Social";
 export const NewProjectShell = ({ dir, mainLink, image, title, skills, details, links }: newProjectListProps) => {
   const greenShadow: string = uCMV("none","drop-shadow(0 0 5px green)");
   return (
-    <Flex flexDirection={{ base: "column", lg: dir === "r" ? "row" : "row-reverse" }} marginY={"5%"}>
+    <Flex
+      flexDirection={{ base: "column", lg: dir === "r" ? "row" : "row-reverse" }}
+      marginY={"5%"}>
       <Flex>
-        <Link href={mainLink}>
+        <Link href={mainLink} isExternal _focus={{ border: "none" }}>
           <Image
             filter={"saturate(0.1)"}
             position={"relative"}
