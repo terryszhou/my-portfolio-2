@@ -118,13 +118,23 @@ export const fadeOut: string = keyframes`
 `
 
 export const shake: string = keyframes`
- 0% {
-   transform: rotate(0deg);
- } 33% {
-   transform: rotate(-5deg);
- } 66% {
-   transform: rotate(5deg);
- } 100% {
-   transform: rotate(0deg);
- }
+  0% {
+    transform: rotate(0deg);
+  } 33% {
+    transform: rotate(-5deg);
+  } 66% {
+    transform: rotate(5deg);
+  } 100% {
+    transform: rotate(0deg);
+  }
+`
+
+export const coinJump: string = keyframes`
+  0% {
+    transform: translateY(0);
+  } 50% {
+    transform: translateY(-40%)
+  } 100% {
+    transform: translateY(0)
+  }
 `

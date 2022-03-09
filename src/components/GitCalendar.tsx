@@ -9,7 +9,7 @@ export const GitCalendar = () => (
     <Heading
       fontFamily={"var(--chakra-fonts-mono)"}
       fontSize={"lg"}
-      marginBottom={5}>
+      marginY={5}>
       My GitHub History
     </Heading>
     <GitHubCalendar

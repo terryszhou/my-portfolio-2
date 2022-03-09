@@ -124,7 +124,7 @@ export const ExperienceTable = ({ expMap }: ExperienceTableProps) => (
     boxShadow={"10px 20px 25px -20px black"}
     fontSize={{ base: "xs", lg: "sm" }}
     overflow={"scroll"}
-    width={{ base: "80vw", lg: "70vw" }}>
+    width={{ base: "80vw", lg: "60vw" }}>
     <Table
       fontFamily={"var(--chakra-fonts-mono)"}
       opacity={0.8}

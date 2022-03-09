@@ -13,6 +13,7 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
   const slideUpAnim: string = `${slideUp} 500ms 500ms ease-in-out forwards`;
   const bgColor1: string = uCMV("black","white");
   const bgColor2: string = uCMV("rgb(230,230,230)","rgb(27,32,43)");
+  const bgColor3: string = uCMV("rgb(230,230,230)","rgb(47,55,71)");
   const textShadow: string = uCMV("none","drop-shadow(0 0 5px goldenrod)");
   const redShadow: string = uCMV("none","drop-shadow(0 0 2px red)");
   const fadeOutAnim: string = `${fadeOut} 750ms ease-in-out forwards`;
@@ -34,7 +35,7 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
         <Box
           alignItems={"center"}
           animation={visible && shakeAnim}
-          border={"2px solid"}
+          border={"1px solid"}
           borderRadius={5}
           boxShadow={"0 25px 20px -20px black"}
           display={"flex"}
@@ -68,7 +69,7 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
               <Box
                 animation={openLetterAnim}
                 backgroundColor={bgColor1}
-                border={'2px solid'}
+                border={'1px solid'}
                 clipPath={"polygon(0% 0%, 50% 50%, 100% 0%)"}
                 height={"100%"}
                 position={"absolute"}
@@ -82,8 +83,8 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
                   position: "absolute" }} />
               <Box
                 animation={slideUpAnim}
-                backgroundColor={bgColor2}
-                border={"1px solid"}
+                backgroundColor={bgColor3}
+                border={uCMV(".5px solid","none")}
                 borderRadius={5}
                 fontFamily={"var(--chakra-fonts-mono)"}
                 fontSize={{ base: "10px", sm: "xs", lg: "md"}}
@@ -91,7 +92,7 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
                 padding={"5%"}
                 position={"absolute"}
                 width={"90%"}>
-                <Flex flexDirection={"column"} width={"90%"}>
+                <Flex flexDirection={"column"} width={"90%"} opacity={.8}>
                   <Text fontWeight={"bold"}>Dear Viewer,</Text>
                   <Text marginY={"5%"} textAlign={"left"}>
                     {`Let's get in touch! You can email me `}
