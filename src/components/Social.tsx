@@ -6,19 +6,16 @@ import { FiMail } from "react-icons/fi";
 import { socialList } from "../data/socialData";
 import { fadeDown } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";
+import { GreenSpan } from "./ColorSpan";
 
 export const Social = ({ scrollDir, y }: PageProps ) => {
   const fadeDownAnim: string = `${fadeDown} 200ms 180ms forwards`;
-  const greenShadow: string = uCMV("none","drop-shadow(0 0 5px green)");
-
   return (
     <React.Fragment>
       <Stack
         alignItems={"center"}
-        color={"green.500"}
         direction={{ base: "column-reverse", lg: "row" }}
         display={"flex"}
-        filter={greenShadow}
         justifyContent={"center"}
         position={"fixed"}
         right={0}
@@ -41,10 +38,8 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
       <Stack
         alignItems={"center"}
         bottom={{ base: y > 80 ? "11%" : "15%", lg: y > 80 ? "2%" : "5%" }}
-        color={"green.500"}
         direction={"row"}
         display={"flex"}
-        filter={greenShadow}
         justifyContent={"center"}
         left={{ base: -20, lg: 0 }}
         position={"fixed"}
@@ -59,7 +54,6 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
         <Text
           animation={fadeDownAnim}
           as={"a"}
-          cursor={"pointer"}
           fontFamily={"var(--chakra-fonts-mono)"}
           fontSize={{ base: "xs", lg: "sm" }}
           href={"mailto:terryszhou@gmail.com"}
@@ -68,7 +62,7 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
           target={"_blank"}
           transition={"100ms ease-out"}
           _hover={{ color: uCMV("black","white") }}>
-          terryszhou@gmail.com
+          <GreenSpan>terryszhou@gmail.com</GreenSpan>
         </Text>
       </Stack>
     </React.Fragment>
@@ -83,6 +77,7 @@ interface SocialIconProps {
 
 export const SocialIcon = ({ delay, href, icon }: SocialIconProps) => {
   const fadeDownAnim: string = `${fadeDown} 200ms ${delay} forwards`;
+  const greenShadow: string = uCMV("none","drop-shadow(0 0 5px green)");
   return (
     <IconButton
       as={"a"}
@@ -90,6 +85,8 @@ export const SocialIcon = ({ delay, href, icon }: SocialIconProps) => {
       aria-label={"social-icon-button"}
       backgroundColor={"transparent"}
       border={"1px solid"}
+      color={"green.500"}
+      filter={greenShadow}
       href={href}
       icon={icon}
       opacity={"0"}

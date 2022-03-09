@@ -26,6 +26,7 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
       visible={visible}>
       <Flex
         alignItems={"center"}
+        flexDirection={"column"}
         height={{ base: "85vw", sm: "65vw", lg: "45vw" }}
         justifyContent={"center"}
         ref={visRef}

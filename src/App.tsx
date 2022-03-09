@@ -1,10 +1,11 @@
 
-import { VStack } from "@chakra-ui/react";
+import { VStack, Text } from "@chakra-ui/react";
 import * as React from "react";
 
 import "./App.css";
 import "./Hex.css";
 import { About } from "./components/About";
+import { GoldSpan } from "./components/ColorSpan";
 import { Contact } from "./components/Contact";
 import { Experience } from "./components/Experience";
 import { Home } from "./components/Home";
@@ -58,6 +59,17 @@ export const App = () => {
         pageRefs={pageRefs}
         visible={visible6}
         visRef={visRef6} />
+      <Text
+        as={"a"}
+        bottom={5}
+        fontFamily={"var(--chakra-fonts-mono)"}
+        fontSize={12}
+        href={"https://github.com/terryszhou"}
+        position={"absolute"}
+        rel={"noreferrer"}
+        target={"_blank"}>
+        <GoldSpan>Designed & Built by Terry S. Zhou</GoldSpan>
+      </Text>
     </VStack>
   );
 };
