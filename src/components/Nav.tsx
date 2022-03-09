@@ -78,7 +78,9 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
           <ColorModeSwitcher />
         </HStack>
         <HStack
+          align={"center"}
           fontSize={13}
+          justify={"center"}
           position={"absolute"}
           right={isLargeScreen ? 5 : 0}
           spacing={7}

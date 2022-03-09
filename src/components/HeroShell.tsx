@@ -13,10 +13,10 @@ import { growRight } from "../helpers/animations";
 
 interface HeroShellProps {
   children: JSX.Element | JSX.Element[],
-  label: string,
-  pageRefs: React.MutableRefObject<{}>,
-  refNum: number,
-  visible: boolean | React.Dispatch<any> | React.MutableRefObject<any>,
+  label?: string,
+  pageRefs?: React.MutableRefObject<{}>,
+  refNum?: number,
+  visible?: boolean | React.Dispatch<any> | React.MutableRefObject<any>,
 };
 
 export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroShellProps) => {
@@ -61,34 +61,36 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroSh
         paddingTop={"7.5%"}
         spacing={{ base: 8, md: 10 }}>
         <Stack flex={2} spacing={{ base: 5, md: 10 }} position={"relative"}>
-        <Box 
-          animation={growRightAnim}
-          backgroundColor={"goldenrod"}
-          boxShadow={uCMV("none","0 0 5px goldenrod")}
-          height={2}
-          position={"absolute"}
-          top={"2%"}
-          width={"32vw"}
-          _after={{
-            borderTop: "8px solid goldenrod",
-            borderRight: "8px solid transparent",
-            content: `""`,
-            filter: uCMV("none","drop-shadow(2px 0 5px goldenrod)"),
-            position: "absolute",
-            right: -2,
-            width: 0 }} />
-          <Heading
-            fontFamily={"var(--chakra-fonts-mono)"}
-            fontSize={{ base: 'xl', sm: '2xl', md: "3xl" }}
-            fontWeight={"bold"}>
-            <Text 
-              as={"span"}
-              color={"goldenrod"}
-              fontSize={{ base: 'lg', sm: 'xl', md: "2xl" }}
-              textShadow={uCMV("none","0 0 5px goldenrod")}>
-              {number}
-            </Text>{title}
-          </Heading>
+          <Stack position={"relative"}>
+            <Box 
+              animation={growRightAnim}
+              backgroundColor={"goldenrod"}
+              boxShadow={uCMV("none","0 0 5px goldenrod")}
+              height={2}
+              position={"absolute"}
+              top={"2%"}
+              width={"32vw"}
+              _after={{
+                borderTop: "8px solid goldenrod",
+                borderRight: "8px solid transparent",
+                content: `""`,
+                filter: uCMV("none","drop-shadow(2px 0 5px goldenrod)"),
+                position: "absolute",
+                right: -2,
+                width: 0 }} />
+              <Heading
+                fontFamily={"var(--chakra-fonts-mono)"}
+                fontSize={{ base: 'xl', sm: '2xl', md: "3xl" }}
+                fontWeight={"bold"}>
+                <Text 
+                  as={"span"}
+                  color={"goldenrod"}
+                  fontSize={{ base: 'lg', sm: 'xl', md: "2xl" }}
+                  textShadow={uCMV("none","0 0 5px goldenrod")}>
+                  {number}
+                </Text>{title}
+              </Heading>
+          </Stack>
           <Flex
             align={'center'}
             bottom={3}

@@ -31,7 +31,7 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
             Hi! My name is Terry and I build <GreenSpan>web content</GreenSpan> for a living. I used to work in real estate and food service, but I needed a more fulfilling career path: a way for me to combine my skills in <GoldSpan>customer satisfaction</GoldSpan> with my twin passions for <GoldSpan>artistic creativity</GoldSpan> and <GoldSpan>practical problem-solving</GoldSpan>.
           </Text>
           <Text marginY={2} opacity={.7}>
-            Today, I've worked as the <GreenSpan>lead Front-End Engineer</GreenSpan> for two startups, and I'm a top-scoring graduate from General Assembly's <GreenSpan>Software Engineering Immersive Boot Camp</GreenSpan>. My main tools are <GoldSpan>React</GoldSpan>, <GoldSpan>JavaScript</GoldSpan>, and <GoldSpan>Node</GoldSpan>. I can also parse <GoldSpan>JSON</GoldSpan> objects, build <GoldSpan>RESTful APIs</GoldSpan> from scratch, and manage <GoldSpan>SQL</GoldSpan> databases.
+            Today, I've worked as the <GreenSpan>lead Front-End Engineer</GreenSpan> for two startups, and I'm a top-scoring graduate from General Assembly's <GreenSpan>Software Engineering Immersive Boot Camp</GreenSpan>. My main tools are <GoldSpan>React</GoldSpan>, <GoldSpan>JavaScript</GoldSpan>, and <GoldSpan>Node</GoldSpan>. I can also build <GoldSpan>RESTful APIs</GoldSpan> from scratch and manage <GoldSpan>SQL</GoldSpan> databases.
           </Text>
           <Text marginY={2} opacity={.7}>
             When I'm not writing <GreenSpan>code</GreenSpan>, I'm probably writing my debut fantasy novel, <GoldSpan><i>Narumi and the Dragon's Pearl</i></GoldSpan> (Wanna hear the pitch? Think <i>The Hobbit</i> + <i>Treasure Planet</i>, with Chinese mythology thrown in).
@@ -40,7 +40,7 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
             I'm also a <GoldSpan>rock climber</GoldSpan>, a <GoldSpan>foodie</GoldSpan>, and either a <RedSpan>Gryffindor</RedSpan> or <GreenSpan>Slytherin</GreenSpan>, depending on the time of day. My favorite pokemon is <PurpleSpan>Nidoking</PurpleSpan>.
           </Text>
           <Text marginY={2} opacity={.7}>
-            Want to know more? Keep on reading! In the meantime, here are just a few skills in my toolbox:
+            Want to know more? <GoldSpan>Keep on reading!</GoldSpan> In the meantime, here are just a few skills in my toolbox:
           </Text>
           {loaded && <SkillTable />}
         </Stack>

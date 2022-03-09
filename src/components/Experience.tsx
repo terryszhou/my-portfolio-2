@@ -45,7 +45,8 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
           </Box> }>
         <Tr cursor={"pointer"} onClick={() => { setIdx(i); onOpen(); }} role={"group"}>
           <Td
-            fontSize={{ base: "10px", sm: "xs", md: "sm", lg: "md" }}
+            colSpan={3}
+            fontSize={"xs"}
             fontWeight={"bold"}
             paddingY={"0.5%"}
             transition={"200ms ease-in-out"}
@@ -56,14 +57,15 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
             <Box
               animation={growRightAnim}
               backgroundColor={exp.color}
-              borderRadius={15}
+              borderRadius={5}
               height={2}
               marginLeft={`calc(${monW * (exp.start - 1)}% + ${exp.start !== 1 && "24px"})`}
+              transform={"skew(-45deg)"}
               transition={"200ms ease-out"}
               width={`calc(${monW * exp.length}% - 24px)`}
               _groupHover={{
                 filter: "brightness(1.5)",
-                transform: "scale(1.05)",
+                transform: "scale(1.05) skew(-45deg)",
                 transitionDuration: 0.2, }} />
           </Td>
         </Tr>
@@ -90,14 +92,13 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
 };
 
 interface ExperienceTableProps {
-  expMap: any,
+  expMap: JSX.Element[],
 };
 
 export const ExperienceTable = ({ expMap }: ExperienceTableProps) => (
   <Stack
-    border={"1px solid"}
-    borderRadius={15}
-    boxShadow={"0 25px 20px -20px black"}
+    borderRadius={5}
+    boxShadow={"10px 20px 25px -20px black"}
     fontSize={{ base: "xs", lg: "md" }}
     overflow={"scroll"}
     width={{ base: "80vw", lg: "60vw" }}>
@@ -108,16 +109,16 @@ export const ExperienceTable = ({ expMap }: ExperienceTableProps) => (
       <Tbody>{expMap}</Tbody>
       <Tfoot>
         <Tr>
-          <Td borderBottom={"none"} paddingY={"0.25%"} />
+          <Td borderBottom={"none"} colSpan={3} paddingY={"0.25%"} />
           {monArr.map((e, i) => (
             <Td borderBottom={"none"} key={i} paddingY={"0.25%"}>
               {e}
             </Td> ))}
         </Tr>
         <Tr>
-          <Td paddingY={"0.25%"} />
+          <Td borderBottom={"none"} />
           {yearArr.map((e, i) => (
-            <Td color={'red.500'} key={i} paddingY={"0.25%"} >
+            <Td borderBottom={"none"} color={'red.500'} key={i} paddingY={"0.25%"} >
               {e}
             </Td> ))}
         </Tr>

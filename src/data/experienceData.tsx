@@ -4,7 +4,7 @@ export const monArr: string[] = [
 ];
 
 export const yearArr: string[] = [
-  "2021", "", "", "", "", "", "", "", "", "", "", "", "2022", "",
+  "", "", "2021", "", "", "", "", "", "", "", "", "", "", "", "2022", "",
 ];
 
 interface expArrayProps {

@@ -9,10 +9,12 @@ interface HexProps {
   cursor?: string,
   filter?: string,
   left?: string | number,
+  marginTop?: string | number,
   minWidth?: string | number,
   onClick?: () => void,
   onMouseOver?: React.MouseEventHandler<HTMLDivElement>,
   opacity?: number,
+  overflow? : string,
   right?: string | number,
   role?: string,
   top?: string | number,
@@ -24,8 +26,8 @@ interface HexProps {
 };
 
 export const Hexagon = ({
-  animation, bottom, children, color, cursor, filter, left,
-  minWidth, onClick, onMouseOver, opacity, right, role, top,
+  animation, bottom, children, color, cursor, filter, left, marginTop,
+  minWidth, onClick, onMouseOver, opacity, overflow, right, role, top,
   transform, transitionDelay, width, _groupHover, _hover,
 }: HexProps) => {
   return (
@@ -35,6 +37,7 @@ export const Hexagon = ({
       cursor={cursor}
       left={left}
       height={0}
+      marginTop={marginTop}
       onClick={onClick}
       onMouseOver={onMouseOver}
       opacity={opacity}

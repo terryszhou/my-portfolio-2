@@ -13,7 +13,7 @@ export const useOnScreen = () => {
     const observer = new IntersectionObserver(callbackFunction, {
       root: null,
       rootMargin: "0px",
-      threshold: 0.5
+      threshold: 0.25
     });
     const vis = visRef.current;
     if (vis) observer.observe(vis);
