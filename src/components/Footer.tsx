@@ -3,10 +3,11 @@ import * as React from "react";
 
 import { GoldSpan } from "./ColorSpan";
 import { coinJump } from "../helpers/animations";
+import { coinAudio } from "../helpers/functions";
 
 export const Footer = () => {
-  const coin = new Audio("/smw_coin.wav");
-  const coinJumpAnim: string = `${coinJump} 200ms ease-in-out forwards`;
+  // const coin = new Audio("/smw_coin.wav");
+  const coinJumpAnim: string = `${coinJump} 200ms ease-in-out`;
   const [jump, setJump] = React.useState<boolean>(false);
 
   return (
@@ -16,7 +17,7 @@ export const Footer = () => {
         animation={jump && coinJumpAnim}
         boxSize={10}
         cursor={"pointer"}
-        onClick={() => { coin.play(); setJump(true) }}
+        onClick={() => { coinAudio(); setJump(true); }}
         onAnimationEnd={() => setJump(false)}
         src={"/favicon.ico"} />
       <Text

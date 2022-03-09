@@ -13,7 +13,6 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
   const slideUpAnim: string = `${slideUp} 500ms 500ms ease-in-out forwards`;
   const bgColor1: string = uCMV("black","white");
   const bgColor2: string = uCMV("rgb(230,230,230)","rgb(27,32,43)");
-  const bgColor3: string = uCMV("rgb(230,230,230)","rgb(47,55,71)");
   const textShadow: string = uCMV("none","drop-shadow(0 0 5px goldenrod)");
   const redShadow: string = uCMV("none","drop-shadow(0 0 2px red)");
   const fadeOutAnim: string = `${fadeOut} 750ms ease-in-out forwards`;
@@ -83,8 +82,8 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
                   position: "absolute" }} />
               <Box
                 animation={slideUpAnim}
-                backgroundColor={bgColor3}
-                border={uCMV(".5px solid","none")}
+                backgroundColor={bgColor2}
+                border={".5px solid"}
                 borderRadius={5}
                 fontFamily={"var(--chakra-fonts-mono)"}
                 fontSize={{ base: "10px", sm: "xs", lg: "md"}}
