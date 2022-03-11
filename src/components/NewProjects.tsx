@@ -31,9 +31,7 @@ export const NewProjects = ({ pageRefs, visible, visRef }: PageProps) => {
       refNum={3}
       visible={visible}>
       <Stack>
-        <Stack
-          marginY={"5%"}
-          ref={visRef}>
+        <Stack marginY={"5%"} ref={visRef}>
           {newProjectMap}
         </Stack>
         <GitCalendar />

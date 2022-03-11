@@ -14,10 +14,10 @@ import { growRight } from "../helpers/animations";
 interface HeroShellProps {
   children: JSX.Element | JSX.Element[],
   label?: string,
+  loaded?: boolean | React.Dispatch<any> | React.MutableRefObject<any>,
   pageRefs?: React.MutableRefObject<{}>,
   refNum?: number,
   visible?: boolean | React.Dispatch<any> | React.MutableRefObject<any>,
-  loaded?: boolean | React.Dispatch<any> | React.MutableRefObject<any>,
 };
 
 export const HeroShell = ({ children, label, pageRefs, refNum, visible, loaded }: HeroShellProps) => {

@@ -1,25 +1,19 @@
 import {
-  Box, Button, Flex, Heading, List, ListIcon, ListItem, Stack, Table, Tbody,
-  Td, Text, Tfoot, Tooltip, Tr, useColorModeValue as uCMV, useDisclosure,
+  Box, List, ListIcon, ListItem, Stack, Td, Text, 
+  Tooltip, Tr, useColorModeValue as uCMV, useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
 
 import { BiRightArrow } from "react-icons/bi";
-import { PieChart } from 'react-minimal-pie-chart';
-import ReactTooltip from 'react-tooltip';
 
-import { expArray, monArr, yearArr } from "../data/experienceData";
+import { expArray, monArr } from "../data/experienceData";
+import { ExperienceHeading } from "./ExperienceHeading";
 import { ExperienceList } from "./ExperienceList";
-import { GoldSpan } from "./ColorSpan";
+import { ExperiencePie } from "./ExperiencePie";
+import { ExperienceTable } from "./ExperienceTable";
 import { HeroShell } from "./HeroShell";
 import { growRight } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";
-
-type Props = {
-  data: React.ComponentProps<typeof PieChart>['data'];
-};
-
-const makeTooltipContent = (entry: Props['data'][0]) => `${entry.title} @ ${entry.company}`;
 
 export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
   const [loaded, setLoaded] = React.useState<boolean>(false);
@@ -83,10 +77,6 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
     </React.Fragment>
   ));
 
-  const pieMap = expArray.map((exp, i) => ({
-    title: exp.title, value: exp.length, color: exp.color, company: exp.company
-  }));
-
   return (
     <HeroShell
       label={"02. My Experience"}
@@ -100,8 +90,7 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
               setIdx={setIdx}
               onOpen={onOpen}
               hovered={hovered}
-              setHovered={setHovered}
-              pieMap={pieMap} />
+              setHovered={setHovered} />
           : <ExperienceTable expMap={expMap} />
         }
         <ExperienceHeading pie={pie} setPie={setPie} />
@@ -113,113 +102,3 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
     </HeroShell>
   );
 };
-
-interface ExperienceTableProps {
-  expMap: JSX.Element[],
-};
-
-export const ExperienceTable = ({ expMap }: ExperienceTableProps) => (
-  <Stack
-    borderRadius={5}
-    boxShadow={"10px 20px 25px -20px black"}
-    fontSize={{ base: "xs", lg: "sm" }}
-    overflow={"scroll"}
-    width={{ base: "80vw", lg: "60vw" }}>
-    <Table
-      fontFamily={"var(--chakra-fonts-mono)"}
-      opacity={0.8}
-      variant={"striped"}>
-      <Tbody>{expMap}</Tbody>
-      <Tfoot>
-        <Tr>
-          <Td borderBottom={"none"} colSpan={3} paddingY={"0.25%"} />
-          {monArr.map((e, i) => (
-            <Td borderBottom={"none"} key={i} paddingY={"0.25%"}>
-              {e}
-            </Td> ))}
-        </Tr>
-        <Tr>
-          <Td borderBottom={"none"} />
-          {yearArr.map((e, i) => (
-            <Td borderBottom={"none"} color={'red.500'} key={i} paddingY={"0.25%"} >
-              {e}
-            </Td> ))}
-        </Tr>
-      </Tfoot>
-    </Table>
-  </Stack>
-);
-
-interface ExperiencePieProps {
-  setIdx: React.Dispatch<number>,
-  onOpen: () => void,
-  hovered: number,
-  setHovered: React.Dispatch<number>,
-  pieMap: {
-    title: string,
-    value: number,
-    color: string,
-    company: string,
-  }[],
-};
-
-export const ExperiencePie = ({ setIdx, onOpen, hovered, setHovered, pieMap }: ExperiencePieProps) => (
-  <div className="pie-container" data-tip="" data-for="chart">
-    <PieChart
-      animate
-      animationDuration={500}
-      animationEasing="ease-out"
-      radius={20}
-      lineWidth={25}
-      onClick={() => { setIdx(hovered); onOpen(); }}
-      onMouseOver={(_, index) => setHovered(index)}
-      onMouseOut={() => setHovered(null)}
-      segmentsStyle={{ transition: 'stroke .3s', cursor: 'pointer' }}
-      data={pieMap} />
-    <ReactTooltip
-      id="chart"
-      getContent={() =>
-        typeof hovered === 'number' ? makeTooltipContent(pieMap[hovered]) : null
-      } />
-  </div> 
-);
-
-interface ExperienceHeadingProps {
-  pie: boolean,
-  setPie: React.Dispatch<boolean>
-};
-
-export const ExperienceHeading = ({ pie, setPie }: ExperienceHeadingProps) => {
-  const goldShadow: string = uCMV("none","drop-shadow(0 0 5px goldenrod)");
-  return (
-    <Flex
-      alignItems={"center"}
-      flexDirection={{ base: "column", lg: "row" }}
-      justifyContent={"center"}>
-      <Heading
-        fontFamily={"var(--chakra-fonts-roboto)"}
-        fontSize={{ base: "md", md: "xl", lg: "2xl"}}
-        margin={5}>
-        <GoldSpan>* </GoldSpan>
-        Hover for
-        <GoldSpan> summary. </GoldSpan>
-        Click for 
-        <GoldSpan> details!</GoldSpan>
-      </Heading>
-      {/* <Button
-        backgroundColor={"transparent"}
-        border={"1px solid goldenrod"}
-        color={"goldenrod"}
-        onClick={() => setPie(!pie)}
-        cursor={"pointer"}
-        filter={goldShadow}
-        fontFamily={"var(--chakra-fonts-mono)"}
-        fontSize={13}
-        _focus={{ boxShadow: "none" }}
-        _hover={{ backgroundColor: "goldenrod", color: "inherit" }}>
-        Toggle Chart
-      </Button> */}
-    </Flex>
-  );
-};
-
