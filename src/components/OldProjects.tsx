@@ -20,6 +20,7 @@ export const OldProjects = ({ pageRefs, visible, visRef }: PageProps) => {
   return (
     <HeroShell
       label={"04. Other Projects"}
+      loaded={loaded}
       pageRefs={pageRefs}
       refNum={4}
       visible={visible}>

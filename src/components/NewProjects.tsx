@@ -26,6 +26,7 @@ export const NewProjects = ({ pageRefs, visible, visRef }: PageProps) => {
   return (
     <HeroShell
       label={"03. Stuff I've Created Recently"}
+      loaded={loaded}
       pageRefs={pageRefs}
       refNum={3}
       visible={visible}>

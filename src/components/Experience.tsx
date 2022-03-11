@@ -66,7 +66,6 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
           </Td>
           <Td colSpan={monArr.length} >
             <Box
-              animation={growRightAnim}
               backgroundColor={exp.color}
               borderRadius={5}
               height={2}
@@ -91,6 +90,7 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
   return (
     <HeroShell
       label={"02. My Experience"}
+      loaded={loaded}
       pageRefs={pageRefs}
       refNum={2}
       visible={visible}>

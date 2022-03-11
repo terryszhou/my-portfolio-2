@@ -62,7 +62,7 @@ export const growRight: string = keyframes`
     width: 0;
     opacity: 0;
   } to {
-    width: "100%";
+    width: 32vw;
     opacity: 1;
   }
 `;

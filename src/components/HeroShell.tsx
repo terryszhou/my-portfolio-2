@@ -17,9 +17,10 @@ interface HeroShellProps {
   pageRefs?: React.MutableRefObject<{}>,
   refNum?: number,
   visible?: boolean | React.Dispatch<any> | React.MutableRefObject<any>,
+  loaded?: boolean | React.Dispatch<any> | React.MutableRefObject<any>,
 };
 
-export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroShellProps) => {
+export const HeroShell = ({ children, label, pageRefs, refNum, visible, loaded }: HeroShellProps) => {
   const number: string = label.split(".")[0] + "."
   const title: string = " " + label.split(".")[1]
   const growRightAnim: string = `${growRight} 1s 250ms forwards`;
@@ -54,7 +55,7 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroSh
   return (
     <Container
       maxW={{ base: "95%", sm: "85%", lg: "80%", xl: "70%" }}
-      opacity={visible ? 1 : .25}
+      opacity={loaded ? 1 : 0}
       ref={el => pageRefs.current = findScroll(el, refNum)}
       transition={"500ms ease-out"}>
       <Stack
@@ -66,13 +67,14 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible }: HeroSh
         <Stack flex={2} spacing={{ base: 5, md: 10 }} position={"relative"}>
           <Stack position={"relative"} spacing={3}>
             <Box 
-              animation={growRightAnim}
+              animation={loaded && growRightAnim}
               backgroundColor={"goldenrod"}
               boxShadow={uCMV("none","0 0 5px goldenrod")}
               height={2}
+              opacity={0}
               position={"absolute"}
               top={"2%"}
-              width={"32vw"}
+              width={0}
               _after={{
                 borderTop: "8px solid goldenrod",
                 borderRight: "8px solid transparent",

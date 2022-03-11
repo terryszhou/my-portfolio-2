@@ -21,6 +21,7 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
   return (
     <HeroShell
       label={"05. Let's Get in Touch"}
+      loaded={loaded}
       pageRefs={pageRefs}
       refNum={5}
       visible={visible}>
