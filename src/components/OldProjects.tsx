@@ -1,9 +1,10 @@
-import { Flex, useDisclosure } from "@chakra-ui/react";
+import { Flex, Stack, useDisclosure } from "@chakra-ui/react";
 import * as React from "react";
 
 import { flash } from "../helpers/animations";
 import { HeroShell } from "./HeroShell";
 import { PageProps } from "../helpers/interfaces";
+import { ProjectGrid } from "./ProjectGrid";
 import { ProjectList } from "./ProjectList";
 import { ProjectWheel } from "./ProjectWheel";
 
@@ -24,7 +25,7 @@ export const OldProjects = ({ pageRefs, visible, visRef }: PageProps) => {
       pageRefs={pageRefs}
       refNum={4}
       visible={visible}>
-      <Flex
+      {/* <Flex
         alignItems={"center"}
         animation={visible && flashAnim}
         height={"45vw"}
@@ -36,8 +37,11 @@ export const OldProjects = ({ pageRefs, visible, visRef }: PageProps) => {
             onClick={onOpen}
             rotation={rotation}
             setRotation={setRotation} 
-            visible={visible} />}
-      </Flex>
+            visible={visible} /> }
+      </Flex> */}
+      <Stack ref={visRef} width={"100%"}>
+        <ProjectGrid />
+      </Stack>
       <ProjectList
         isOpen={isOpen}
         onClose={onClose}

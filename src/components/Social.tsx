@@ -70,7 +70,7 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
 };
 
 interface SocialIconProps {
-  delay: string,
+  delay?: string,
   href: string,
   icon: React.ReactElement,
 };

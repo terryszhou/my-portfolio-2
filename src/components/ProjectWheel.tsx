@@ -4,7 +4,7 @@ import * as React from "react";
 import { BiUpArrow } from "react-icons/bi";
 import { IconType } from "react-icons/lib";
 
-import { wheelHexArray } from "../data/projectData";
+import { wheelHexArray } from "../data/oldProjectData";
 import { Hexagon } from "./Hexagon";
 
 interface ProjectWheelProps {

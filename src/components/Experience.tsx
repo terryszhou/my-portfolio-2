@@ -11,9 +11,9 @@ import { ExperienceHeading } from "./ExperienceHeading";
 import { ExperienceList } from "./ExperienceList";
 import { ExperiencePie } from "./ExperiencePie";
 import { ExperienceTable } from "./ExperienceTable";
-import { HeroShell } from "./HeroShell";
 import { growRight } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";
+import { HeroShell } from "./HeroShell";
 
 export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
   const [loaded, setLoaded] = React.useState<boolean>(false);

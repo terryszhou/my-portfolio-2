@@ -7,7 +7,7 @@ import * as React from "react";
 import { BiRightArrow } from "react-icons/bi";
 import { BsXDiamondFill } from "react-icons/bs";
 
-import { listArray } from "../data/projectData";
+import { oldProjectList } from "../data/oldProjectData";
 import { fadeDown } from "../helpers/animations";
 
 interface ProjectListProps {
@@ -69,14 +69,14 @@ export const ProjectList = ({ isOpen, onClose, rotation }: ProjectListProps) => 
               fontSize={"xl"}
               marginBottom={2}
               textAlign={"center"}>
-              {listArray[idx]?.title}
+              {oldProjectList[idx]?.title}
             </Heading>
             <List
               animation={fadeDownAnim2}
               color={listColor2}
               marginY={5}
               opacity={0}>
-              {listArray[idx]?.details.map((detail, i) => (
+              {oldProjectList[idx]?.details.map((detail, i) => (
                 <ListItem
                   display={"flex"}
                   marginY={2}
@@ -94,7 +94,7 @@ export const ProjectList = ({ isOpen, onClose, rotation }: ProjectListProps) => 
               animation={fadeDownAnim3}
               color={listColor2}
               opacity={0}>
-              {listArray[idx]?.skillSet.map((skill, i) => (
+              {oldProjectList[idx]?.skills.map((skill, i) => (
               <ListItem
                 display={"flex"}
                 marginY={2}
@@ -116,7 +116,7 @@ export const ProjectList = ({ isOpen, onClose, rotation }: ProjectListProps) => 
               flexDirection={"column"}
               alignItems={"center"}
               opacity={0}>
-              {listArray[idx]?.links.map((e, i) => (
+              {oldProjectList[idx]?.links.map((e, i) => (
                 <ListItem
                   display={"flex"}
                   marginY={2}
@@ -133,9 +133,9 @@ export const ProjectList = ({ isOpen, onClose, rotation }: ProjectListProps) => 
                     transition: "100ms ease-out",
                     width: 0 }}
                   _hover={{ _before: { width: "105%" } }}>
-                  <Text as={"a"} href={e.link} rel={"noreferrer"} target={"_blank"}>
+                  {/* <Text as={"a"} href={e.link} rel={"noreferrer"} target={"_blank"}>
                     {e.linkText}
-                  </Text>
+                  </Text> */}
                 </ListItem>
               ))}
             </List>
