@@ -16,7 +16,7 @@ export const OldProjects = ({ pageRefs, visible, visRef }: PageProps) => {
       pageRefs={pageRefs}
       refNum={4}
       visible={visible}>
-      <Stack ref={visRef} width={"100%"}>
+      <Stack ref={visRef} width={{ base: "85vw", lg: "65vw" }}>
         {loaded && <ProjectGrid />}
       </Stack>
       <Flex />

@@ -1,12 +1,13 @@
 import * as React from "react";
 import { IconType } from "react-icons";
 import { BiRun } from "react-icons/bi";
+import { IoLogoNodejs } from "react-icons/io";
 import { CgPokemon } from "react-icons/cg";
 import { FaCat, FaGamepad, FaKey, FaPaintBrush } from "react-icons/fa";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 import { GiConwayLifeGlider } from "react-icons/gi";
-import { SiPostgresql, SiExpress, SiPython, SiVisualstudiocode, SiReact, SiMongodb, SiHtml5, SiCss3 } from "react-icons/si";
-import { VscGear } from "react-icons/vsc";
+import { SiPostgresql, SiExpress, SiPython, SiVisualstudiocode, SiReact, SiMongodb, SiHtml5, SiCss3, SiJavascript } from "react-icons/si";
+import { VscGear, VscSymbolClass } from "react-icons/vsc";
 
 
 export interface oldProjectListProps {
@@ -62,34 +63,40 @@ export const oldProjectList: oldProjectListProps[] = [
     ],
     skills: [
       {
-        icon: SiExpress,
-        color: "rgb(42,42,42)",
-        label: "Express",
+        icon: SiMongodb,
+        color: "rgb(72,142,76)",
+        label: "MongoDB",
         delay: "80ms",
       },
       {
-        icon: SiReact,
-        color: "rgb(142,210,139)",
-        label: "React",
+        icon: SiExpress,
+        color: "rgb(102,102,102)",
+        label: "Express",
         delay: "120ms",
+      },
+      {
+        icon: SiReact,
+        color: "rgb(126,208,239)",
+        label: "React",
+        delay: "160ms",
+      },
+      {
+        icon: IoLogoNodejs,
+        color: "rgb(144,186,56)",
+        label: "Node",
+        delay: "200ms",
       },
       {
         icon: VscGear,
         color: "rgb(118,65,137)",
         label: "Axios",
-        delay: "160ms",
-      },
-      {
-        icon: SiMongodb,
-        color: "rgb(72,142,76)",
-        label: "MongoDB",
-        delay: "200ms",
+        delay: "240ms",
       },
       {
         icon: FaKey,
         color: "rgb(92,103,106)",
         label: "JWT",
-        delay: "240ms",
+        delay: "280ms",
       },
     ],
     links: [
@@ -120,7 +127,7 @@ export const oldProjectList: oldProjectListProps[] = [
     skills: [
       {
         icon: SiExpress,
-        color: "rgb(42,42,42)",
+        color: "rgb(102,102,102)",
         label: "Express",
         delay: "80ms",
       },
@@ -177,10 +184,22 @@ export const oldProjectList: oldProjectListProps[] = [
         delay: "120ms",
       },
       {
+        icon: SiJavascript,
+        color: "rgb(242,223,81)",
+        label: "JavaScript",
+        delay: "160ms",
+      },
+      {
+        icon: VscSymbolClass,
+        color: "rgb(211,110,90)",
+        label: "Class-Based Programming",
+        delay: "200ms",
+      },
+      {
         icon: FaPaintBrush,
         color: "rgb(147,42,92)",
         label: "Canvas",
-        delay: "160ms",
+        delay: "240ms",
       },
     ],
     links: [
