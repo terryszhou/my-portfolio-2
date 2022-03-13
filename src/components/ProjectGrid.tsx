@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem, Heading, HStack, List, ListIcon, ListItem, useColorModeValue as uCMV, VStack } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Heading, HStack, Image, List, ListIcon, ListItem, useColorModeValue as uCMV, VStack } from "@chakra-ui/react";
 import * as React from "react";
 
 import { BsXDiamondFill } from "react-icons/bs";

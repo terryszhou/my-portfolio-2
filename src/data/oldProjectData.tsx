@@ -208,6 +208,51 @@ export const oldProjectList: oldProjectListProps[] = [
     ]
   },
   {
+    title: "Hero Modules",
+    details: [
+      "Demo of custom hero modules created in React & Chakra",
+      "Smooth scrolling, reusable components, and flexbox styling for responsiveness",
+    ],
+    skills: [
+      {
+        icon: SiChakraui,
+        color: "rgb(89,178,170)",
+        label: "Chakra UI",
+        delay: "80ms",
+      },
+      {
+        icon: SiReact,
+        color: "rgb(126,208,239)",
+        label: "React",
+        delay: "120ms",
+      },
+      {
+        icon: SiCss3,
+        color: "rgb(51,106,168)",
+        label: "CSS",
+        delay: "160ms",
+      },
+      {
+        icon: SiJavascript,
+        color: "rgb(242,223,81)",
+        label: "JavaScript",
+        delay: "200ms",
+      },
+    ],
+    links: [
+      {
+        icon: <FiExternalLink />,
+        href: "https://custom-heroes.netlify.app/",
+        delay: "320ms",
+      },
+      {
+        icon: <FiGithub />,
+        href: "https://github.com/terryszhou/hero-module",
+        delay: "320ms",
+      },
+    ]
+  },
+  {
     title: "PokéMap",
     details: [
       "Full stack web app that makes API calls to pokeapi.co",
@@ -223,7 +268,7 @@ export const oldProjectList: oldProjectListProps[] = [
       },
       {
         icon: SiReact,
-        color: "rgb(142,210,139)",
+        color: "rgb(126,208,239)",
         label: "React",
         delay: "120ms",
       },
