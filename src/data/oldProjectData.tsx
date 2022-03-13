@@ -3,10 +3,10 @@ import { IconType } from "react-icons";
 import { BiRun } from "react-icons/bi";
 import { CgPokemon } from "react-icons/cg";
 import { FaCat, FaGamepad, FaKey, FaPaintBrush } from "react-icons/fa";
-import { FiGithub, FiPackage, FiExternalLink } from "react-icons/fi";
+import { FiGithub, FiExternalLink } from "react-icons/fi";
 import { GiConwayLifeGlider } from "react-icons/gi";
-import { SiPostgresql, SiExpress, SiPython, SiMicrosoftazure, SiVisualstudiocode, SiNetlify, SiReact, SiMongodb, SiHtml5, SiCss3 } from "react-icons/si";
-import { VscJson, VscGear } from "react-icons/vsc";
+import { SiPostgresql, SiExpress, SiPython, SiVisualstudiocode, SiReact, SiMongodb, SiHtml5, SiCss3 } from "react-icons/si";
+import { VscGear } from "react-icons/vsc";
 
 
 export interface oldProjectListProps {

@@ -74,7 +74,7 @@ export const SkillIcon = ({ color, delay, icon, label }: SkillIconProps) => {
         <Icon
           as={icon}
           borderRadius={5}
-          boxSize={{ base: 6, lg: 6 }}
+          boxSize={6}
           color={color}
           transition={"100ms ease-in-out"}
           _hover={{
