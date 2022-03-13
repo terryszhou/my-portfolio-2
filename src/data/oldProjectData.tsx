@@ -6,7 +6,7 @@ import { CgPokemon } from "react-icons/cg";
 import { FaCat, FaGamepad, FaKey, FaPaintBrush } from "react-icons/fa";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 import { GiConwayLifeGlider } from "react-icons/gi";
-import { SiPostgresql, SiExpress, SiPython, SiVisualstudiocode, SiReact, SiMongodb, SiHtml5, SiCss3, SiJavascript } from "react-icons/si";
+import { SiPostgresql, SiExpress, SiPython, SiVisualstudiocode, SiReact, SiMongodb, SiHtml5, SiCss3, SiJavascript, SiBootstrap, SiChakraui } from "react-icons/si";
 import { VscGear, VscSymbolClass } from "react-icons/vsc";
 
 
@@ -24,9 +24,99 @@ export interface oldProjectListProps {
     href: string,
     delay: string,
   }[],
-}
+};
 
 export const oldProjectList: oldProjectListProps[] = [
+  {
+    title: "Intersection Fader",
+    details: [
+      "Quick demo I put together while practicing with the Intersection Observer API",
+      "Clone of the super-neat article list animation from css-tricks.com",
+    ],
+    skills: [
+      {
+        icon: SiChakraui,
+        color: "rgb(89,178,170)",
+        label: "Chakra UI",
+        delay: "80ms",
+      },
+      {
+        icon: SiReact,
+        color: "rgb(126,208,239)",
+        label: "React",
+        delay: "120ms",
+      },
+      {
+        icon: SiCss3,
+        color: "rgb(51,106,168)",
+        label: "CSS",
+        delay: "160ms",
+      },
+      {
+        icon: SiJavascript,
+        color: "rgb(242,223,81)",
+        label: "JavaScript",
+        delay: "200ms",
+      },
+    ],
+    links: [
+      {
+        icon: <FiExternalLink />,
+        href: "https://intersection-fader.netlify.app/",
+        delay: "320ms",
+      },
+      {
+        icon: <FiGithub />,
+        href: "https://github.com/terryszhou/intersection-fader",
+        delay: "320ms",
+      },
+    ],
+  },
+  {
+    title: "My Portfolio V.1",
+    details: [
+      "First version of my portfolio, coded right after my boot camp graduation",
+      "Extensive experimentation with CSS animations, durations, and pause states",
+    ],
+    skills: [
+      {
+        icon: SiReact,
+        color: "rgb(126,208,239)",
+        label: "React",
+        delay: "80ms",
+      },
+      {
+        icon: SiCss3,
+        color: "rgb(51,106,168)",
+        label: "CSS",
+        delay: "120ms",
+      },
+      {
+        icon: SiJavascript,
+        color: "rgb(242,223,81)",
+        label: "JavaScript",
+        delay: "160ms",
+      },
+      {
+        icon: SiBootstrap,
+        color: "rgb(101,26,225)",
+        label: "Bootstrap",
+        delay: "200ms",
+      },
+    ],
+    links: [
+      {
+        icon: <FiExternalLink />,
+        href: "https://terryzhou-v1.netlify.app/",
+        delay: "320ms",
+      },
+      {
+        icon: <FiGithub />,
+        href: "https://github.com/terryszhou/my-portfolio",
+        delay: "320ms",
+      },
+    ]
+  },
   {
     title: "Python of Life",
     details: [

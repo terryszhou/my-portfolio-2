@@ -29,7 +29,14 @@ interface GridAnimationProps {
   delay: number,
 };
 
-export const ProjectGridItem = ({ delay, title, details, skills, links }: oldProjectListProps & GridAnimationProps) => {
+export const ProjectGridItem = ({
+  delay,
+  details,
+  links,
+  skills,
+  title,
+}: oldProjectListProps & GridAnimationProps) => {
+  const goldShadow: string = uCMV("none","drop-shadow(0 0 5px goldenrod)");
   const greenShadow: string = uCMV("none","drop-shadow(0 0 5px green)");
   return (
     <Box
@@ -74,7 +81,13 @@ export const ProjectGridItem = ({ delay, title, details, skills, links }: oldPro
                 icon={e.icon}
                 key={i} /> ))}
           </HStack>
-          <Heading fontFamily={"var(--chakra-fonts-mono)"} fontSize={"xl"}>
+          <Heading
+            fontFamily={"var(--chakra-fonts-mono)"}
+            fontSize={"lg"}
+            transition={"100ms ease-in-out"}
+            _groupHover={{
+              color: "goldenrod",
+              transitionDuration: "100ms" }}>
             {title}
           </Heading>
           <List marginY={5}>
@@ -94,7 +107,7 @@ export const ProjectGridItem = ({ delay, title, details, skills, links }: oldPro
                 {detail}
               </ListItem> ))}
           </List>
-          <HStack bottom={5} position={"absolute"}>
+          <HStack bottom={5} position={"absolute"} spacing={5}>
             {skills.map((skill, i) => (
               <SkillIcon
                 color={skill.color}
