@@ -136,6 +136,12 @@ export const oldProjectList: oldProjectListProps[] = [
         label: "Pygame",
         delay: "120ms",
       },
+      {
+        icon: VscSymbolClass,
+        color: "rgb(211,110,90)",
+        label: "Class-Based Programming",
+        delay: "160ms",
+      },
     ],
     links: [
       {
