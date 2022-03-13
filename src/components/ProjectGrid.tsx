@@ -8,12 +8,17 @@ import { fadeDown } from "../helpers/animations";
 import { SkillIcon } from "./SkillTable";
 import { SocialIcon } from "./Social";
 
-export const ProjectGrid = () => {
+interface ProjectGridProps {
+  more: boolean,
+};
+
+export const ProjectGrid = ({ more }: ProjectGridProps) => {
+  const selectedProjectList: oldProjectListProps[] = more ? oldProjectList : oldProjectList.slice(0,6);
   return (
     <Grid gap={4} templateColumns={"repeat(auto-fill, minmax(270px, 1fr))"}>
-      {oldProjectList.map((e, i) => (
+      {selectedProjectList.map((e, i) => (
         <ProjectGridItem
-          delay={250 + i * 200}
+          delay={more ? 0 : 250 + i * 200}
           key={i}
           title={e.title}
           details={e.details}
@@ -36,7 +41,6 @@ export const ProjectGridItem = ({
   skills,
   title,
 }: oldProjectListProps & GridAnimationProps) => {
-  const goldShadow: string = uCMV("none","drop-shadow(0 0 5px goldenrod)");
   const greenShadow: string = uCMV("none","drop-shadow(0 0 5px green)");
   return (
     <Box

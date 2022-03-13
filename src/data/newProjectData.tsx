@@ -71,16 +71,16 @@ export const newProjectList: newProjectListProps[] = [
       {
         icon: <SiNetlify />,
         href: "https://cloudbank-theme.netlify.app/",
-        delay: "320ms",
+        delay: "0ms",
       },
       {
         icon: <SiVisualstudiocode />,
         href: "https://marketplace.visualstudio.com/items?itemName=terryszhou.cloudbank",
-        delay: "320ms",
+        delay: "80ms",
       },
       {
         icon: <FiGithub />,
-        delay: "320ms",
+        delay: "160ms",
         href: "https://github.com/terryszhou/cloudbank",
       },
     ]
