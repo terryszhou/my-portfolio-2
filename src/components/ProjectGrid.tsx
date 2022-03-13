@@ -17,7 +17,7 @@ export const ProjectGrid = ({ more }: ProjectGridProps) => {
     <Grid gap={4} templateColumns={"repeat(auto-fill, minmax(270px, 1fr))"}>
       {selectedProjectList.map((e, i) => (
         <ProjectGridItem
-          delay={more ? 0 : 250 + i * 200}
+          delay={more ? 200 * (i - 6) : 200 * i + 250}
           key={i}
           title={e.title}
           details={e.details}

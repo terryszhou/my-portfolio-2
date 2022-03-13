@@ -152,6 +152,51 @@ export const oldProjectList: oldProjectListProps[] = [
     ]
   },
   {
+    title: "Hero Modules",
+    details: [
+      "Demo of custom hero modules created in React & Chakra",
+      "Smooth scrolling, reusable components, and flexbox styling for responsiveness",
+    ],
+    skills: [
+      {
+        icon: SiChakraui,
+        color: "rgb(89,178,170)",
+        label: "Chakra UI",
+        delay: "80ms",
+      },
+      {
+        icon: SiReact,
+        color: "rgb(126,208,239)",
+        label: "React",
+        delay: "120ms",
+      },
+      {
+        icon: SiCss3,
+        color: "rgb(51,106,168)",
+        label: "CSS",
+        delay: "160ms",
+      },
+      {
+        icon: SiJavascript,
+        color: "rgb(242,223,81)",
+        label: "JavaScript",
+        delay: "200ms",
+      },
+    ],
+    links: [
+      {
+        icon: <FiExternalLink />,
+        href: "https://custom-heroes.netlify.app/",
+        delay: "320ms",
+      },
+      {
+        icon: <FiGithub />,
+        href: "https://github.com/terryszhou/hero-module",
+        delay: "320ms",
+      },
+    ]
+  },
+  {
     title: "Totemize",
     details: [
       "Full-stack MERN mockup of a mobile festival locator app",
@@ -214,51 +259,6 @@ export const oldProjectList: oldProjectListProps[] = [
     ]
   },
   {
-    title: "Hero Modules",
-    details: [
-      "Demo of custom hero modules created in React & Chakra",
-      "Smooth scrolling, reusable components, and flexbox styling for responsiveness",
-    ],
-    skills: [
-      {
-        icon: SiChakraui,
-        color: "rgb(89,178,170)",
-        label: "Chakra UI",
-        delay: "80ms",
-      },
-      {
-        icon: SiReact,
-        color: "rgb(126,208,239)",
-        label: "React",
-        delay: "120ms",
-      },
-      {
-        icon: SiCss3,
-        color: "rgb(51,106,168)",
-        label: "CSS",
-        delay: "160ms",
-      },
-      {
-        icon: SiJavascript,
-        color: "rgb(242,223,81)",
-        label: "JavaScript",
-        delay: "200ms",
-      },
-    ],
-    links: [
-      {
-        icon: <FiExternalLink />,
-        href: "https://custom-heroes.netlify.app/",
-        delay: "320ms",
-      },
-      {
-        icon: <FiGithub />,
-        href: "https://github.com/terryszhou/hero-module",
-        delay: "320ms",
-      },
-    ]
-  },
-  {
     title: "PokéMap",
     details: [
       "Full stack web app that makes API calls to pokeapi.co",
@@ -300,6 +300,40 @@ export const oldProjectList: oldProjectListProps[] = [
       {
         icon: <FiGithub />,
         href: "https://github.com/terryszhou/PokeMap/",
+        delay: "320ms",
+      },
+    ]
+  },
+  {
+    title: "Pixel Runner",
+    details: [
+      "Weekend side project following along with a Pygame tutorial",
+      "Class-based code structure with various bug fixes and improvements",
+    ],
+    skills: [
+      {
+        icon: SiPython,
+        color: "rgb(65,104,146)",
+        label: "Python",
+        delay: "80ms",
+      },
+      {
+        icon: FaGamepad,
+        color: "rgb(113,221,76)",
+        label: "Pygame",
+        delay: "120ms",
+      },
+      {
+        icon: VscSymbolClass,
+        color: "rgb(211,110,90)",
+        label: "Class-Based Programming",
+        delay: "160ms",
+      },
+    ],
+    links: [
+      {
+        icon: <FiGithub />,
+        href: "https://github.com/terryszhou/pixel-runner",
         delay: "320ms",
       },
     ]
