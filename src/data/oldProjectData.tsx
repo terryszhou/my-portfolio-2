@@ -390,6 +390,52 @@ export const oldProjectList: oldProjectListProps[] = [
       },
     ]
   },
+  {
+    title: "Squirts V. Cells",
+    details: [
+      "OOP-based Tic Tac Toe game created in my first week of coding!",
+      "Extensive custom styling with box shadows, gradients, and hover effects",
+      "Optional music and audio",
+    ],
+    skills: [
+      {
+        icon: SiHtml5,
+        color: "rgb(200,85,51)",
+        label: "HTML",
+        delay: "80ms",
+      },
+      {
+        icon: SiCss3,
+        color: "rgb(51,106,168)",
+        label: "CSS",
+        delay: "120ms",
+      },
+      {
+        icon: SiJavascript,
+        color: "rgb(242,223,81)",
+        label: "JavaScript",
+        delay: "160ms",
+      },
+      {
+        icon: VscSymbolClass,
+        color: "rgb(211,110,90)",
+        label: "Class-Based Programming",
+        delay: "200ms",
+      },
+    ],
+    links: [
+      {
+        icon: <FiExternalLink />,
+        href: "https://squirtsvcells.netlify.app/",
+        delay: "320ms",
+      },
+      {
+        icon: <FiGithub />,
+        href: "https://github.com/terryszhou/seir53-tic-tac-toes",
+        delay: "320ms",
+      },
+    ]
+  },
 ];
 
 export const wheelHexArray = [
