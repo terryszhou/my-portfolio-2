@@ -1,8 +1,10 @@
-import { Stack, Text, Image } from "@chakra-ui/react";
+import { Box, Stack, Text, Image } from "@chakra-ui/react";
 import * as React from "react";
 
 import { GoldSpan } from "./ColorSpan";
 import { coinJump } from "../helpers/animations";
+
+// import anime from 'animejs';
 
 export const Footer = () => {
   // const coin = new Audio("/smw_coin.wav");
@@ -11,8 +13,24 @@ export const Footer = () => {
   const coinJumpAnim: string = `${coinJump} 200ms ease-in-out`;
   const [jump, setJump] = React.useState<boolean>(false);
 
+  // const animationRef = React.useRef(null);
+  // React.useEffect(() => {
+  //   animationRef.current = anime({
+  //     targets: ".el",
+  //     translateX: 250,
+  //     delay: function(el, i) {
+  //       return i * 100;
+  //     },
+  //     loop: true,
+  //     direction: "alternate",
+  //     easing: "easeInOutSine"
+  //   });
+  // }, []);
+
   return (
     <Stack align={"center"} bottom={5} position={"absolute"}>
+      {/* <button onClick={()=>animationRef.current.restart()}>Restart</button>
+      <Box className="el" /> */}
       <Image
         alt={"face-icon"}
         animation={jump && coinJumpAnim}

@@ -21,3 +21,9 @@
 .delay {
   animation-delay: 1s;
 }
+
+.el {
+  height: 16px;
+  width: 16px;
+  background-color: green;
+}

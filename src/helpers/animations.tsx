@@ -138,3 +138,13 @@ export const coinJump: string = keyframes`
     transform: translateY(0)
   }
 `
+
+export const expGrow: string = keyframes`
+  0% {
+    width: 0;
+    opacity: 0;
+  } 100% {
+    width: 1;
+    opacity: 1;
+  }
+`

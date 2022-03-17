@@ -11,7 +11,7 @@ import { ExperienceHeading } from "./ExperienceHeading";
 import { ExperienceList } from "./ExperienceList";
 import { ExperiencePie } from "./ExperiencePie";
 import { ExperienceTable } from "./ExperienceTable";
-import { growRight } from "../helpers/animations";
+import { expGrow, growRight } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";
 import { HeroShell } from "./HeroShell";
 
@@ -27,6 +27,7 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
   const growRightAnim: string = `${growRight} 1s 250ms forwards`;
+  const expGrowAnim: string = `${expGrow} 1s`;
   const monW: number = (1 / (monArr.length)) * 100;
   const atCompanyColor: string = uCMV("gray.400","rgb(102,105,127)")
   const listColor: string = uCMV("gray.300","rgb(78,83,104)");
@@ -60,6 +61,7 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
           </Td>
           <Td colSpan={monArr.length} >
             <Box
+              animation={loaded && expGrowAnim}
               backgroundColor={exp.color}
               borderRadius={5}
               height={2}
@@ -91,8 +93,7 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
               onOpen={onOpen}
               hovered={hovered}
               setHovered={setHovered} />
-          : <ExperienceTable expMap={expMap} />
-        }
+          : <ExperienceTable expMap={expMap} />}
         <ExperienceHeading pie={pie} setPie={setPie} />
       </Stack>
       <ExperienceList
