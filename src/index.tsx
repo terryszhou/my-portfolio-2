@@ -6,8 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react'
 import { theme } from "./theme";
 
-
-
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>

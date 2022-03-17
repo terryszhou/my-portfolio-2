@@ -1,4 +1,5 @@
-import { Flex, Stack, Box, Text, Image, useColorModeValue, } from "@chakra-ui/react";
+import { Flex, Stack, Box, Text, Image, useColorModeValue, usePrefersReducedMotion,
+} from "@chakra-ui/react";
 import * as React from "react";
 
 import { fadeDown, fadeRight } from "../helpers/animations";
@@ -8,15 +9,16 @@ import { HeroShell } from "./HeroShell";
 import { SkillTable } from "./SkillTable";
 
 export const About = ({ pageRefs, visible, visRef }: PageProps) => {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const [loaded, setLoaded] = React.useState<boolean>(false);
   React.useEffect((): void => visible && setLoaded(true), [visible])
 
-  const fadeDownAnim: string = `${fadeDown} 1000ms`;
-  const fadeRightAnim1: string = `${fadeRight} 250ms 250ms forwards`;
-  const fadeRightAnim2: string = `${fadeRight} 250ms 400ms forwards`;
-  const fadeRightAnim3: string = `${fadeRight} 250ms 550ms forwards`;
-  const fadeRightAnim4: string = `${fadeRight} 250ms 700ms forwards`;
-  const fadeRightAnim5: string = `${fadeRight} 250ms 850ms forwards`;
+  const fadeDownAnim: string = prefersReducedMotion ? undefined: `${fadeDown} 1000ms`;
+  const fadeRightAnim1: string = prefersReducedMotion ? undefined: `${fadeRight} 250ms 250ms forwards`;
+  const fadeRightAnim2: string = prefersReducedMotion ? undefined: `${fadeRight} 250ms 400ms forwards`;
+  const fadeRightAnim3: string = prefersReducedMotion ? undefined: `${fadeRight} 250ms 550ms forwards`;
+  const fadeRightAnim4: string = prefersReducedMotion ? undefined: `${fadeRight} 250ms 700ms forwards`;
+  const fadeRightAnim5: string = prefersReducedMotion ? undefined: `${fadeRight} 250ms 850ms forwards`;
   const goldShadow: string = useColorModeValue("none","0 0 10px goldenrod");
 
   return (
@@ -26,9 +28,7 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
       refNum={1}
       visible={visible}
       loaded={loaded}>
-      <Box
-        marginBottom={{ base: "-10%", lg: 0 }}
-        ref={visRef}>
+      <Box marginBottom={{ base: "-10%", lg: 0 }} ref={visRef}>
         <Stack
           fontFamily={"var(--chakra-fonts-nunito)"}
           fontSize={{ base: "sm", lg: "md" }}

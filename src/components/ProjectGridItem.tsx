@@ -29,7 +29,9 @@ export const ProjectGridItem = ({
   skills,
   title,
 }: oldProjectListProps & GridAnimationProps) => {
+  const goldShadow: string = uCMV("none","drop-shadow(0 0 5px goldenrod)");
   const greenShadow: string = uCMV("none","drop-shadow(0 0 5px green)");
+
   return (
     <Box
       animation={`${fadeDown} 250ms ${delay}ms forwards`}
@@ -41,22 +43,35 @@ export const ProjectGridItem = ({
       <GridItem
         backgroundColor={uCMV("white","rgb(47,55,71)")}
         borderRadius={5}
+        borderTop={"8px solid goldenrod"}
         boxShadow={"0 25px 20px -20px black"}
         cursor={"pointer"}
         height={300}
+        marginY={2}
         position={"relative"}
         role={"group"}
         transition={"100ms ease-in-out"}
+        // _before={{
+        //   backgroundColor: "goldenrod",
+        //   borderTopLeftRadius: 5,
+        //   clipPath: "polygon(0% 0%, 100% 0%, 0% 100%)",
+        //   content: `""`,
+        //   height: 5,
+        //   left: 0,
+        //   position: "absolute",
+        //   top: 0,
+        //   width: 5 }}
         _before={{
           backgroundColor: "goldenrod",
-          borderTopLeftRadius: 5,
-          clipPath: "polygon(0% 0%, 100% 0%, 0% 100%)",
+          borderRadius: 5,
+          zIndex: -1,
           content: `""`,
+          clipPath: "polygon(0% 0%, 80% 0%, 100% 100%, 0% 100%)",
           height: 5,
           left: 0,
           position: "absolute",
-          top: 0,
-          width: 5 }}
+          top: -5,
+          width: "45%" }}
         _hover={{
           transform: "scale(1.02) rotate(1deg)",
           transitionDuration: "100ms" }}>
@@ -74,6 +89,7 @@ export const ProjectGridItem = ({
                 key={i} /> ))}
           </HStack>
           <Heading
+            filter={goldShadow}
             fontFamily={"var(--chakra-fonts-mono)"}
             fontSize={"lg"}
             transition={"100ms ease-in-out"}

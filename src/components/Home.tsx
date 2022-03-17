@@ -11,6 +11,7 @@ import {
   List,
   ListItem,
   ListIcon,
+  usePrefersReducedMotion,
 } from "@chakra-ui/react";
 import * as React from "react";
 
@@ -23,10 +24,11 @@ import { GoldSpan, GreenSpan } from "./ColorSpan";
 import { HeroDividers } from "./HeroDividers";
 
 export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
-  const fadeRightAnim1: string = `${fadeRight} 250ms 250ms forwards`;
-  const fadeRightAnim2: string = `${fadeRight} 250ms 400ms forwards`;
-  const fadeRightAnim3: string = `${fadeRight} 250ms 550ms forwards`;
-  const fadeRightAnim4: string = `${fadeRight} 250ms 700ms forwards`;
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const fadeRightAnim1: string | undefined = prefersReducedMotion ? undefined : `${fadeRight} 250ms 250ms forwards`;
+  const fadeRightAnim2: string | undefined = prefersReducedMotion ? undefined : `${fadeRight} 250ms 400ms forwards`;
+  const fadeRightAnim3: string | undefined = prefersReducedMotion ? undefined : `${fadeRight} 250ms 550ms forwards`;
+  const fadeRightAnim4: string | undefined = prefersReducedMotion ? undefined : `${fadeRight} 250ms 700ms forwards`;
   const goldShadow: string = uCMV("none","drop-shadow(0 0 5px goldenrod)");
   const greenShadow: string = uCMV("none","drop-shadow(0 0 5px green)");
   const redShadow: string = uCMV("drop-shadow(0 0 5px red)","none");
