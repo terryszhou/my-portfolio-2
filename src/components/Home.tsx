@@ -38,15 +38,15 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
 
   return (
     <Flex
-      transition={"1s ease-out"}
-      opacity={visible ? 1 : 0.25}
       alignItems={"center"}
       boxSizing={"border-box"}
       flexDirection={{ base: "column", md: "row" }}
       height={"100vh"}
+      opacity={visible ? 1 : 0.25}
       position={"relative"}
-      width={"75%"}
-      ref={el => pageRefs.current = { ...pageRefs.current, home: el }}>
+      ref={el => pageRefs.current = { ...pageRefs.current, home: el }}
+      transition={"1s ease-out"}
+      width={"75%"}>
       <Stack
         flexBasis={{ base: 0, md: "66%"}}
         marginTop={{ base: 40, md: 0 }}
