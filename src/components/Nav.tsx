@@ -27,10 +27,14 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
   const [stopScroll, setStopScroll] = React.useState<string>();
 
   React.useEffect((): void => {
-    setStopScroll(document.body.style.overflow = menuOpen ? "hidden" : "initial")
+    setStopScroll(
+      document.body.style.overflow = menuOpen ? "hidden" : "initial"
+    );
   }, [menuOpen]);
 
-  React.useEffect((): void => isLargeScreen && setMenuOpen(false), [isLargeScreen]);
+  React.useEffect((): void => {
+    isLargeScreen && setMenuOpen(false)
+  }, [isLargeScreen]);
 
   const scrollIntoView = (type: string): void => {
     pageRefs.current[type].scrollIntoView({ behavior: "smooth"});
@@ -87,15 +91,7 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
           spacing={7}
           transition={"200ms ease-out"}>
           {isLargeScreen ? (
-            <React.Fragment>
-              <NavButton label="00. Home" scroll={scrollIntoView} delay={"0ms"}/>
-              <NavButton label="01. About" scroll={scrollIntoView} delay={"60ms"}/>
-              <NavButton label="02. Experience" scroll={scrollIntoView} delay={"120ms"}/>
-              <NavButton label="03. New Projects" scroll={scrollIntoView} delay={"180ms"}/>
-              <NavButton label="04. Other Projects" scroll={scrollIntoView} delay={"240ms"}/>
-              <NavButton label="05. Contact" scroll={scrollIntoView} delay={"300ms"}/>
-              <ResumeButton />
-            </React.Fragment>
+            <NavButtons scrollIntoView={scrollIntoView} />
           ) : (
             <NavMenuIcon menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> 
           )}
@@ -115,15 +111,7 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
             transition={"300ms ease-in-out"}
             width={"50%"}
             zIndex={2}>
-            <React.Fragment>
-              <NavButton label="00. Home" scroll={scrollIntoView} delay={"0ms"}/>
-              <NavButton label="01. About" scroll={scrollIntoView} delay={"60ms"}/>
-              <NavButton label="02. Experience" scroll={scrollIntoView} delay={"120ms"}/>
-              <NavButton label="03. New Projects" scroll={scrollIntoView} delay={"180ms"}/>
-              <NavButton label="04. Other Projects" scroll={scrollIntoView} delay={"240ms"}/>
-              <NavButton label="05. Contact" scroll={scrollIntoView} delay={"300ms"}/>
-              <ResumeButton />
-            </React.Fragment>
+            <NavButtons scrollIntoView={scrollIntoView} />
           </VStack>
           <Box
             backgroundColor={"black"}
@@ -178,6 +166,22 @@ export const NavButton = ({ delay, label, scroll }: NavButtonProps) => {
     </Text>
   );
 }
+
+interface NavButtonsProps {
+  scrollIntoView: (arg0: string) => void,
+};
+
+export const NavButtons = ({ scrollIntoView }: NavButtonsProps) => (
+  <React.Fragment>
+    <NavButton label="00. Home" scroll={scrollIntoView} delay={"0ms"}/>
+    <NavButton label="01. About" scroll={scrollIntoView} delay={"60ms"}/>
+    <NavButton label="02. Experience" scroll={scrollIntoView} delay={"120ms"}/>
+    <NavButton label="03. New Projects" scroll={scrollIntoView} delay={"180ms"}/>
+    <NavButton label="04. Other Projects" scroll={scrollIntoView} delay={"240ms"}/>
+    <NavButton label="05. Contact" scroll={scrollIntoView} delay={"300ms"}/>
+    <ResumeButton />
+  </React.Fragment>
+);
 
 export const ResumeButton = () => {
   const fadeDownAnim: string = `${fadeDown} 200ms 300ms forwards`;
