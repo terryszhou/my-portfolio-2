@@ -11,9 +11,10 @@ import { ExperienceHeading } from "./ExperienceHeading";
 import { ExperienceList } from "./ExperienceList";
 import { ExperiencePie } from "./ExperiencePie";
 import { ExperienceTable } from "./ExperienceTable";
-import { expGrow, growRight } from "../helpers/animations";
+import { expGrow } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";
 import { HeroShell } from "./HeroShell";
+import { useAnim } from "../hooks/useAnim";
 
 export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
   const [loaded, setLoaded] = React.useState<boolean>(false);
@@ -26,8 +27,7 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
   const [pie, setPie] = React.useState<boolean>(false);
 
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const growRightAnim: string = `${growRight} 1s 250ms forwards`;
-  const expGrowAnim: string = `${expGrow} 1s`;
+  const expGrowAnim: string = useAnim(`${expGrow} 1s`);
   const monW: number = (1 / (monArr.length)) * 100;
   const atCompanyColor: string = uCMV("gray.400","rgb(102,105,127)")
   const listColor: string = uCMV("gray.300","rgb(78,83,104)");

@@ -6,10 +6,11 @@ import { FiMail } from "react-icons/fi";
 import { socialList } from "../data/socialData";
 import { fadeDown } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";
+import { useAnim } from "../hooks/useAnim";
 import { GreenSpan } from "./ColorSpan";
 
 export const Social = ({ scrollDir, y }: PageProps ) => {
-  const fadeDownAnim: string = `${fadeDown} 200ms 180ms forwards`;
+  const fadeDownAnim: string = useAnim(`${fadeDown} 200ms 180ms forwards`);
   return (
     <React.Fragment>
       <Stack

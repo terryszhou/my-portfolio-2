@@ -89,7 +89,7 @@ export const newProjectList: newProjectListProps[] = [
     mainLink: "https://alice-nltk.netlify.app/",
     dir: "l",
     image: "/alice-screen.png",
-    title: "Down the (Data) Rabbit Hole",
+    title: "Down the (DATA) Rabbit Hole",
     skills: [
       {
         icon: SiPython,
@@ -123,9 +123,9 @@ export const newProjectList: newProjectListProps[] = [
       },
     ],
     details: [
-      "Data analysis of the text of Alice in Wonderland",
-      "Uses NLP methods such as tokens, chunks, VADER, and unique entities",
-      "Data processed with NumPy and Pandas, charts created with Recharts",
+      "Data analysis of the text of Alice in Wonderland using Natural Language Processing",
+      "Implements NLTK methods such as tokenizing, chunking, VADER, and NER",
+      "Data processed with NumPy and Pandas, results presented with Recharts",
     ],
     links: [
       {

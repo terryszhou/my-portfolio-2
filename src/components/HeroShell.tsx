@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react';
 import * as React from "react";
 
+import { useAnim } from "../hooks/useAnim";
 import { growRight } from "../helpers/animations";
 
 interface HeroShellProps {
@@ -28,7 +29,7 @@ export const HeroShell = ({
 }: HeroShellProps) => {
   const number: string = label.split(".")[0] + "."
   const title: string = " " + label.split(".")[1]
-  const growRightAnim: string = `${growRight} 1s 250ms forwards`;
+  const growRightAnim: string = useAnim(`${growRight} 1s 250ms forwards`);
 
   const findScroll = (el: HTMLDivElement, refNum: number): {} => {
     let testVar: {} = {};

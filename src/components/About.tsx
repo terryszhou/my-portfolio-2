@@ -1,24 +1,23 @@
-import { Flex, Stack, Box, Text, Image, useColorModeValue, usePrefersReducedMotion,
-} from "@chakra-ui/react";
+import { Flex, Stack, Box, Text, Image, useColorModeValue } from "@chakra-ui/react";
 import * as React from "react";
 
+import { GoldSpan, GreenSpan, PurpleSpan, RedSpan } from "./ColorSpan";
 import { fadeDown, fadeRight } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";
-import { GoldSpan, GreenSpan, PurpleSpan, RedSpan } from "./ColorSpan";
 import { HeroShell } from "./HeroShell";
+import { useAnim } from "../hooks/useAnim";
 import { SkillTable } from "./SkillTable";
 
 export const About = ({ pageRefs, visible, visRef }: PageProps) => {
-  const prefersReducedMotion = usePrefersReducedMotion();
   const [loaded, setLoaded] = React.useState<boolean>(false);
   React.useEffect((): void => visible && setLoaded(true), [visible])
 
-  const fadeDownAnim: string = prefersReducedMotion ? undefined: `${fadeDown} 1000ms`;
-  const fadeRightAnim1: string = prefersReducedMotion ? undefined: `${fadeRight} 250ms 250ms forwards`;
-  const fadeRightAnim2: string = prefersReducedMotion ? undefined: `${fadeRight} 250ms 400ms forwards`;
-  const fadeRightAnim3: string = prefersReducedMotion ? undefined: `${fadeRight} 250ms 550ms forwards`;
-  const fadeRightAnim4: string = prefersReducedMotion ? undefined: `${fadeRight} 250ms 700ms forwards`;
-  const fadeRightAnim5: string = prefersReducedMotion ? undefined: `${fadeRight} 250ms 850ms forwards`;
+  const fadeDownAnim: string = useAnim(`${fadeDown} 1000ms`);
+  const fadeRightAnim1: string = useAnim(`${fadeRight} 250ms 250ms forwards`);
+  const fadeRightAnim2: string = useAnim(`${fadeRight} 250ms 400ms forwards`);
+  const fadeRightAnim3: string = useAnim(`${fadeRight} 250ms 550ms forwards`);
+  const fadeRightAnim4: string = useAnim(`${fadeRight} 250ms 700ms forwards`);
+  const fadeRightAnim5: string = useAnim(`${fadeRight} 250ms 850ms forwards`);
   const goldShadow: string = useColorModeValue("none","0 0 10px goldenrod");
 
   return (

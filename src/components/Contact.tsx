@@ -4,19 +4,20 @@ import React from "react";
 import { fadeOut, shake, slideUp, openLetter } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";
 import { HeroShell } from "./HeroShell";
+import { useAnim } from "../hooks/useAnim";
 
 export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
   const [loaded, setLoaded] = React.useState<boolean>(false);
   React.useEffect((): void => visible && setLoaded(true), [visible]);
 
-  const openLetterAnim: string = `${openLetter} 500ms ease-in-out forwards`;
-  const slideUpAnim: string = `${slideUp} 500ms 500ms ease-in-out forwards`;
+  const fadeOutAnim: string = useAnim(`${fadeOut} 750ms ease-in-out forwards`);
+  const openLetterAnim: string = useAnim(`${openLetter} 500ms ease-in-out forwards`);
+  const shakeAnim: string = useAnim(`${shake} 200ms ease-in-out`);
+  const slideUpAnim: string = useAnim(`${slideUp} 500ms 500ms ease-in-out forwards`);
   const bgColor1: string = colorMode("black","white");
   const bgColor2: string = colorMode("rgb(230,230,230)","rgb(27,32,43)");
   const textShadow: string = colorMode("none","drop-shadow(0 0 5px goldenrod)");
   const redShadow: string = colorMode("none","drop-shadow(0 0 2px red)");
-  const fadeOutAnim: string = `${fadeOut} 750ms ease-in-out forwards`;
-  const shakeAnim: string = `${shake} 200ms ease-in-out`;
 
   return (
     <HeroShell

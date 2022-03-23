@@ -16,11 +16,12 @@ import { GoldSpan } from "./ColorSpan";
 import { fadeDown } from "../helpers/animations";
 import { decapitalize } from "../helpers/functions";
 import { PageProps } from "../helpers/interfaces";
+import { useAnim } from "../hooks/useAnim";
 import { NavMenuIcon } from "./NavMenuIcon";
 
 export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
   const { colorMode } = useColorMode();
-  const fadeDownAnim: string = `${fadeDown} 500ms`;
+  const fadeDownAnim: string = useAnim(`${fadeDown} 500ms`);
   const [isLargeScreen]: boolean[] = useMediaQuery("(min-width: 1050px)");
   const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
   const [stopScroll, setStopScroll] = React.useState<string>();
