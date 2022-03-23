@@ -1,9 +1,9 @@
 import * as React from "react";
 import { IconType } from "react-icons";
-import { SiVisualstudiocode, SiNetlify } from "react-icons/si";
+import { SiVisualstudiocode, SiNetlify, SiPython, SiNumpy, SiPandas, SiMicrosoftexcel } from "react-icons/si";
 import { FiGithub, FiPackage } from "react-icons/fi";
 import { VscJson } from "react-icons/vsc";
-import { FaNpm } from "react-icons/fa";
+import { FaNpm, FaLanguage } from "react-icons/fa";
 
 export interface newProjectListProps {
   mainLink: string,
@@ -82,6 +82,61 @@ export const newProjectList: newProjectListProps[] = [
         icon: <FiGithub />,
         delay: "160ms",
         href: "https://github.com/terryszhou/cloudbank",
+      },
+    ]
+  },
+  {
+    mainLink: "https://alice-nltk.netlify.app/",
+    dir: "l",
+    image: "/alice-screen.png",
+    title: "Down the (Data) Rabbit Hole",
+    skills: [
+      {
+        icon: SiPython,
+        color: "rgb(66,106,149)",
+        label: "Python",
+        delay: "0ms",
+      },
+      {
+        icon: SiNumpy,
+        color: "rgb(82,112,190)",
+        label: "NumPy",
+        delay: "4ms",
+      },
+      {
+        icon: SiPandas,
+        color: "rgb(201,43,127)",
+        label: "Pandas",
+        delay: "80ms",
+      },
+      {
+        icon: FaLanguage,
+        color: "rgb(70,139,140)",
+        label: "Natural Language Processing",
+        delay: "120ms",
+      },
+      {
+        icon: SiMicrosoftexcel,
+        color: "rgb(75,155,95)",
+        label: "Excel/Data Visualization",
+        delay: "160ms",
+      },
+    ],
+    details: [
+      "Data analysis of the text of Alice in Wonderland",
+      "Uses NLP methods such as tokens, chunks, VADER, and unique entities",
+      "Data processed with NumPy and Pandas, charts created with Recharts",
+    ],
+    links: [
+      {
+        icon: <SiNetlify />,
+        href: "https://alice-nltk.netlify.app/",
+        delay: "0ms",
+      },
+      {
+        icon: <FiGithub />,
+        delay: "80ms",
+        href: "https://github.com/terryszhou/alice-nltk",
       },
     ]
   },

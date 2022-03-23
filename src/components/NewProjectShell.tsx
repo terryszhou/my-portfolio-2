@@ -55,11 +55,12 @@ export const NewProjectShell = ({ dir, mainLink, image, title, skills, details, 
             base: "center",
             lg: dir === "r"
               ? "flex-end"
-              : "flex-start" }}>
+              : "flex-start" }}
+          marginTop={{ base: 5, lg: 0 }}>
           <Heading
             color={"goldenrod"}
             fontFamily={"var(--chakra-fonts-mono)"}
-            fontSize={{ base: "md", md: "xl", lg: "3xl" }}>
+            fontSize={{ base: "lg", md: "xl", lg: "2xl" }}>
             {title}
           </Heading>
           <HStack>

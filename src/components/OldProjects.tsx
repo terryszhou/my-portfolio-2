@@ -1,4 +1,4 @@
-import { Button, Flex, Stack, useColorModeValue as uCMV } from "@chakra-ui/react";
+import { Button, Flex, Stack, useColorModeValue as colorMode } from "@chakra-ui/react";
 import * as React from "react";
 
 import { GitCalendar } from "./GitCalendar";
@@ -12,15 +12,14 @@ export const OldProjects = ({ pageRefs, visible, visRef }: PageProps) => {
 
   const [more, setMore] = React.useState<boolean>(false);
 
-  const goldShadow: string = uCMV("none","drop-shadow(0 0 5px goldenrod)");
+  const goldShadow: string = colorMode("none","drop-shadow(0 0 5px goldenrod)");
 
   return (
     <HeroShell
       label={"04. Other Projects"}
       loaded={loaded}
       pageRefs={pageRefs}
-      refNum={4}
-      visible={visible}>
+      refNum={4}>
       <Stack align={"center"} ref={visRef} width={{ base: "85vw", lg: "65vw" }}>
         <Stack marginBottom={"5%"} width={"100%"}>
           {loaded && <ProjectGrid more={more} />}

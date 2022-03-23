@@ -26,7 +26,6 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
       label={"01. About Me"}
       pageRefs={pageRefs}
       refNum={1}
-      visible={visible}
       loaded={loaded}>
       <Box marginBottom={{ base: "-10%", lg: 0 }} ref={visRef}>
         <Stack

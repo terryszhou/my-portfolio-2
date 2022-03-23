@@ -84,8 +84,7 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
       label={"02. My Experience"}
       loaded={loaded}
       pageRefs={pageRefs}
-      refNum={2}
-      visible={visible}>
+      refNum={2}>
       <Stack ref={visRef} spacing={5}>
         {loaded && pie
           ? <ExperiencePie 

@@ -1,4 +1,4 @@
-import { Flex, Box, Image, HStack, Text, useColorModeValue as uCMV } from "@chakra-ui/react";
+import { Flex, Box, Image, HStack, Text, useColorModeValue as colorMode } from "@chakra-ui/react";
 import React from "react";
 
 import { fadeOut, shake, slideUp, openLetter } from "../helpers/animations";
@@ -11,10 +11,10 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
 
   const openLetterAnim: string = `${openLetter} 500ms ease-in-out forwards`;
   const slideUpAnim: string = `${slideUp} 500ms 500ms ease-in-out forwards`;
-  const bgColor1: string = uCMV("black","white");
-  const bgColor2: string = uCMV("rgb(230,230,230)","rgb(27,32,43)");
-  const textShadow: string = uCMV("none","drop-shadow(0 0 5px goldenrod)");
-  const redShadow: string = uCMV("none","drop-shadow(0 0 2px red)");
+  const bgColor1: string = colorMode("black","white");
+  const bgColor2: string = colorMode("rgb(230,230,230)","rgb(27,32,43)");
+  const textShadow: string = colorMode("none","drop-shadow(0 0 5px goldenrod)");
+  const redShadow: string = colorMode("none","drop-shadow(0 0 2px red)");
   const fadeOutAnim: string = `${fadeOut} 750ms ease-in-out forwards`;
   const shakeAnim: string = `${shake} 200ms ease-in-out`;
 
@@ -23,8 +23,7 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
       label={"05. Let's Get in Touch"}
       loaded={loaded}
       pageRefs={pageRefs}
-      refNum={5}
-      visible={visible}>
+      refNum={5}>
       <Flex
         alignItems={"center"}
         flexDirection={"column"}

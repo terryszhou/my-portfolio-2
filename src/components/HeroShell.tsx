@@ -5,7 +5,7 @@ import {
   Heading,
   Stack,
   Text,
-  useColorModeValue as uCMV, 
+  useColorModeValue as colorMode, 
 } from '@chakra-ui/react';
 import * as React from "react";
 
@@ -17,10 +17,15 @@ interface HeroShellProps {
   loaded?: boolean | React.Dispatch<any> | React.MutableRefObject<any>,
   pageRefs?: React.MutableRefObject<{}>,
   refNum?: number,
-  visible?: boolean | React.Dispatch<any> | React.MutableRefObject<any>,
 };
 
-export const HeroShell = ({ children, label, pageRefs, refNum, visible, loaded }: HeroShellProps) => {
+export const HeroShell = ({
+  children,
+  label,
+  loaded,
+  pageRefs,
+  refNum,
+}: HeroShellProps) => {
   const number: string = label.split(".")[0] + "."
   const title: string = " " + label.split(".")[1]
   const growRightAnim: string = `${growRight} 1s 250ms forwards`;
@@ -69,17 +74,17 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible, loaded }
             <Box 
               animation={loaded && growRightAnim}
               backgroundColor={"goldenrod"}
-              boxShadow={uCMV("none","0 0 5px goldenrod")}
+              boxShadow={colorMode("none","0 0 5px goldenrod")}
               height={2}
               opacity={0}
               position={"absolute"}
               top={"2%"}
               width={0}
               _after={{
-                borderTop: "8px solid goldenrod",
                 borderRight: "8px solid transparent",
+                borderTop: "8px solid goldenrod",
                 content: `""`,
-                filter: uCMV("none","drop-shadow(2px 0 5px goldenrod)"),
+                filter: colorMode("none","drop-shadow(2px 0 5px goldenrod)"),
                 position: "absolute",
                 right: -2,
                 width: 0 }} />
@@ -90,7 +95,7 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible, loaded }
                 <Text 
                   as={"span"}
                   color={"goldenrod"}
-                  textShadow={uCMV("none","0 0 5px goldenrod")}>
+                  textShadow={colorMode("none","0 0 5px goldenrod")}>
                   {number}
                 </Text>{title}
               </Heading>
@@ -101,7 +106,7 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible, loaded }
             flex={1}
             justify={'center'}
             position={'relative'}
-            w={'full'}>
+            width={'full'}>
             {children[0]}
           </Flex>
         </Stack>
@@ -110,7 +115,7 @@ export const HeroShell = ({ children, label, pageRefs, refNum, visible, loaded }
           flex={0}
           justify={'center'}
           position={'relative'}
-          w={'full'}>
+          width={'full'}>
           {children[1]}
         </Flex>
       </Stack>

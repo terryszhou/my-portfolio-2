@@ -27,12 +27,9 @@ export const NewProjects = ({ pageRefs, visible, visRef }: PageProps) => {
       label={"03. Stuff I've Created Recently"}
       loaded={loaded}
       pageRefs={pageRefs}
-      refNum={3}
-      visible={visible}>
-      <Stack>
-        <Stack marginY={"5%"} ref={visRef}>
-          {newProjectMap}
-        </Stack>
+      refNum={3}>
+      <Stack marginY={"5%"} ref={visRef} spacing={"10%"}>
+        {newProjectMap}
       </Stack>
       <Flex />
     </HeroShell>
