@@ -1,4 +1,4 @@
-import { Stack, Text, Image } from "@chakra-ui/react";
+import { Image, Stack, Text } from "@chakra-ui/react";
 import * as React from "react";
 
 import useSound from "use-sound";

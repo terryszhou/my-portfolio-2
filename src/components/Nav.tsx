@@ -4,8 +4,7 @@ import {
   HStack,
   Image,
   Text,
-  useColorMode,
-  useColorModeValue as uCMV,
+  useColorModeValue as colorMode,
   useMediaQuery,
   VStack,
 } from "@chakra-ui/react";
@@ -16,11 +15,10 @@ import { GoldSpan } from "./ColorSpan";
 import { fadeDown } from "../helpers/animations";
 import { decapitalize } from "../helpers/functions";
 import { PageProps } from "../helpers/interfaces";
-import { useAnim } from "../hooks/useAnim";
+import { useAnim } from "../hooks";
 import { NavMenuIcon } from "./NavMenuIcon";
 
 export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
-  const { colorMode } = useColorMode();
   const fadeDownAnim: string = useAnim(`${fadeDown} 500ms`);
   const [isLargeScreen]: boolean[] = useMediaQuery("(min-width: 1050px)");
   const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
@@ -48,9 +46,7 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
         bgColor={
           menuOpen
             ? "transparent"
-            : colorMode === "light" 
-              ? "rgba(230,230,230,.85)" 
-              : "rgba(27,32,43,.85)" }
+            : colorMode("rgba(230,230,230,.85)","rgba(27,32,43,.85)") }
         boxShadow={
           menuOpen
             ? "none"
@@ -74,11 +70,11 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
             padding={y !== 0 && scrollDir === "up" ? 4 : 2}
             src={"/face-card.png"}
             transition={"200ms ease-out"}
-            filter={uCMV("none","drop-shadow(0 0 3px goldenrod)")}
+            filter={colorMode("none","drop-shadow(0 0 3px goldenrod)")}
             width={20}
             _hover={{
               cursor: "pointer",
-              filter: "brightness(1.25) uCMV('none','drop-shadow(0 0 3px goldenrod)')",
+              filter: "brightness(1.25) colorMode('none','drop-shadow(0 0 3px goldenrod)')",
               transform: "scale(1.15)" }} />
           <ColorModeSwitcher />
         </HStack>
@@ -100,7 +96,7 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
       {!isLargeScreen && (
         <React.Fragment>
           <VStack
-            bgColor={colorMode === "light" ? "rgba(230,230,230,.85)" : "rgba(27,32,43,.85)"}
+            bgColor={colorMode("rgba(230,230,230,.85)","rgba(27,32,43,.85)")}
             boxShadow={"dark-lg"}
             fontSize={16}
             height={"100%"}
@@ -136,8 +132,8 @@ interface NavButtonProps {
 };
 
 export const NavButton = ({ delay, label, scroll }: NavButtonProps) => {
-  const fadeDownAnim: string = `${fadeDown} 250ms ${delay} forwards`;
-  const goldShadow: string = uCMV("none","drop-shadow(0 0 5px goldenrod)");
+  const fadeDownAnim: string = useAnim(`${fadeDown} 250ms ${delay} forwards`);
+  const goldShadow: string = colorMode("none","drop-shadow(0 0 5px goldenrod)");
   return (
     <Text
       animation={fadeDownAnim}
@@ -165,7 +161,7 @@ export const NavButton = ({ delay, label, scroll }: NavButtonProps) => {
       {label.split(" ")[1]} {label.split(" ")[2]}
     </Text>
   );
-}
+};
 
 interface NavButtonsProps {
   scrollIntoView: (arg0: string) => void,
@@ -185,7 +181,7 @@ export const NavButtons = ({ scrollIntoView }: NavButtonsProps) => (
 
 export const ResumeButton = () => {
   const fadeDownAnim: string = useAnim(`${fadeDown} 200ms 300ms forwards`);
-  const goldShadow: string = uCMV("none","drop-shadow(0 0 5px goldenrod)");
+  const goldShadow: string = colorMode("none","drop-shadow(0 0 5px goldenrod)");
   return (
     <Button
       animation={fadeDownAnim}

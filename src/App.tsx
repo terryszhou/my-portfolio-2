@@ -4,21 +4,24 @@ import * as React from "react";
 
 import "./App.css";
 import "./Hex.css";
-import { About } from "./components/About";
-import { Contact } from "./components/Contact";
-import { Experience } from "./components/Experience";
-import { Footer } from "./components/Footer";
-import { Home } from "./components/Home";
-import { Nav } from "./components/Nav";
-import { NewProjects } from "./components/NewProjects";
-import { OldProjects } from "./components/OldProjects";
-import { Social } from "./components/Social";
-import { useOnScreen } from "./hooks/useOnScreen";
-import { useNavigation } from "./hooks/useNavigation";
+
+import { useOnScreen, useNavigation } from "./hooks";
+
+import {
+  About,
+  Contact,
+  Experience,
+  Footer,
+  Home,
+  Nav,
+  NewProjects,
+  OldProjects,
+  Social
+} from "./components";
 
 export const App = () => {
   const pageRefs: React.MutableRefObject<{}> = React.useRef({});
-  const [visRef, visible]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
+  const [visRef1, visible1]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
   const [visRef2, visible2]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
   const [visRef3, visible3]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
   const [visRef4, visible4]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
@@ -37,8 +40,8 @@ export const App = () => {
         y={y} />
       <Home
         pageRefs={pageRefs}
-        visible={visible} 
-        visRef={visRef} />
+        visible={visible1} 
+        visRef={visRef1} />
       <About
         pageRefs={pageRefs}
         visible={visible2} 
