@@ -123,7 +123,7 @@ export const newProjectList: newProjectListProps[] = [
       },
     ],
     details: [
-      "Data analysis of the text of Alice in Wonderland using Natural Language Processing",
+      "NLP-based Data analysis of the text of Alice in Wonderland",
       "Implements NLTK methods such as tokenizing, chunking, VADER, and NER",
       "Data processed with NumPy and Pandas, results presented with Recharts",
     ],

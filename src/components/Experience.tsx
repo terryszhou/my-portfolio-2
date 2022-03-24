@@ -1,6 +1,6 @@
 import {
   Box, List, ListIcon, ListItem, Stack, Td, Text, 
-  Tooltip, Tr, useColorModeValue as uCMV, useDisclosure,
+  Tooltip, Tr, useColorModeValue as colorMode, useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
 
@@ -29,8 +29,8 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const expGrowAnim: string = useAnim(`${expGrow} 1s`);
   const monW: number = (1 / (monArr.length)) * 100;
-  const atCompanyColor: string = uCMV("gray.400","rgb(102,105,127)")
-  const listColor: string = uCMV("gray.300","rgb(78,83,104)");
+  const atCompanyColor: string = colorMode("gray.400","rgb(102,105,127)")
+  const listColor: string = colorMode("gray.300","rgb(78,83,104)");
 
   const expMap: JSX.Element[] = expArray.map((exp, i) => (
     <React.Fragment key={i}>
@@ -49,7 +49,10 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
                 </ListItem> ))}
             </List>
           </Box> }>
-        <Tr cursor={"pointer"} onClick={() => { setIdx(i); onOpen(); }} role={"group"}>
+        <Tr
+          cursor={"pointer"}
+          onClick={() => { setIdx(i); onOpen(); }}
+          role={"group"}>
           <Td
             colSpan={3}
             fontSize={"xs"}

@@ -6,7 +6,7 @@ import {
   List,
   ListIcon,
   ListItem,
-  useColorModeValue as uCMV,
+  useColorModeValue as colorMode,
   VStack
 } from "@chakra-ui/react";
 import * as React from "react";
@@ -29,8 +29,8 @@ export const ProjectGridItem = ({
   skills,
   title,
 }: oldProjectListProps & GridAnimationProps) => {
-  const goldShadow: string = uCMV("none","drop-shadow(0 0 5px goldenrod)");
-  const greenShadow: string = uCMV("none","drop-shadow(0 0 5px green)");
+  const goldShadow: string = colorMode("none","drop-shadow(0 0 5px goldenrod)");
+  const greenShadow: string = colorMode("none","drop-shadow(0 0 5px green)");
 
   return (
     <Box
@@ -41,7 +41,7 @@ export const ProjectGridItem = ({
       rel={"noreferrer"}
       target={"_blank"}>
       <GridItem
-        backgroundColor={uCMV("white","rgb(47,55,71)")}
+        backgroundColor={colorMode("white","rgb(47,55,71)")}
         borderRadius={5}
         borderTop={"8px solid goldenrod"}
         boxShadow={"0 25px 20px -20px black"}
@@ -51,16 +51,6 @@ export const ProjectGridItem = ({
         position={"relative"}
         role={"group"}
         transition={"100ms ease-in-out"}
-        // _before={{
-        //   backgroundColor: "goldenrod",
-        //   borderTopLeftRadius: 5,
-        //   clipPath: "polygon(0% 0%, 100% 0%, 0% 100%)",
-        //   content: `""`,
-        //   height: 5,
-        //   left: 0,
-        //   position: "absolute",
-        //   top: 0,
-        //   width: 5 }}
         _before={{
           backgroundColor: "goldenrod",
           borderRadius: 5,
@@ -101,7 +91,7 @@ export const ProjectGridItem = ({
           <List marginY={5}>
             {details.map((detail, i) => (
               <ListItem
-                color={uCMV("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
+                color={colorMode("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
                 display={"flex"}
                 fontFamily={"var(--chakra-fonts-nunito)"}
                 fontSize={"sm"}

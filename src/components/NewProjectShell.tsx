@@ -7,7 +7,7 @@ import {
   List,
   ListIcon,
   ListItem,
-  useColorModeValue as uCMV,
+  useColorModeValue as colorMode,
   VStack,
 } from "@chakra-ui/react";
 import * as React from "react";
@@ -18,8 +18,16 @@ import { newProjectListProps } from "../data/newProjectData";
 import { SkillIcon } from "./SkillTable";
 import { SocialIcon } from "./Social";
 
-export const NewProjectShell = ({ dir, mainLink, image, title, skills, details, links }: newProjectListProps) => {
-  const greenShadow: string = uCMV("none","drop-shadow(0 0 5px green)");
+export const NewProjectShell = ({
+  details,
+  dir,
+  image,
+  links,
+  mainLink,
+  skills,
+  title,
+}: newProjectListProps) => {
+  const greenShadow: string = colorMode("none","drop-shadow(0 0 5px green)");
   return (
     <Flex
       flexDirection={{ base: "column", lg: dir === "r" ? "row" : "row-reverse" }}
@@ -80,7 +88,7 @@ export const NewProjectShell = ({ dir, mainLink, image, title, skills, details, 
               ? "flex-end"
               : "flex-start" }}>
           <List
-            bgColor={uCMV("rgb(220,220,220)","rgb(48,52,63)")}
+            bgColor={colorMode("rgb(220,220,220)","rgb(48,52,63)")}
             borderRadius={5}
             boxShadow={"0 25px 20px -20px black"}
             fontFamily={"var(--chakra-fonts-nunito)"}

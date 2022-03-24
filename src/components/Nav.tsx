@@ -184,7 +184,7 @@ export const NavButtons = ({ scrollIntoView }: NavButtonsProps) => (
 );
 
 export const ResumeButton = () => {
-  const fadeDownAnim: string = `${fadeDown} 200ms 300ms forwards`;
+  const fadeDownAnim: string = useAnim(`${fadeDown} 200ms 300ms forwards`);
   const goldShadow: string = uCMV("none","drop-shadow(0 0 5px goldenrod)");
   return (
     <Button

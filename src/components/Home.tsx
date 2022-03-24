@@ -11,24 +11,23 @@ import {
   List,
   ListItem,
   ListIcon,
-  usePrefersReducedMotion,
 } from "@chakra-ui/react";
 import * as React from "react";
 
 import { BiRightArrow } from "react-icons/bi";
 
+import { GoldSpan, GreenSpan } from "./ColorSpan";
 import { fadeRight } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";
-import { SpinHex } from "./SpinHex";
-import { GoldSpan, GreenSpan } from "./ColorSpan";
 import { HeroDividers } from "./HeroDividers";
+import { useAnim } from "../hooks/useAnim";
+import { SpinHex } from "./SpinHex";
 
 export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
-  const prefersReducedMotion = usePrefersReducedMotion();
-  const fadeRightAnim1: string | undefined = prefersReducedMotion ? undefined : `${fadeRight} 250ms 250ms forwards`;
-  const fadeRightAnim2: string | undefined = prefersReducedMotion ? undefined : `${fadeRight} 250ms 400ms forwards`;
-  const fadeRightAnim3: string | undefined = prefersReducedMotion ? undefined : `${fadeRight} 250ms 550ms forwards`;
-  const fadeRightAnim4: string | undefined = prefersReducedMotion ? undefined : `${fadeRight} 250ms 700ms forwards`;
+  const fadeRightAnim1: string | undefined = useAnim(`${fadeRight} 250ms 250ms forwards`);
+  const fadeRightAnim2: string | undefined = useAnim(`${fadeRight} 250ms 400ms forwards`);
+  const fadeRightAnim3: string | undefined = useAnim(`${fadeRight} 250ms 550ms forwards`);
+  const fadeRightAnim4: string | undefined = useAnim(`${fadeRight} 250ms 700ms forwards`);
   const goldShadow: string = uCMV("none","drop-shadow(0 0 5px goldenrod)");
   const greenShadow: string = uCMV("none","drop-shadow(0 0 5px green)");
   const redShadow: string = uCMV("drop-shadow(0 0 5px red)","none");

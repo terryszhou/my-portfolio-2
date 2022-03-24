@@ -1,16 +1,18 @@
 import { Stack, Text, Image } from "@chakra-ui/react";
 import * as React from "react";
 
+import useSound from "use-sound";
+
 import { GoldSpan } from "./ColorSpan";
 import { coinJump } from "../helpers/animations";
 import { useAnim } from "../hooks/useAnim";
 
+import coinAudio from "../audio/smw_coin.wav";
+
 // import anime from 'animejs';
 
 export const Footer = () => {
-  // const coin = new Audio("/smw_coin.wav");
-  const coinAudio: HTMLAudioElement = new Audio("https://themushroomkingdom.net/sounds/wav/smw/smw_coin.wav");
-  coinAudio.load();
+  const [play] = useSound(coinAudio);
   const coinJumpAnim: string = useAnim(`${coinJump} 200ms ease-in-out`);
   const [jump, setJump] = React.useState<boolean>(false);
 
@@ -37,7 +39,7 @@ export const Footer = () => {
         animation={jump && coinJumpAnim}
         boxSize={10}
         cursor={"pointer"}
-        onClick={() => { coinAudio.play(); setJump(true); }}
+        onClick={() => { play(); setJump(true); }}
         onAnimationEnd={() => setJump(false)}
         src={"/favicon.ico"} />
       <Text

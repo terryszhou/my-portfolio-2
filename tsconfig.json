@@ -1,7 +1,9 @@
 {
   "include": [
-    "src/*"
-, "src/helpers/interfaces.tsx"  ],
+    "src/*",
+    "src/helpers/interfaces.tsx",
+    "types/*"
+  ],
   "compilerOptions": {
     "target": "es5",
     "jsx": "react",

@@ -77,7 +77,7 @@ interface SocialIconProps {
 };
 
 export const SocialIcon = ({ delay, href, icon }: SocialIconProps) => {
-  const fadeDownAnim: string = `${fadeDown} 200ms ${delay} forwards`;
+  const fadeDownAnim: string = useAnim(`${fadeDown} 200ms ${delay} forwards`);
   const greenShadow: string = uCMV("none","drop-shadow(0 0 5px green)");
   return (
     <IconButton
