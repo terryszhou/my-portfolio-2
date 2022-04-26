@@ -1,4 +1,9 @@
-import { Button, Flex, Stack, useColorModeValue as colorMode } from "@chakra-ui/react";
+import {
+  Button,
+  Flex,
+  Stack,
+  useColorModeValue as colorMode
+} from "@chakra-ui/react";
 import * as React from "react";
 
 import { GitCalendar } from "./GitCalendar";
@@ -20,7 +25,10 @@ export const OldProjects = ({ pageRefs, visible, visRef }: PageProps) => {
       loaded={loaded}
       pageRefs={pageRefs}
       refNum={4}>
-      <Stack align={"center"} ref={visRef} width={{ base: "85vw", lg: "65vw" }}>
+      <Stack
+        align={"center"}
+        ref={visRef}
+        width={{ base: "85vw", lg: "65vw" }}>
         <Stack marginBottom={"5%"} width={"100%"}>
           {loaded && <ProjectGrid more={more} />}
         </Stack>

@@ -6,7 +6,7 @@ import {
   Text,
   Heading,
   Image,
-  useColorModeValue as uCMV,
+  useColorModeValue as colorMode,
   Tooltip,
   List,
   ListItem,
@@ -28,9 +28,9 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
   const fadeRightAnim2: string | undefined = useAnim(`${fadeRight} 250ms 400ms forwards`);
   const fadeRightAnim3: string | undefined = useAnim(`${fadeRight} 250ms 550ms forwards`);
   const fadeRightAnim4: string | undefined = useAnim(`${fadeRight} 250ms 700ms forwards`);
-  const goldShadow: string = uCMV("none","drop-shadow(0 0 5px goldenrod)");
-  const greenShadow: string = uCMV("none","drop-shadow(0 0 5px green)");
-  const redShadow: string = uCMV("drop-shadow(0 0 5px red)","none");
+  const goldShadow: string = colorMode("none","drop-shadow(0 0 5px goldenrod)");
+  const greenShadow: string = colorMode("none","drop-shadow(0 0 5px green)");
+  const redShadow: string = colorMode("drop-shadow(0 0 5px red)","none");
 
   const [loaded, setLoaded] = React.useState<boolean>(false);
   React.useEffect((): void => visible && setLoaded(true), [visible]);
@@ -78,16 +78,41 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
             </Text>
             <Tooltip hasArrow label={
               <Stack fontFamily={"var(--chakra-fonts-nunito)"}>
-                <Text>汉字: <Text as={"span"} color={"red"} filter={redShadow}>周思佳</Text></Text>
-                <Text>Pīnyīn: <Text as={"span"} color={"red"} filter={redShadow}>Zhōu Sījīa</Text></Text>
-                <Text><Text as={"span"} color={"red"} filter={redShadow}>周 Zhōu</Text>: The longest-lived dynasty in Chinese history.</Text>
-                <Text><Text as={"span"} color={"red"} filter={redShadow}>思 Sī</Text>: (to) think</Text>
-                <Text><Text as={"span"} color={"red"} filter={redShadow}>佳 Jīa</Text>: (with) excellence & beauty</Text>
+                <Text>
+                  {`汉字: `}
+                  <Text as={"span"} color={"red"} filter={redShadow}>
+                    周思佳
+                  </Text>
+                </Text>
+                <Text>
+                  {`Pīnyīn: `}
+                  <Text as={"span"} color={"red"} filter={redShadow}>
+                    Zhōu Sījīa
+                  </Text>
+                </Text>
+                <Text>
+                  <Text as={"span"} color={"red"} filter={redShadow}>
+                    {`周 Zhōu`}
+                  </Text>
+                  : The longest-lived dynasty in Chinese history.
+                </Text>
+                <Text>
+                  <Text as={"span"} color={"red"} filter={redShadow}>
+                    {`思 Sī`}
+                  </Text>
+                    : (to) think
+                  </Text>
+                <Text>
+                  <Text as={"span"} color={"red"} filter={redShadow}>
+                    {`佳 Jīa`}
+                  </Text>
+                    : (with) excellence & beauty
+                  </Text>
               </Stack> }>
               <Image
                 boxSize={{ base: "40px", lg: "50px" }}
                 cursor={"pointer"}
-                filter={uCMV("none","drop-shadow(0 0 2px red)")}
+                filter={colorMode("none","drop-shadow(0 0 2px red)")}
                 marginLeft={{ base: 2, lg: 4 }}
                 src={"/seal-sig.png"}
                 transition={"200ms ease-in-out"}
@@ -97,13 +122,13 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
           <Heading
             animation={fadeRightAnim3}
             color={"goldenrod"}
-            filter={uCMV("none","drop-shadow(0 0 2px goldenrod)")}
-            fontSize={{ base: 24, sm: 36, md: 42, lg: 48 }}
+            filter={colorMode("none","drop-shadow(0 0 2px goldenrod)")}
+            fontSize={{ base: 16, sm: 20, lg: 24 }}
             fontFamily={"var(--chakra-fonts-mono)"}
             opacity={0}
             marginY={4}
             width={"fit-content"}>
-            Front-End Engineer
+            Data Analyst | Front-End Engineer
           </Heading>
           <List animation={fadeRightAnim4} opacity={0} spacing={-5}>
             <ListItem alignItems={"center"} display={"flex"}>
@@ -112,7 +137,7 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
                 color='green.500' 
                 filter={greenShadow} />
               <Text
-                color={uCMV("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
+                color={colorMode("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
                 fontFamily={"var(--chakra-fonts-nunito)"}
                 fontSize={{ base: 14, md: 16, lg: 18 }}
                 marginY={6}
@@ -127,14 +152,19 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
                 color='green.500' 
                 filter={greenShadow} />
               <Text
-                color={uCMV("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
+                color={colorMode("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
                 fontFamily={"var(--chakra-fonts-nunito)"}
                 fontSize={{ base: 14, md: 16, lg: 18 }}
                 marginY={6}
                 width={"80%"}>
                 I like writing
-                <GreenSpan> code</GreenSpan> that's
-                <GoldSpan> practical</GoldSpan>, <GoldSpan>scalable</GoldSpan>, and <GoldSpan>stylish</GoldSpan>
+                <GreenSpan>{` code`}</GreenSpan>
+                {` that's`}
+                <GoldSpan>{` practical`}</GoldSpan>
+                {`, `}
+                <GoldSpan>scalable</GoldSpan>
+                {`, and `}
+                <GoldSpan>stylish</GoldSpan>
               </Text>
             </ListItem>
             <ListItem alignItems={"center"} display={"flex"}>
@@ -143,7 +173,7 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
                 color='green.500' 
                 filter={greenShadow} />
               <Text
-                color={uCMV("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
+                color={colorMode("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
                 fontFamily={"var(--chakra-fonts-nunito)"}
                 fontSize={{ base: 14, md: 16, lg: 18 }}
                 marginY={6}
@@ -166,7 +196,8 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
                     width: 0 }}
                   _hover={{
                     color: "goldenrod",
-                    _before: { width: "105%" } }}>
+                    _before: {
+                      width: "105%" } }}>
                   {` get in touch!`}
                 </Text>
               </Text>

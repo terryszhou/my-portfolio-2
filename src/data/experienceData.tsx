@@ -1,10 +1,10 @@
 export const monArr: string[] = [
   "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-  "Jan", "Feb",
+  "Jan", "Feb", "Mar", "Apr",
 ];
 
 export const yearArr: string[] = [
-  "", "", "2021", "", "", "", "", "", "", "", "", "", "", "", "2022", "",
+  "", "", "2021", "", "", "", "", "", "", "", "", "", "", "", "2022", "", "", "",
 ];
 
 interface expArrayProps {
@@ -89,5 +89,19 @@ export const expArray: expArrayProps[] = [
     color: "rgb(200,186,100)",
     start: 11,
     length: 4,
+  },
+  {
+    title: "Sr. Analyst, Data Operations",
+    details: [
+      "Assisted clients in data analysis and visualization of government health policy information using Python and DataTables.",
+      "Developed in-house tools in Python/AWS for more efficient data operations.",
+      "Made front-end improvements to our web application in JavaScript/jQuery.",
+    ],
+    dates: "Apr 2022 - Current",
+    skills: ["Python", "SQL", "AWS Lambda", "JavaScript", "jQuery", "DataTables"],
+    company: "LMI",
+    color: "rgb(57,64,120)",
+    start: 16.3,
+    length: 1,
   },
 ];

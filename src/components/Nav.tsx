@@ -96,7 +96,7 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
       {!isLargeScreen && (
         <React.Fragment>
           <VStack
-            bgColor={colorMode("rgba(230,230,230,.85)","rgba(27,32,43,.85)")}
+            backgroundColor={colorMode("rgba(230,230,230,.85)","rgba(27,32,43,.85)")}
             boxShadow={"dark-lg"}
             fontSize={16}
             height={"100%"}
@@ -156,7 +156,8 @@ export const NavButton = ({ delay, label, scroll }: NavButtonProps) => {
         width: 0 }}
       _hover={{
         color: "goldenrod",
-        _before: { width: "105%" } }}>
+        _before: {
+          width: "105%" } }}>
       <GoldSpan>{label.split(" ")[0]} </GoldSpan>
       {label.split(" ")[1]} {label.split(" ")[2]}
     </Text>

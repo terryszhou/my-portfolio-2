@@ -39,10 +39,10 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
           fontSize={{ base: "sm", lg: "md" }}
           textAlign={"justify"}>
           <Text animation={loaded && fadeRightAnim1} marginY={2} opacity={0}>
-            Hi! My name is Terry and I build <GreenSpan>web content</GreenSpan> for a living. I used to work in real estate and food service, but I needed a more fulfilling career path: a way for me to combine my skills in <GoldSpan>customer satisfaction</GoldSpan> with my twin passions for <GoldSpan>artistic creativity</GoldSpan> and <GoldSpan>practical problem-solving</GoldSpan>.
+            Hi! My name's Terry, and I analyze <GreenSpan>data</GreenSpan> and build <GreenSpan>web content</GreenSpan> for a living. I used to work in real estate and food service, but I needed a more fulfilling career path: a way for me to combine my skills in <GoldSpan>customer satisfaction</GoldSpan> with my twin passions for <GoldSpan>artistic creativity</GoldSpan> and <GoldSpan>practical problem-solving</GoldSpan>.
           </Text>
           <Text animation={loaded && fadeRightAnim2} marginY={2} opacity={0}>
-            Today, I've worked as the <GreenSpan>lead Front-End Engineer</GreenSpan> for two startups, and I'm a top-scoring graduate from General Assembly's <GreenSpan>Software Engineering Immersive Boot Camp</GreenSpan>. My main tools are <GoldSpan>React</GoldSpan>, <GoldSpan>JavaScript</GoldSpan>, and <GoldSpan>Node</GoldSpan>. I can also build <GoldSpan>RESTful APIs</GoldSpan> from scratch and manage <GoldSpan>SQL</GoldSpan> databases.
+            Today, I work as a <GreenSpan>Senior Data Analyst</GreenSpan> at LMI. I've also worked as the lead <GreenSpan>Front-End Engineer</GreenSpan> for two startups, and I'm a top-scoring graduate from General Assembly's <GreenSpan>Software Engineering Immersive Boot Camp</GreenSpan>. My main tools are <GoldSpan>Python</GoldSpan>, <GoldSpan>SQL</GoldSpan>, <GoldSpan>React</GoldSpan> and <GoldSpan>TypeScript</GoldSpan>.
           </Text>
           <Text animation={loaded && fadeRightAnim3} marginY={2} opacity={0}>
             When I'm not writing <GreenSpan>code</GreenSpan>, I'm probably writing my debut fantasy novel, <GoldSpan><i>Narumi and the Dragon's Pearl</i></GoldSpan> (Wanna hear the pitch? Think <i>The Hobbit</i> + <i>Treasure Planet</i>, with Chinese mythology thrown in).

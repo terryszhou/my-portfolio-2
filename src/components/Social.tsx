@@ -1,4 +1,10 @@
-import { IconButton, Divider, Stack, Text, useColorModeValue as uCMV } from "@chakra-ui/react";
+import {
+  Divider,
+  IconButton,
+  Stack,
+  Text,
+  useColorModeValue as colorMode
+} from "@chakra-ui/react";
 import * as React from "react";
 
 import { FiMail } from "react-icons/fi";
@@ -62,7 +68,7 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
           rel={"noreferrer"}
           target={"_blank"}
           transition={"100ms ease-out"}
-          _hover={{ color: uCMV("black","white") }}>
+          _hover={{ color: colorMode("black","white") }}>
           <GreenSpan>terryszhou@gmail.com</GreenSpan>
         </Text>
       </Stack>
@@ -78,7 +84,7 @@ interface SocialIconProps {
 
 export const SocialIcon = ({ delay, href, icon }: SocialIconProps) => {
   const fadeDownAnim: string = useAnim(`${fadeDown} 200ms ${delay} forwards`);
-  const greenShadow: string = uCMV("none","drop-shadow(0 0 5px green)");
+  const greenShadow: string = colorMode("none","drop-shadow(0 0 5px green)");
   return (
     <IconButton
       as={"a"}
