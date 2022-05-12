@@ -28,9 +28,9 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
   const fadeRightAnim2: string | undefined = useAnim(`${fadeRight} 250ms 400ms forwards`);
   const fadeRightAnim3: string | undefined = useAnim(`${fadeRight} 250ms 550ms forwards`);
   const fadeRightAnim4: string | undefined = useAnim(`${fadeRight} 250ms 700ms forwards`);
-  const goldShadow: string = colorMode("none","drop-shadow(0 0 5px goldenrod)");
-  const greenShadow: string = colorMode("none","drop-shadow(0 0 5px green)");
-  const redShadow: string = colorMode("drop-shadow(0 0 5px red)","none");
+  const goldShadow: string = colorMode("none","drop-shadow(0 0 2px goldenrod)");
+  const greenShadow: string = colorMode("none","drop-shadow(0 0 2px green)");
+  const redShadow: string = colorMode("drop-shadow(0 0 2px red)","none");
 
   const [loaded, setLoaded] = React.useState<boolean>(false);
   React.useEffect((): void => visible && setLoaded(true), [visible]);
@@ -122,7 +122,6 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
           <Heading
             animation={fadeRightAnim3}
             color={"goldenrod"}
-            filter={colorMode("none","drop-shadow(0 0 2px goldenrod)")}
             fontSize={{ base: 16, sm: 20, lg: 24 }}
             fontFamily={"var(--chakra-fonts-mono)"}
             opacity={0}

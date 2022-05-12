@@ -123,9 +123,9 @@ export const newProjectList: newProjectListProps[] = [
       },
     ],
     details: [
-      "NLP-based Data analysis of the text of Alice in Wonderland",
-      "Implements NLTK methods such as tokenizing, chunking, VADER, and NER",
-      "Data processed with NumPy and Pandas, results presented with Recharts",
+      "NLP data analysis of 'Alice in Wonderland'",
+      "Data processed with NLTK, NumPy, and Pandas",
+      "Results processed with Recharts"
     ],
     links: [
       {

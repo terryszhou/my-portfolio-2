@@ -6,7 +6,7 @@ interface ColorSpanProps {
 };
 
 export const GoldSpan = ({ children }: ColorSpanProps) => {
-  const goldShadow: string = uCMV("none","drop-shadow(0 0 5px goldenrod)")
+  const goldShadow: string = uCMV("none","drop-shadow(0 0 1px goldenrod)")
   return (
     <Text
       as={"span"}
@@ -18,7 +18,7 @@ export const GoldSpan = ({ children }: ColorSpanProps) => {
 };
 
 export const GreenSpan = ({ children }: ColorSpanProps) => {
-  const greenShadow: string = uCMV("none","drop-shadow(0 0 5px green)")
+  const greenShadow: string = uCMV("none","drop-shadow(0 0 1px green)")
   return (
     <Text
       as={"span"}
@@ -30,7 +30,7 @@ export const GreenSpan = ({ children }: ColorSpanProps) => {
 };
 
 export const RedSpan = ({ children }: ColorSpanProps) => {
-  const redShadow: string = uCMV("none","drop-shadow(0 0 5px red)")
+  const redShadow: string = uCMV("none","drop-shadow(0 0 1px red)")
   return (
     <Text
       as={"span"}
@@ -42,12 +42,12 @@ export const RedSpan = ({ children }: ColorSpanProps) => {
 };
 
 export const PurpleSpan = ({ children }: ColorSpanProps) => {
-  const redShadow: string = uCMV("none","drop-shadow(0 0 5px violet)")
+  const purpleShadow: string = uCMV("none","drop-shadow(0 0 1px rgb(122, 93, 206))")
   return (
     <Text
       as={"span"}
       color={"purple.500"}
-      filter={redShadow}>
+      filter={purpleShadow}>
       {children}
     </Text>
   );

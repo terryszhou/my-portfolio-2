@@ -30,11 +30,17 @@ export const NewProjectShell = ({
   const greenShadow: string = colorMode("none","drop-shadow(0 0 5px green)");
   return (
     <Flex
-      flexDirection={{ base: "column", lg: dir === "r" ? "row" : "row-reverse" }}
+      flexDirection={{
+        base: "column",
+        lg: dir === "r"
+          ? "row"
+          : "row-reverse" }}
       marginY={"5%"}>
       <Flex>
         <Link href={mainLink} isExternal _focus={{ border: "none" }}>
           <Image
+            borderRadius={"5px"}
+            boxShadow={"0 25px 20px -20px black"}
             filter={"saturate(0.1)"}
             position={"relative"}
             src={image}
@@ -45,13 +51,26 @@ export const NewProjectShell = ({
                 : "scale(1.15) translateX(-7.5%)" }}
             transition={"300ms ease-in-out"}
             _hover={{
+              transform: {
+                base: "scale(1.1)",
+                lg: dir === "r"
+                  ? "scale(1.25) translateX(7.5%)"
+                  : "scale(1.25) translateX(-7.5%)" },
               filter: "saturate(1)",
               transitionDuration: "300ms" }} />
         </Link>
       </Flex>
       <VStack
-        alignItems={{ base: "center", lg: dir === "r" ? "flex-end" : "flex-start" }}
-        textAlign={{ base: "justify", lg: dir === "r" ? "right" : "left" }}
+        alignItems={{
+          base: "center",
+          lg: dir === "r"
+            ? "flex-end"
+            : "flex-start" }}
+        textAlign={{
+          base: "justify",
+          lg: dir === "r"
+            ? "right"
+            : "left" }}
         transform={{
           base: "none",
           lg: dir === "r"
@@ -86,7 +105,8 @@ export const NewProjectShell = ({
             base: "center",
             lg: dir === "r"
               ? "flex-end"
-              : "flex-start" }}>
+              : "flex-start" }}
+          opacity={0.9}>
           <List
             bgColor={colorMode("rgb(220,220,220)","rgb(48,52,63)")}
             borderRadius={5}
