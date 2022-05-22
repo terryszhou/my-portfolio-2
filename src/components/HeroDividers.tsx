@@ -18,20 +18,20 @@ export const HeroDividers = ({ orientation }: HeroDividersProps) => {
         backgroundColor={"goldenrod"}
         bottom={orientation === "topleft" && 2}
         boxShadow={useColorModeValue("none", "0 0 5px goldenrod")}
-        height={2}
+        height={1}
         opacity={1}
         position={"absolute"}
         right={"-16.5%"}
-        top={orientation === "topright" && "15%"}
+        top={orientation === "topright" && "13%"}
         transform={orientation === "topleft" && "scaleY(-1)"}
         zIndex={1}
         _before={{
-          borderLeft: "8px solid transparent",
-          borderTop: "8px solid goldenrod",
+          borderLeft: "4px solid transparent",
+          borderTop: "4px solid goldenrod",
           content: `""`,
           filter: useColorModeValue("none", "drop-shadow(-2px 0 5px goldenrod)"),
           height: 0,
-          left: -2,
+          left: -1,
           position: "absolute",
           width: 0,
         }} />
@@ -40,21 +40,21 @@ export const HeroDividers = ({ orientation }: HeroDividersProps) => {
         backgroundColor={"goldenrod"}
         bottom={orientation === "topright" && "2%"}
         boxShadow={useColorModeValue("none", "0 0 5px goldenrod")}
-        height={2}
+        height={1}
         left={"-16.5%"}
         opacity={0}
         position={"absolute"}
         top={orientation === "topleft" && 2}
         width={"50%"}
         _after={{
-          borderBottom: orientation === "topright" && "8px solid goldenrod",
-          borderTop: orientation === "topleft" && "8px solid goldenrod",
-          borderRight: "8px solid transparent",
+          borderBottom: orientation === "topright" && "4px solid goldenrod",
+          borderTop: orientation === "topleft" && "4px solid goldenrod",
+          borderRight: "4px solid transparent",
           content: `""`,
           filter: useColorModeValue("none", "drop-shadow(2px 0 5px goldenrod)"),
           height: 0,
           position: "absolute",
-          right: -2,
+          right: -1,
           width: 0,
         }}/>
     </React.Fragment>

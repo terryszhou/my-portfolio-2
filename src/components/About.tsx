@@ -25,7 +25,7 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
   const fadeRightAnim3: string = useAnim(`${fadeRight} 250ms 550ms forwards`);
   const fadeRightAnim4: string = useAnim(`${fadeRight} 250ms 700ms forwards`);
   const fadeRightAnim5: string = useAnim(`${fadeRight} 250ms 850ms forwards`);
-  const goldShadow: string = colorMode("none","0 0 10px goldenrod");
+  const goldShadow: string = colorMode("none","0 0 2px goldenrod");
 
   return (
     <HeroShell
@@ -35,6 +35,7 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
       loaded={loaded}>
       <Box marginBottom={{ base: "-10%", lg: 0 }} ref={visRef}>
         <Stack
+          color={colorMode("rgb(0,0,0,0.65)","rgb(255,255,255,0.65)")}
           fontFamily={"var(--chakra-fonts-nunito)"}
           fontSize={{ base: "sm", lg: "md" }}
           textAlign={"justify"}>
@@ -42,7 +43,7 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
             Hi! My name's Terry, and I analyze <GreenSpan>data</GreenSpan> and build <GreenSpan>web content</GreenSpan> for a living. I used to work in real estate and food service, but I needed a more fulfilling career path: a way for me to combine my skills in <GoldSpan>customer satisfaction</GoldSpan> with my twin passions for <GoldSpan>artistic creativity</GoldSpan> and <GoldSpan>practical problem-solving</GoldSpan>.
           </Text>
           <Text animation={loaded && fadeRightAnim2} marginY={2} opacity={0}>
-            Today, I work as a <GreenSpan>Senior Data Analyst</GreenSpan> at LMI. I've also worked as the lead <GreenSpan>Front-End Engineer</GreenSpan> for two startups, and I'm a top-scoring graduate from General Assembly's <GreenSpan>Software Engineering Immersive Boot Camp</GreenSpan>. My main tools are <GoldSpan>Python</GoldSpan>, <GoldSpan>SQL</GoldSpan>, <GoldSpan>React</GoldSpan> and <GoldSpan>TypeScript</GoldSpan>.
+            Today, I work as a <GreenSpan>Senior Data Analyst</GreenSpan> at LMI. I've also worked as the lead <GreenSpan>Front-End Engineer</GreenSpan> for two startups, and I'm a top-scoring graduate from General Assembly's <GreenSpan>Software Engineering Immersive Boot Camp</GreenSpan>. My main tools are <GoldSpan>Python</GoldSpan>, <GoldSpan>React</GoldSpan> and <GoldSpan>TypeScript</GoldSpan>.
           </Text>
           <Text animation={loaded && fadeRightAnim3} marginY={2} opacity={0}>
             When I'm not writing <GreenSpan>code</GreenSpan>, I'm probably writing my debut fantasy novel, <GoldSpan><i>Narumi and the Dragon's Pearl</i></GoldSpan> (Wanna hear the pitch? Think <i>The Hobbit</i> + <i>Treasure Planet</i>, with Chinese mythology thrown in).

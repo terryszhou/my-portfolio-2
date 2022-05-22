@@ -16,12 +16,12 @@ export const NavMenuIcon = ({ menuOpen, setMenuOpen }: NavMenuIconProps) => {
       zIndex={4}>
       <Span
         left={!menuOpen && 1}
-        top={menuOpen ? "18px" : "12px"}
+        top={menuOpen ? "18px" : "13px"}
         transform={menuOpen && "rotate(135deg)"} 
         _groupHover={{ left: 0 }} />
       <Span
         left={!menuOpen && -1}
-        top={menuOpen ? "18px" : "24px"}
+        top={menuOpen ? "18px" : "23px"}
         transform={menuOpen && "rotate(405deg)"} 
         _groupHover={{ left: 0 }} />
     </NavIcon>
@@ -51,7 +51,7 @@ export const Span = (props: any) => (
     background={"goldenrod"}
     borderRadius={"5px"}
     display={"block"}
-    height={"3px"}
+    height={"2px"}
     left={0}
     position={"absolute"}
     opacity={1}

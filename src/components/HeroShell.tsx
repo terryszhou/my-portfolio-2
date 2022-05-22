@@ -76,18 +76,18 @@ export const HeroShell = ({
               animation={loaded && growRightAnim}
               backgroundColor={"goldenrod"}
               boxShadow={colorMode("none","0 0 5px goldenrod")}
-              height={2}
+              height={1}
               opacity={0}
               position={"absolute"}
               top={"2%"}
               width={0}
               _after={{
-                borderRight: "8px solid transparent",
-                borderTop: "8px solid goldenrod",
+                borderRight: "4px solid transparent",
+                borderTop: "4px solid goldenrod",
                 content: `""`,
                 filter: colorMode("none","drop-shadow(2px 0 5px goldenrod)"),
                 position: "absolute",
-                right: -2,
+                right: -1,
                 width: 0 }} />
               <Heading
                 fontFamily={"var(--chakra-fonts-mono)"}
@@ -96,7 +96,8 @@ export const HeroShell = ({
                 <Text 
                   as={"span"}
                   color={"goldenrod"}
-                  textShadow={colorMode("none","0 0 5px goldenrod")}>
+                  fontSize={{ base: 'md', sm: 'lg', md: "xl" }}
+                  textShadow={colorMode("none","0 0 2px goldenrod")}>
                   {number}
                 </Text>{title}
               </Heading>

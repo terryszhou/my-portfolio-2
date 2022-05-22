@@ -28,8 +28,8 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
   const fadeRightAnim2: string | undefined = useAnim(`${fadeRight} 250ms 400ms forwards`);
   const fadeRightAnim3: string | undefined = useAnim(`${fadeRight} 250ms 550ms forwards`);
   const fadeRightAnim4: string | undefined = useAnim(`${fadeRight} 250ms 700ms forwards`);
-  const goldShadow: string = colorMode("none","drop-shadow(0 0 2px goldenrod)");
-  const greenShadow: string = colorMode("none","drop-shadow(0 0 2px green)");
+  const goldShadow: string = colorMode("none","drop-shadow(0 0 1px goldenrod)");
+  const greenShadow: string = colorMode("none","drop-shadow(0 0 1px green)");
   const redShadow: string = colorMode("drop-shadow(0 0 2px red)","none");
 
   const [loaded, setLoaded] = React.useState<boolean>(false);
@@ -60,21 +60,16 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
             Hey y'all! My name's
           </Text>
           <Heading
-            animation={fadeRightAnim2}
-            fontSize={{ base: 36, sm: 48, md: 56, lg: 64 }}
-            fontFamily={"var(--chakra-fonts-mono)"}
-            opacity={0}
-            marginY={4}
-            display={"flex"}
             alignItems={"center"}
+            animation={fadeRightAnim2}
+            display={"flex"}
+            fontFamily={"var(--chakra-fonts-mono)"}
+            fontSize={{ base: 36, sm: 48, md: 56, lg: 64 }}
+            marginY={4}
+            opacity={0}
             width={"fit-content"}>
             <Text as={"span"}>
-              <GoldSpan>T</GoldSpan>
-              {`erry `}
-              <GoldSpan>S</GoldSpan>
-              {`. `}
-              <GoldSpan>Z</GoldSpan>
-              {`hou `}
+              Terry S. Zhou
             </Text>
             <Tooltip hasArrow label={
               <Stack fontFamily={"var(--chakra-fonts-nunito)"}>
@@ -121,15 +116,15 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
           </Heading>
           <Heading
             animation={fadeRightAnim3}
-            color={"goldenrod"}
+            color={"green.500"}
             fontSize={{ base: 16, sm: 20, lg: 24 }}
             fontFamily={"var(--chakra-fonts-mono)"}
-            opacity={0}
             marginY={4}
+            opacity={0}
             width={"fit-content"}>
             Data Analyst | Front-End Engineer
           </Heading>
-          <List animation={fadeRightAnim4} opacity={0} spacing={-5}>
+          <List animation={fadeRightAnim4} opacity={0} spacing={{ base: -8, sm: -5 }}>
             <ListItem alignItems={"center"} display={"flex"}>
               <ListIcon
                 as={BiRightArrow}
@@ -139,13 +134,15 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
                 color={colorMode("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
                 fontFamily={"var(--chakra-fonts-nunito)"}
                 fontSize={{ base: 14, md: 16, lg: 18 }}
-                marginY={6}
-                width={"80%"}>
+                marginY={6}>
                 I'm a
                 <GreenSpan> software engineer</GreenSpan> based out of Austin, TX.
               </Text>
             </ListItem>
-            <ListItem alignItems={"center"} display={"flex"}>
+            <ListItem
+              alignItems={"center"}
+              display={"flex"}
+              width={{ base: "120%", sm: "100%", md: "80%" }}>
               <ListIcon
                 as={BiRightArrow}
                 color='green.500' 
@@ -154,8 +151,7 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
                 color={colorMode("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
                 fontFamily={"var(--chakra-fonts-nunito)"}
                 fontSize={{ base: 14, md: 16, lg: 18 }}
-                marginY={6}
-                width={"80%"}>
+                marginY={6}>
                 I like writing
                 <GreenSpan>{` code`}</GreenSpan>
                 {` that's`}
@@ -175,8 +171,7 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
                 color={colorMode("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
                 fontFamily={"var(--chakra-fonts-nunito)"}
                 fontSize={{ base: 14, md: 16, lg: 18 }}
-                marginY={6}
-                width={"80%"}>
+                marginY={6}>
                 Have an opportunity for me? Let's
                 <Text
                   as={"a"}

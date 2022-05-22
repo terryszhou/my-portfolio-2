@@ -29,7 +29,6 @@ export const ProjectGridItem = ({
   skills,
   title,
 }: oldProjectListProps & GridAnimationProps) => {
-  const goldShadow: string = colorMode("none","drop-shadow(0 0 5px goldenrod)");
   const greenShadow: string = colorMode("none","drop-shadow(0 0 5px green)");
 
   return (
@@ -79,7 +78,6 @@ export const ProjectGridItem = ({
                 key={i} /> ))}
           </HStack>
           <Heading
-            filter={goldShadow}
             fontFamily={"var(--chakra-fonts-mono)"}
             fontSize={"lg"}
             transition={"100ms ease-in-out"}

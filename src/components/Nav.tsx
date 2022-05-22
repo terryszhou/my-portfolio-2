@@ -70,11 +70,11 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
             padding={y !== 0 && scrollDir === "up" ? 4 : 2}
             src={"/face-card.png"}
             transition={"200ms ease-out"}
-            filter={colorMode("none","drop-shadow(0 0 3px goldenrod)")}
+            filter={colorMode("none","drop-shadow(0 0 2px goldenrod)")}
             width={20}
             _hover={{
               cursor: "pointer",
-              filter: "brightness(1.25) colorMode('none','drop-shadow(0 0 3px goldenrod)')",
+              filter: "brightness(1.25) colorMode('none','drop-shadow(0 0 2px goldenrod)')",
               transform: "scale(1.15)" }} />
           <ColorModeSwitcher />
         </HStack>
@@ -82,6 +82,7 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
           align={"center"}
           fontSize={13}
           justify={"center"}
+          paddingX={5}
           position={"absolute"}
           right={isLargeScreen ? 5 : 0}
           spacing={7}
@@ -133,7 +134,7 @@ interface NavButtonProps {
 
 export const NavButton = ({ delay, label, scroll }: NavButtonProps) => {
   const fadeDownAnim: string = useAnim(`${fadeDown} 250ms ${delay} forwards`);
-  const goldShadow: string = colorMode("none","drop-shadow(0 0 5px goldenrod)");
+  const goldShadow: string = colorMode("none","drop-shadow(0 0 2px goldenrod)");
   return (
     <Text
       animation={fadeDownAnim}
@@ -146,7 +147,7 @@ export const NavButton = ({ delay, label, scroll }: NavButtonProps) => {
       transition={"100ms ease-out"}
       _before={{
         backgroundColor: "goldenrod",
-        borderRadius: "5px",
+        borderRadius: "2px",
         bottom: -1,
         content: `""`,
         filter: goldShadow,
@@ -156,8 +157,7 @@ export const NavButton = ({ delay, label, scroll }: NavButtonProps) => {
         width: 0 }}
       _hover={{
         color: "goldenrod",
-        _before: {
-          width: "105%" } }}>
+        _before: { width: "105%" } }}>
       <GoldSpan>{label.split(" ")[0]} </GoldSpan>
       {label.split(" ")[1]} {label.split(" ")[2]}
     </Text>
@@ -182,7 +182,7 @@ export const NavButtons = ({ scrollIntoView }: NavButtonsProps) => (
 
 export const ResumeButton = () => {
   const fadeDownAnim: string = useAnim(`${fadeDown} 200ms 300ms forwards`);
-  const goldShadow: string = colorMode("none","drop-shadow(0 0 5px goldenrod)");
+  const goldShadow: string = colorMode("none","drop-shadow(0 0 2px goldenrod)");
   return (
     <Button
       animation={fadeDownAnim}

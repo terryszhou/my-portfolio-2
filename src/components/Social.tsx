@@ -30,8 +30,8 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
           y > 80 && scrollDir === "down"
             ? "2%"
             : y > 60 && scrollDir === "up"
-              ? "12%"
-              : "19%" }
+              ? "10%"
+              : "15%" }
         transition={"200ms ease-out"}
         zIndex={1}>
         {socialList.map((e, i) => (
