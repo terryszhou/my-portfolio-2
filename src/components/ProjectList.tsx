@@ -1,5 +1,5 @@
 import {
-  Box, Button, Text, Heading, List, ListItem, ListIcon, useColorModeValue,
+  Box, Button, Heading, List, ListItem, ListIcon, useColorModeValue as colorMode,
   Modal, ModalOverlay, ModalContent, ModalFooter, ModalBody, ModalCloseButton,
 } from "@chakra-ui/react";
 import * as React from "react";
@@ -18,13 +18,11 @@ interface ProjectListProps {
 
 export const ProjectList = ({ isOpen, onClose, rotation }: ProjectListProps) => {
   const [idx, setIdx] = React.useState<undefined | number>();
-  const listColor2: string = useColorModeValue("rgb(78,83,104)", "gray.300");
+  const listColor2: string = colorMode("rgb(78,83,104)", "gray.300");
   const fadeDownAnim: string = `${fadeDown} 250ms`;
   const fadeDownAnim2: string = `${fadeDown} 250ms 120ms forwards`;
   const fadeDownAnim3: string = `${fadeDown} 250ms 240ms forwards`;
   const fadeDownAnim4: string = `${fadeDown} 250ms 360ms forwards`;
-  const goldShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)");
-  const greenShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px green)");
 
   React.useEffect((): void => {
     switch(rotation) {
@@ -58,7 +56,6 @@ export const ProjectList = ({ isOpen, onClose, rotation }: ProjectListProps) => 
         <ModalCloseButton
           color={"goldenrod"}
           border={"1px solid goldenrod"}
-          filter={goldShadow}
           _focus={{ boxShadow: "none" }}
           _hover={{ backgroundColor: "goldenrod", color: "inherit" }}/>
         <ModalBody padding={10}>
@@ -83,8 +80,7 @@ export const ProjectList = ({ isOpen, onClose, rotation }: ProjectListProps) => 
                   key={i}>
                   <ListIcon
                     as={BsXDiamondFill}
-                    color='green.500'
-                    filter={greenShadow}
+                    color={colorMode("rgb(64,124,104)", "green.500")}
                     marginTop={1} />
                     {detail}
                 </ListItem>
@@ -101,8 +97,7 @@ export const ProjectList = ({ isOpen, onClose, rotation }: ProjectListProps) => 
                 key={i}>
                 <ListIcon
                   as={BiRightArrow}
-                  color='green.500'
-                  filter={greenShadow}
+                  color={colorMode("rgb(64,124,104)", "green.500")}
                   marginTop={1} />
                   {skill}
               </ListItem>
@@ -112,7 +107,6 @@ export const ProjectList = ({ isOpen, onClose, rotation }: ProjectListProps) => 
               animation={fadeDownAnim4}
               color={"goldenrod"}
               display={"flex"}
-              filter={goldShadow}
               flexDirection={"column"}
               alignItems={"center"}
               opacity={0}>
@@ -127,7 +121,6 @@ export const ProjectList = ({ isOpen, onClose, rotation }: ProjectListProps) => 
                     borderRadius: "5px",
                     bottom: -1,
                     content: `""`,
-                    filter: goldShadow,
                     height: "2px",
                     position: "absolute",
                     transition: "100ms ease-out",
@@ -146,7 +139,6 @@ export const ProjectList = ({ isOpen, onClose, rotation }: ProjectListProps) => 
             backgroundColor={"transparent"}
             border={"1px solid goldenrod"}
             color={"goldenrod"}
-            filter={goldShadow}
             fontFamily={"var(--chakra-fonts-mono)"}
             fontSize={13}
             onClick={onClose}

@@ -5,7 +5,7 @@ import {
   List,
   ListItem,
   ListIcon,
-  useColorModeValue,
+  useColorModeValue as colorMode,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -28,13 +28,11 @@ interface ExperienceListProps {
 };
 
 export const ExperienceList = ({ idx, isOpen, onClose }: ExperienceListProps) => {
-  const atCompanyColor2: string = useColorModeValue("rgb(102,105,127)", "gray.400");
+  const atCompanyColor2: string = colorMode("rgb(102,105,127)", "gray.400");
   const fadeDownAnim: string = `${fadeDown} 250ms`;
   const fadeDownAnim2: string = `${fadeDown} 250ms 120ms forwards`;
   const fadeDownAnim3: string = `${fadeDown} 250ms 240ms forwards`;
-  const goldShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px goldenrod)");
-  const greenShadow: string = useColorModeValue("none", "drop-shadow(0 0 5px green)");
-  const listColor2: string = useColorModeValue("rgb(78,83,104)", "gray.300");
+  const listColor2: string = colorMode("rgb(78,83,104)", "gray.300");
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -43,7 +41,6 @@ export const ExperienceList = ({ idx, isOpen, onClose }: ExperienceListProps) =>
       <ModalCloseButton
         color={"goldenrod"}
         border={"1px solid goldenrod"}
-        filter={goldShadow}
         _focus={{ boxShadow: "none" }}
         _hover={{
           backgroundColor: "goldenrod",
@@ -76,8 +73,7 @@ export const ExperienceList = ({ idx, isOpen, onClose }: ExperienceListProps) =>
                 key={i}>
                 <ListIcon
                   as={BsXDiamondFill}
-                  color='green.500'
-                  filter={greenShadow}
+                  color={colorMode("rgb(64,124,104)", "green.500")}
                   marginTop={1} />
                   {detail}
               </ListItem>
@@ -94,8 +90,7 @@ export const ExperienceList = ({ idx, isOpen, onClose }: ExperienceListProps) =>
                 key={i}>
                 <ListIcon
                   as={BiRightArrow}
-                  color='green.500' 
-                  filter={greenShadow}
+                  color={colorMode("rgb(64,124,104)", "green.500")}
                   marginTop={1} />
                   {skill}
               </ListItem>
@@ -108,7 +103,6 @@ export const ExperienceList = ({ idx, isOpen, onClose }: ExperienceListProps) =>
           backgroundColor={"transparent"}
           border={"1px solid goldenrod"}
           color={"goldenrod"}
-          filter={goldShadow}
           fontFamily={"var(--chakra-fonts-mono)"}
           fontSize={13}
           onClick={onClose}

@@ -74,11 +74,11 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
                                 width={"100.5%"}
                                 zIndex={1}
                                 _before={{
-                                backgroundColor: bgColor2,
-                                clipPath: "polygon(0% -1%, 50% 49%, 100% -1%)",
-                                content: `""`,
-                                inset: 0,
-                                position: "absolute" }} />
+                                    backgroundColor: bgColor2,
+                                    clipPath: "polygon(0% -1%, 50% 49%, 100% -1%)",
+                                    content: `""`,
+                                    inset: 0,
+                                    position: "absolute" }} />
                             <Box
                                 animation={slideUpAnim}
                                 backgroundColor={bgColor2}

@@ -1,4 +1,4 @@
-import { Text } from "@chakra-ui/react";
+import { Text, useColorModeValue as colorMode } from "@chakra-ui/react";
 import * as React from "react";
 
 interface ColorSpanProps {
@@ -16,7 +16,7 @@ export const GoldSpan = ({ children }: ColorSpanProps) => (
 export const GreenSpan = ({ children }: ColorSpanProps) => (
     <Text
         as={"span"}
-        color={"green.500"}>
+        color={colorMode("rgb(64,124,104)", "green.500")}>
         {children}
     </Text>
 );

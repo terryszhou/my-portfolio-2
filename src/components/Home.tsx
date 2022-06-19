@@ -50,7 +50,7 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
                 <Box>
                     <Text
                         animation={fadeRightAnim1}
-                        color={"green.500"}
+                        color={colorMode("rgb(64,124,104)", "green.500")}
                         fontFamily={"var(--chakra-fonts-mono)"}
                         opacity={0}>
                         Hey y'all! My name's
@@ -111,7 +111,7 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
                     </Heading>
                     <Heading
                         animation={fadeRightAnim3}
-                        color={"green.500"}
+                        color={colorMode("rgb(64,124,104)", "green.500")}
                         fontSize={{ base: 16, sm: 20, lg: 24 }}
                         fontFamily={"var(--chakra-fonts-mono)"}
                         marginY={4}
@@ -123,7 +123,7 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
                         <ListItem alignItems={"center"} display={"flex"}>
                             <ListIcon
                                 as={BiRightArrow}
-                                color='green.500' />
+                                color={colorMode("rgb(64,124,104)", "green.500")} />
                             <Text
                                 color={colorMode("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
                                 fontFamily={"var(--chakra-fonts-nunito)"}
@@ -139,7 +139,7 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
                             width={{ base: "120%", sm: "100%", md: "80%" }}>
                             <ListIcon
                                 as={BiRightArrow}
-                                color='green.500' />
+                                color={colorMode("rgb(64,124,104)", "green.500")} />
                             <Text
                                 color={colorMode("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
                                 fontFamily={"var(--chakra-fonts-nunito)"}
@@ -154,7 +154,7 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
                             </Text>
                         </ListItem>
                         <ListItem alignItems={"center"} display={"flex"}>
-                            <ListIcon as={BiRightArrow} color='green.500' />
+                            <ListIcon as={BiRightArrow} color={colorMode("rgb(64,124,104)", "green.500")} />
                             <Text
                                 color={colorMode("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
                                 fontFamily={"var(--chakra-fonts-nunito)"}

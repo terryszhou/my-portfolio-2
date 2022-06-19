@@ -122,7 +122,7 @@ export const NewProjectShell = ({
                             key={i}>
                             <ListIcon
                                 as={BsXDiamondFill}
-                                color='green.500' 
+                                color={colorMode("rgb(64,124,104)", "green.500")}
                                 marginTop={1} />
                                 {detail}
                         </ListItem> ))}

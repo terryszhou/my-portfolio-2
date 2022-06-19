@@ -3,6 +3,7 @@ import {
   IconButton,
   Stack,
   Text,
+  useColorModeValue as colorMode
 } from "@chakra-ui/react";
 import * as React from "react";
 
@@ -23,13 +24,13 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
                 display={"flex"}
                 justifyContent={"center"}
                 position={"fixed"}
-                right={0}
+                right={{ base: 5, lg: 0 }}
                 top={
                     y > 80 && scrollDir === "down"
                         ? "2%"
                         : y > 60 && scrollDir === "up"
-                        ? "10%"
-                        : "15%" }
+                            ? "10%"
+                            : "15%" }
                 transition={"200ms ease-out"}
                 zIndex={1}>
                 {socialList.map((e, i) => (
@@ -38,7 +39,7 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
                         delay={e.delay}
                         key={i}
                         href={e.href} /> ))}
-                <Divider borderColor={"green.500"} width={{ base: 0, lg: 20 }} />
+                <Divider borderColor={colorMode("rgb(64,124,104)", "green.500")} width={{ base: 0, lg: 20 }} />
             </Stack>
             <Stack
                 alignItems={"center"}
@@ -51,7 +52,7 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
                 transform={{ base: "rotate(-90deg)", lg: "rotate(0deg)" }}
                 transition={"200ms ease-out"}
                 zIndex={1}>
-                    <Divider borderColor={"green.500"} width={{ base: 0, lg: 16}} />
+                    <Divider borderColor={colorMode("rgb(64,124,104)", "green.500")} width={{ base: 0, lg: 16}} />
                     <SocialIcon
                         delay={"80ms"} 
                         href={"mailto:terryszhou@gmail.com"} 
@@ -59,7 +60,7 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
                         <Text
                             animation={fadeDownAnim}
                             as={"a"}
-                            color={"green.500"}
+                            color={colorMode("rgb(64,124,104)", "green.500")}
                             fontFamily={"var(--chakra-fonts-mono)"}
                             fontSize={{ base: "xs", lg: "sm" }}
                             href={"mailto:terryszhou@gmail.com"}
@@ -68,7 +69,7 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
                             target={"_blank"}
                             transition={"100ms ease-out"}
                             _before={{
-                                backgroundColor: "green.500",
+                                backgroundColor: colorMode("rgb(64,124,104)", "green.500"),
                                 borderRadius: "5px",
                                 bottom: -1,
                                 content: `""`,
@@ -77,7 +78,7 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
                                 transition: "100ms ease-out",
                                 width: 0 }}
                             _hover={{
-                                color: "green.500",
+                                color: colorMode("rgb(64,124,104)", "green.500"),
                                 _before: {
                                 width: "105%" } }}>
                             terryszhou@gmail.com
@@ -103,7 +104,7 @@ export const SocialIcon = ({ delay, href, icon }: SocialIconProps) => {
         aria-label={"social-icon-button"}
         backgroundColor={"transparent"}
         border={"1px solid"}
-        color={"green.500"}
+        color={colorMode("rgb(64,124,104)", "green.500")}
         href={href}
         icon={icon}
         opacity={"0"}
@@ -111,6 +112,8 @@ export const SocialIcon = ({ delay, href, icon }: SocialIconProps) => {
         size={"xs"}
         target={"_blank"}
         transition={"100ms ease-out"}
-        _hover={{ backgroundColor: "green.500", color: "white" }} />
+        _hover={{
+            backgroundColor: colorMode("rgb(64,124,104)", "green.500"),
+            color: "white" }} />
     );
 };

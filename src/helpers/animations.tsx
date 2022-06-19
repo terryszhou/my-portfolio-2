@@ -104,11 +104,11 @@ export const fadeOut: string = keyframes`
     transform: scale(1);
   } 50% {
     opacity: 1;
-    filter: brightness(2) drop-shadow(0 0 10px red);
+    filter: brightness(2);
     transform: scale(1.5);
   } 85% {
     opacity: 1;
-    filter: brightness(1) drop-shadow(0 0 10px red);
+    filter: brightness(1);
     transform: scale(1);
   } 100% {
     opacity: 0;

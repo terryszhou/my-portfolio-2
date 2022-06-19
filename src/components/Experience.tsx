@@ -44,7 +44,9 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
                     <List color={listColor}>
                         {exp.skills.map((skill, i) => (
                             <ListItem key={i}>
-                            <ListIcon as={BiRightArrow} color='green.500' />
+                            <ListIcon
+                                as={BiRightArrow}
+                                color={colorMode("rgb(64,124,104)", "green.500")} />
                             {skill}
                             </ListItem> ))}
                     </List>

@@ -41,7 +41,7 @@ export const ProjectGridItem = ({
             backgroundColor={colorMode("white","rgb(48,52,63)")}
             borderRadius={5}
             // borderTop={"8px solid goldenrod"}
-            borderTop={colorMode("8px solid rgb(229,186,85)","8px solid rgb(171,127,25)")}
+            borderTop={colorMode("8px solid rgb(249,206,105)","8px solid rgb(171,127,25)")}
             boxShadow={"0 25px 20px -20px black"}
             cursor={"pointer"}
             height={300}
@@ -51,7 +51,7 @@ export const ProjectGridItem = ({
             transition={"100ms ease-in-out"}
             _before={{
                 // backgroundColor: "goldenrod",
-                backgroundColor: colorMode("rgb(229,186,85)", "rgb(171,127,25)"),
+                backgroundColor: colorMode("rgb(249,206,105)", "rgb(171,127,25)"),
                 borderRadius: 5,
                 zIndex: -1,
                 content: `""`,
@@ -97,7 +97,7 @@ export const ProjectGridItem = ({
                         marginY={2}>
                         <ListIcon
                             as={BsXDiamondFill}
-                            color='green.500'
+                            color={colorMode("rgb(64,124,104)", "green.500")}
                             marginTop={1} />
                         {detail}
                     </ListItem> ))}
