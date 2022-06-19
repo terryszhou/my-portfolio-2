@@ -4,7 +4,7 @@ import { Experience } from "./Experience";
 import { Footer } from "./Footer";
 import { Home } from "./Home";
 import { Nav } from "./Nav";
-import { NewProjects } from "./NewProjects";
+import { Projects } from "./Projects";
 import { OldProjects } from "./OldProjects";
 import { Social } from "./Social";
 
@@ -15,7 +15,7 @@ export {
   Footer,
   Home,
   Nav,
-  NewProjects,
+  Projects,
   OldProjects,
   Social
 };

@@ -1,54 +1,38 @@
-import { Text, useColorModeValue as uCMV } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/react";
 import * as React from "react";
 
 interface ColorSpanProps {
-  children: any,
+    children: any,
 };
 
-export const GoldSpan = ({ children }: ColorSpanProps) => {
-  const goldShadow: string = uCMV("none","drop-shadow(0 0 1px goldenrod)")
-  return (
+export const GoldSpan = ({ children }: ColorSpanProps) => (
     <Text
-      as={"span"}
-      color={"goldenrod"}
-      filter={goldShadow}>
-      {children}
+        as={"span"}
+        color={"goldenrod"}>
+        {children}
     </Text>
-  );
-};
+);
 
-export const GreenSpan = ({ children }: ColorSpanProps) => {
-  const greenShadow: string = uCMV("none","drop-shadow(0 0 1px green)")
-  return (
+export const GreenSpan = ({ children }: ColorSpanProps) => (
     <Text
-      as={"span"}
-      color={"green.500"}
-      filter={greenShadow}>
-      {children}
+        as={"span"}
+        color={"green.500"}>
+        {children}
     </Text>
-  );
-};
+);
 
-export const RedSpan = ({ children }: ColorSpanProps) => {
-  const redShadow: string = uCMV("none","drop-shadow(0 0 1px red)")
-  return (
+export const RedSpan = ({ children }: ColorSpanProps) => (
     <Text
-      as={"span"}
-      color={"red"}
-      filter={redShadow}>
-      {children}
+        as={"span"}
+        color={"red"}>
+        {children}
     </Text>
-  );
-};
+);
 
-export const PurpleSpan = ({ children }: ColorSpanProps) => {
-  const purpleShadow: string = uCMV("none","drop-shadow(0 0 1px rgb(122, 93, 206))")
-  return (
+export const PurpleSpan = ({ children }: ColorSpanProps) => (
     <Text
-      as={"span"}
-      color={"purple.500"}
-      filter={purpleShadow}>
-      {children}
+        as={"span"}
+        color={"purple.500"}>
+        {children}
     </Text>
-  );
-};
+);
