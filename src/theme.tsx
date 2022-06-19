@@ -9,7 +9,8 @@ const config: ThemeConfig = {
 const styles: Styles = {
     global: props => ({
         body: {
-            bg: mode("rgb(230,230,230)", "rgb(26,32,43)")(props),
+            // bg: mode("rgb(230,230,230)", "rgb(26,32,43)")(props),
+            bg: mode("rgb(230,230,230)", "rgb(28,28,28)")(props),
         },
     }),
 };

@@ -48,7 +48,8 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
                 bgColor={
                     menuOpen
                         ? "transparent"
-                        : colorMode("rgba(230,230,230,.85)","rgba(27,32,43,.85)") }
+                        // : colorMode("rgba(230,230,230,.85)","rgba(27,32,43,.85)") }
+                        : colorMode("rgba(230,230,230,.85)","rgba(28,28,28,.85)") }
                 boxShadow={
                     menuOpen
                         ? "none"
@@ -95,7 +96,8 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
             {!isLargeScreen && (
                 <React.Fragment>
                     <VStack
-                        backgroundColor={colorMode("rgba(230,230,230,.85)","rgba(27,32,43,.85)")}
+                        // backgroundColor={colorMode("rgba(230,230,230,.85)","rgba(27,32,43,.85)")}
+                        backgroundColor={colorMode("rgba(230,230,230,.85)","rgba(28,28,28,.85)")}
                         boxShadow={"dark-lg"}
                         fontSize={16}
                         height={"100%"}

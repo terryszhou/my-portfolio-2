@@ -15,7 +15,8 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
     const shakeAnim: string = useAnim(`${shake} 200ms ease-in-out`);
     const slideUpAnim: string = useAnim(`${slideUp} 500ms 500ms ease-in-out forwards`);
     const bgColor1: string = colorMode("black","white");
-    const bgColor2: string = colorMode("rgb(230,230,230)","rgb(27,32,43)");
+    // const bgColor2: string = colorMode("rgb(230,230,230)","rgb(27,32,43)");
+    const bgColor2: string = colorMode("rgb(230,230,230)","rgb(28,28,28)");
 
     return (
         <HeroShell

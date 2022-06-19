@@ -37,9 +37,11 @@ export const ProjectGridItem = ({
         rel={"noreferrer"}
         target={"_blank"}>
         <GridItem
-            backgroundColor={colorMode("white","rgb(47,55,71)")}
+            // backgroundColor={colorMode("white","rgb(47,55,71)")}
+            backgroundColor={colorMode("white","rgb(48,52,63)")}
             borderRadius={5}
-            borderTop={"8px solid goldenrod"}
+            // borderTop={"8px solid goldenrod"}
+            borderTop={colorMode("8px solid rgb(229,186,85)","8px solid rgb(171,127,25)")}
             boxShadow={"0 25px 20px -20px black"}
             cursor={"pointer"}
             height={300}
@@ -48,7 +50,8 @@ export const ProjectGridItem = ({
             role={"group"}
             transition={"100ms ease-in-out"}
             _before={{
-                backgroundColor: "goldenrod",
+                // backgroundColor: "goldenrod",
+                backgroundColor: colorMode("rgb(229,186,85)", "rgb(171,127,25)"),
                 borderRadius: 5,
                 zIndex: -1,
                 content: `""`,
