@@ -40,19 +40,16 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
           fontSize={{ base: "sm", lg: "md" }}
           textAlign={"justify"}>
           <Text animation={loaded && fadeRightAnim1} marginY={2} opacity={0}>
-            Hi! My name's Terry, and I analyze <GreenSpan>data</GreenSpan> and build <GreenSpan>web content</GreenSpan> for a living. I used to work in real estate and food service, but I needed a more fulfilling career path: a way for me to combine my skills in <GoldSpan>customer satisfaction</GoldSpan> with my twin passions for <GoldSpan>artistic creativity</GoldSpan> and <GoldSpan>practical problem-solving</GoldSpan>.
+            Hi! My name's Terry, and I analyze <GreenSpan>data</GreenSpan> and build <GreenSpan>web content</GreenSpan> for a living. I used to be a realtor, but I needed a more fulfilling way to combine my twin passions for <GoldSpan>artistic creativity</GoldSpan> and <GoldSpan>practical problem-solving</GoldSpan>.
           </Text>
           <Text animation={loaded && fadeRightAnim2} marginY={2} opacity={0}>
-            Today, I work as a <GreenSpan>Senior Data Analyst</GreenSpan> at LMI. I've also worked as the lead <GreenSpan>Front-End Engineer</GreenSpan> for two startups, and I'm a top-scoring graduate from General Assembly's <GreenSpan>Software Engineering Immersive Boot Camp</GreenSpan>. My main tools are <GoldSpan>Python</GoldSpan>, <GoldSpan>React</GoldSpan> and <GoldSpan>TypeScript</GoldSpan>.
+            Today, I work as a <GreenSpan>Senior Data Analyst</GreenSpan> at LMI. I've also been the lead <GreenSpan>Front-End Engineer</GreenSpan> for two startups, and I'm a proud graduate of General Assembly's <GreenSpan>Software Engineering Immersive Boot Camp</GreenSpan>. My main tools are <GoldSpan>Python</GoldSpan>, <GoldSpan>React</GoldSpan> and <GoldSpan>TypeScript</GoldSpan>.
           </Text>
           <Text animation={loaded && fadeRightAnim3} marginY={2} opacity={0}>
-            When I'm not writing <GreenSpan>code</GreenSpan>, I'm probably writing my debut fantasy novel, <GoldSpan><i>Narumi and the Dragon's Pearl</i></GoldSpan> (Wanna hear the pitch? Think <i>The Hobbit</i> + <i>Treasure Planet</i>, with Chinese mythology thrown in).
+            I'm a rock climber, a foodie, and either a Gryffindor or Slytherin, depending on my mood. My favorite pokemon is <PurpleSpan><Text as="a" href="https://bulbapedia.bulbagarden.net/wiki/Nidoking_(Pok%C3%A9mon)" rel="noreferrer" target="_blank">Nidoking</Text></PurpleSpan>.
           </Text>
           <Text animation={loaded && fadeRightAnim4} marginY={2} opacity={0}>
-            I'm also a <GoldSpan>rock climber</GoldSpan>, a <GoldSpan>foodie</GoldSpan>, and either a <RedSpan>Gryffindor</RedSpan> or <GreenSpan>Slytherin</GreenSpan>, depending on the time of day. My favorite pokemon is <PurpleSpan>Nidoking</PurpleSpan>.
-          </Text>
-          <Text animation={loaded && fadeRightAnim5} marginY={2} opacity={0}>
-            Want to know more? <GoldSpan>Keep on reading!</GoldSpan> In the meantime, here are just a few skills in my toolbox:
+            Want to know more? Keep on reading! In the meantime, here are just a few skills in my toolbox:
           </Text>
           {loaded && <SkillTable />}
         </Stack>
