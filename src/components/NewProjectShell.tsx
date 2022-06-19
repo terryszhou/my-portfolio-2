@@ -45,8 +45,8 @@ export const NewProjectShell = ({
                 transform={{
                     base: "none",
                     lg: dir === "r"
-                    ? "scale(1.15) translateX(7.5%)"
-                    : "scale(1.15) translateX(-7.5%)" }}
+                        ? "scale(1.15) translateX(7.5%)"
+                        : "scale(1.15) translateX(-7.5%)" }}
                 transition={"300ms ease-in-out"}
                 _hover={{
                     transform: {
@@ -62,18 +62,18 @@ export const NewProjectShell = ({
             alignItems={{
                 base: "center",
                 lg: dir === "r"
-                ? "flex-end"
-                : "flex-start" }}
+                    ? "flex-end"
+                    : "flex-start" }}
             textAlign={{
                 base: "justify",
                 lg: dir === "r"
-                ? "right"
-                : "left" }}
+                    ? "right"
+                    : "left" }}
             transform={{
                 base: "none",
                 lg: dir === "r"
-                ? "translate(-5%, 5%)"
-                : "translate(5%, 5%)" }}
+                    ? "translate(-5%, 5%)"
+                    : "translate(5%, 5%)" }}
             zIndex={1}>
             <VStack
                 alignItems={{
@@ -83,27 +83,27 @@ export const NewProjectShell = ({
                     : "flex-start" }}
                 marginTop={{ base: 5, lg: 0 }}>
                 <Heading
-                color={"goldenrod"}
-                fontFamily={"var(--chakra-fonts-mono)"}
-                fontSize={{ base: "lg", md: "xl", lg: "2xl" }}>
-                {title}
+                    color={"goldenrod"}
+                    fontFamily={"var(--chakra-fonts-mono)"}
+                    fontSize={{ base: "lg", md: "xl", lg: "2xl" }}>
+                    {title}
                 </Heading>
                 <HStack>
-                {skills.map((skill, i) => (
-                    <SkillIcon
-                    color={skill.color}
-                    delay={skill.delay}
-                    icon={skill.icon}
-                    key={i}
-                    label={skill.label} /> ))}
+                    {skills.map((skill, i) => (
+                        <SkillIcon
+                            color={skill.color}
+                            delay={skill.delay}
+                            icon={skill.icon}
+                            key={i}
+                            label={skill.label} /> ))}
                 </HStack>
             </VStack>
             <VStack
                 alignItems={{
-                base: "center",
-                lg: dir === "r"
-                    ? "flex-end"
-                    : "flex-start" }}
+                    base: "center",
+                    lg: dir === "r"
+                        ? "flex-end"
+                        : "flex-start" }}
                 opacity={0.9}>
                 <List
                     bgColor={colorMode("rgb(220,220,220)","rgb(48,52,63)")}
@@ -130,10 +130,10 @@ export const NewProjectShell = ({
                 <HStack>
                     {links.map((link, i) => (
                         <SocialIcon
-                        delay={link.delay}
-                        href={link.href}
-                        icon={link.icon}
-                        key={i} /> ))}
+                            delay={link.delay}
+                            href={link.href}
+                            icon={link.icon}
+                            key={i} /> ))}
                 </HStack>
             </VStack>
         </VStack>

@@ -87,11 +87,9 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
                     right={isLargeScreen ? 5 : 0}
                     spacing={7}
                     transition={"200ms ease-out"}>
-                    {isLargeScreen ? (
-                        <NavButtons scrollIntoView={scrollIntoView} />
-                    ) : (
-                        <NavMenuIcon menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> 
-                    )}
+                    {isLargeScreen
+                        ? <NavButtons scrollIntoView={scrollIntoView} />
+                        : <NavMenuIcon menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> }
                 </HStack>
             </HStack>
             {!isLargeScreen && (

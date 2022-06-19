@@ -23,8 +23,7 @@ export const Projects = ({ pageRefs, visible, visRef }: PageProps) => {
             links={proj.links}
             mainLink={proj.mainLink}
             skills={proj.skills}
-            title={proj.title} />
-    ));
+            title={proj.title} /> ));
 
     return (
         <HeroShell
