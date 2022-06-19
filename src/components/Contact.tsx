@@ -96,11 +96,11 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
                                         {`Let's get in touch! You can email me `}
                                         <Text
                                             as={"a"}
-                                            color={"goldenrod"}
+                                            color={colorMode("rgb(190,147,45)", "goldenrod")}
                                             href={"mailto:terryszhou@gmail.com"}
                                             position={"relative"}
                                             _before={{
-                                                backgroundColor: "goldenrod",
+                                                backgroundColor: colorMode("rgb(190,147,45)", "goldenrod"),
                                                 borderRadius: "5px",
                                                 bottom: -1,
                                                 content: `""`,
@@ -109,18 +109,18 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
                                                 transition: "100ms ease-out",
                                                 width: 0 }}
                                             _hover={{
-                                                color: "goldenrod",
+                                                color: colorMode("rgb(190,147,45)", "goldenrod"),
                                                 _before: { width: "105%" } }}>
                                             here
                                         </Text>
                                         {`, or text me at `}
                                         <Text
                                             as={"a"}
-                                            color={"goldenrod"}
+                                            color={colorMode("rgb(190,147,45)", "goldenrod")}
                                             href={"sms:1-925-384-3787"}
                                             position={"relative"}
                                             _before={{
-                                                backgroundColor: "goldenrod",
+                                                backgroundColor: colorMode("rgb(190,147,45)", "goldenrod"),
                                                 borderRadius: "5px",
                                                 bottom: -1,
                                                 content: `""`,
@@ -129,7 +129,7 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
                                                 transition: "100ms ease-out",
                                                 width: 0 }}
                                             _hover={{
-                                                color: "goldenrod",
+                                                color: colorMode("rgb(190,147,45)", "goldenrod"),
                                                 _before: { width: "100%" } }}>
                                                 925-384-3787
                                         </Text>

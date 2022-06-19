@@ -42,7 +42,6 @@ export const NavIcon = (props: any) => (
     </Box>
 );
 
-
 export const Span = (props: any) => (
     <Box 
         background={"goldenrod"}

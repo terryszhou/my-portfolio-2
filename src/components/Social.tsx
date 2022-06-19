@@ -24,7 +24,7 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
                 display={"flex"}
                 justifyContent={"center"}
                 position={"fixed"}
-                right={{ base: 5, lg: 0 }}
+                right={{ base: 2, sm: 5, lg: 0 }}
                 top={
                     y > 80 && scrollDir === "down"
                         ? "2%"
@@ -39,7 +39,9 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
                         delay={e.delay}
                         key={i}
                         href={e.href} /> ))}
-                <Divider borderColor={colorMode("rgb(64,124,104)", "green.500")} width={{ base: 0, lg: 20 }} />
+                <Divider
+                    borderColor={colorMode("rgb(64,124,104)", "green.500")}
+                    width={{ base: 0, lg: 20 }} />
             </Stack>
             <Stack
                 alignItems={"center"}
@@ -47,12 +49,14 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
                 direction={"row"}
                 display={"flex"}
                 justifyContent={"center"}
-                left={{ base: -20, lg: 0 }}
+                left={{ base: -20, sm: -16, lg: 0 }}
                 position={"fixed"}
                 transform={{ base: "rotate(-90deg)", lg: "rotate(0deg)" }}
                 transition={"200ms ease-out"}
                 zIndex={1}>
-                    <Divider borderColor={colorMode("rgb(64,124,104)", "green.500")} width={{ base: 0, lg: 16}} />
+                    <Divider
+                        borderColor={colorMode("rgb(64,124,104)", "green.500")}
+                        width={{ base: 0, lg: 16}} />
                     <SocialIcon
                         delay={"80ms"} 
                         href={"mailto:terryszhou@gmail.com"} 
@@ -114,6 +118,7 @@ export const SocialIcon = ({ delay, href, icon }: SocialIconProps) => {
         transition={"100ms ease-out"}
         _hover={{
             backgroundColor: colorMode("rgb(64,124,104)", "green.500"),
+            border: colorMode("0px", "1px solid"),
             color: "white" }} />
     );
 };

@@ -128,6 +128,7 @@ export const Nav = ({ pageRefs, scrollDir, y }: PageProps) => {
 
 interface NavButtonProps {
     delay: string,
+    isLargeScreen?: boolean,
     label: string,
     scroll: (arg0: string) => void,
 };
@@ -146,7 +147,7 @@ export const NavButton = ({ delay, label, scroll }: NavButtonProps) => {
             position={"relative"}
             transition={"100ms ease-out"}
             _before={{
-                backgroundColor: "goldenrod",
+                backgroundColor: colorMode("rgb(190,147,45)", "goldenrod"),
                 borderRadius: "2px",
                 bottom: -1,
                 content: `""`,
@@ -155,7 +156,7 @@ export const NavButton = ({ delay, label, scroll }: NavButtonProps) => {
                 transition: "100ms ease-out",
                 width: 0 }}
             _hover={{
-                color: "goldenrod",
+                color: colorMode("rgb(190,147,45)", "goldenrod"),
                 _before: { width: "105%" } }}>
             <GoldSpan>{label.split(" ")[0]} </GoldSpan>
             {label.split(" ")[1]} {label.split(" ")[2]}
@@ -164,16 +165,17 @@ export const NavButton = ({ delay, label, scroll }: NavButtonProps) => {
 };
 
 interface NavButtonsProps {
+    isLargeScreen?: boolean,
     scrollIntoView: (arg0: string) => void,
 };
 
 export const NavButtons = ({ scrollIntoView }: NavButtonsProps) => (
     <React.Fragment>
-        <NavButton label="00. Home" scroll={scrollIntoView} delay={"0ms"}/>
-        <NavButton label="01. About" scroll={scrollIntoView} delay={"60ms"}/>
-        <NavButton label="02. Experience" scroll={scrollIntoView} delay={"120ms"}/>
-        <NavButton label="03. Projects" scroll={scrollIntoView} delay={"180ms"}/>
-        <NavButton label="04. Contact" scroll={scrollIntoView} delay={"240ms"}/>
+        <NavButton label="00. Home" scroll={scrollIntoView} delay={"0ms"} />
+        <NavButton label="01. About" scroll={scrollIntoView} delay={"60ms"} />
+        <NavButton label="02. Experience" scroll={scrollIntoView} delay={"120ms"} />
+        <NavButton label="03. Projects" scroll={scrollIntoView} delay={"180ms"} />
+        <NavButton label="04. Contact" scroll={scrollIntoView} delay={"240ms"} />
         <ResumeButton />
     </React.Fragment>
 );
@@ -186,8 +188,9 @@ export const ResumeButton = () => {
             animation={fadeDownAnim}
             as={"a"}
             backgroundColor={"transparent"}
-            border={"1px solid goldenrod"}
-            color={"goldenrod"}
+            border={"1px solid"}
+            borderColor={colorMode("rgb(190,147,45)", "goldenrod")}
+            color={colorMode("rgb(190,147,45)", "goldenrod")}
             cursor={"pointer"}
             fontFamily={"var(--chakra-fonts-mono)"}
             fontSize={13}
@@ -195,7 +198,9 @@ export const ResumeButton = () => {
             opacity={0}
             target={"_blank"}
             _focus={{ boxShadow: "none" }}
-            _hover={{ backgroundColor: "goldenrod", color: "inherit" }}>
+            _hover={{
+                backgroundColor: colorMode("rgb(190,147,45)", "goldenrod"),
+                color: "inherit" }}>
             Resume
         </Button>
     );

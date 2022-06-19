@@ -8,7 +8,7 @@ interface ColorSpanProps {
 export const GoldSpan = ({ children }: ColorSpanProps) => (
     <Text
         as={"span"}
-        color={"goldenrod"}>
+        color={colorMode("rgb(190,147,45)", "goldenrod")}>
         {children}
     </Text>
 );

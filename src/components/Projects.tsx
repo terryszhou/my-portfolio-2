@@ -1,4 +1,4 @@
-import { Button, Flex, Stack } from "@chakra-ui/react";
+import { Button, Flex, Stack, useColorModeValue as colorMode } from "@chakra-ui/react";
 import * as React from "react";
 
 import { GitCalendar } from "./GitCalendar";
@@ -42,13 +42,16 @@ export const Projects = ({ pageRefs, visible, visRef }: PageProps) => {
                     </Stack>
                     <Button
                         backgroundColor={"transparent"}
-                        border={"1px solid goldenrod"}
-                        color={"goldenrod"}
+                        border={"1px solid"}
+                        borderColor={colorMode("rgb(190,147,45)", "goldenrod")}
+                        color={colorMode("rgb(190,147,45)", "goldenrod")}
                         cursor={"pointer"}
                         fontFamily={"var(--chakra-fonts-mono)"}
                         onClick={() => setMore(!more)}
                         padding={7}
-                        _hover={{ backgroundColor: "goldenrod", color: "inherit" }}>
+                        _hover={{
+                            backgroundColor: colorMode("rgb(190,147,45)", "goldenrod"),
+                            color: "inherit" }}>
                         {more ? "Show Less" : "Show More"}
                     </Button>
                     <GitCalendar />
