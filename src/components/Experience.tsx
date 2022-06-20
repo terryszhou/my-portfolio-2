@@ -8,6 +8,7 @@ import { BiRightArrow } from "react-icons/bi";
 
 import { expArray, monArr } from "../data/experienceData";
 import { ExperienceHeading } from "./ExperienceHeading";
+import { ExperienceWidget } from "./ExperienceWidget";
 import { ExperienceList } from "./ExperienceList";
 import { ExperiencePie } from "./ExperiencePie";
 import { ExperienceTable } from "./ExperienceTable";
@@ -90,16 +91,10 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
             loaded={loaded}
             pageRefs={pageRefs}
             refNum={2}>
-            <Stack ref={visRef} spacing={5}>
-                {loaded && pie
-                    ? <ExperiencePie 
-                        setIdx={setIdx}
-                        onOpen={onOpen}
-                        hovered={hovered}
-                        setHovered={setHovered} />
-                    : <ExperienceTable expMap={expMap} /> }
-                <ExperienceHeading pie={pie} setPie={setPie} />
+            <Stack ref={visRef} spacing={5} minHeight={"60vh"}>
+                <ExperienceWidget idx={idx} setIdx={setIdx} />
             </Stack>
+            <Box />
             <ExperienceList
                 idx={idx}
                 isOpen={isOpen}
