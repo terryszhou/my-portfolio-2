@@ -99,7 +99,7 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
                     </List>
                 </Box>
             </VStack>
-            <VStack>
+            <Stack>
                 <List
                     display={"flex"}
                     flexDirection={"column"}
@@ -123,7 +123,7 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
                         </ListItem>
                     ))}
                 </List>
-            </VStack>
+            </Stack>
         </HStack>
     );
 };

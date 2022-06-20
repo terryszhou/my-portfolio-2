@@ -36,9 +36,9 @@ export const expArray: expArrayProps[] = [
     {
         title: "Software Engineering Consultant",
         details: [
-            "Designed and built an OOP-oriented async video editing/messaging SaaS web application from the ground up with Video.js/Nodemailer.",
-            "Wrote and hosted front end using a Chakra UI/Next/Vercel-based tech stack with emphasis on SEO and cross-browser accessibility and compatibility.",
-            "Utilized OAuth2 protocols and Google Cloud Functions for user-friendly authentication and secure personal token storage.",
+            "Built an OOP-oriented async video editing/messaging SaaS web application from the ground up",
+            "Designed app with emphasis on SEO and cross-browser accessibility and compatibility.",
+            "Utilized OAuth2 protocols and Google Cloud Functions for secure authentication and token storage.",
         ],
         dates: "November 2021 - February 2022",
         skills: ["Next.js", "Chakra UI", "Vercel", "Video.js", "FFMPEG", "Google Cloud", "Firebase"],
@@ -50,9 +50,8 @@ export const expArray: expArrayProps[] = [
     {
         title: "Software Engineering Consultant",
         details: [
-            "Worked with a small and dedicated startup team to create a SaaS health and mental training mobile application for professional athletes and teams using React Native/MUI as primary frameworks.",
-            "Spearheaded front end development and UI/UX improvements for desktop.",
-            "Implemented in-app and cloud messaging functionality for the mobile app using Firebase and APN/FCM tokens securely stored in a Django database.",
+            "Worked with a dedicated startup team to create a SaaS health and mental training mobile application for professional athletes",
+            "Implemented in-app and cloud messaging using Firebase and APN/FCM tokens",
             "Released mobile builds on iOS and Android app stores in a CI/CD environment.",
         ],
         dates: "September - November 2021",
@@ -79,9 +78,9 @@ export const expArray: expArrayProps[] = [
     {
         title: "Software Engineering Fellow",
         details: [
-            "Attended an 80+ hours/weekly software development bootcamp focused on product development fundamentals, object-oriented programming, MVC frameworks, and data modeling.",
-            "Developed a portfolio of individual projects and learned full stack technologies & frameworks, including HTML/CSS/JavaScript, SQL, MongoDB, Axios, and Node.",
-            "Experienced with Git and version control, including both managing and contributing to team projects, as well as team management softwares such as Slack and Microsoft Teams.",
+            "Attended an 80+ hours/weekly bootcamp focused on full-stack software development",
+            "Developed a portfolio using HTML/CSS/JS, SQL, MongoDB, Axios, and Node",
+            "Utilized Git version control and managed team repositories",
         ],
         dates: "Summer 2021",
         skills: ["Full Stack Engineering", "Git", "React", "Python", "SQL", "Mongo"],
@@ -93,9 +92,9 @@ export const expArray: expArrayProps[] = [
     {
         title: "Licensed Realtor",
         details: [
-            "Negotiated deals for buyers at 30-50% below asking price in a hot seller’s market.",
-            "Located homes and apartments for 6-10 renter clients per month.",
-            "Created a personal referral network with an 80% returning client rate.",
+            "Negotiated deals for buyers at 30-50% below asking price in a hot seller’s market",
+            "Located homes and apartments for 6-10 renter clients per month",
+            "Created a personal referral network with an 80% returning client rate",
         ],
         dates: "March 2020 - May 2021",
         skills: ["Sales", "Contract Negotiations", "A/B Testing", "Ad Optimization"],
