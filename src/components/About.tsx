@@ -31,7 +31,10 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
             pageRefs={pageRefs}
             refNum={1}
             loaded={loaded}>
-            <Box marginBottom={{ base: "-10%", lg: 0 }} ref={visRef}>
+            <Box
+                marginBottom={{ base: "-25%", lg: 0 }}
+                minHeight={"70vh"}
+                ref={visRef}>
                 <Stack
                     color={colorMode("rgb(0,0,0,0.65)","rgb(255,255,255,0.65)")}
                     fontFamily={"var(--chakra-fonts-nunito)"}
@@ -58,7 +61,7 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
                     alignItems={"center"}
                     justifyContent={"center"}
                     flexDirection={"column"}
-                    marginTop={"10%"}>
+                    marginBottom={{ md: "0%", lg: "20%" }}>
                     <Box
                         alignItems={"center"}
                         border={"2px solid goldenrod"}

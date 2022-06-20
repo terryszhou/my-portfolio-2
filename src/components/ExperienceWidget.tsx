@@ -1,4 +1,4 @@
-import { Stack, Box, Button, ListIcon, HStack, VStack, Text, List, ListItem, useColorModeValue as colorMode } from "@chakra-ui/react";
+import { Stack, Box, ListIcon, HStack, VStack, Text, List, ListItem, useColorModeValue as colorMode } from "@chakra-ui/react";
 import * as React from "react";
 
 import { BiRightArrow } from "react-icons/bi";
@@ -21,22 +21,24 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
     const listColor2: string = colorMode("rgb(78,83,104)", "gray.300");
 
     return (
-        <HStack
+        <Stack
+            direction={["column", "row"]}
             height={290}
+            marginTop={{ base: "10%", lg: 0 }}
             width={{ base: "80vw", lg: "60vw" }}>
             <List
                 display={"flex"}
-                flexDirection={"column"}
+                flexDirection={["row", "column"]}
                 height={"100%"}
                 justifyContent={"space-around"}
-                width={"20%"}>
+                width={["100%", "20%"]}>
                 {expArray.map((exp, i) => (
                     <ListItem
                         color={idx === i && colorMode("rgb(190,147,45)", "goldenrod")}
                         backgroundColor={idx === i && colorMode("rgba(210,210,210,0.5)", "rgba(48,48,48,0.5)")}
-                        borderColor={idx === i && colorMode("rgb(190,147,45)", "goldenrod")}
-                        borderLeft={idx === i && "2px solid"}
-                        borderRadius={5}
+                        borderBottom={ idx === i && ["3px solid", 0] }
+                        borderColor={idx === i && colorMode("rgb(190,147,45)", "goldenrod") }
+                        borderLeft={ idx === i && [0, "3px solid"] }
                         fontFamily={"var(--chakra-fonts-mono)"}
                         fontSize={"xs"}
                         fontWeight={"bold"}
@@ -47,8 +49,9 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
                         transitionDuration={"0.2s"}
                         _hover={{
                             backgroundColor: colorMode("rgba(210,210,210,0.5)", "rgba(48,48,48,0.5)"),
+                            borderBottom: ["3px solid", 0],
                             borderColor: colorMode("rgb(190,147,45)", "goldenrod"),
-                            borderLeft: "2px solid",
+                            borderLeft: [0, "3px solid"],
                             color: colorMode("rgb(190,147,45)", "goldenrod"),
                             cursor: "pointer",
                             transitionDuration: "0.2s" }}>
@@ -59,7 +62,7 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
             <VStack
                 height={"100%"}
                 padding={5}
-                width={"60%"}>
+                width={{ base: "100%", lg: "80%" }}>
                 <Box fontFamily={"var(--chakra-fonts-nunito)"}>
                     <Box animation={fadeDownAnim}>
                         <Text fontWeight={"bold"} marginBottom={2}>
@@ -90,40 +93,42 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
                                 marginY={2}
                                 key={i}>
                                 <ListIcon
+                                    fontSize={{ base: "xs", lg: "sm"}}
                                     as={BsXDiamondFill}
                                     color={colorMode("rgb(64,124,104)", "green.500")}
                                     marginTop={1} />
-                                {detail}
+                                <Text as={"span"} opacity={0.8}>
+                                    {detail}
+                                </Text>
                             </ListItem>
                         ))}
                     </List>
                 </Box>
             </VStack>
-            <Stack>
-                <List
-                    display={"flex"}
-                    flexDirection={"column"}
-                    height={"100%"}
-                    justifyContent={"space-around"}
-                    animation={fadeDownAnim3}
-                    color={listColor2}
-                    fontFamily={"var(--chakra-fonts-nunito)"}
-                    opacity={0}>
-                    {expArray[idx].skills.map((skill, i) => (
-                        <ListItem
-                            alignItems={"center"}
-                            display={"flex"}
-                            margin={2}
-                            key={i}>
-                            <ListIcon
-                                as={BiRightArrow}
-                                color={colorMode("rgb(64,124,104)", "green.500")}
-                                marginTop={1} />
-                            {skill}
-                        </ListItem>
-                    ))}
-                </List>
-            </Stack>
-        </HStack>
+            {/* <List
+                animation={fadeDownAnim3}
+                color={listColor2}
+                display={"flex"}
+                flexDirection={["row", "column"]}
+                fontFamily={"var(--chakra-fonts-nunito)"}
+                height={"100%"}
+                marginTop={20}
+                opacity={0}
+                justifyContent={"space-around"}>
+                {expArray[idx].skills.map((skill, i) => (
+                    <ListItem
+                        alignItems={"center"}
+                        display={"flex"}
+                        margin={2}
+                        key={i}>
+                        <ListIcon
+                            as={BiRightArrow}
+                            color={colorMode("rgb(64,124,104)", "green.500")}
+                            marginTop={1} />
+                        {skill}
+                    </ListItem>
+                ))}
+            </List> */}
+        </Stack>
     );
 };
