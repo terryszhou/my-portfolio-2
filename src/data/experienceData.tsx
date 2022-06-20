@@ -22,9 +22,9 @@ export const expArray: expArrayProps[] = [
     {
         title: "Sr. Analyst, Data Operations",
         details: [
-            "Assisted clients in data analysis and visualization of government health policy information using Python and DataTables.",
-            "Developed in-house tools in Python/AWS for more efficient data operations.",
-            "Made front-end improvements to our web application in JavaScript/jQuery.",
+            "Analized and visualized health policy data using Python and DataTables.",
+            "Developed and deployed data analysis tools with Python/AWS",
+            "In charge of all web app front-end/API development with Flask/jQuery",
         ],
         dates: "April 2022 - Current",
         skills: ["Python", "SQL", "AWS Lambda", "JavaScript", "jQuery", "DataTables"],

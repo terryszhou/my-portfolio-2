@@ -22,7 +22,6 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
 
     return (
         <HStack
-            // bgColor={"green"}
             height={290}
             width={{ base: "80vw", lg: "60vw" }}>
             <List
@@ -35,6 +34,8 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
                     <ListItem
                         color={idx === i && colorMode("rgb(190,147,45)", "goldenrod")}
                         backgroundColor={idx === i && colorMode("rgba(210,210,210,0.5)", "rgba(48,48,48,0.5)")}
+                        borderColor={idx === i && colorMode("rgb(190,147,45)", "goldenrod")}
+                        borderLeft={idx === i && "2px solid"}
                         borderRadius={5}
                         fontFamily={"var(--chakra-fonts-mono)"}
                         fontSize={"xs"}
@@ -45,9 +46,11 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
                         width={"100%"}
                         transitionDuration={"0.2s"}
                         _hover={{
+                            backgroundColor: colorMode("rgba(210,210,210,0.5)", "rgba(48,48,48,0.5)"),
+                            borderColor: colorMode("rgb(190,147,45)", "goldenrod"),
+                            borderLeft: "2px solid",
                             color: colorMode("rgb(190,147,45)", "goldenrod"),
                             cursor: "pointer",
-                            backgroundColor: colorMode("rgba(210,210,210,0.5)", "rgba(48,48,48,0.5)"),
                             transitionDuration: "0.2s" }}>
                         {exp.company}
                     </ListItem>
@@ -56,11 +59,10 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
             <VStack
                 height={"100%"}
                 padding={5}
-                width={"60%"}
-                overflow={"scroll"}>
+                width={"60%"}>
                 <Box fontFamily={"var(--chakra-fonts-nunito)"}>
                     <Box animation={fadeDownAnim}>
-                        <Text fontWeight={"bold"}>
+                        <Text fontWeight={"bold"} marginBottom={2}>
                             <GoldSpan>
                                 {expArray[idx].title}
                             </GoldSpan>
@@ -71,15 +73,17 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
                                 {` @ `}{expArray[idx].company}
                             </Text>
                         </Text>
-                        <Text color={listColor2}>
+                        <Text
+                            color={listColor2} 
+                            fontFamily={"var(--chakra-fonts-mono)"}
+                            fontSize={"xs"}
+                            opacity={0.6}>
                             {expArray[idx].dates}
                         </Text>
                     </Box>
                     <List
-                        animation={fadeDownAnim2}
                         color={listColor2}
-                        marginY={5}
-                        opacity={0}>
+                        marginY={5}>
                         {expArray[idx].details.map((detail, i) => (
                             <ListItem
                                 display={"flex"}
