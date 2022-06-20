@@ -92,12 +92,12 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
             refNum={2}>
             <Stack ref={visRef} spacing={5}>
                 {loaded && pie
-                ? <ExperiencePie 
-                    setIdx={setIdx}
-                    onOpen={onOpen}
-                    hovered={hovered}
-                    setHovered={setHovered} />
-                : <ExperienceTable expMap={expMap} />}
+                    ? <ExperiencePie 
+                        setIdx={setIdx}
+                        onOpen={onOpen}
+                        hovered={hovered}
+                        setHovered={setHovered} />
+                    : <ExperienceTable expMap={expMap} /> }
                 <ExperienceHeading pie={pie} setPie={setPie} />
             </Stack>
             <ExperienceList

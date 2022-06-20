@@ -38,7 +38,7 @@ export const NewProjectShell = ({
             <Link href={mainLink} isExternal _focus={{ border: "none" }}>
                 <Image
                 borderRadius={"5px"}
-                boxShadow={"0 25px 20px -20px black"}
+                boxShadow={"0 15px 10px -10px rgba(0,0,0,0.5)"}
                 filter={"saturate(0.1)"}
                 position={"relative"}
                 src={image}
@@ -83,7 +83,7 @@ export const NewProjectShell = ({
                     : "flex-start" }}
                 marginTop={{ base: 5, lg: 0 }}>
                 <Heading
-                    color={"goldenrod"}
+                    color={colorMode("rgb(190,147,45)", "goldenrod")}
                     fontFamily={"var(--chakra-fonts-mono)"}
                     fontSize={{ base: "lg", md: "xl", lg: "2xl" }}>
                     {title}
@@ -106,9 +106,9 @@ export const NewProjectShell = ({
                         : "flex-start" }}
                 opacity={0.9}>
                 <List
-                    bgColor={colorMode("rgb(220,220,220)","rgb(48,52,63)")}
+                    bgColor={colorMode("rgb(220,220,220)", "rgb(48,48,48)")}
                     borderRadius={5}
-                    boxShadow={"0 25px 20px -20px black"}
+                    boxShadow={"0 15px 10px -10px rgba(0,0,0,0.5)"}
                     fontFamily={"var(--chakra-fonts-nunito)"}
                     fontSize={{ base: "xs", md: "sm", lg: "md" }}
                     marginY={5}

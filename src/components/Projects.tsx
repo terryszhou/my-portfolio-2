@@ -1,7 +1,8 @@
-import { Button, Flex, Stack, useColorModeValue as colorMode } from "@chakra-ui/react";
+import { Button, Box, Flex, Image, Heading, Stack, VStack, useColorModeValue as colorMode, HStack } from "@chakra-ui/react";
 import * as React from "react";
 
 import { GitCalendar } from "./GitCalendar";
+import { GoldSpan } from "./ColorSpan";
 import { newProjectList } from "../data/newProjectData";
 import { PageProps } from "../helpers/interfaces";
 import { HeroShell } from "./HeroShell";
@@ -37,6 +38,24 @@ export const Projects = ({ pageRefs, visible, visRef }: PageProps) => {
                     align={"center"}
                     ref={visRef}
                     width={{ base: "85vw", lg: "65vw" }}>
+                    <VStack
+                        alignItems={"center"}
+                        display={"flex"}
+                        flexDirection={"column"}
+                        justifyContent={"center"}
+                        marginY={{ base: 6, md: 8, lg: 10 }}>
+                        <Heading
+                            fontFamily={"var(--chakra-fonts-mono)"}
+                            fontSize={{ base: "lg", md: "xl", lg: "2xl" }}>
+                            <GoldSpan>—————————</GoldSpan>
+                            {` Other Projects `}
+                            <GoldSpan>—————————</GoldSpan>
+                        </Heading>
+                        <Image
+                            alt={"face-icon"}
+                            boxSize={10}
+                            src={"/favicon.ico"} />
+                    </VStack>
                     <Stack marginY={"5%"} width={"100%"}>
                         {loaded && <ProjectGrid more={more} />}
                     </Stack>

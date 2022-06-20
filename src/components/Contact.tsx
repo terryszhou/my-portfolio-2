@@ -36,7 +36,7 @@ export const Contact = ({ pageRefs, visible, visRef }: PageProps) => {
                     animation={visible && shakeAnim}
                     border={"1px solid"}
                     borderRadius={5}
-                    boxShadow={"0 25px 20px -20px black"}
+                    boxShadow={"0 15px 10px -10px rgba(0,0,0,0.5)"}
                     display={"flex"}
                     height={"50%"}
                     justifyContent={"center"}

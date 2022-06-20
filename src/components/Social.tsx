@@ -32,7 +32,7 @@ export const Social = ({ scrollDir, y }: PageProps ) => {
                             ? "10%"
                             : "15%" }
                 transition={"200ms ease-out"}
-                zIndex={1}>
+                zIndex={3}>
                 {socialList.map((e, i) => (
                     <SocialIcon
                         icon={e.icon}
