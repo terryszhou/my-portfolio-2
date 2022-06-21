@@ -56,7 +56,7 @@ export const Projects = ({ pageRefs, visible, visRef }: PageProps) => {
                             boxSize={10}
                             src={"/favicon.ico"} />
                     </VStack>
-                    <Stack marginY={"5%"} width={"100%"}>
+                    <Stack marginY={"5%"} paddingY={20} width={"100%"}>
                         {loaded && <ProjectGrid more={more} />}
                     </Stack>
                     <Button
