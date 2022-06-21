@@ -11,13 +11,16 @@ export const ColorSpan = ({ color, children, fontFamily }: ColorSpanProps) => {
     let myColor = ""
     switch (color) {
         case "gold":
-            myColor = colorMode("rgb(170,127,25)", "goldenrod")
+            myColor = colorMode("rgb(170,127,25)", "goldenrod");
             break;
         case "green":
-            myColor = colorMode("rgb(64,124,104)", "green.500")
+            myColor = colorMode("rgb(64,124,104)", "green.500");
             break;
         case "purple":
-            myColor = "purple.500"
+            myColor = "purple.500";
+            break;
+        default:
+            myColor = "blue";
     };
 
     return (
