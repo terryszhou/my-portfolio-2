@@ -21,8 +21,8 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
             <Stack
                 direction={["column", "row"]}
                 height={290}
-                marginTop={{ base: "10%", lg: 0 }}
-                marginBottom={{ base: "60%", lg: 0 }}
+                marginTop={{ base: "20%", sm: "10%", lg: 0 }}
+                marginBottom={{ base: "50%", sm: "15%", lg: 0 }}
                 width={{ base: "80vw", lg: "60vw" }}>
                 <List
                     display={"flex"}
