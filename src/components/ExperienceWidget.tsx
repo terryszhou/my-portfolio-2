@@ -4,7 +4,7 @@ import * as React from "react";
 
 import { BsXDiamondFill } from "react-icons/bs";
 
-import { GoldSpan } from "./ColorSpan";
+import { GoldSpan, GreenSpan } from "./ColorSpan";
 import { expArray } from "../data/experienceData";
 import { SkillIcon } from "./SkillTable";
 
@@ -65,40 +65,45 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
                     display={"flex"}
                     height={"100%"}
                     paddingX={[0, 5]}
-                    paddingY={5}
+                    paddingY={{ base: 10, sm: 0, lg: 5 }}
                     width={{ base: "100%", lg: "80%" }}>
                     <Box>
                         <Text fontWeight={"bold"} marginBottom={2}>
-                            <GoldSpan>
-                                {expArray[idx].title}
-                            </GoldSpan>
-                            <Text
-                                as={"span"}
-                                opacity={0.6}>
-                                {` @ `}
-                            </Text>
-                            <Text
-                                as={"a"}
-                                href={expArray[idx].companyLink}
-                                opacity={0.6}
-                                position={"relative"}
-                                rel={"noreferrer"}
-                                target={"_blank"}
-                                transitionDuration={"0.2s"}
-                                _before={{
-                                    backgroundColor: colorMode("black", "white"),
-                                    borderRadius: "2px",
-                                    bottom: -1,
-                                    content: `""`,
-                                    height: "2px",
-                                    position: "absolute",
-                                    transition: "100ms ease-out",
-                                    width: 0 }}
-                                _hover={{
-                                    opacity: 1,
-                                    _before: { width: "100%" } }}>
-                                {expArray[idx].companyFull}
-                            </Text>
+                            <Stack display={"flex"}>
+                                <GoldSpan>
+                                    {expArray[idx].title}
+                                </GoldSpan>
+                                <Text>
+                                    <GreenSpan>
+                                        <Text as={"span"} opacity={0.6}>
+                                            {` @ `}
+                                        </Text>
+                                    </GreenSpan>
+                                    <Text
+                                        as={"a"}
+                                        fontFamily={"var(--chakra-fonts-mono)"}
+                                        href={expArray[idx].companyLink}
+                                        opacity={0.6}
+                                        position={"relative"}
+                                        rel={"noreferrer"}
+                                        target={"_blank"}
+                                        transitionDuration={"0.2s"}
+                                        _before={{
+                                            backgroundColor: colorMode("black", "white"),
+                                            borderRadius: "2px",
+                                            bottom: -1,
+                                            content: `""`,
+                                            height: "2px",
+                                            position: "absolute",
+                                            transition: "100ms ease-out",
+                                            width: 0 }}
+                                        _hover={{
+                                            opacity: 1,
+                                            _before: { width: "100%" } }}>
+                                        {expArray[idx].companyFull}
+                                    </Text>
+                                </Text>
+                            </Stack>
                         </Text>
                         <Text
                             fontFamily={"var(--chakra-fonts-mono)"}
