@@ -11,7 +11,7 @@ import {
 import * as React from "react";
 
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
-import { GoldSpan } from "./ColorSpan";
+import { ColorSpan } from "./ColorSpan";
 import { fadeDown } from "../helpers/animations";
 import { decapitalize } from "../helpers/functions";
 import { PageProps } from "../helpers/interfaces";
@@ -160,7 +160,7 @@ export const NavButton = ({ delay, label, scroll }: NavButtonProps) => {
             _hover={{
                 color: colorMode("rgb(190,147,45)", "goldenrod"),
                 _before: { width: "105%" } }}>
-            <GoldSpan>{label.split(" ")[0]} </GoldSpan>
+            <ColorSpan color={"gold"}>{label.split(" ")[0]} </ColorSpan>
             {label.split(" ")[1]} {label.split(" ")[2]}
         </Text>
     );

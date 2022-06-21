@@ -2,37 +2,30 @@ import { Text, useColorModeValue as colorMode } from "@chakra-ui/react";
 import * as React from "react";
 
 interface ColorSpanProps {
+    color: string,
     children: any,
+    fontFamily?: string,
 };
 
-export const GoldSpan = ({ children }: ColorSpanProps) => (
-    <Text
-        as={"span"}
-        color={colorMode("rgb(190,147,45)", "goldenrod")}>
-        {children}
-    </Text>
-);
+export const ColorSpan = ({ color, children, fontFamily }: ColorSpanProps) => {
+    let myColor = ""
+    switch (color) {
+        case "gold":
+            myColor = colorMode("rgb(170,127,25)", "goldenrod")
+            break;
+        case "green":
+            myColor = colorMode("rgb(64,124,104)", "green.500")
+            break;
+        case "purple":
+            myColor = "purple.500"
+    };
 
-export const GreenSpan = ({ children }: ColorSpanProps) => (
-    <Text
-        as={"span"}
-        color={colorMode("rgb(64,124,104)", "green.500")}>
-        {children}
-    </Text>
-);
-
-export const RedSpan = ({ children }: ColorSpanProps) => (
-    <Text
-        as={"span"}
-        color={"red"}>
-        {children}
-    </Text>
-);
-
-export const PurpleSpan = ({ children }: ColorSpanProps) => (
-    <Text
-        as={"span"}
-        color={"purple.500"}>
-        {children}
-    </Text>
-);
+    return (
+        <Text
+            as={"span"}
+            color={myColor}
+            fontFamily={fontFamily}>
+            {children}
+        </Text>
+    );
+};

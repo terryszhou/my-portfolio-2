@@ -1,7 +1,7 @@
 import { Heading, HStack } from "@chakra-ui/react"
 import * as React from "react";
 
-import { GoldSpan } from "./ColorSpan";
+import { ColorSpan } from "./ColorSpan";
 
 interface SectionHeaderProps {
   label: string,
@@ -23,7 +23,7 @@ export const SectionHeader = ({ label }: SectionHeaderProps) => {
         lineHeight={1}
         position={"relative"}
         width={"fit-content"}>
-        <GoldSpan>{number}</GoldSpan>
+        <ColorSpan color={"gold"}>{number}</ColorSpan>
         {title}
       </Heading>
     </HStack>

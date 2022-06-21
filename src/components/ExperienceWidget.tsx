@@ -2,9 +2,9 @@ import { Stack, HStack, Box, ListIcon, VStack, Text, List, ListItem,
         useColorModeValue as colorMode } from "@chakra-ui/react";
 import * as React from "react";
 
-import { BsXDiamondFill } from "react-icons/bs";
+import { BiRightArrow } from "react-icons/bi";
 
-import { GoldSpan, GreenSpan } from "./ColorSpan";
+import { ColorSpan } from "./ColorSpan";
 import { expArray } from "../data/experienceData";
 import { SkillIcon } from "./SkillTable";
 
@@ -68,20 +68,20 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
                     paddingY={{ base: 10, sm: 0, lg: 5 }}
                     width={{ base: "100%", lg: "80%" }}>
                     <Box>
-                        <Text fontWeight={"bold"} marginBottom={2}>
+                        <Text
+                            fontWeight={"bold"}
+                            fontFamily={"var(--chakra-fonts-mono)"} 
+                            marginBottom={2}>
                             <Stack display={"flex"}>
-                                <GoldSpan>
+                                <ColorSpan color={"gold"}>
                                     {expArray[idx].title}
-                                </GoldSpan>
+                                </ColorSpan>
                                 <Text>
-                                    <GreenSpan>
-                                        <Text as={"span"} opacity={0.6}>
-                                            {` @ `}
-                                        </Text>
-                                    </GreenSpan>
+                                    <ColorSpan color={"green"} fontFamily={"var(--chakra-fonts-nunito)"}>
+                                        {` @ `}
+                                    </ColorSpan>
                                     <Text
                                         as={"a"}
-                                        fontFamily={"var(--chakra-fonts-mono)"}
                                         href={expArray[idx].companyLink}
                                         opacity={0.6}
                                         position={"relative"}
@@ -123,7 +123,7 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
                                 key={i}
                                 marginY={2}>
                                 <ListIcon
-                                    as={BsXDiamondFill}
+                                    as={BiRightArrow}
                                     color={colorMode("rgb(64,124,104)", "green.500")}
                                     fontSize={{ base: "xs", lg: "sm" }}
                                     marginTop={1} />

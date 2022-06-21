@@ -5,7 +5,7 @@ import useSound from "use-sound";
 import { ReturnedValue } from "use-sound/dist/types";
 
 import coinAudio from "../audio/smw_coin.mp3";
-import { GoldSpan } from "./ColorSpan";
+import { ColorSpan } from "./ColorSpan";
 import { coinJump } from "../helpers/animations";
 import { useAnim } from "../hooks/useAnim";
 
@@ -43,7 +43,7 @@ export const Footer = () => {
         _hover={{
           color: "goldenrod",
           _before: { width: "105%" } }}>
-        <GoldSpan>Designed & Built by Terry S. Zhou</GoldSpan>
+        <ColorSpan color={"gold"}>Designed & Built by Terry S. Zhou</ColorSpan>
       </Text>
     </Stack>
   );

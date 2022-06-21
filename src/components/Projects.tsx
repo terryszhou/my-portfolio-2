@@ -2,7 +2,7 @@ import { Button, Flex, Image, Heading, Stack, VStack, useColorModeValue as color
 import * as React from "react";
 
 import { GitCalendar } from "./GitCalendar";
-import { GoldSpan } from "./ColorSpan";
+import { ColorSpan } from "./ColorSpan";
 import { newProjectList } from "../data/newProjectData";
 import { PageProps } from "../helpers/interfaces";
 import { HeroShell } from "./HeroShell";
@@ -47,9 +47,9 @@ export const Projects = ({ pageRefs, visible, visRef }: PageProps) => {
                         <Heading
                             fontFamily={"var(--chakra-fonts-mono)"}
                             fontSize={{ base: "lg", md: "xl", lg: "2xl" }}>
-                            <GoldSpan>—————————</GoldSpan>
+                            <ColorSpan color={"gold"}>—————————</ColorSpan>
                             {` Other Projects `}
-                            <GoldSpan>—————————</GoldSpan>
+                            <ColorSpan color={"gold"}>—————————</ColorSpan>
                         </Heading>
                         <Image
                             alt={"face-icon"}

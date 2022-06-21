@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import { GoldSpan, GreenSpan, PurpleSpan } from "./ColorSpan";
+import { ColorSpan } from "./ColorSpan";
 import { fadeDown, fadeRight } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";
 import { HeroShell } from "./HeroShell";
@@ -41,13 +41,13 @@ export const About = ({ pageRefs, visible, visRef }: PageProps) => {
                     fontSize={{ base: "sm", lg: "md" }}
                     textAlign={"justify"}>
                     <Text animation={loaded && fadeRightAnim1} marginY={2} opacity={0}>
-                        Hi! My name's Terry, and I analyze <GreenSpan>data</GreenSpan> and build <GreenSpan>web content</GreenSpan> for a living. I used to be a realtor, but I needed a more fulfilling way to combine my twin passions for <GoldSpan>artistic creativity</GoldSpan> and <GoldSpan>practical problem-solving</GoldSpan>.
+                        Hi! My name's Terry, and I analyze <ColorSpan color={"green"}>data</ColorSpan> and build <ColorSpan color={"green"}>web content</ColorSpan> for a living. I used to be a realtor, but I needed a more fulfilling way to combine my twin passions for <ColorSpan color={"gold"}>artistic creativity</ColorSpan> and <ColorSpan color={"gold"}>practical problem-solving</ColorSpan>.
                     </Text>
                     <Text animation={loaded && fadeRightAnim2} marginY={2} opacity={0}>
-                        Today, I work as a <GreenSpan>Senior Data Analyst</GreenSpan> at LMI. I've also been the lead <GreenSpan>Front-End Engineer</GreenSpan> for two startups, and I'm a proud graduate of General Assembly's <GreenSpan>Software Engineering Immersive Boot Camp</GreenSpan>. My main tools are <GoldSpan>Python</GoldSpan>, <GoldSpan>React</GoldSpan> and <GoldSpan>TypeScript</GoldSpan>.
+                        Today, I work as a <ColorSpan color={"green"}>Senior Data Analyst</ColorSpan> at LMI. I've also been the lead <ColorSpan color={"green"}>Front-End Engineer</ColorSpan> for two startups, and I'm a proud graduate of General Assembly's <ColorSpan color={"green"}>Software Engineering Immersive Boot Camp</ColorSpan>. My main tools are <ColorSpan color={"gold"}>Python</ColorSpan>, <ColorSpan color={"gold"}>React</ColorSpan> and <ColorSpan color={"gold"}>TypeScript</ColorSpan>.
                     </Text>
                     <Text animation={loaded && fadeRightAnim3} marginY={2} opacity={0}>
-                        I'm a rock climber, a foodie, and either a Gryffindor or Slytherin, depending on my mood. My favorite pokemon is <PurpleSpan><Text as="a" href="https://bulbapedia.bulbagarden.net/wiki/Nidoking_(Pok%C3%A9mon)" rel="noreferrer" target="_blank">Nidoking</Text></PurpleSpan>.
+                        I'm a rock climber, a foodie, and either a Gryffindor or Slytherin, depending on my mood. My favorite pokemon is <ColorSpan color={"purple"}><Text as="a" href="https://bulbapedia.bulbagarden.net/wiki/Nidoking_(Pok%C3%A9mon)" rel="noreferrer" target="_blank">Nidoking</Text></ColorSpan>.
                     </Text>
                     <Text animation={loaded && fadeRightAnim4} marginY={2} opacity={0}>
                         Want to know more? Keep on reading! In the meantime, here are just a few skills in my toolbox:

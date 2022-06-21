@@ -16,7 +16,7 @@ import * as React from "react";
 
 import { BiRightArrow } from "react-icons/bi";
 
-import { GreenSpan } from "./ColorSpan";
+import { ColorSpan } from "./ColorSpan";
 import { fadeRight } from "../helpers/animations";
 import { PageProps } from "../helpers/interfaces";
 import { HeroDividers } from "./HeroDividers";
@@ -130,7 +130,7 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
                                 fontSize={{ base: 14, md: 16, lg: 18 }}
                                 marginY={6}>
                                 I'm a
-                                <GreenSpan> software engineer</GreenSpan> based out of Austin, TX.
+                                <ColorSpan color={"green"}> software engineer</ColorSpan> based out of Austin, TX.
                             </Text>
                         </ListItem>
                         <ListItem
@@ -146,11 +146,11 @@ export const Home = ({ pageRefs, visRef, visible }: PageProps) => {
                                 fontSize={{ base: 14, md: 16, lg: 18 }}
                                 marginY={6}>
                                 I like writing code that's
-                                <GreenSpan>{` practical`}</GreenSpan>
+                                <ColorSpan color={"green"}>{` practical`}</ColorSpan>
                                 {`, `}
-                                <GreenSpan>scalable</GreenSpan>
+                                <ColorSpan color={"green"}>scalable</ColorSpan>
                                 {`, and `}
-                                <GreenSpan>stylish</GreenSpan>
+                                <ColorSpan color={"green"}>stylish</ColorSpan>
                             </Text>
                         </ListItem>
                         <ListItem alignItems={"center"} display={"flex"}>
