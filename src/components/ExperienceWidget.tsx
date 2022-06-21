@@ -43,13 +43,13 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
                             padding={3}
                             paddingLeft={4}
                             width={"100%"}
-                            transitionDuration={"0.2s"}
+                            transitionDuration={"0.3s"}
                             _hover={{
                                 backgroundColor: colorMode("rgba(210,210,210,0.5)", "rgba(48,48,48,0.5)"),
                                 borderColor: colorMode("rgb(190,147,45)", "goldenrod"),
                                 color: colorMode("rgb(190,147,45)", "goldenrod"),
                                 cursor: "pointer",
-                                transitionDuration: "0.2s" }}>
+                                transitionDuration: "0.3s" }}>
                             <Text
                                 as={"span"}
                                 color={idx === i
@@ -64,7 +64,8 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
                     alignItems={"flex-start"}
                     display={"flex"}
                     height={"100%"}
-                    padding={5}
+                    paddingX={[0, 5]}
+                    paddingY={5}
                     width={{ base: "100%", lg: "80%" }}>
                     <Box>
                         <Text fontWeight={"bold"} marginBottom={2}>
@@ -73,9 +74,30 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
                             </GoldSpan>
                             <Text
                                 as={"span"}
-                                fontWeight={"bold"}
                                 opacity={0.6}>
-                                {` @ `}{expArray[idx].company}
+                                {` @ `}
+                            </Text>
+                            <Text
+                                as={"a"}
+                                href={expArray[idx].companyLink}
+                                opacity={0.6}
+                                position={"relative"}
+                                rel={"noreferrer"}
+                                target={"_blank"}
+                                transitionDuration={"0.2s"}
+                                _before={{
+                                    backgroundColor: colorMode("black", "white"),
+                                    borderRadius: "2px",
+                                    bottom: -1,
+                                    content: `""`,
+                                    height: "2px",
+                                    position: "absolute",
+                                    transition: "100ms ease-out",
+                                    width: 0 }}
+                                _hover={{
+                                    opacity: 1,
+                                    _before: { width: "100%" } }}>
+                                {expArray[idx].companyFull}
                             </Text>
                         </Text>
                         <Text
