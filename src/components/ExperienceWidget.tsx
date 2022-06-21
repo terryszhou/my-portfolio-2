@@ -4,8 +4,10 @@ import * as React from "react";
 
 import { BiRightArrow } from "react-icons/bi";
 
+import { sideBob } from "../helpers/animations";
 import { ColorSpan } from "./ColorSpan";
 import { expArray } from "../data/experienceData";
+import { useAnim } from "../hooks/useAnim";
 import { SkillIcon } from "./SkillTable";
 
 interface ExperienceWidgetProps {
@@ -14,6 +16,7 @@ interface ExperienceWidgetProps {
 };
 
 export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
+    const sideBobAnim: string = useAnim(`${sideBob} 1s infinite`);
 
     return (
         <React.Fragment>
@@ -42,14 +45,23 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
                             onClick={() => setIdx(i)}
                             padding={3}
                             paddingLeft={4}
+                            position={"relative"}
                             width={"100%"}
                             transitionDuration={"0.3s"}
+                            _before={{
+                                content: `"»"`,
+                                left: ["50%", "-25%"],
+                                top: ["-25%", "25%"],
+                                transform: ["rotate(90deg)", "rotate(0deg)"],
+                                opacity: idx === i ? 1 : 0,
+                                position: "absolute" }}
                             _hover={{
                                 backgroundColor: colorMode("rgba(210,210,210,0.5)", "rgba(48,48,48,0.5)"),
                                 borderColor: colorMode("rgb(190,147,45)", "goldenrod"),
                                 color: colorMode("rgb(190,147,45)", "goldenrod"),
                                 cursor: "pointer",
-                                transitionDuration: "0.3s" }}>
+                                transitionDuration: "0.3s",
+                                _before: { opacity: 1 } }}>
                             <Text
                                 as={"span"}
                                 color={idx === i
@@ -77,7 +89,9 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
                                     {expArray[idx].title}
                                 </ColorSpan>
                                 <Text>
-                                    <ColorSpan color={"green"} fontFamily={"var(--chakra-fonts-nunito)"}>
+                                    <ColorSpan
+                                        color={"green"}
+                                        fontFamily={"var(--chakra-fonts-nunito)"}>
                                         {` @ `}
                                     </ColorSpan>
                                     <Text
@@ -148,4 +162,5 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
             </HStack>
         </React.Fragment>
     );
-};
+}
+

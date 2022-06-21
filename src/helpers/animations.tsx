@@ -67,6 +67,16 @@ export const growRight: string = keyframes`
   }
 `;
 
+export const growRightLittle: string = keyframes`
+  from {
+    width: 0;
+    opacity: 0;
+  } to {
+    width: 2vw;
+    opacity: 1;
+  }
+`
+
 export const slideUp: string = keyframes`
   from {
     transform: translateY(0);
@@ -146,5 +156,15 @@ export const expGrow: string = keyframes`
   } 100% {
     width: 1;
     opacity: 1;
+  }
+`
+
+export const sideBob: string = keyframes`
+  0% {
+    left: -25%;
+  } 50% {
+    left: -15%;
+  } 100% {
+    left: -25%
   }
 `

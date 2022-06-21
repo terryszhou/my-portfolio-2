@@ -3,13 +3,14 @@ import {
     Container,
     Flex,
     Heading,
+    HStack,
     Stack,
     Text,
 } from '@chakra-ui/react';
 import * as React from "react";
 
 import { useAnim } from "../hooks/useAnim";
-import { growRight } from "../helpers/animations";
+import { growRight, growRightLittle } from "../helpers/animations";
 
 interface HeroShellProps {
     children: JSX.Element | JSX.Element[],
@@ -29,6 +30,7 @@ export const HeroShell = ({
     const number: string = label.split(".")[0] + "."
     const title: string = " " + label.split(".")[1]
     const growRightAnim: string = useAnim(`${growRight} 1s 250ms forwards`);
+    const growRightLittleAnim: string = useAnim(`${growRightLittle} 1s 250ms forwards`);
 
     const findScroll = (el: HTMLDivElement, refNum: number): {} => {
         let testVar: {} = {};
@@ -68,21 +70,45 @@ export const HeroShell = ({
                 spacing={{ base: 8, md: 10 }}>
                 <Stack flex={2} spacing={{ base: 5, md: 10 }} position={"relative"}>
                     <Stack position={"relative"} spacing={3}>
-                        <Box 
-                            animation={loaded && growRightAnim}
-                            backgroundColor={"goldenrod"}
-                            height={1}
-                            opacity={0}
-                            position={"absolute"}
-                            top={"2%"}
-                            width={0}
-                            _after={{
-                                borderRight: "4px solid transparent",
-                                borderTop: "4px solid goldenrod",
-                                content: `""`,
-                                position: "absolute",
-                                right: -1,
-                                width: 0 }} />
+                        <HStack>
+                            <Box 
+                                animation={loaded && growRightAnim}
+                                backgroundColor={"goldenrod"}
+                                height={1}
+                                opacity={0}
+                                position={"relative"}
+                                top={"2%"}
+                                width={0}
+                                _after={{
+                                    borderRight: "4px solid transparent",
+                                    borderTop: "4px solid goldenrod",
+                                    content: `""`,
+                                    position: "absolute",
+                                    right: -1,
+                                    width: 0 }} />
+                            <Box 
+                                animation={loaded && growRightLittleAnim}
+                                backgroundColor={"rgb(167,93,27)"}
+                                height={1}
+                                opacity={0}
+                                position={"relative"}
+                                top={"2%"}
+                                width={0}
+                                _before={{
+                                    borderLeft: "4px solid transparent",
+                                    borderBottom: "4px solid rgb(167,93,27)",
+                                    content: `""`,
+                                    position: "absolute",
+                                    left: -1,
+                                    width: 0 }}
+                                _after={{
+                                    borderRight: "4px solid transparent",
+                                    borderTop: "4px solid rgb(167,93,27)",
+                                    content: `""`,
+                                    position: "absolute",
+                                    right: -1,
+                                    width: 0 }} />
+                        </HStack>
                         <Heading
                             fontFamily={"var(--chakra-fonts-mono)"}
                             fontSize={{ base: 'lg', sm: 'xl', md: "2xl" }}

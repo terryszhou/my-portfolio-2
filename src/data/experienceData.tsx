@@ -42,7 +42,7 @@ export const expArray: expArrayProps[] = [
     {
         title: "Sr. Analyst, Data Operations",
         details: [
-            "Analyzed and visualized health policy data using Python and DataTables.",
+            "Analyzed and visualized health policy data using Python and DataTables",
             "Developed and deployed data analysis tools with Python/AWS",
             "In charge of all web app front-end/API development with Flask/jQuery",
         ],
@@ -90,8 +90,8 @@ export const expArray: expArrayProps[] = [
         title: "Software Engineering Consultant",
         details: [
             "Built an OOP-oriented async video editing/messaging SaaS web application from the ground up",
-            "Designed app with emphasis on SEO and cross-browser accessibility and compatibility.",
-            "Utilized OAuth2 protocols and Google Cloud Functions for secure authentication and token storage.",
+            "Designed app with emphasis on SEO and cross-browser accessibility and compatibility",
+            "Utilized OAuth2 protocols and Google Cloud Functions for secure authentication and token storage",
         ],
         dates: "November 2021 - February 2022",
         skills: [
@@ -138,7 +138,7 @@ export const expArray: expArrayProps[] = [
         details: [
             "Worked with a dedicated startup team to create a SaaS health and mental training mobile application for professional athletes",
             "Implemented in-app and cloud messaging using Firebase and APN/FCM tokens",
-            "Released mobile builds on iOS and Android app stores in a CI/CD environment.",
+            "Released mobile builds on iOS and Android app stores in a CI/CD environment",
         ],
         dates: "September - November 2021",
         skills: [
@@ -177,9 +177,9 @@ export const expArray: expArrayProps[] = [
     {
         title: "Teacher Associate",
         details: [
-            "Developed lesson plans for students during their 3-month intensive bootcamp.",
-            "Hosted supplementary debugging and troubleshooting sessions.",
-            "Offered personal tutoring lessons for students struggling with coursework.",
+            "Developed lesson plans for students during their 3-month intensive bootcamp",
+            "Hosted supplementary debugging and troubleshooting sessions",
+            "Offered personal tutoring lessons for students struggling with coursework",
         ],
         dates: "August - December 2021",
         skills: [
