@@ -6,7 +6,9 @@ import { MdSell } from "react-icons/md";
 import { GrStackOverflow } from "react-icons/gr";
 import { HiDocumentText } from "react-icons/hi";
 import { RiTeamFill, RiBugLine, RiAdvertisementFill } from "react-icons/ri";
-import { SiAmazonaws, SiGooglecloud, SiPython, SiFlask, SiPostgresql, SiJquery, SiNextdotjs, SiChakraui, SiVercel, SiFirebase, SiReact, SiXcode, SiAndroidstudio, SiTheconversation, SiGithub, SiMongodb } from "react-icons/si";
+import { SiAmazonaws, SiGooglecloud, SiPython, SiFlask, SiPostgresql, SiJquery,
+        SiNextdotjs, SiChakraui, SiVercel, SiFirebase, SiReact, SiXcode, SiAndroidstudio,
+        SiTheconversation, SiGithub, SiMongodb } from "react-icons/si";
 
 export const monArr: string[] = [
     "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
@@ -22,10 +24,11 @@ interface expArrayProps {
     details: string[],
     dates: string,
     skills: {
-        icon?: React.ComponentType<IconType>,
         color?: string,
-        label?: string,
         delay?: string,
+        icon?: React.ComponentType<IconType>,
+        label?: string,
+        marginX?: number | string,
     }[],
     company: string,
     color: string,
@@ -47,26 +50,31 @@ export const expArray: expArrayProps[] = [
                 icon: SiPython,
                 color: "rgb(66,106,149)",
                 label: "Python",
+                delay: "0ms"
             },
             {
                 icon: SiPostgresql,
                 color: "rgb(61,97,174)",
-                label: "SQL"
+                label: "SQL",
+                delay: "60ms"
             },
             {
                 icon: SiAmazonaws,
                 color: "rgb(191,103,43)",
-                label: "AWS Lambda/S3"
+                label: "AWS",
+                delay: "120ms"
             },
             {
                 icon: SiJquery,
                 color: "rgb(46,98,160)",
-                label: "jQuery"
+                label: "jQuery",
+                delay: "180ms"
             },
             {
                 icon: SiFlask,
                 color: "rgb(245,191,73)",
-                label: "Flask"
+                label: "Flask",
+                delay: "240ms"
             },
         ],
         company: "LMI",
@@ -86,27 +94,32 @@ export const expArray: expArrayProps[] = [
             {
                 icon: SiNextdotjs,
                 color: "rgb(137,201,199)",
-                label: "Next.js"
+                label: "Next.js",
+                delay: "0ms"
             },
             {
                 icon: SiChakraui,
                 color: "rgb(89,178,170)",
-                label: "Chakra UI"
+                label: "Chakra UI",
+                delay: "60ms"
             },
             {
                 icon: SiVercel,
                 color: "rgb(83,83,83)",
-                label: "Vercel"
+                label: "Vercel",
+                delay: "120ms"
             },
             {
                 icon: SiFirebase,
                 color: "rgb(207,133,67)",
-                label: "Google Firebase"
+                label: "Google Firebase",
+                delay: "180ms"
             },
             {
                 icon: SiGooglecloud,
                 color: "rgb(205,77,60)",
-                label: "Google Cloud"
+                label: "Google Cloud",
+                delay: "240ms"
             },
         ],
         company: "Rakehealth, LLC",
@@ -126,22 +139,26 @@ export const expArray: expArrayProps[] = [
             {
                 icon: SiReact,
                 color: "rgb(96,206,238)",
-                label: "React Native"
+                label: "React Native",
+                delay: "0ms"
             },
             {
                 icon: SiXcode,
                 color: "rgb(64,135,215)",
-                label: "Xcode"
+                label: "Xcode",
+                delay: "60ms"
             },
             {
                 icon: SiAndroidstudio,
                 color: "rgb(148,187,93)",
-                label: "Android Studio"
+                label: "Android Studio",
+                delay: "120ms"
             },
             {
                 icon: FaMobileAlt,
                 color: "rgb(206,44,46)",
-                label: "Mobile Dev"
+                label: "Mobile Dev",
+                delay: "180ms"
             },
         ],
         company: "Restoic Inc.",
@@ -161,17 +178,20 @@ export const expArray: expArrayProps[] = [
             {
                 icon: RiTeamFill,
                 color: "rgb(75,138,174)",
-                label: "Team Management"
+                label: "Team Management",
+                delay: "0ms"
             },
             {
                 icon: RiBugLine,
                 color: "rgb(156,156,234)",
-                label: "Debugging"
+                label: "Debugging",
+                delay: "60ms"
             },
             {
                 icon: SiTheconversation,
                 color: "rgb(144,213,192)",
-                label: "Communications"
+                label: "Communications",
+                delay: "120ms"
             },
         ],
         company: "GA (2)",
@@ -191,32 +211,38 @@ export const expArray: expArrayProps[] = [
             {
                 icon: GrStackOverflow,
                 color: "rgb(234,200,88)",
-                label: "Full-Stack Engineering"
+                label: "Full-Stack Engineering",
+                delay: "0ms"
             },
             {
                 icon: SiGithub,
                 color: "rgb(111,51,153)",
-                label: "Git"
+                label: "Git",
+                delay: "60ms"
             },
             {
                 icon: SiReact,
                 color: "rgb(96,206,238)",
-                label: "React"
+                label: "React",
+                delay: "120ms"
             },
             {
                 icon: SiPython,
                 color: "rgb(66,106,149)",
                 label: "Python",
+                delay: "180ms"
             },
             {
                 icon: SiPostgresql,
                 color: "rgb(61,97,174)",
-                label: "SQL"
+                label: "SQL",
+                delay: "240ms"
             },
             {
                 icon: SiMongodb,
                 color: "rgb(100,160,83)",
-                label: "Mongo"
+                label: "Mongo",
+                delay: "300ms"
             },
         ],
         company: "GA (1)",
@@ -236,22 +262,26 @@ export const expArray: expArrayProps[] = [
             {
                 icon: MdSell,
                 color: "rgb(89,148,67)",
-                label: "Sales"
+                label: "Sales",
+                delay: "0ms"
             },
             {
                 icon: HiDocumentText,
                 color: "rgb(228,188,138)",
-                label: "Contract Negotiations"
+                label: "Contract Negotiations",
+                delay: "60ms"
             },
             {
                 icon: BsSquareHalf,
                 color: "rgb(61,77,144)",
-                label: "A/B Testing"
+                label: "A/B Testing",
+                delay: "120ms"
             },
             {
                 icon: RiAdvertisementFill,
                 color: "rgb(168,44,99)",
-                label: "Ad Optimization"
+                label: "Ad Optimization",
+                delay: "180ms"
             },
         ],
         company: "JPAR",

@@ -67,25 +67,26 @@ interface SkillIconProps {
     delay?: string,
     icon?: React.ComponentType<IconType>,
     label?: string,
+    marginX?: number | string,
 };
 
-export const SkillIcon = ({ color, delay, icon, label }: SkillIconProps) => {
+export const SkillIcon = ({ color, delay, icon, label, marginX }: SkillIconProps) => {
     const fadeDownAnim: string = `${fadeDown} 500ms ${delay} forwards`;
 
     return (
         <Tooltip label={label} hasArrow>
-            <Center animation={fadeDownAnim} opacity={0}>
+            <Center animation={fadeDownAnim} marginX={marginX} opacity={0}>
                 <Icon
-                as={icon}
-                borderRadius={5}
-                boxSize={6}
-                color={color}
-                transition={"100ms ease-in-out"}
-                _hover={{
-                    transform: "scale(1.1)",
-                    filter: colorMode(
-                        "brightness(1.1)" ,
-                        `brightness(1.2) drop-shadow(0 0 5px ${color})`) }} />
+                    as={icon}
+                    borderRadius={5}
+                    boxSize={6}
+                    color={color}
+                    transition={"100ms ease-in-out"}
+                    _hover={{
+                        transform: "scale(1.1)",
+                        filter: colorMode(
+                            "brightness(1.1)" ,
+                            `brightness(1.2) drop-shadow(0 0 5px ${color})`) }} />
             </Center>
         </Tooltip>
     );

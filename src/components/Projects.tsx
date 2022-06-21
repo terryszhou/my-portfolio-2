@@ -1,4 +1,4 @@
-import { Button, Box, Flex, Image, Heading, Stack, VStack, useColorModeValue as colorMode, HStack } from "@chakra-ui/react";
+import { Button, Flex, Image, Heading, Stack, VStack, useColorModeValue as colorMode } from "@chakra-ui/react";
 import * as React from "react";
 
 import { GitCalendar } from "./GitCalendar";
