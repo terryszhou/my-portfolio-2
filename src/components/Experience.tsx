@@ -18,7 +18,10 @@ export const Experience = ({ pageRefs, visible, visRef }: PageProps) => {
             loaded={loaded}
             pageRefs={pageRefs}
             refNum={2}>
-            <Stack ref={visRef} spacing={5} minHeight={"60vh"}>
+            <Stack
+                ref={visRef}
+                spacing={5}
+                minHeight={{ base: "80vh", lg: "60vh" }}>
                 <ExperienceWidget idx={idx} setIdx={setIdx} />
             </Stack>
             <Box />

@@ -63,10 +63,10 @@ export const SkillTable = () => (
 );
 
 interface SkillIconProps {
-    color: string,
-    delay: string,
-    icon: React.ComponentType<IconType>,
-    label: string,
+    color?: string,
+    delay?: string,
+    icon?: React.ComponentType<IconType>,
+    label?: string,
 };
 
 export const SkillIcon = ({ color, delay, icon, label }: SkillIconProps) => {
