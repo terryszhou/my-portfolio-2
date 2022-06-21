@@ -27,15 +27,15 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
                     display={"flex"}
                     flexDirection={["row", "column"]}
                     height={"100%"}
-                    justifyContent={"space-around"}
                     width={["100%", "20%"]}>
                     {expArray.map((exp, i) => (
                         <ListItem
-                            color={idx === i && colorMode("rgb(190,147,45)", "goldenrod")}
+                            color={idx === i
+                                ? colorMode("rgb(190,147,45)", "goldenrod")
+                                : colorMode("rgba(155,155,155,0.5)", "rgba(100,100,100,0.5)")}
                             backgroundColor={ idx === i && colorMode("rgba(210,210,210,0.5)", "rgba(48,48,48,0.5)") }
-                            borderBottom={ idx === i && ["3px solid", 0] }
-                            borderColor={ idx === i && colorMode("rgb(190,147,45)", "goldenrod") }
-                            borderLeft={ idx === i && [0, "3px solid"] }
+                            borderBottom={["3px solid", 0] }
+                            borderLeft={[0, "3px solid"]}
                             fontFamily={"var(--chakra-fonts-mono)"}
                             fontSize={"xs"}
                             fontWeight={"bold"}
@@ -46,13 +46,16 @@ export const ExperienceWidget = ({ idx, setIdx }: ExperienceWidgetProps) => {
                             transitionDuration={"0.2s"}
                             _hover={{
                                 backgroundColor: colorMode("rgba(210,210,210,0.5)", "rgba(48,48,48,0.5)"),
-                                borderBottom: ["3px solid", 0],
                                 borderColor: colorMode("rgb(190,147,45)", "goldenrod"),
-                                borderLeft: [0, "3px solid"],
                                 color: colorMode("rgb(190,147,45)", "goldenrod"),
                                 cursor: "pointer",
                                 transitionDuration: "0.2s" }}>
-                            <Text as={"span"} opacity={0.8}>
+                            <Text
+                                as={"span"}
+                                color={idx === i
+                                    ? colorMode("rgb(170,127,25)", "goldenrod")
+                                    : colorMode("black", "white")}
+                                opacity={0.8}>
                                 {exp.company}
                             </Text>
                         </ListItem> ))}
