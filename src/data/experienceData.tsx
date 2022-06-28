@@ -1,3 +1,4 @@
+import { useColorModeValue as colorMode } from "@chakra-ui/react"
 import { IconType } from "react-icons";
 
 import { BsSquareHalf } from "react-icons/bs";
@@ -6,9 +7,9 @@ import { MdSell } from "react-icons/md";
 import { GrStackOverflow } from "react-icons/gr";
 import { HiDocumentText } from "react-icons/hi";
 import { RiTeamFill, RiBugLine, RiAdvertisementFill } from "react-icons/ri";
-import { SiAmazonaws, SiGooglecloud, SiPython, SiFlask, SiPostgresql, SiJquery,
-        SiNextdotjs, SiChakraui, SiVercel, SiFirebase, SiReact, SiXcode, SiAndroidstudio,
-        SiTheconversation, SiGithub, SiMongodb } from "react-icons/si";
+import { SiAmazonaws, SiSlack, SiGooglecloud, SiPython, SiFlask, SiPandas, SiPostgresql, SiJquery,
+        SiNextdotjs, SiMicrosoftexcel, SiChakraui, SiVercel, SiFirebase, SiReact, SiXcode, SiAndroidstudio,
+        SiTheconversation, SiMicrosoftteams, SiGithub, SiMongodb } from "react-icons/si";
 
 export const monArr: string[] = [
     "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
@@ -55,28 +56,41 @@ export const expArray: expArrayProps[] = [
                 delay: "0ms"
             },
             {
-                icon: SiPostgresql,
-                color: "rgb(61,97,174)",
-                label: "SQL",
+                icon: SiPandas,
+                color: "rgb(202,42,128)",
+                label: "Pandas",
                 delay: "60ms"
+            },
+            {
+                icon: SiMicrosoftexcel,
+                color: "rgb(46,106,61)",
+                label: "Excel",
+                delay: "120ms"
+            },
+            {
+                icon: SiMicrosoftteams,
+                color: "rgb(119,124,216)",
+                label: "Teams",
+                delay: "180ms"
             },
             {
                 icon: SiAmazonaws,
                 color: "rgb(191,103,43)",
                 label: "AWS",
-                delay: "120ms"
+                delay: "240ms"
             },
             {
                 icon: SiJquery,
                 color: "rgb(46,98,160)",
                 label: "jQuery",
-                delay: "180ms"
+                delay: "300ms"
             },
             {
                 icon: SiFlask,
-                color: "rgb(245,191,73)",
+                // color: colorMode("white", "black"),
+                // color: "rgb(245,191,73)",
                 label: "Flask",
-                delay: "240ms"
+                delay: "360ms"
             },
         ],
         company: "LMI",
@@ -125,6 +139,12 @@ export const expArray: expArrayProps[] = [
                 label: "Google Cloud",
                 delay: "240ms"
             },
+            {
+                icon: SiSlack,
+                color: "rgb(88,48,95)",
+                label: "Slack",
+                delay: "300ms"
+            },
         ],
         company: "Rake Health",
         companyFull: "Rake Health, LLC",
@@ -165,6 +185,12 @@ export const expArray: expArrayProps[] = [
                 color: "rgb(206,44,46)",
                 label: "Mobile Dev",
                 delay: "180ms"
+            },
+            {
+                icon: SiSlack,
+                color: "rgb(88,48,95)",
+                label: "Slack",
+                delay: "240ms"
             },
         ],
         company: "Restoic",
